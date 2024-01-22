@@ -1,5 +1,4 @@
 import "@/assets/styles/app.scss";
-import "@/assets/styles/globals.css";
 import "@/assets/styles/reset.css";
 import type { Preview } from "@storybook/react";
 
