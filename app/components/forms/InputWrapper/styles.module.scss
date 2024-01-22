@@ -1,0 +1,23 @@
+@import "@/assets/styles/app.scss";
+
+.input-wrapper {
+  display: grid;
+  gap: 3px;
+}
+.input-wrapper[data-width="full"] {
+  width: 100%;
+}
+.input-wrapper-label[aria-disabled="true"] {
+  pointer-events: none;
+}
+.input-wrapper-label {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+.input-wrapper-description {
+  composes: text-small -grey;
+}
+.input-wrapper-error {
+  composes: text-small -error;
+}

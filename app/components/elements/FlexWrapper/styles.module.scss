@@ -1,0 +1,21 @@
+.flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  // flex-wrapper-position
+  &[data-position="center"] {
+    justify-content: center;
+  }
+  &[data-position="end"] {
+    justify-content: end;
+  }
+
+  // flex-wrapper-cirection
+  &[data-direction="row"] {
+    flex-direction: row;
+  }
+  &[data-direction="column"] {
+    flex-direction: column;
+  }
+}

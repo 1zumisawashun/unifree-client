@@ -1,0 +1,26 @@
+@import "@/assets/styles/app.scss";
+
+.label {
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+
+  &[data-theme="primary"] {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+  &[data-theme="secondary"] {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+  &[data-theme="danger"] {
+    background-color: #fecaca;
+    color: #b91c1c;
+  }
+  &[data-theme="success"] {
+    background-color: #c6f6d5;
+    color: #047857;
+  }
+}

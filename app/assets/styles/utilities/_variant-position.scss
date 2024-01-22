@@ -1,0 +1,23 @@
+// text-align
+.-left {
+  text-align: left;
+}
+.-right {
+  text-align: right;
+}
+.-center {
+  text-align: center;
+}
+
+// justify-content
+.-start {
+  justify-content: flex-start;
+}
+._end {
+  justify-content: flex-end;
+}
+
+// flex-direction
+.-column {
+  flex-direction: column;
+}

@@ -1,0 +1,7 @@
+@import "@/assets/styles/app.scss";
+
+.input-textarea {
+  composes: base-input;
+
+  height: 16rem;
+}

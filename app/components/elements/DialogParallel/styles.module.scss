@@ -1,0 +1,25 @@
+.dialog {
+  &[open] {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+
+  &::backdrop {
+    background: rgba(0 0 0 / 32%);
+  }
+
+  // dialog-width
+  &[data-width="auto"] {
+    width: auto;
+  }
+  &[data-width="quarter"] {
+    width: 25%;
+  }
+  &[data-width="half"] {
+    width: 50%;
+  }
+  &[data-width="full"] {
+    width: 100%;
+  }
+}

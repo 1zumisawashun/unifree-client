@@ -1,0 +1,107 @@
+.toast {
+  position: fixed;
+  text-align: center;
+  z-index: 1;
+}
+
+.toast-content {
+  border-radius: 1rem;
+  box-shadow: 0px 11px 28px rgba(8, 18, 26, 0.24);
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  &[data-theme="primary"] {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+  &[data-theme="secondary"] {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+  &[data-theme="danger"] {
+    background-color: #fecaca;
+    color: #b91c1c;
+  }
+  &[data-theme="success"] {
+    background-color: #c6f6d5;
+    color: #047857;
+  }
+}
+
+.toast-contentText {
+}
+
+.toast-iconButton {
+  margin-left: 12px;
+}
+
+/**
+ * ===========================================
+ * アニメーション
+ * ===========================================
+ */
+
+.toast-slide--out {
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  // top animation
+  &[data-position="topCenter"] {
+    right: 0;
+    left: 0;
+  }
+  &[data-position="topRight"] {
+    right: 0;
+  }
+  &[data-position="topLeft"] {
+    left: 0;
+  }
+  // bottom animation
+  &[data-position="bottomCenter"] {
+    right: 0;
+    left: 0;
+  }
+  &[data-position="bottomRight"] {
+    right: 0;
+  }
+  &[data-position="bottomLeft"] {
+    left: 0;
+  }
+}
+
+.toast-slide--in {
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  // top animation
+  &[data-position="topCenter"] {
+    transform: translateY(var(--Toast--order-offset-top));
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  &[data-position="topRight"] {
+    transform: translateY(var(--Toast--order-offset-top));
+    top: 0;
+    right: 0;
+  }
+  &[data-position="topLeft"] {
+    transform: translateY(var(--Toast--order-offset-top));
+    top: 0;
+    left: 0;
+  }
+  // bottom animation
+  &[data-position="bottomCenter"] {
+    transform: translateY(var(--Toast--order-offset-bottom));
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  &[data-position="bottomRight"] {
+    transform: translateY(var(--Toast--order-offset-bottom));
+    bottom: 0;
+    right: 0;
+  }
+  &[data-position="bottomLeft"] {
+    transform: translateY(var(--Toast--order-offset-bottom));
+    bottom: 0;
+    left: 0;
+  }
+}

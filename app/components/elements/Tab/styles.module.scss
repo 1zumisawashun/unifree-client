@@ -1,0 +1,27 @@
+@import "@/assets/styles/app.scss";
+
+.nav {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 1rem;
+}
+
+.nav-item {
+  font-size: 1.125rem;
+  transition-property: color;
+  transition-duration: 0.1s;
+  @include hoverAnime {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.nav-item[aria-selected="true"] {
+  color: #ec4899;
+  font-weight: 600;
+}
+
+.nav-item[aria-selected="false"] {
+  color: #718096;
+  font-weight: normal;
+}

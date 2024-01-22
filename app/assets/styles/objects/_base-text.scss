@@ -1,0 +1,26 @@
+.base-text {
+  color: #222222;
+  font-size: 1rem;
+  white-space: pre-line;
+  // word-break: break-all;
+}
+
+.text-x-small {
+  composes: base-text;
+  font-size: 0.75rem;
+}
+.text-small {
+  composes: base-text;
+  font-size: 0.85rem;
+}
+.text-normal {
+  composes: base-text;
+}
+.text-medium {
+  composes: base-text;
+  font-size: 1.15rem;
+}
+.text-large {
+  composes: base-text;
+  font-size: 1.25rem;
+}

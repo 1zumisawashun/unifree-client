@@ -1,0 +1,20 @@
+@import "@/assets/styles/app.scss";
+
+.input-checkbox-label {
+  composes: input-choice-label;
+}
+
+.input-checkbox-input {
+  composes: input-choice-input;
+}
+
+.input-checkbox-icon {
+  composes: input-choice-icon;
+  border-radius: 4px;
+  height: 18px;
+  width: 18px;
+}
+
+.input-checkbox-text {
+  composes: input-choice-text;
+}

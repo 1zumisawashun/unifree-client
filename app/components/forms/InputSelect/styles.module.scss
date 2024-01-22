@@ -1,0 +1,23 @@
+@import "@/assets/styles/app.scss";
+
+.input-select {
+  composes: base-input;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input-select-wrapper {
+  position: relative;
+  &::after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4.5px solid #f472b6;
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 23px;
+    width: 0;
+  }
+}

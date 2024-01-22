@@ -1,0 +1,20 @@
+@import "@/assets/styles/app.scss";
+
+.input-radio-label {
+  composes: input-choice-label;
+}
+
+.input-radio-input {
+  composes: input-choice-input;
+}
+
+.input-radio-icon {
+  composes: input-choice-icon;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.input-radio-text {
+  composes: input-choice-text;
+}

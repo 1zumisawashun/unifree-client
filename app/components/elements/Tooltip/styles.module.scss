@@ -1,0 +1,99 @@
+@import "@/assets/styles/app.scss";
+
+.tool-tip-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.tool-tip {
+  animation: 0.3s fade-in;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0.5rem;
+  position: absolute;
+  width: 256px;
+  z-index: 1;
+  // init
+  opacity: 0;
+  visibility: hidden;
+  &[data-is-fade-out="true"] {
+    animation: 0.3s fade-out;
+    opacity: 0;
+  }
+}
+
+.tool-tip-topLeft,
+.tool-tip-topCenter,
+.tool-tip-topRight {
+  margin-bottom: 8px;
+}
+
+.tool-tip-bottomLeft,
+.tool-tip-bottomCenter,
+.tool-tip-bottomRight {
+  margin-top: 8px;
+}
+
+.tool-tip-topLeft,
+.tool-tip-bottomLeft {
+  left: 0;
+}
+
+.tool-tip-topRight,
+.tool-tip-bottomRight {
+  right: 0;
+}
+
+.tool-tip-rightTop,
+.tool-tip-rightCenter,
+.tool-tip-rightBottom {
+  /* Menuの横幅256px + margin8px */
+  right: -264px;
+}
+
+.tool-tip-leftTop,
+.tool-tip-leftCenter,
+.tool-tip-leftBottom {
+  /* Menuの横幅256px + margin8px */
+  left: -264px;
+}
+
+.tool-tip-rightTop,
+.tool-tip-leftTop {
+  top: 0;
+}
+
+.tool-tip-rightBottom,
+.tool-tip-leftBottom {
+  bottom: 0;
+}
+
+// .tool-tip {
+//   display: flex;
+//   position: absolute;
+//   top: 100%;
+//   left: 50%;
+//   visibility: hidden;
+//   z-index: 10;
+//   padding-left: 0.5rem;
+//   padding-right: 0.5rem;
+//   margin-top: 0.5rem;
+//   align-items: center;
+//   border-radius: 0.25rem;
+//   font-size: 0.75rem;
+//   line-height: 1rem;
+//   color: #ffffff;
+//   white-space: nowrap;
+//   background-color: #000000;
+//   transition-property: all;
+//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+//   transition-duration: 300ms;
+//   transition-duration: 150ms;
+// }

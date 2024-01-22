@@ -1,0 +1,6 @@
+// @import "@/assets/styles/app.scss";
+
+.icon-button {
+  composes: button from "../Button/styles.module.scss";
+  min-width: auto;
+}

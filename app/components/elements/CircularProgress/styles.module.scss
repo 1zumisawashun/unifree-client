@@ -1,0 +1,57 @@
+@import "@/assets/styles/app.scss";
+
+$small: 0.875rem;
+$medium: 1rem;
+$large: 1.125rem;
+
+.module {
+  display: inline-block;
+  border-radius: 100%;
+  animation: loading infinite linear 1s;
+
+  // circular-progress-size
+  &[data-size="small"] {
+    width: $small;
+    height: $small;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+  &[data-size="medium"] {
+    width: $medium;
+    height: $medium;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+  &[data-size="large"] {
+    width: $large;
+    height: $large;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+
+  // circular-progress-variant-color
+  &[data-variant="contained"][data-theme="primary"] {
+    border: 2px solid white;
+    border-top: 5px solid transparent;
+  }
+  &[data-variant="outlined"][data-theme="primary"] {
+    border: 2px solid $pop-that-gum;
+    border-top: 5px solid transparent;
+  }
+  &[data-variant="contained"][data-theme="danger"] {
+    border: 2px solid white;
+    border-top: 5px solid transparent;
+  }
+  &[data-variant="outlined"][data-theme="danger"] {
+    border: 2px solid $amour;
+    border-top: 5px solid transparent;
+  }
+  &[data-variant="contained"][data-theme="success"] {
+    border: 2px solid white;
+    border-top: 5px solid transparent;
+  }
+  &[data-variant="outlined"][data-theme="success"] {
+    border: 2px solid $devils-grass;
+    border-top: 5px solid transparent;
+  }
+}

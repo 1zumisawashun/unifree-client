@@ -1,0 +1,16 @@
+.input-simple-text-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-simple-text-label:has(+ [required])::after {
+  content: "*";
+  color: red;
+}
+
+.input-simple-text-input {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}

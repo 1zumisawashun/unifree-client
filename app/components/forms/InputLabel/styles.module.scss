@@ -1,0 +1,33 @@
+@import "@/assets/styles/app.scss";
+
+.input-label {
+  display: inline-block;
+  color: #2d3748;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .input-label {
+    font-size: 1rem;
+  }
+}
+
+.input-label-option {
+  display: inline-block;
+  background-color: $basalt-grey;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.input-label-require {
+  display: inline-block;
+  background-color: $spicy-berry;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
