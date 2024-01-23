@@ -1,21 +1,23 @@
-"use client";
+'use client'
 
-import { useDD } from "@/functions/hooks/useDD";
-import { BaseSyntheticEvent, useId, useRef } from "react";
+import { BaseSyntheticEvent, useId, useRef, useState } from 'react'
+import { useDD } from '@/functions/hooks/useDD'
 import {
   InputWrapper,
-  InputWrapperPropsPassThroughProps,
-} from "../InputWrapper";
-import styles from "./styles.module.scss";
+  InputWrapperPropsPassThroughProps
+} from '@/components/forms/InputWrapper'
+import { getDataUrl } from '@/components/forms/InputFile/getDataUrl'
+import Image from 'next/image'
+import styles from './styles.module.scss'
 
 export type FileUploadInputProps = {
-  file: File | undefined;
-  setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
-  isMultiple?: boolean;
-} & InputWrapperPropsPassThroughProps;
+  setFile: React.Dispatch<React.SetStateAction<File | undefined>>
+  isMultiple?: boolean
+} & InputWrapperPropsPassThroughProps
 
-export const InputFile: React.FC<FileUploadInputProps> = ({
-  file = undefined,
+/* eslint-disable jsx-a11y/label-has-associated-control */
+// 暗黙のlabelを使っているので問題なし
+export function InputFile({
   setFile,
   isMultiple = false,
   label,
@@ -24,24 +26,29 @@ export const InputFile: React.FC<FileUploadInputProps> = ({
   isOptioned,
   isRequired,
   disabled,
-  width,
-}) => {
-  const dragRef = useRef<HTMLLabelElement | null>(null);
+  width
+}: FileUploadInputProps) {
+  const id = useId()
+  const dragRef = useRef<HTMLLabelElement | null>(null)
+  const [src, setSrc] = useState<string | null>(null)
 
-  const handleUpload = (e: BaseSyntheticEvent) => {
-    const file = e.target.files[0];
-    setFile(file);
-  };
+  const handleUpload = async (e: BaseSyntheticEvent) => {
+    const files = e.target.files as FileList
+    setFile(files[0])
+    const result = (await getDataUrl({ files })) as string
+    setSrc(result)
+  }
 
-  useDD(dragRef, (e) => {
-    const file = e.dataTransfer?.files[0];
-    setFile(file);
-  });
+  useDD(dragRef, async (e) => {
+    const files = e.dataTransfer?.files as FileList
+    setFile(files[0])
+    const result = (await getDataUrl({ files })) as string
+    setSrc(result)
+  })
 
-  const id = useId();
+  const BLOCK_NAME = 'drag-and-drop'
 
-  const BLOCK_NAME = "drag-and-drop";
-  const accept = "image/png, image/jpg, application/pdf";
+  const accept = 'image/png, image/jpeg, image/webp, image/bmp'
 
   return (
     <InputWrapper
@@ -63,19 +70,33 @@ export const InputFile: React.FC<FileUploadInputProps> = ({
           id={id}
           onChange={handleUpload}
         />
-        <p className={styles[`${BLOCK_NAME}-text`]}>
-          {file ? file.name : "ファイルをアップロードする"}
-        </p>
+
+        {src ? (
+          /* eslint-disable */
+          <div>
+            <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
+              <Image
+                src={src}
+                alt={src}
+                fill
+                className={styles[`${BLOCK_NAME}-image`]}
+              />
+            </div>
+          </div>
+        ) : (
+          <p>アップロードしてください</p>
+        )}
+
         <span
           className={styles[`${BLOCK_NAME}-button`]}
-          data-variant={"contained"}
-          data-theme={"primary"}
-          data-size={"small"}
-          data-shape={"round"}
+          data-variant="contained"
+          data-theme="primary"
+          data-size="small"
+          data-shape="round"
         >
           ファイルを選択する
         </span>
       </label>
     </InputWrapper>
-  );
-};
+  )
+}

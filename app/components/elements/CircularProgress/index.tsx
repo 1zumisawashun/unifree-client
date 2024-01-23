@@ -6,6 +6,7 @@ type CircularProgressProps = {
   theme: ThemeType;
   variant: VariantType;
 };
+
 export const CircularProgress = ({
   size,
   theme,

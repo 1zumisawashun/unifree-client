@@ -1,26 +1,27 @@
-import { FC, ReactNode } from "react";
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
 type InputLabelProps = {
-  isOptioned?: Boolean;
-  isRequired?: Boolean;
-  children: ReactNode;
-};
+  isOptioned?: Boolean
+  isRequired?: Boolean
+  children: React.ReactNode
+}
 
-export const InputLabel: FC<InputLabelProps> = ({
+const BLOCK_NAME = 'input-label'
+
+export function InputLabel({
   isOptioned,
   isRequired,
-  children,
-}) => {
+  children
+}: InputLabelProps) {
   return (
-    <>
-      <p className={styles["input-label"]}>{children}</p>
+    <div className={styles[`${BLOCK_NAME}-wrapper`]}>
+      <p className={styles[`${BLOCK_NAME}-text`]}>{children}</p>
       {isOptioned ? (
-        <span className={styles["input-label-option"]}>任意</span>
+        <span className={styles[`${BLOCK_NAME}-option`]}>任意</span>
       ) : null}
       {isRequired ? (
-        <span className={styles["input-label-require"]}>必須</span>
+        <span className={styles[`${BLOCK_NAME}-require`]}>必須</span>
       ) : null}
-    </>
-  );
-};
+    </div>
+  )
+}

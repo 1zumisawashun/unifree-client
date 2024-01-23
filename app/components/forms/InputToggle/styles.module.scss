@@ -1,33 +1,37 @@
-/*
- * Toggle Switch
-*/
-.spui-ToggleSwitch {
+@import '@/assets/styles/settings/color';
+
+.input-toggle {
   display: inline-block;
   height: 32px;
   position: relative;
   width: 52px;
 }
 
-/*
- * Toggle Switch Input
- * "-webkit-appearance: none;" causes checkbox feature disabled in WebKit
- * so we implement this with the following techniques:
- * - wrap <input> with <label> to apply selection via user's interaction
- * - make <input> transparent: this means hide checkbox but keep its state
- * - add <span> for displaying switch visual button
- * - add <span> for displaying customized outline
-*/
-.spui-ToggleSwitch-input {
+.input-toggle-label {
+  align-items: center;
+  color: black;
+  display: inline-flex;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.input-toggle-text:not(:empty) {
+  margin-right: 8px;
+}
+
+.input-toggle-input {
   opacity: 0;
   outline: none;
 }
 
-.spui-ToggleSwitch-input:disabled ~ .spui-ToggleSwitch-visual {
+.input-toggle-input:disabled ~ .input-toggle-visual {
   opacity: 0.3;
 }
 
-.spui-ToggleSwitch-visual {
-  background-color: blue;
+// off bg
+.input-toggle-visual {
+  background-color: rgba(0 0 0 / 32%);
   border-radius: 16px;
   box-sizing: border-box;
   display: inline-block;
@@ -38,16 +42,18 @@
   width: 100%;
 }
 
-.spui-ToggleSwitch-input:checked ~ .spui-ToggleSwitch-visual {
-  background-color: red;
+// on bg
+.input-toggle-input:checked ~ .input-toggle-visual {
+  background-color: $blue-bg;
 }
 
-.spui-ToggleSwitch-visual::before {
-  background-color: green;
-  border: solid 1px green;
+// off main
+.input-toggle-visual::before {
+  background-color: $white-main;
+  border: solid 1px $white-main;
   border-radius: 100%;
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: inline-block;
   height: 24px;
   left: 4px;
@@ -57,12 +63,18 @@
   width: 24px;
 }
 
-.spui-ToggleSwitch-input:checked ~ .spui-ToggleSwitch-visual::before {
+// on main
+.input-toggle-input:checked ~ .input-toggle-visual::before {
+  background-color: $blue-main;
+  border: solid 1px $blue-main;
+}
+
+.input-toggle-input:checked ~ .input-toggle-visual::before {
   transform: translate(20px, 0);
 }
 
-/* To add 2px space for outline */
-.spui-ToggleSwitch-outline {
+// 選択する範囲を少し拡大させる
+.input-toggle-outline {
   border-radius: 16px;
   bottom: -2px;
   left: -2px;
@@ -70,14 +82,4 @@
   right: -2px;
   top: -2px;
   z-index: -1;
-}
-
-/* box-shadow is used to apply border-radius as outline */
-.spui-ToggleSwitch-input:focus ~ .spui-ToggleSwitch-outline {
-  box-shadow: 0 0 0 2px var(--color-focus-clarity);
-}
-
-.spui-ToggleSwitch-input:focus:not(:focus-visible)
-  ~ .spui-ToggleSwitch-outline {
-  box-shadow: none;
 }

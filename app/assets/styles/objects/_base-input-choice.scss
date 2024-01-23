@@ -7,7 +7,7 @@
   line-height: 1;
 }
 
-.input-choice-label[data-variant="card"] {
+.input-choice-label[data-variant='card'] {
   padding: 1rem 2rem;
   border: 1px solid black;
   border-radius: 0.5rem;
@@ -15,13 +15,30 @@
     border: solid 1px #1e3a8a;
     background-color: #bfdbfe;
   }
-  &:has(.input-choice-input[data-error="true"]) {
+  &:has(.input-choice-input[data-error='true']) {
     border: solid 1px #b91c1c;
     background-color: #fecaca;
   }
   &:has(.input-choice-input:disabled) {
     opacity: 0.3;
   }
+}
+
+// size
+.input-choice-label[data-variant='card'][data-size='small'] {
+  padding: 0.5rem 1rem;
+  min-width: 100px;
+  justify-content: center;
+}
+.input-choice-label[data-variant='card'][data-size='medium'] {
+  padding: 1rem 2rem;
+  min-width: 200px;
+  justify-content: center;
+}
+.input-choice-label[data-variant='card'][data-size='large'] {
+  padding: 1.5rem 3rem;
+  min-width: 300px;
+  justify-content: center;
 }
 
 .input-choice-icon {
@@ -35,29 +52,33 @@
   color: lightgrey;
 }
 
-.input-choice-icon {
-  &:is(.input-choice-input:checked + *) {
-    border: solid 1px #1e3a8a;
-    color: #1e3a8a;
-  }
-  &:is(.input-choice-input[data-error="true"] + *) {
-    border: solid 1px red;
-    color: red;
-  }
-  &:is(.input-choice-input:disabled + *) {
-    opacity: 0.3;
-  }
+// NOTE:「+」を使うことでpropsをinputに集約することができる
+// NOTE:親子関係であれば擬似要素hasを使った方が良いと思うが同じ階層の場合は+の方が良いのか
+.input-choice-input:checked + .input-choice-icon {
+  border: solid 1px #1e3a8a;
+  color: #1e3a8a;
 }
 
-.input-choice-text {
-  &:not(:empty) {
-    margin-left: 8px;
-  }
-  &:is(.input-choice-input:checked + *) {
-    color: black;
-  }
-  &:is(.input-choice-input:disabled + *) {
-    color: black;
-    opacity: 0.3;
-  }
+.input-choice-input[data-error='true'] + .input-choice-icon {
+  border: solid 1px red;
+  color: red;
+}
+
+.input-choice-input:disabled + .input-choice-icon {
+  opacity: 0.3;
+}
+
+// NOTE:childrenが存在すればmarginを当てる
+.input-choice-text:not(:empty) {
+  margin-left: 8px;
+}
+
+// NOTE:これは存在するorしないが確定していないから「~」を指定している?
+.input-choice-input:checked ~ .input-choice-text {
+  color: black;
+}
+
+.input-choice-input:disabled ~ .input-choice-text {
+  color: black;
+  opacity: 0.3;
 }

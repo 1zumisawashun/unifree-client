@@ -1,3 +1,5 @@
+@import "@/assets/styles/settings/color";
+
 .toast {
   position: fixed;
   text-align: center;
@@ -10,25 +12,25 @@
   display: inline-flex;
   padding: 0.5rem 1rem;
   &[data-theme="primary"] {
-    background-color: #bfdbfe;
-    color: #1e3a8a;
+    background-color: $blue-bg;
+    color: $blue-dark;
   }
   &[data-theme="secondary"] {
-    background-color: #bfdbfe;
-    color: #1e3a8a;
+    background-color: $blue-bg;
+    color: $blue-dark;
   }
   &[data-theme="danger"] {
-    background-color: #fecaca;
-    color: #b91c1c;
+    background-color: $red-bg;
+    color: $red-dark;
   }
   &[data-theme="success"] {
-    background-color: #c6f6d5;
-    color: #047857;
+    background-color: $green-bg;
+    color: $green-dark;
   }
 }
 
-.toast-contentText {
-}
+// .toast-contentText {
+// }
 
 .toast-iconButton {
   margin-left: 12px;

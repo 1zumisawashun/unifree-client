@@ -1,33 +1,32 @@
-@import "@/assets/styles/app.scss";
+@import '@/assets/styles/settings/color';
 
-.input-label {
-  display: inline-block;
-  color: #2d3748;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+.input-label-wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
-@media (min-width: 640px) {
-  .input-label {
-    font-size: 1rem;
-  }
+.input-label-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.base-label {
+  display: inline-block;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.6rem;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .input-label-option {
-  display: inline-block;
-  background-color: $basalt-grey;
-  color: white;
-  padding: 2px 8px;
-  font-size: 0.5rem;
-  border-radius: 5px;
-  font-weight: bold;
+  composes: base-label;
+  background-color: $grey-dark;
 }
+
 .input-label-require {
-  display: inline-block;
-  background-color: $spicy-berry;
-  color: white;
-  padding: 2px 8px;
-  font-size: 0.5rem;
-  border-radius: 5px;
-  font-weight: bold;
+  composes: base-label;
+  background-color: $red-dark;
 }

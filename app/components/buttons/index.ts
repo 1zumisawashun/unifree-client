@@ -1,6 +1,6 @@
 /* buttons */
-export { default as AnchorButton } from "./AnchorButton";
 export { default as Button } from "./Button";
+export { default as AnchorButton } from "./ButtonAnchor";
 export { default as IconButton } from "./IconButton";
 export { default as IconButtonAnchor } from "./IconButtonAnchor";
 export { default as LabelButton } from "./LabelButton";

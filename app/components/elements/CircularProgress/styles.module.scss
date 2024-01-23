@@ -1,4 +1,4 @@
-@import "@/assets/styles/app.scss";
+@import "@/assets/styles/settings/color";
 
 $small: 0.875rem;
 $medium: 1rem;
@@ -35,7 +35,7 @@ $large: 1.125rem;
     border-top: 5px solid transparent;
   }
   &[data-variant="outlined"][data-theme="primary"] {
-    border: 2px solid $pop-that-gum;
+    border: 2px solid $blue-main;
     border-top: 5px solid transparent;
   }
   &[data-variant="contained"][data-theme="danger"] {
@@ -43,7 +43,7 @@ $large: 1.125rem;
     border-top: 5px solid transparent;
   }
   &[data-variant="outlined"][data-theme="danger"] {
-    border: 2px solid $amour;
+    border: 2px solid $red-main;
     border-top: 5px solid transparent;
   }
   &[data-variant="contained"][data-theme="success"] {
@@ -51,7 +51,7 @@ $large: 1.125rem;
     border-top: 5px solid transparent;
   }
   &[data-variant="outlined"][data-theme="success"] {
-    border: 2px solid $devils-grass;
+    border: 2px solid $green-main;
     border-top: 5px solid transparent;
   }
 }

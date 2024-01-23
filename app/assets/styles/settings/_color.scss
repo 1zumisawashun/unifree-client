@@ -2,32 +2,42 @@
 
 /* black */
 $black: #000;
+$carbon: #333;
+$black-main: #2d3748;
 $black-dark-grey: #363636;
+$chakra-colors-menu-bg: #181c2c; // sidebar-color
 
 /* grey */
-$grey: #808080;
-$carbon: #333;
-$goshawk-grey: #444;
-$basalt-grey: #999;
+$grey: grey;
+$grey-dark: #444;
+$gray-main: #5c616a;
+$gray-light: #999;
 
 /* white */
 $white: #ffffff;
-$white-dr-white: #fafafa;
-$lighthouse: #f4f4f4;
+$white-main: #f4f4f4;
+$white-light: #fafafa;
 
 /* blue */
-$dragon-bay: #5ea79d; // dark
-$vintage-blue: #84bcb4; // main
-$blue-angora: #aad1cb; // light
+$blue-dark: #1565c0;
+$blue-main: #1976d2;
+$blue-light: #42a5f5;
+$blue-bg: #bfdbfe;
 
 /* green */
-$devils-grass: #4caf50; // mui palette > success
+$green-dark: #1b5e20;
+$green-main: #2e7d32;
+$green-light: #4caf50;
+$green-bg: #c6f6d5;
 
 /* red */
-$spicy-berry: #d13267; // error
-$pop-that-gum: #f472b6; // main
-$amour: #ef5350; // mui palette > danger
-$baby-girl: #ffe2e7; // error bg
+$red-dark: #c62828; // error-color
+$red-main: #d32f2f;
+$red-light: #ef5350;
+$red-bg: #fecaca;
+
+/* theme */
+$secondary: #00b4e7;
 
 /* shadow color */
 $black-shadow: rgba(0, 0, 0, 0.1);

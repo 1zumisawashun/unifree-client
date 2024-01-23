@@ -1,22 +1,32 @@
-@import "@/assets/styles/app.scss";
+@import '@/assets/styles/settings/color';
 
 .drag-and-drop-button {
-  composes: button from "../../buttons/Button/styles.module.scss";
+  composes: button from '@/components/buttons/Button/styles.module.scss';
   min-width: 200px;
 }
 
 .drag-and-drop-text {
-  composes: _line-clamp-1 -grey;
+  // composes: _line-clamp-1 -grey;
 }
 
 .drag-and-drop-file {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   border: 1px solid grey;
   border-radius: 1rem;
   width: 100%;
+}
+
+.drag-and-drop-image-wrapper {
+  max-width: 300px;
+  max-height: 300px;
+  position: relative;
+}
+
+.drag-and-drop-image {
+  object-fit: cover;
+  border: 1px solid $white-main;
 }

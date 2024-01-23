@@ -1,4 +1,4 @@
-// @import "@/assets/styles/app.scss";
+@import "@/assets/styles/settings/color";
 
 $small: 0.875rem;
 $medium: 1rem;
@@ -11,10 +11,6 @@ $large-pd-y: 14px;
 $small-pd-x: 18px;
 $medium-pd-x: 22px;
 $large-pd-x: 26px;
-
-$pop-that-gum: #f472b6; // main
-$amour: #ef5350; // mui palette > danger
-$devils-grass: #4caf50; // mui palette > success
 
 .button {
   font-weight: 700;
@@ -29,23 +25,30 @@ $devils-grass: #4caf50; // mui palette > success
   position: relative;
   text-align: center;
 
-  // @include hoverAnime {
-  //   opacity: 0.5;
-  //   transition: opacity 0.3s ease;
-  // }
+  &:hover {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
 
-  // composes: box-shadow;
-
-  &::before {
-    // background: $overlay;
-    border-radius: 0.5em;
-    bottom: -1px; // NOTE:button borderのpx分ネガティブマージンする
+  &[data-shape="square"]::before {
+    background: $overlay;
+    border-radius: 0.5rem;
+    inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
     content: "";
-    left: -1px;
-    opacity: 0;
     position: absolute;
-    right: -1px;
-    top: -1px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 2;
+  }
+
+  &[data-shape="round"]::before {
+    background: $overlay;
+    border-radius: 1.5rem;
+    inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s;
     z-index: 2;
   }
 
@@ -53,13 +56,20 @@ $devils-grass: #4caf50; // mui palette > success
   &[aria-disabled="true"] {
     pointer-events: none;
     transition: opacity 0.3s ease;
+    &::before {
+      opacity: 0.3;
+    }
   }
-  &[aria-disabled="true"]::before {
-    opacity: 0.5;
+
+  // button-shape
+  &[data-shape="square"] {
+    border-radius: 0.5em;
+  }
+  &[data-shape="round"] {
+    border-radius: 1.5em;
   }
 
   // button-size
-  // FIXME:forで回して改修する
   &[data-size="small"] {
     font-size: $small;
     padding: $small-pd-y $small-pd-x;
@@ -85,50 +95,45 @@ $devils-grass: #4caf50; // mui palette > success
     }
   }
 
-  // button-shape
-  &[data-shape="square"] {
-    border-radius: 0.5em;
-  }
-  &[data-shape="round"] {
-    border-radius: 1.5em;
-  }
-
   // button-variant-color
   &[data-variant="contained"][data-theme="primary"] {
     color: white;
-    background-color: $pop-that-gum;
-    border: 1px solid $pop-that-gum;
+    background-color: $blue-main;
+    border: 1px solid $blue-main;
   }
   &[data-variant="outlined"][data-theme="primary"] {
-    color: $pop-that-gum;
+    color: $blue-main;
     background-color: white;
-    border: 1px solid $pop-that-gum;
+    border: 1px solid $blue-main;
+  }
+  &[data-variant="contained"][data-theme="secondary"] {
+    color: white;
+    background-color: $secondary;
+    border: 1px solid $secondary;
+  }
+  &[data-variant="outlined"][data-theme="secondary"] {
+    color: $secondary;
+    background-color: white;
+    border: 1px solid $secondary;
   }
   &[data-variant="contained"][data-theme="danger"] {
     color: white;
-    background-color: $amour;
-    border: 1px solid $amour;
+    background-color: $red-main;
+    border: 1px solid $red-main;
   }
   &[data-variant="outlined"][data-theme="danger"] {
-    color: $amour;
+    color: $red-main;
     background-color: white;
-    border: 1px solid $amour;
+    border: 1px solid $red-main;
   }
   &[data-variant="contained"][data-theme="success"] {
     color: white;
-    background-color: $devils-grass;
-    border: 1px solid $devils-grass;
+    background-color: $green-main;
+    border: 1px solid $green-main;
   }
   &[data-variant="outlined"][data-theme="success"] {
-    color: $devils-grass;
+    color: $green-main;
     background-color: white;
-    border: 1px solid $devils-grass;
-  }
-
-  // variantと関係ない独立したbutton
-  &[data-theme="secondary"] {
-    color: #6b7280;
-    background-color: #e5e7eb;
-    border: 1px solid #e5e7eb;
+    border: 1px solid $green-main;
   }
 }

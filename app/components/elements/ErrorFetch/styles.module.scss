@@ -1,9 +1,11 @@
 @import "@/assets/styles/app.scss";
 
 .center-wrapper {
-  composes: center-wrapper;
+  color: white;
+  // composes: center-wrapper;
 }
 
 .center-inner {
-  composes: center-inner;
+  color: white;
+  // composes: center-inner;
 }

@@ -1,10 +1,10 @@
-import AnchorButton from "@/components/buttons/AnchorButton";
+import ButtonAnchor from "@/components/buttons/ButtonAnchor";
 import { ColorType } from "@/functions/types/Common";
 import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
 type TextButtonAnchorProps = { color?: ColorType } & Omit<
-  ComponentProps<typeof AnchorButton>,
+  ComponentProps<typeof ButtonAnchor>,
   "variant"
 >;
 
@@ -14,13 +14,13 @@ export default function TextButtonAnchor({
   ...props
 }: TextButtonAnchorProps) {
   return (
-    <AnchorButton
+    <ButtonAnchor
       {...props}
       data-color={color}
       variant="transparent"
       className={styles["text-button"]}
     >
       {children}
-    </AnchorButton>
+    </ButtonAnchor>
   );
 }

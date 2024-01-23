@@ -1,27 +1,37 @@
-import React, { forwardRef } from "react";
-import styles from "./styles.module.scss";
+import React, { forwardRef, ComponentPropsWithRef } from 'react'
+import styles from './styles.module.scss'
 
-interface Props
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "className"> {
-  id: string;
+export type ToggleProps = ComponentPropsWithRef<'input'> & {
+  children?: React.ReactNode
+  error?: string
 }
 
-const BLOCK_NAME = "spui-ToggleSwitch";
+export type InputFieldProps = ToggleProps
 
-export const InputToggle = forwardRef<HTMLInputElement, Props>(
-  function InputToggle({ id = "", ...rest }: Props, ref) {
-    return (
-      <label className={styles[BLOCK_NAME]}>
+const BLOCK_NAME = 'input-toggle'
+
+/* eslint-disable jsx-a11y/label-has-associated-control */
+// 暗黙のlabelを使っているので問題なし
+export const InputToggle = forwardRef<HTMLInputElement, InputFieldProps>(
+  ({ children, error, ...props }, ref) => (
+    <div className={styles[`${BLOCK_NAME}-label`]}>
+      {children && (
+        <span className={styles[`${BLOCK_NAME}-text`]}>{children}</span>
+      )}
+      <label className={`${styles[BLOCK_NAME]}`}>
         <input
           className={styles[`${BLOCK_NAME}-input`]}
-          id={id}
           ref={ref}
           type="checkbox"
-          {...rest}
+          hidden
+          data-error={!!error}
+          {...props}
         />
-        <span className={styles[`${BLOCK_NAME}-visual`]}></span>
-        <span className={styles[`${BLOCK_NAME}-outline`]}></span>
+        <span className={styles[`${BLOCK_NAME}-visual`]} />
+        <span className={styles[`${BLOCK_NAME}-outline`]} />
       </label>
-    );
-  }
-);
+    </div>
+  )
+)
+
+InputToggle.displayName = 'InputToggle'

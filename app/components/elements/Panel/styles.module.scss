@@ -1,3 +1,5 @@
+@import "@/assets/styles/settings/color";
+
 .panel-wrapper {
   display: flex;
   justify-content: center;
@@ -12,19 +14,19 @@
   border-radius: 0.25rem;
   border-width: 1px;
   &[data-theme="primary"] {
-    background-color: #bfdbfe;
-    color: #1e3a8a;
+    background-color: $blue-bg;
+    color: $blue-dark;
   }
   &[data-theme="secondary"] {
-    background-color: #bfdbfe;
-    color: #1e3a8a;
+    background-color: $blue-bg;
+    color: $blue-dark;
   }
   &[data-theme="danger"] {
-    background-color: #fecaca;
-    color: #b91c1c;
+    background-color: $red-bg;
+    color: $red-dark;
   }
   &[data-theme="success"] {
-    background-color: #c6f6d5;
-    color: #047857;
+    background-color: $green-bg;
+    color: $green-dark;
   }
 }

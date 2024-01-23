@@ -4,10 +4,10 @@ import clsx from "clsx";
 import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type AnchorButtonProps = {} & ComponentProps<typeof UnstyledButtonAnchor> &
+type ButtonAnchorProps = {} & ComponentProps<typeof UnstyledButtonAnchor> &
   BaseButtonProps;
 
-export default function AnchorButton({
+export default function ButtonAnchor({
   children,
   theme = "primary",
   variant = "contained",
@@ -17,7 +17,7 @@ export default function AnchorButton({
   prefix,
   suffix,
   ...props
-}: AnchorButtonProps) {
+}: ButtonAnchorProps) {
   return (
     <UnstyledButtonAnchor
       {...props}

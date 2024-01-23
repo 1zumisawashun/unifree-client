@@ -1,23 +1,20 @@
-@import "@/assets/styles/app.scss";
+@import '@/assets/styles/settings/color';
 
 .input-wrapper {
   display: grid;
-  gap: 3px;
+  gap: 0.5rem;
 }
-.input-wrapper[data-width="full"] {
+
+.input-wrapper[data-width='full'] {
   width: 100%;
 }
-.input-wrapper-label[aria-disabled="true"] {
-  pointer-events: none;
-}
-.input-wrapper-label {
-  display: inline-flex;
-  gap: 5px;
-  align-items: center;
-}
+
 .input-wrapper-description {
-  composes: text-small -grey;
+  font-size: 0.875rem;
+  color: $gray-light;
 }
+
 .input-wrapper-error {
-  composes: text-small -error;
+  font-size: 0.875rem;
+  color: $red-dark;
 }
