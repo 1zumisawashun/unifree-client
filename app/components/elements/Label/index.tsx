@@ -1,8 +1,7 @@
 import { ThemeType } from "@/functions/types/Common";
-import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
-export type LabelProps = { children: ReactNode; theme?: ThemeType };
+export type LabelProps = { children: React.ReactNode; theme?: ThemeType };
 
 export const Label = ({ children, theme = "primary" }: LabelProps) => {
   return (

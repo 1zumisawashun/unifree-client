@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, ButtonAnchor } from "@/components/buttons";
-import { FlexWrapper } from "@/components/elements/FlexWrapper";
+import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { FormWrapper } from "@/components/forms/FormWrapper";
 import { InputText } from "@/components/forms/InputText";
 import { InputTextarea } from "@/components/forms/InputTextarea";
@@ -40,7 +39,7 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
           onChange={(e) => setBody(e.target.value)}
         ></InputTextarea>
 
-        <FlexWrapper position="end">
+        <ButtonWrapper position="end">
           <Button
             onClick={() => showToast({ message: "test", theme: "success" })}
           >
@@ -50,7 +49,7 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
             Cancel
           </ButtonAnchor>
           <Button onClick={() => alert("update demo")}>Save</Button>
-        </FlexWrapper>
+        </ButtonWrapper>
       </FormWrapper>
     </>
   );

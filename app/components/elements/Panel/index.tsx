@@ -1,28 +1,28 @@
-import { ThemeType } from '@/functions/types/Common'
-import clsx from 'clsx'
-import styles from './styles.module.scss'
+import { ThemeType } from "@/functions/types/Common";
+import clsx from "clsx";
+import styles from "./styles.module.scss";
 
 type PanelProps = {
-  children: React.ReactNode
-  theme?: ThemeType
-  scrollable?: boolean
-  className?: string
-}
+  children: React.ReactNode;
+  theme?: ThemeType;
+  scrollable?: boolean;
+  className?: string;
+};
 
 export function Panel({
   children,
-  theme = 'transparent',
+  theme = "transparent",
   scrollable = false,
-  className
+  className,
 }: PanelProps) {
   return (
     <div
-      className={clsx(className, styles['panel-wrapper'])}
+      className={clsx(styles["panel-wrapper"], className)}
       data-scroll={scrollable}
     >
-      <div className={styles['panel-inner']} data-theme={theme}>
+      <div className={styles["panel-inner"]} data-theme={theme}>
         {children}
       </div>
     </div>
-  )
+  );
 }

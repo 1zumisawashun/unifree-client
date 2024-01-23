@@ -1,21 +1,24 @@
-@import "@/assets/styles/app.scss";
+@import "@/assets/styles/settings/color";
+@import "@/assets/styles/tools/main";
 
-.loading-wrapper {
+.loading-dot-wrapper {
   display: flex;
   justify-content: center;
 }
-.loading-1 {
+
+.loading-dot-1 {
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-  height: 0.5rem;
-  width: 0.5rem;
-  background-color: #ff00ff;
+  height: 0.25rem;
+  width: 0.25rem;
+  background-color: $blue-main;
   border-radius: 9999px;
 }
-.loading-2 {
+
+.loading-dot-2 {
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-  height: 0.5rem;
-  width: 0.5rem;
-  background-color: #ff00ff;
+  height: 0.25rem;
+  width: 0.25rem;
+  background-color: $blue-main;
   border-radius: 9999px;
   margin-left: 1rem;
   margin-right: 1rem;

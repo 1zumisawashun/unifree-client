@@ -1,27 +1,10 @@
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/tools/main";
 
 .dropdown-menu-flame {
   position: relative;
   display: flex;
   // width: fit-content;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 .dropdown-menu {

@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, ButtonAnchor } from "@/components/buttons";
-import { FlexWrapper } from "@/components/elements/FlexWrapper";
+import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { FormWrapper } from "@/components/forms/FormWrapper";
 import { InputText } from "@/components/forms/InputText";
 import { InputTextarea } from "@/components/forms/InputTextarea";
@@ -26,12 +25,12 @@ export const BookCreate: React.FC = () => {
         value={body}
         onChange={(e) => setBody(e.target.value)}
       ></InputTextarea>
-      <FlexWrapper position="end">
+      <ButtonWrapper position="end">
         <ButtonAnchor href={`/books`} variant="outlined">
           Cancel
         </ButtonAnchor>
         <Button onClick={() => alert("create demo")}>Create</Button>
-      </FlexWrapper>
+      </ButtonWrapper>
     </FormWrapper>
   );
 };

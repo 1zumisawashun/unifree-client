@@ -1,4 +1,4 @@
-@import "@/assets/styles/app.scss";
+@import "@/assets/styles/settings/color";
 
 .nav {
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 .nav-item[aria-selected="true"] {
-  color: #ec4899;
+  color: $blue-main;
   font-weight: 600;
 }
 

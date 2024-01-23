@@ -1,5 +1,5 @@
 import { ErrorBoundary } from "@/components/elements/ErrorBoundary";
-import { ErrorFetch } from "@/components/elements/ErrorFetch";
+import { ErrorFetch } from "@/components/elements/ErrorFallback";
 import { LoadingDot } from "@/components/elements/LoadingDot";
 import { BookList as BookListComponent } from "@/features/book/BookList/components/BookList";
 import { books } from "@/functions/constants/books";

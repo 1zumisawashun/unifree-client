@@ -3,10 +3,10 @@
 import {
   Button,
   ButtonAnchor,
+  ButtonWrapper,
   UnstyledButtonAnchor,
 } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
-import { FlexWrapper } from "@/components/elements/FlexWrapper";
 import { Label } from "@/components/elements/Label";
 import { Book } from "@/functions/constants/books";
 import { useDialog } from "@/functions/hooks/useDialog";
@@ -35,7 +35,7 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
         <h3 className={styles[`${BLOCK_NAME}-title`]}>{title}</h3>
 
         {categories ? (
-          <FlexWrapper>
+          <ButtonWrapper>
             {categories.map((category) => (
               <UnstyledButtonAnchor
                 key={category.id}
@@ -44,17 +44,17 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
                 <Label>{category.name}</Label>
               </UnstyledButtonAnchor>
             ))}
-          </FlexWrapper>
+          </ButtonWrapper>
         ) : null}
 
         <p className={styles[`${BLOCK_NAME}-text`]}>{body}</p>
 
-        <FlexWrapper position="end">
+        <ButtonWrapper position="end">
           <ButtonAnchor href={`/books/${id}/edit`}>Edit</ButtonAnchor>
           <Button onClick={deleteDialog.open} variant="outlined">
             Delete
           </Button>
-        </FlexWrapper>
+        </ButtonWrapper>
       </div>
 
       <Dialog ref={deleteDialog.ref} close={deleteDialog.close}>
@@ -62,14 +62,14 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
           <p className={styles[`${BLOCK_NAME}-modal-text`]}>
             本当に削除しますか？
           </p>
-          <FlexWrapper position="center">
+          <ButtonWrapper position="center">
             <Button onClick={deleteDialog.close} theme="secondary">
               Cancel
             </Button>
             <Button onClick={() => alert("delete demo")} theme="danger">
               Delete
             </Button>
-          </FlexWrapper>
+          </ButtonWrapper>
         </div>
       </Dialog>
     </>

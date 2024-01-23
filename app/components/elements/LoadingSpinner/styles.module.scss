@@ -1,6 +1,7 @@
-@import "@/assets/styles/app.scss";
+@import "@/assets/styles/settings/color";
+@import "@/assets/styles/tools/main";
 
-.loading-with-overlay {
+.loading-spinner-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -10,7 +11,8 @@
   backdrop-filter: blur(3px); /* 一番下のbody領域をぼやかす */
   z-index: 5;
 }
-.loading-with-overlay-wrapper {
+
+.loading-spinner-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,8 +20,9 @@
   z-index: 10;
   text-align: center;
 }
-.loading {
-  border: 1px solid #ff00ff;
+
+.loading-spinner-main {
+  border: 1px solid $blue-main;
   display: inline-block;
   position: relative;
   animation: loading ease 1.5s infinite;
@@ -36,7 +39,7 @@
     transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
-    background-color: #ff00ff;
+    background-color: $blue-main;
     border-radius: 50%;
   }
 }
