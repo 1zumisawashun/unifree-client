@@ -22,5 +22,7 @@ export default meta;
 type Story = StoryObj<typeof IconButtonAnchor>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    href: "/",
+  },
 };

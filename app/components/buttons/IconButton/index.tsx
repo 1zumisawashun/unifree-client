@@ -1,6 +1,7 @@
 import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
 import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
+import clsx from "clsx";
 import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
@@ -32,7 +33,7 @@ export default function IconButton({
     <UnstyledButton
       {...props}
       type={type}
-      className={styles["icon-button"]}
+      className={clsx(styles["icon-button"])}
       data-variant={variant}
       data-theme={theme}
       data-size={size}

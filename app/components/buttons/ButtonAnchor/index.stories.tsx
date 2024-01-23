@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AddIcon, EditIcon } from "../../elements/SvgIcon";
+import { AddIcon, EditIcon } from "@/components/elements/SvgIcon";
 import { ButtonAnchor } from "./index";
 
 const meta: Meta<typeof ButtonAnchor> = {
@@ -27,6 +27,7 @@ export const Primary: Story = {
     variant: "contained",
     theme: "primary",
     children: "ButtonAnchor",
+    href: "/",
   },
 };
 
@@ -36,6 +37,7 @@ export const PrimaryWithPrefix: Story = {
     theme: "primary",
     children: "ButtonAnchor",
     prefix: <AddIcon />,
+    href: "/",
   },
 };
 
@@ -45,5 +47,6 @@ export const PrimaryWithSuffix: Story = {
     theme: "primary",
     children: "ButtonAnchor",
     suffix: <EditIcon />,
+    href: "/",
   },
 };

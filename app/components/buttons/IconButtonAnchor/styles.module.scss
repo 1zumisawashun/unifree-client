@@ -1,6 +1,44 @@
-// @import "@/assets/styles/app.scss";
+@import "@/assets/styles/objects/base-button";
+
+$small: 0.875rem;
+$medium: 1rem;
+$large: 1.125rem;
+
+$small-pd: 10px;
+$medium-pd: 12px;
+$large-pd: 14px;
 
 .icon-button {
-  composes: button from "../Button/styles.module.scss";
+  composes: button;
+  // override from here
+
   min-width: auto;
+
+  // button-shape
+  &[data-shape="round"] {
+    border-radius: 9999em;
+  }
+
+  // button-size
+  &[data-size="small"] {
+    padding: $small-pd;
+    > svg {
+      width: $small;
+      height: $small;
+    }
+  }
+  &[data-size="medium"] {
+    padding: $medium-pd;
+    > svg {
+      width: $medium;
+      height: $medium;
+    }
+  }
+  &[data-size="large"] {
+    padding: $large-pd;
+    > svg {
+      width: $large;
+      height: $large;
+    }
+  }
 }
