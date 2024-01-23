@@ -1,4 +1,5 @@
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/objects/base-hover";
 
 .nav {
   display: flex;
@@ -10,10 +11,10 @@
   font-size: 1.125rem;
   transition-property: color;
   transition-duration: 0.1s;
-  // @include hoverAnime {
-  //   opacity: 0.5;
-  //   transition: opacity 0.3s ease;
-  // }
+  @include hoverAnime {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
 }
 
 .nav-item[aria-selected="true"] {

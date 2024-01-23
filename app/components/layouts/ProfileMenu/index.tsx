@@ -18,8 +18,10 @@ const avatarParams = {
 const items = [
   { href: "/books", value: "Books" },
   { href: "/books/create", value: "Create" },
-  { href: "/mypage", value: "Mypage" },
+  { href: "/mypage/profile", value: "Mypage" },
   { href: "/login", value: "Login" },
+  { href: "/tos", value: "Terms of Service" },
+  { href: "/faq", value: "FAQ" },
 ];
 
 const BLOCK_NAME = "profile-menu";
