@@ -1,13 +1,12 @@
+import AnchorButton from "@/components/buttons/AnchorButton";
 import { ColorType } from "@/functions/types/Common";
-import AnchorButton, { AnchorButtonProps } from "../AnchorButton";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type BaseType = {
-  color?: ColorType;
-};
-
-export type TextButtonAnchorProps = {} & Omit<AnchorButtonProps, "variant"> &
-  BaseType;
+type TextButtonAnchorProps = { color?: ColorType } & Omit<
+  ComponentProps<typeof AnchorButton>,
+  "variant"
+>;
 
 export default function TextButtonAnchor({
   children,

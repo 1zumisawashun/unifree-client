@@ -1,6 +1,7 @@
+import IconButton from "@/components/buttons/IconButton";
+import IconButtonAnchor from "@/components/buttons/IconButtonAnchor";
 import { SizeType } from "@/functions/types/Common";
-import IconButton, { IconButtonProps } from "../IconButton";
-import IconButtonAnchor, { IconButtonAnchorProps } from "../IconButtonAnchor";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
 type IconButtonGroupProps = {
@@ -8,7 +9,9 @@ type IconButtonGroupProps = {
   size?: SizeType;
 };
 
-type Item = IconButtonProps | IconButtonAnchorProps;
+type Item =
+  | ComponentProps<typeof IconButton>
+  | ComponentProps<typeof IconButtonAnchor>;
 
 const samples: Item[] = [
   { name: "add", href: "/" },

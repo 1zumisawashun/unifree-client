@@ -1,11 +1,9 @@
-import { Label, LabelProps } from "../../elements/Label";
-import UnstyledButtonAnchor, {
-  UnstyledButtonAnchorProps,
-} from "../UnstyledButtonAnchor";
+import UnstyledButtonAnchor from "@/components/buttons/UnstyledButtonAnchor";
+import { Label, LabelProps } from "@/components/elements/Label";
+import { ComponentProps } from "react";
 
-type BaseProps = {} & Omit<LabelProps, "children">;
-
-export type LabelButtonAnchorProps = {} & UnstyledButtonAnchorProps & BaseProps;
+type LabelButtonAnchorProps = {} & ComponentProps<typeof UnstyledButtonAnchor> &
+  Omit<LabelProps, "children">;
 
 export default function LabelButtonAnchor({
   children,

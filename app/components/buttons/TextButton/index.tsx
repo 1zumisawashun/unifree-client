@@ -1,12 +1,12 @@
+import Button from "@/components/buttons/Button";
 import { ColorType } from "@/functions/types/Common";
-import Button, { ButtonProps } from "../Button";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type BaseType = {
-  color?: ColorType;
-};
-
-export type TextButtonProps = {} & Omit<ButtonProps, "variant"> & BaseType;
+type TextButtonProps = { color?: ColorType } & Omit<
+  ComponentProps<typeof Button>,
+  "variant"
+>;
 
 export default function TextButton({
   children,

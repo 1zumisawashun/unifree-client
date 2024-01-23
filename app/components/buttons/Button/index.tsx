@@ -1,25 +1,11 @@
+import UnstyledButton from "@/components/buttons/UnstyledButton";
+import { BaseButtonProps } from "@/components/buttons/button.type";
 import { CircularProgress } from "@/components/elements/CircularProgress";
-import {
-  ShapeType,
-  SizeType,
-  ThemeType,
-  VariantType,
-} from "@/functions/types/Common";
 import clsx from "clsx";
-import UnstyledButton, { UnstyledButtonProps } from "../UnstyledButton";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type BaseProps = {
-  size?: SizeType;
-  variant?: VariantType;
-  theme?: ThemeType;
-  loading?: boolean;
-  shape?: ShapeType;
-  prefix?: any;
-  suffix?: any;
-};
-
-export type ButtonProps = {} & UnstyledButtonProps & BaseProps;
+type ButtonProps = {} & ComponentProps<typeof UnstyledButton> & BaseButtonProps;
 
 export default function Button({
   type = "button",

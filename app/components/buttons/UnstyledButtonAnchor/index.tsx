@@ -1,7 +1,7 @@
 import Link, { LinkProps } from "next/link";
 import { ReactNode } from "react";
 
-export type UnstyledButtonAnchorProps = {
+type UnstyledButtonAnchorProps = {
   children: ReactNode;
   className?: string;
 } & LinkProps;

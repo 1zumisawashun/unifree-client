@@ -1,26 +1,11 @@
-import {
-  ShapeType,
-  SizeType,
-  ThemeType,
-  VariantType,
-} from "@/functions/types/Common";
+import UnstyledButtonAnchor from "@/components/buttons/UnstyledButtonAnchor";
+import { BaseButtonProps } from "@/components/buttons/button.type";
 import clsx from "clsx";
-import UnstyledButtonAnchor, {
-  UnstyledButtonAnchorProps,
-} from "../UnstyledButtonAnchor";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type BaseProps = {
-  size?: SizeType;
-  variant?: VariantType;
-  theme?: ThemeType;
-  loading?: boolean;
-  shape?: ShapeType;
-  prefix?: any;
-  suffix?: any;
-};
-
-export type AnchorButtonProps = {} & UnstyledButtonAnchorProps & BaseProps;
+type AnchorButtonProps = {} & ComponentProps<typeof UnstyledButtonAnchor> &
+  BaseButtonProps;
 
 export default function AnchorButton({
   children,

@@ -1,29 +1,14 @@
+import UnstyledButtonAnchor from "@/components/buttons/UnstyledButtonAnchor";
+import { BaseIconButtonProps } from "@/components/buttons/button.type";
 import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
-import {
-  ShapeType,
-  SizeType,
-  ThemeType,
-  VariantType,
-} from "@/functions/types/Common";
-import UnstyledButtonAnchor, {
-  UnstyledButtonAnchorProps,
-} from "../UnstyledButtonAnchor";
+import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-type BaseProps = {
-  name?: "add" | "edit" | "cross";
-  size?: SizeType;
-  shape?: ShapeType;
-  variant?: VariantType;
-  theme?: ThemeType;
-  disabled?: boolean;
-};
-
-export type IconButtonAnchorProps = {} & Omit<
-  UnstyledButtonAnchorProps,
+type IconButtonAnchorProps = {} & Omit<
+  ComponentProps<typeof UnstyledButtonAnchor>,
   "children"
 > &
-  BaseProps;
+  BaseIconButtonProps;
 
 const Icons = {
   add: AddIcon,
