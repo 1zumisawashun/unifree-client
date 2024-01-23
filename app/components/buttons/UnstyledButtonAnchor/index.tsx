@@ -1,14 +1,19 @@
 import Link, { LinkProps } from "next/link";
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 
 type UnstyledButtonAnchorProps = {
   children: ReactNode;
   className?: string;
-} & LinkProps;
+} & LinkProps &
+  ComponentPropsWithoutRef<"a">;
 
-export default function UnstyledButtonAnchor({
-  children,
-  ...props
-}: UnstyledButtonAnchorProps) {
-  return <Link {...props}>{children}</Link>;
-}
+export const UnstyledButtonAnchor = forwardRef<
+  HTMLAnchorElement,
+  UnstyledButtonAnchorProps
+>(({ children, ...props }, ref) => (
+  <Link {...props} ref={ref}>
+    {children}
+  </Link>
+));
+
+UnstyledButtonAnchor.displayName = "UnstyledButtonAnchor";

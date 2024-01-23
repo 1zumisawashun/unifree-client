@@ -1,4 +1,4 @@
-import UnstyledButtonAnchor from "@/components/buttons/UnstyledButtonAnchor";
+import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
 import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
 import { ComponentProps } from "react";

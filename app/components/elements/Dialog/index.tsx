@@ -1,11 +1,12 @@
 "use client";
+
 import { WidthType } from "@/functions/types/Common";
 import { Ref, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
 type DialogProps = {
   ref: Ref<HTMLDialogElement>;
-  close: () => void;
+  close?: () => void;
   children: React.ReactNode;
   width?: WidthType;
 };

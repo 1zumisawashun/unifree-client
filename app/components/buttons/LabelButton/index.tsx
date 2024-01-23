@@ -1,4 +1,4 @@
-import UnstyledButton from "@/components/buttons/UnstyledButton";
+import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { Label, LabelProps } from "@/components/elements/Label";
 import { ComponentProps } from "react";
 

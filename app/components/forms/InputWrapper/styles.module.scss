@@ -1,17 +1,17 @@
-@import '@/assets/styles/settings/color';
+@import "@/assets/styles/settings/color";
 
 .input-wrapper {
   display: grid;
   gap: 0.5rem;
 }
 
-.input-wrapper[data-width='full'] {
+.input-wrapper[data-width="full"] {
   width: 100%;
 }
 
 .input-wrapper-description {
   font-size: 0.875rem;
-  color: $gray-light;
+  color: $grey-light;
 }
 
 .input-wrapper-error {

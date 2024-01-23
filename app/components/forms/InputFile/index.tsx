@@ -1,19 +1,17 @@
-'use client'
-
-import { BaseSyntheticEvent, useId, useRef, useState } from 'react'
-import { useDD } from '@/functions/hooks/useDD'
+import { getDataUrl } from "@/components/forms/InputFile/getDataUrl";
 import {
   InputWrapper,
-  InputWrapperPropsPassThroughProps
-} from '@/components/forms/InputWrapper'
-import { getDataUrl } from '@/components/forms/InputFile/getDataUrl'
-import Image from 'next/image'
-import styles from './styles.module.scss'
+  InputWrapperPropsPassThroughProps,
+} from "@/components/forms/InputWrapper";
+import { useDD } from "@/functions/hooks/useDD";
+import Image from "next/image";
+import { BaseSyntheticEvent, useId, useRef, useState } from "react";
+import styles from "./styles.module.scss";
 
 export type FileUploadInputProps = {
-  setFile: React.Dispatch<React.SetStateAction<File | undefined>>
-  isMultiple?: boolean
-} & InputWrapperPropsPassThroughProps
+  setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
+  isMultiple?: boolean;
+} & InputWrapperPropsPassThroughProps;
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
@@ -26,29 +24,29 @@ export function InputFile({
   isOptioned,
   isRequired,
   disabled,
-  width
+  width,
 }: FileUploadInputProps) {
-  const id = useId()
-  const dragRef = useRef<HTMLLabelElement | null>(null)
-  const [src, setSrc] = useState<string | null>(null)
+  const id = useId();
+  const dragRef = useRef<HTMLLabelElement | null>(null);
+  const [src, setSrc] = useState<string | null>(null);
 
   const handleUpload = async (e: BaseSyntheticEvent) => {
-    const files = e.target.files as FileList
-    setFile(files[0])
-    const result = (await getDataUrl({ files })) as string
-    setSrc(result)
-  }
+    const files = e.target.files as FileList;
+    setFile(files[0]);
+    const result = (await getDataUrl({ files })) as string;
+    setSrc(result);
+  };
 
   useDD(dragRef, async (e) => {
-    const files = e.dataTransfer?.files as FileList
-    setFile(files[0])
-    const result = (await getDataUrl({ files })) as string
-    setSrc(result)
-  })
+    const files = e.dataTransfer?.files as FileList;
+    setFile(files[0]);
+    const result = (await getDataUrl({ files })) as string;
+    setSrc(result);
+  });
 
-  const BLOCK_NAME = 'drag-and-drop'
+  const BLOCK_NAME = "drag-and-drop";
 
-  const accept = 'image/png, image/jpeg, image/webp, image/bmp'
+  const accept = "image/png, image/jpeg, image/webp, image/bmp";
 
   return (
     <InputWrapper
@@ -98,5 +96,5 @@ export function InputFile({
         </span>
       </label>
     </InputWrapper>
-  )
+  );
 }

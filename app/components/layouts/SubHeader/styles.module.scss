@@ -1,0 +1,14 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.sub-header-back-button {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.sub-header-title {
+  composes: text-x-small;
+  color: $grey-main;
+  margin: 0.5rem 0;
+}

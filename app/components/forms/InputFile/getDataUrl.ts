@@ -7,8 +7,9 @@ export async function getDataUrl({
 }): Promise<string | ArrayBuffer | null> {
   if (!files) return null;
   const file = files[0];
+  if (!file) return null;
   const reader = new FileReader();
-  reader.readAsDataURL(file!);
+  reader.readAsDataURL(file);
   await new Promise((resolve) => (reader.onload = () => resolve("")));
   return reader.result;
 }

@@ -1,0 +1,43 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.book-detail-container {
+  display: flex;
+  position: relative;
+  padding: 1.25rem;
+  flex-direction: column;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+}
+
+.book-detail-title {
+  composes: text-large;
+  font-weight: bold;
+  color: $grey-main;
+}
+
+.book-detail-text {
+  composes: text-normal;
+  color: $grey-main;
+}
+
+.book-detail-image {
+  width: 100%;
+  border-radius: 0.5rem;
+  vertical-align: top;
+}
+
+// モーダル
+.book-detail-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.book-detail-modal-text {
+  composes: text-normal;
+  font-weight: bold;
+  color: $grey-main;
+}

@@ -1,11 +1,14 @@
-import { TextButtonAnchor } from "@/components/buttons";
+import { UnstyledButtonAnchor } from "@/components/buttons";
 import "server-only";
+import styles from "./styles.module.scss";
 
 type SubHeaderProps = {
   children: React.ReactNode;
   href?: string;
   title?: string;
 };
+
+const BLOCK_NAME = "sub-header";
 
 export const SubHeader: React.FC<SubHeaderProps> = ({
   children,
@@ -15,11 +18,16 @@ export const SubHeader: React.FC<SubHeaderProps> = ({
   return (
     <section>
       {href ? (
-        <TextButtonAnchor href={href} color="grey">
+        <UnstyledButtonAnchor
+          href={href}
+          className={styles[`${BLOCK_NAME}-back-button`]}
+        >
           ← back
-        </TextButtonAnchor>
+        </UnstyledButtonAnchor>
       ) : null}
-      {title ? <h2 className="text-x-small -grey _my-1">{title}</h2> : null}
+      {title ? (
+        <h2 className={styles[`${BLOCK_NAME}-title`]}>{title}</h2>
+      ) : null}
       {children}
     </section>
   );

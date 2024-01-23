@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import IconButtonGroup from "./index";
+import { InputFile } from "./index";
 
-const meta: Meta<typeof IconButtonGroup> = {
-  title: "IconButtonGroup",
-  component: IconButtonGroup,
+const meta: Meta<typeof InputFile> = {
+  title: "InputFile",
+  component: InputFile,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,7 +19,7 @@ const meta: Meta<typeof IconButtonGroup> = {
 
 export default meta;
 
-type Story = StoryObj<typeof IconButtonGroup>;
+type Story = StoryObj<typeof InputFile>;
 
 export const Primary: Story = {
   args: {},
