@@ -14,6 +14,25 @@ pnpm dev
 bun dev
 ```
 
+## Todo
+
+🔷1/22（月）〜1/28（日）までのスケジュール
+
+- 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
+- コンポーネントの実装
+- 最低限先方に見せられるだけの UI を整える
+- auth の実装（Firebase Auth・NextAuth）具体的にはログイン・ログアウト・ログイン中の状態管理を可能にする
+- Vercel へデプロイさせる
+
+🔷1/29（月）〜2/4（日）までのスケジュール
+
+- PlanetScale + Prisma を連携させて RDB を組む
+- テーブル設計やヒアリングの実施
+
+🔷2/5（月）〜2/11（日）までのスケジュール
+
+- Stripe で購入導線を整える
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
