@@ -1,21 +1,20 @@
-import { VariantType, SizeType } from '@/functions/types/Common'
-import { ComponentPropsWithRef, forwardRef } from 'react'
-import { CheckIcon } from '@/components/elements/SvgIcon'
-import styles from './styles.module.scss'
+import { CheckIcon } from "@/components/elements/SvgIcon";
+import { SizeType, VariantType } from "@/functions/types/Common";
+import { ComponentPropsWithRef, forwardRef } from "react";
+import styles from "./styles.module.scss";
 
-export type CheckboxProps = Omit<ComponentPropsWithRef<'input'>, 'size'> & {
-  children?: React.ReactNode
-  error?: string
-  variant?: Extract<VariantType, 'card'>
-  size?: SizeType
-}
-export type InputFieldProps = CheckboxProps
+type InputCheckboxProps = Omit<ComponentPropsWithRef<"input">, "size"> & {
+  children?: React.ReactNode;
+  error?: string;
+  variant?: Extract<VariantType, "card">;
+  size?: SizeType;
+};
 
-const BLOCK_NAME = 'input-checkbox'
+const BLOCK_NAME = "input-checkbox";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
-export const InputCheckbox = forwardRef<HTMLInputElement, InputFieldProps>(
+export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxProps>(
   ({ children, error, variant, size, ...props }, ref) => (
     <label
       className={styles[`${BLOCK_NAME}-label`]}
@@ -38,6 +37,6 @@ export const InputCheckbox = forwardRef<HTMLInputElement, InputFieldProps>(
       )}
     </label>
   )
-)
+);
 
-InputCheckbox.displayName = 'InputCheckbox'
+InputCheckbox.displayName = "InputCheckbox";

@@ -1,14 +1,12 @@
 import { getDataUrl } from "@/components/forms/InputFile/getDataUrl";
-import {
-  InputWrapper,
-  InputWrapperPropsPassThroughProps,
-} from "@/components/forms/InputWrapper";
+import { InputWrapper } from "@/components/forms/InputWrapper";
+import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { useDD } from "@/functions/hooks/useDD";
 import Image from "next/image";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
-export type FileUploadInputProps = {
+export type InputFileProps = {
   setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
@@ -25,7 +23,7 @@ export function InputFile({
   isRequired,
   disabled,
   width,
-}: FileUploadInputProps) {
+}: InputFileProps) {
   const id = useId();
   const dragRef = useRef<HTMLLabelElement | null>(null);
   const [src, setSrc] = useState<string | null>(null);

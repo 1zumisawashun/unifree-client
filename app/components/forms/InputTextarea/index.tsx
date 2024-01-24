@@ -1,13 +1,15 @@
+import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { ComponentPropsWithRef, forwardRef, useId } from "react";
-import {
-  InputWrapper,
-  InputWrapperPropsPassThroughProps,
-} from "../InputWrapper";
+import { InputWrapper } from "@/components/forms/InputWrapper";
 import styles from "./styles.module.scss";
 
-export type InputProps = ComponentPropsWithRef<"textarea">;
-export type InputFieldProps = InputProps & InputWrapperPropsPassThroughProps;
-export const InputTextarea = forwardRef<HTMLTextAreaElement, InputFieldProps>(
+type InputTextareaProps = {} & ComponentPropsWithRef<"textarea"> &
+  InputWrapperPropsPassThroughProps;
+
+export const InputTextarea = forwardRef<
+  HTMLTextAreaElement,
+  InputTextareaProps
+>(
   (
     {
       label,

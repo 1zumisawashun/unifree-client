@@ -1,13 +1,12 @@
-import { ComponentPropsWithRef, forwardRef, useId } from 'react'
-import {
-  InputWrapper,
-  InputWrapperPropsPassThroughProps
-} from '@/components/forms/InputWrapper'
-import styles from './styles.module.scss'
+import { InputWrapper } from "@/components/forms/InputWrapper";
+import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
+import { ComponentPropsWithRef, forwardRef, useId } from "react";
+import styles from "./styles.module.scss";
 
-export type InputProps = ComponentPropsWithRef<'input'>
-export type InputFieldProps = InputProps & InputWrapperPropsPassThroughProps
-export const InputText = forwardRef<HTMLInputElement, InputFieldProps>(
+type InputTextProps = {} & ComponentPropsWithRef<"input"> &
+  InputWrapperPropsPassThroughProps;
+
+export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
     {
       label,
@@ -22,7 +21,7 @@ export const InputText = forwardRef<HTMLInputElement, InputFieldProps>(
     },
     ref
   ) => {
-    const id = useId()
+    const id = useId();
     return (
       <InputWrapper
         label={label}
@@ -35,7 +34,7 @@ export const InputText = forwardRef<HTMLInputElement, InputFieldProps>(
         width={width}
       >
         <input
-          className={styles['input-text']}
+          className={styles["input-text"]}
           {...props}
           ref={ref}
           id={id}
@@ -43,8 +42,8 @@ export const InputText = forwardRef<HTMLInputElement, InputFieldProps>(
           disabled={disabled}
         />
       </InputWrapper>
-    )
+    );
   }
-)
+);
 
-InputText.displayName = 'InputText'
+InputText.displayName = "InputText";

@@ -50,10 +50,10 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
         <p className={styles[`${BLOCK_NAME}-text`]}>{body}</p>
 
         <ButtonWrapper position="end">
-          <ButtonAnchor href={`/books/${id}/edit`}>Edit</ButtonAnchor>
           <Button onClick={deleteDialog.open} variant="outlined">
             Delete
           </Button>
+          <ButtonAnchor href={`/books/${id}/edit`}>Edit</ButtonAnchor>
         </ButtonWrapper>
       </div>
 
@@ -63,7 +63,11 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
             本当に削除しますか？
           </p>
           <ButtonWrapper position="center">
-            <Button onClick={deleteDialog.close} theme="secondary">
+            <Button
+              onClick={deleteDialog.close}
+              theme="danger"
+              variant="outlined"
+            >
               Cancel
             </Button>
             <Button onClick={() => alert("delete demo")} theme="danger">

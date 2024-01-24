@@ -1,18 +1,16 @@
-import React, { forwardRef, ComponentPropsWithRef } from 'react'
-import styles from './styles.module.scss'
+import { ComponentPropsWithRef, forwardRef } from "react";
+import styles from "./styles.module.scss";
 
-export type ToggleProps = ComponentPropsWithRef<'input'> & {
-  children?: React.ReactNode
-  error?: string
-}
+type InputToggleProps = {
+  children?: React.ReactNode;
+  error?: string;
+} & ComponentPropsWithRef<"input">;
 
-export type InputFieldProps = ToggleProps
-
-const BLOCK_NAME = 'input-toggle'
+const BLOCK_NAME = "input-toggle";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
-export const InputToggle = forwardRef<HTMLInputElement, InputFieldProps>(
+export const InputToggle = forwardRef<HTMLInputElement, InputToggleProps>(
   ({ children, error, ...props }, ref) => (
     <div className={styles[`${BLOCK_NAME}-label`]}>
       {children && (
@@ -32,6 +30,6 @@ export const InputToggle = forwardRef<HTMLInputElement, InputFieldProps>(
       </label>
     </div>
   )
-)
+);
 
-InputToggle.displayName = 'InputToggle'
+InputToggle.displayName = "InputToggle";
