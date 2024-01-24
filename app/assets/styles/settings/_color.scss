@@ -10,14 +10,13 @@ $chakra-colors-menu-bg: #181c2c; // sidebar-color
 /* grey */
 $grey: grey;
 $grey-dark: #444;
-$grey-main: #5c616a;
+$grey-main: #5c616a; // sub text color
 $grey-light: #999;
 
 /* white */
 $white: #ffffff;
 $white-main: #f4f4f4;
 $white-light: #fafafa;
-$white-border: #f4f4f4;
 
 /* blue */
 $blue-dark: #1565c0;
@@ -43,3 +42,6 @@ $secondary: #00b4e7;
 /* shadow color */
 $black-shadow: rgba(0, 0, 0, 0.1);
 $overlay: rgba(0, 0, 0, 0.6);
+
+/* border */
+$border: lightgrey;

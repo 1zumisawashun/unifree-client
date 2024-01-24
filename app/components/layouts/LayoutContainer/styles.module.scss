@@ -1,5 +1,8 @@
 @import "@/assets/styles/objects/base-container";
 
-.layout-container {
+.layout-container-sp {
   composes: container-sp;
+}
+.layout-container-inner {
+  composes: container-inner;
 }

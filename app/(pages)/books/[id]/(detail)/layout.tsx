@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <LayoutContainer>{children}</LayoutContainer>
+      <LayoutContainer hasFooter>{children}</LayoutContainer>
       <FixedFooter />
     </>
   );

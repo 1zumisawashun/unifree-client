@@ -1,7 +1,7 @@
-@import '@/assets/styles/settings/color';
+@import "@/assets/styles/settings/color";
 
 .drag-and-drop-button {
-  composes: button from '@/components/buttons/Button/styles.module.scss';
+  composes: button from "@/components/buttons/Button/styles.module.scss";
   min-width: 200px;
 }
 
@@ -28,5 +28,5 @@
 
 .drag-and-drop-image {
   object-fit: cover;
-  border: 1px solid $white-main;
+  border: 1px solid $border;
 }

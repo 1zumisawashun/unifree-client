@@ -15,7 +15,7 @@
   position: absolute;
   width: 270px;
   z-index: 5;
-  border: 1px solid $white-border;
+  border: 1px solid $border;
   background: $white;
   &[data-is-fade-out="true"] {
     animation: 0.05s fade-out;

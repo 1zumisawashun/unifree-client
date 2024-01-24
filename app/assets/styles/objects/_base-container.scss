@@ -1,10 +1,11 @@
 /* Object Layer */
 
-// 70px = headerの高さ
+// 70px = header・footer
+// 2rem = padding
 
 @mixin base-container {
   width: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px - 2rem);
 }
 
 .container-pc {
@@ -15,4 +16,11 @@
   @include base-container;
   width: 576px;
   margin: auto;
+  &[data-footer="true"] {
+    margin-bottom: 70px;
+  }
+}
+
+.container-inner {
+  padding: 1rem;
 }

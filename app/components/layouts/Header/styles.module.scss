@@ -8,7 +8,7 @@
   padding-right: 2rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $white-main;
+  border-bottom: 1px solid $border;
   height: 70px;
 }
 
@@ -20,7 +20,7 @@
   gap: 0.75rem;
 }
 
-.header-wrapper{
+.header-wrapper {
   display: flex;
   flex-direction: row;
   gap: 1rem;
