@@ -1,0 +1,17 @@
+@import "@/assets/styles/settings/color";
+
+.footer {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid $white-main;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  background: $white;
+  width: 100%;
+}

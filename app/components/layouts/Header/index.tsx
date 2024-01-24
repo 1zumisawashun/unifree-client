@@ -1,9 +1,14 @@
-import { UnstyledButtonAnchor } from "@/components/buttons";
+import { ButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { ProfileMenu } from "@/components/layouts/ProfileMenu";
+import "server-only";
 import styles from "./styles.module.scss";
 
-import "server-only";
+const publicRoutes = [{ href: "/login", value: "Login" }];
+
+const authRoutes = [{ href: "/cart", value: "Cart" }];
+
+const routes = true ? publicRoutes : authRoutes;
 
 const BLOCK_NAME = "header";
 
@@ -19,7 +24,19 @@ export function Header() {
         unifree-client
       </UnstyledButtonAnchor>
 
-      <ProfileMenu />
+      <div className={styles[`${BLOCK_NAME}-wrapper`]}>
+        {routes.map((route) => (
+          <ButtonAnchor
+            key={route.value}
+            href={route.href}
+            variant="transparent"
+          >
+            {route.value}
+          </ButtonAnchor>
+        ))}
+
+        <ProfileMenu />
+      </div>
     </header>
   );
 }

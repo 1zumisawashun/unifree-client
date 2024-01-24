@@ -15,14 +15,19 @@ const avatarParams = {
   height: undefined,
 };
 
-const items = [
-  { href: "/books", value: "Books" },
+const publicRoutes = [{ href: "/books", value: "Books" }];
+
+const authRoutes = [
   { href: "/books/create", value: "Create" },
   { href: "/mypage/profile", value: "Mypage" },
-  { href: "/login", value: "Login" },
+];
+
+const commonRoutes = [
   { href: "/tos", value: "Terms of Service" },
   { href: "/faq", value: "FAQ" },
 ];
+
+const margeRoutes = [...publicRoutes, ...authRoutes, ...commonRoutes];
 
 const BLOCK_NAME = "profile-menu";
 
@@ -53,14 +58,14 @@ export const ProfileMenu = () => {
         position="bottomRight"
         triggerRef={triggerRef}
       >
-        {items.map((item) => (
-          <li className={styles[`${BLOCK_NAME}-item`]} key={item.value}>
+        {margeRoutes.map((route) => (
+          <li className={styles[`${BLOCK_NAME}-item`]} key={route.value}>
             <ButtonAnchor
-              href={item.href}
+              href={route.href}
               variant="transparent"
               className={styles[`${BLOCK_NAME}-anchor-button`]}
             >
-              {item.value}
+              {route.value}
             </ButtonAnchor>
           </li>
         ))}

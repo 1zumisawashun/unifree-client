@@ -1,16 +1,12 @@
 import "@/assets/styles/reset.css";
-import { Header } from "@/components/layouts/Header";
 import AppProvider from "@/providers/app";
 import { Noto_Sans_JP } from "next/font/google";
-import styles from "./layout.module.scss";
 
 const NotoSansJP = Noto_Sans_JP({
   weight: ["400", "700"],
   subsets: ["latin"],
   preload: true,
 });
-
-const BLOCK_NAME = "root-layout";
 
 export const metadata = {
   title: "unifree-client",
@@ -25,12 +21,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={NotoSansJP.className}>
-        <AppProvider>
-          <Header />
-          <main>
-            <div className={styles[`${BLOCK_NAME}-container`]}>{children}</div>
-          </main>
-        </AppProvider>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
