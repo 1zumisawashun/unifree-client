@@ -1,0 +1,18 @@
+.center-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  // 以下をclass-nameで流し込む
+  // background-image: url('../../../../assets/images/image_signin_background.webp');
+  // background-size: cover;
+}
+
+.center-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

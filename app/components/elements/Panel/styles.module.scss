@@ -3,30 +3,40 @@
 .panel-wrapper {
   display: flex;
   justify-content: center;
+  border-radius: 0.25rem;
+  // panel scroll
   &[data-scroll="true"] {
-    overflow: scroll;
-    height: 500px;
+    overflow-y: scroll;
+  }
+  // panel theme and border
+  &[data-theme="transparent"] {
+    &[data-border="true"] {
+      border: 1px solid $grey-dark;
+    }
+  }
+  &[data-theme="primary"] {
+    background-color: $blue-bg;
+    color: $blue-dark;
+    &[data-border="true"] {
+      border: 1px solid $blue-dark;
+    }
+  }
+  &[data-theme="danger"] {
+    background-color: $red-bg;
+    color: $red-dark;
+    &[data-border="true"] {
+      border: 1px solid $red-dark;
+    }
+  }
+  &[data-theme="success"] {
+    background-color: $green-bg;
+    color: $green-dark;
+    &[data-border="true"] {
+      border: 1px solid $green-dark;
+    }
   }
 }
 
 .panel-inner {
   padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
-  border-width: 1px;
-  &[data-theme="primary"] {
-    background-color: $blue-bg;
-    color: $blue-dark;
-  }
-  &[data-theme="secondary"] {
-    background-color: $blue-bg;
-    color: $blue-dark;
-  }
-  &[data-theme="danger"] {
-    background-color: $red-bg;
-    color: $red-dark;
-  }
-  &[data-theme="success"] {
-    background-color: $green-bg;
-    color: $green-dark;
-  }
 }

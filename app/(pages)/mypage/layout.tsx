@@ -1,4 +1,4 @@
-import { Tab } from "@/components/elements/Tab";
+import { Tab } from "@/components/layouts/Tab";
 import { Header } from "@/components/layouts/Header";
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 

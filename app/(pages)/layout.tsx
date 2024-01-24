@@ -1,4 +1,5 @@
-import "@/assets/styles/reset.css";
+import "@/assets/styles/generics/custom-reset.css";
+import "@/assets/styles/generics/the-new-css-reset.css";
 import AppProvider from "@/providers/app";
 import { Noto_Sans_JP } from "next/font/google";
 

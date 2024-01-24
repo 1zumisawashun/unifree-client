@@ -1,5 +1,4 @@
-export const tos = `
-Welcome to our website. These Terms of Service ("TOS") govern your use of our website, including any content, functionality, and services offered on or through the website. By using our website, you accept and agree to be bound by these TOS. If you do not agree with these TOS, you may not use our website.
+export const tos = `Welcome to our website. These Terms of Service ("TOS") govern your use of our website, including any content, functionality, and services offered on or through the website. By using our website, you accept and agree to be bound by these TOS. If you do not agree with these TOS, you may not use our website.
 
 User Conduct
 You agree to use our website only for lawful purposes and in a manner that does not violate the rights of any third party. You agree not to use our website in any way that could damage, disable, overburden, or impair our servers or networks. You also agree not to access or attempt to access any information or data on our website that you are not authorized to access.
@@ -21,4 +20,5 @@ These TOS and any disputes arising out of or related to your use of our website 
 
 Modifications to these TOS
 We reserve the right to modify these TOS at any time without notice. Your continued use of our website following any such modification constitutes your agreement to be bound by the modified TOS.
+
 `;

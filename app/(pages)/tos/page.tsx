@@ -1,5 +1,5 @@
 import { Tos } from "@/features/tos";
 
-export default async function Page() {
+export default function Page() {
   return <Tos />;
 }

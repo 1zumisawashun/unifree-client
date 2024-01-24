@@ -1,5 +1,5 @@
-import "@/assets/styles/app.scss";
-import "@/assets/styles/reset.css";
+import "@/assets/styles/generics/custom-reset.css";
+import "@/assets/styles/generics/the-new-css-reset.css";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
