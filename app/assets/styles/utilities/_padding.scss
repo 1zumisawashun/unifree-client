@@ -1,0 +1,32 @@
+@for $i from 1 through 10 {
+  ._ml-#{$i} {
+    margin-left: #{$i}rem !important;
+  }
+}
+@for $i from 1 through 10 {
+  ._mr-#{$i} {
+    margin-right: #{$i}rem !important;
+  }
+}
+@for $i from 1 through 10 {
+  ._mt-#{$i} {
+    margin-top: #{$i}rem !important;
+  }
+}
+@for $i from 1 through 10 {
+  ._mb-#{$i} {
+    margin-bottom: #{$i}rem !important;
+  }
+}
+@for $i from 1 through 10 {
+  ._mx-#{$i} {
+    margin-left: #{$i}rem !important;
+    margin-right: #{$i}rem !important;
+  }
+}
+@for $i from 1 through 10 {
+  ._my-#{$i} {
+    margin-top: #{$i}rem !important;
+    margin-bottom: #{$i}rem !important;
+  }
+}
