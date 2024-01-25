@@ -1,16 +1,18 @@
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
-type InputToggleProps = {
+type Props = ComponentPropsWithoutRef<"input"> & {
   children?: React.ReactNode;
   error?: string;
-} & ComponentPropsWithRef<"input">;
+};
+
+type Ref = HTMLInputElement;
 
 const BLOCK_NAME = "input-toggle";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
-export const InputToggle = forwardRef<HTMLInputElement, InputToggleProps>(
+export const InputToggle = forwardRef<Ref, Props>(
   ({ children, error, ...props }, ref) => (
     <div className={styles[`${BLOCK_NAME}-label`]}>
       {children && (

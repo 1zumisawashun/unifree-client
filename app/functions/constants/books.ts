@@ -1,7 +1,10 @@
 export const books = [
   {
-    id: 1,
-    title: "Introduction to Programming",
+    // for stripe
+    id: "price_1Oc8ATEjv771bjTX4GMiBBJ6",
+    name: "Introduction to Programming",
+    price: 2999,
+    // custom
     school: "駒沢大学",
     categories: [
       {
@@ -10,7 +13,6 @@ export const books = [
       },
     ],
     body: "This book provides a comprehensive introduction to programming concepts, covering topics such as algorithms, data structures, and problem-solving. Suitable for beginners and those looking to deepen their programming skills.",
-    price: 2999,
     status: "completed",
     images: [
       {
@@ -22,8 +24,11 @@ export const books = [
     updatedAt: "2023-01-05T15:30:00Z",
   },
   {
-    id: 2,
-    title: "World History: A Brief Overview",
+    // for stripe
+    id: "price_1N4x5MEjv771bjTXkgcCTNnH",
+    name: "World History: A Brief Overview",
+    price: 2499,
+    // custom
     school: "日本大学",
     categories: [
       {
@@ -32,7 +37,6 @@ export const books = [
       },
     ],
     body: "Explore the key events and figures that shaped our world throughout history. From ancient civilizations to modern times, this book offers a concise yet comprehensive overview of world history.",
-    price: 2499,
     status: "available",
     images: [
       {
@@ -44,8 +48,11 @@ export const books = [
     updatedAt: "2023-02-15T18:20:00Z",
   },
   {
-    id: 3,
-    title: "Introduction to Astrophysics",
+    // for stripe
+    id: "price_1N4x4gEjv771bjTXW65kuNYe",
+    name: "Introduction to Astrophysics",
+    price: 3499,
+    // custom
     school: "専修大学",
     categories: [
       {
@@ -54,7 +61,6 @@ export const books = [
       },
     ],
     body: "Delve into the mysteries of the cosmos with this introductory guide to astrophysics. From the birth of stars to the expansion of the universe, this book covers the fundamental concepts of astrophysics in an accessible manner.",
-    price: 3499,
     status: "available",
     images: [
       {
@@ -66,8 +72,11 @@ export const books = [
     updatedAt: "2023-03-25T11:55:00Z",
   },
   {
-    id: 4,
-    title: "Learning Python for Data Science",
+    // for stripe
+    id: "price_1N4x2fEjv771bjTXiqY0QH5h",
+    name: "Learning Python for Data Science",
+    price: 3999,
+    // custom
     school: "東洋大学",
     categories: [
       {
@@ -80,7 +89,6 @@ export const books = [
       },
     ],
     body: "Unlock the power of Python for data analysis and machine learning. This book provides hands-on examples and practical tips for leveraging Python in the field of data science.",
-    price: 3999,
     status: "available",
     images: [
       {
@@ -92,8 +100,11 @@ export const books = [
     updatedAt: "2023-04-10T16:45:00Z",
   },
   {
-    id: 5,
-    title: "Artificial Intelligence Ethics",
+    // for stripe
+    id: "price_1MUi0HEjv771bjTXHmDQ2BET",
+    name: "Artificial Intelligence Ethics",
+    price: 3299,
+    // custom
     school: "東海大学",
     categories: [
       {
@@ -106,7 +117,6 @@ export const books = [
       },
     ],
     body: "Explore the ethical considerations surrounding artificial intelligence. This book examines the impact of AI on society, privacy, and decision-making, providing insights for a responsible AI future.",
-    price: 3299,
     status: "available",
     images: [
       {

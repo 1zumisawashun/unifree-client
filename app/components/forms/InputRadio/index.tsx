@@ -1,20 +1,22 @@
 import { CheckIcon } from "@/components/elements/SvgIcon";
 import { SizeType, VariantType } from "@/functions/types/Common";
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
-type InputRadioProps = Omit<ComponentPropsWithRef<"input">, "size"> & {
+type Props = Omit<ComponentPropsWithoutRef<"input">, "size"> & {
   children?: React.ReactNode;
   error?: string;
   variant?: Extract<VariantType, "card">;
   size?: SizeType;
 };
 
+type Ref = HTMLInputElement;
+
 const BLOCK_NAME = "input-radio";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
-export const InputRadio = forwardRef<HTMLInputElement, InputRadioProps>(
+export const InputRadio = forwardRef<Ref, Props>(
   ({ children, error, variant, size, ...props }, ref) => (
     <label
       className={styles[`${BLOCK_NAME}-label`]}

@@ -1,14 +1,16 @@
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { SelectOptions } from "@/functions/types/Common";
-import { ComponentPropsWithRef, forwardRef, useId } from "react";
+import { ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import styles from "./styles.module.scss";
 
-type InputSelectProps = ComponentPropsWithRef<"select"> & {
+type Props = ComponentPropsWithoutRef<"select"> & {
   options: SelectOptions;
 } & InputWrapperPropsPassThroughProps;
 
-export const InputSelect = forwardRef<HTMLSelectElement, InputSelectProps>(
+type Ref = HTMLSelectElement;
+
+export const InputSelect = forwardRef<Ref, Props>(
   (
     {
       label,

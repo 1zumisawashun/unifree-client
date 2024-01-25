@@ -1,18 +1,20 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { Label, LabelProps } from "@/components/elements/Label";
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef } from "react";
 
-type LabelButtonAnchorProps = {} & ComponentProps<typeof UnstyledButtonAnchor> &
+type Props = ComponentProps<typeof UnstyledButtonAnchor> &
   Omit<LabelProps, "children">;
 
-export default function LabelButtonAnchor({
-  children,
-  theme = "primary",
-  ...props
-}: LabelButtonAnchorProps) {
-  return (
-    <UnstyledButtonAnchor {...props}>
-      <Label theme={theme}>{children}</Label>
-    </UnstyledButtonAnchor>
-  );
-}
+type Ref = HTMLAnchorElement;
+
+export const LabelButtonAnchor = forwardRef<Ref, Props>(
+  ({ children, theme = "primary", ...props }, ref) => {
+    return (
+      <UnstyledButtonAnchor {...props} ref={ref}>
+        <Label theme={theme}>{children}</Label>
+      </UnstyledButtonAnchor>
+    );
+  }
+);
+
+LabelButtonAnchor.displayName = "LabelButtonAnchor";

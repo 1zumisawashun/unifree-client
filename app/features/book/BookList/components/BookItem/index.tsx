@@ -12,7 +12,7 @@ const BLOCK_NAME = "book-item";
 
 /* eslint-disable @next/next/no-img-element */
 export const BookItem: React.FC<BookItemProps> = ({ book }) => {
-  const { id, title, images, price, status, school } = book;
+  const { id, name, images, price, status, school } = book;
   return (
     <UnstyledButtonAnchor href={`/books/${id}`}>
       <div className={styles[`${BLOCK_NAME}-container`]}>
@@ -24,7 +24,7 @@ export const BookItem: React.FC<BookItemProps> = ({ book }) => {
           />
           <p>SOLD OUT</p>
         </div>
-        <p className={styles[`${BLOCK_NAME}-title`]}>{title}</p>
+        <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
         <div className={styles[`${BLOCK_NAME}-content`]}>
           <p>{school}</p>
           <span>|</span>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import LabelButtonAnchor from "./index";
+import { LabelButtonAnchor } from "./index";
 
 const meta: Meta<typeof LabelButtonAnchor> = {
   title: "LabelButtonAnchor",

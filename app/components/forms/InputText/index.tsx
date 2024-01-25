@@ -1,12 +1,14 @@
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { ComponentPropsWithRef, forwardRef, useId } from "react";
+import { ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import styles from "./styles.module.scss";
 
-type InputTextProps = {} & ComponentPropsWithRef<"input"> &
+type Props = ComponentPropsWithoutRef<"input"> &
   InputWrapperPropsPassThroughProps;
 
-export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
+type Ref = HTMLInputElement;
+
+export const InputText = forwardRef<Ref, Props>(
   (
     {
       label,

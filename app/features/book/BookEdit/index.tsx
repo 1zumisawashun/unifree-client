@@ -22,16 +22,16 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
     return () => closeToast();
   }, [closeToast]);
 
-  const [title, setTitle] = useState(book.title);
+  const [name, setName] = useState(book.name);
   const [body, setBody] = useState(book.body);
 
   return (
     <>
       <FormWrapper>
         <InputText
-          label="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          label="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         ></InputText>
         <InputTextarea
           label="Body"

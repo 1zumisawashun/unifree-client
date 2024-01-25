@@ -1,18 +1,20 @@
 import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { Label, LabelProps } from "@/components/elements/Label";
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef } from "react";
 
-type LabelButtonProps = {} & ComponentProps<typeof UnstyledButton> &
+type Props = ComponentProps<typeof UnstyledButton> &
   Omit<LabelProps, "children">;
 
-export default function LabelButton({
-  children,
-  theme = "primary",
-  ...props
-}: LabelButtonProps) {
-  return (
-    <UnstyledButton {...props}>
-      <Label theme={theme}>{children}</Label>
-    </UnstyledButton>
-  );
-}
+type Ref = HTMLButtonElement;
+
+export const LabelButton = forwardRef<Ref, Props>(
+  ({ children, theme = "primary", ...props }, ref) => {
+    return (
+      <UnstyledButton {...props} ref={ref}>
+        <Label theme={theme}>{children}</Label>
+      </UnstyledButton>
+    );
+  }
+);
+
+LabelButton.displayName = "LabelButton";

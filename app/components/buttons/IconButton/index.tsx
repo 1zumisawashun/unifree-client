@@ -2,14 +2,13 @@ import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
 import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
 import clsx from "clsx";
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
-type IconButtonProps = {} & Omit<
-  ComponentProps<typeof UnstyledButton>,
-  "children"
-> &
+type Props = Omit<ComponentProps<typeof UnstyledButton>, "children"> &
   BaseIconButtonProps;
+
+type Ref = HTMLButtonElement;
 
 const Icons = {
   add: AddIcon,
@@ -17,30 +16,38 @@ const Icons = {
   cross: CrossIcon,
 };
 
-export default function IconButton({
-  type = "button",
-  theme = "primary",
-  variant = "contained",
-  name = "edit",
-  size = "medium",
-  shape = "round",
-  disabled,
-  ...props
-}: IconButtonProps) {
-  const Tag = Icons[`${name}`];
+export const IconButton = forwardRef<Ref, Props>(
+  (
+    {
+      type = "button",
+      theme = "primary",
+      variant = "contained",
+      name = "edit",
+      size = "medium",
+      shape = "round",
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const Tag = Icons[`${name}`];
 
-  return (
-    <UnstyledButton
-      {...props}
-      type={type}
-      className={clsx(styles["icon-button"])}
-      data-variant={variant}
-      data-theme={theme}
-      data-size={size}
-      data-shape={shape}
-      aria-disabled={disabled}
-    >
-      <Tag />
-    </UnstyledButton>
-  );
-}
+    return (
+      <UnstyledButton
+        {...props}
+        type={type}
+        className={clsx(styles["icon-button"])}
+        data-variant={variant}
+        data-theme={theme}
+        data-size={size}
+        data-shape={shape}
+        aria-disabled={disabled}
+        ref={ref}
+      >
+        <Tag />
+      </UnstyledButton>
+    );
+  }
+);
+
+IconButton.displayName = "IconButton";

@@ -20,7 +20,7 @@ const BLOCK_NAME = "book-detail";
 
 /* eslint-disable @next/next/no-img-element */
 export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
-  const { id, title, categories, body, images } = book;
+  const { id, name, categories, body, images } = book;
 
   const deleteDialog = useDialog();
 
@@ -32,7 +32,7 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
           src={images[0]?.src}
           alt=""
         />
-        <h3 className={styles[`${BLOCK_NAME}-title`]}>{title}</h3>
+        <h3 className={styles[`${BLOCK_NAME}-title`]}>{name}</h3>
 
         {categories ? (
           <ButtonWrapper>

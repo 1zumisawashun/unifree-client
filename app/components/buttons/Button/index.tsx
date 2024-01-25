@@ -2,14 +2,14 @@ import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { BaseButtonProps } from "@/components/buttons/button.type";
 import { CircularProgress } from "@/components/elements/CircularProgress";
 import clsx from "clsx";
-import { ComponentProps, ComponentPropsWithoutRef, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
-type ButtonProps = {} & ComponentPropsWithoutRef<"button"> &
-  ComponentProps<typeof UnstyledButton> &
-  BaseButtonProps;
+type Props = ComponentProps<typeof UnstyledButton> & BaseButtonProps;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+type Ref = HTMLButtonElement;
+
+export const Button = forwardRef<Ref, Props>(
   (
     {
       type = "button",
