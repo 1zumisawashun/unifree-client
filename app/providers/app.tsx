@@ -1,9 +1,14 @@
-import { ToastProvider } from "@/functions/contexts";
+import { CartProvider } from "@/components/elements/CartProvider";
+import { ToastProvider } from "@/components/elements/ToastProvider";
 
 export default function AppProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <ToastProvider>{children}</ToastProvider>;
+  return (
+    <CartProvider>
+      <ToastProvider>{children}</ToastProvider>
+    </CartProvider>
+  );
 }

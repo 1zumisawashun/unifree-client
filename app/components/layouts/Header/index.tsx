@@ -4,7 +4,10 @@ import { ProfileMenu } from "@/components/layouts/ProfileMenu";
 import "server-only";
 import styles from "./styles.module.scss";
 
-const publicRoutes = [{ href: "/login", value: "Login" }];
+const publicRoutes = [
+  { href: "/login", value: "Login" },
+  { href: "/cart", value: "Cart" },
+];
 
 const authRoutes = [{ href: "/cart", value: "Cart" }];
 

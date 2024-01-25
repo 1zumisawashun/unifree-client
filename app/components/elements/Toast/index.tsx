@@ -2,7 +2,7 @@
 import { StackPosition } from "@/functions/types/Common";
 import clsx from "clsx";
 import { useState } from "react";
-import { Toast as ToastType } from "../../../functions/contexts/ToastContext";
+import { Toast as ToastType } from "@/components/elements/ToastProvider";
 // import { IconButton } from "../../buttons/IconButton";
 import styles from "./styles.module.scss";
 

@@ -11,7 +11,7 @@
   // panel theme and border
   &[data-theme="transparent"] {
     &[data-border="true"] {
-      border: 1px solid $grey-dark;
+      border: 1px solid $border;
     }
   }
   &[data-theme="primary"] {
