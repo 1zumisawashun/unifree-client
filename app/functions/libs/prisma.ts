@@ -1,4 +1,5 @@
 // https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices
+import env from "@/functions/libs/env";
 import { PrismaClient } from "@prisma/client";
 import "server-only";
 
@@ -10,4 +11,4 @@ export const prisma =
     log: ["query"],
   });
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (!env.isProduction) globalForPrisma.prisma = prisma;

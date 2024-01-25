@@ -15,6 +15,7 @@ export function Cart() {
       body: JSON.stringify({}),
     });
     const json = await response.json();
+    console.log(json, "json");
     window.open(json.url);
   };
 

@@ -1,27 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# unifree-client
 
-## Getting Started
+- null
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- null
 
 ## Todo
 
 🔷1/22（月）〜1/28（日）までのスケジュール
 
 - 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
-- コンポーネントの実装
+- atoms・molecules 単位のコンポーネントの実装
 - 最低限先方に見せられるだけの UI を整える
-- auth の実装（Firebase Auth・NextAuth）具体的にはログイン・ログアウト・ログイン中の状態管理を可能にする
+- Stripe で購入導線を整える（Stripe + use-shopping-cart）
+- ログイン・ログアウト・ログイン中の状態管理を可能にする（FirebaseAuth・NextAuth）
 - Vercel へデプロイさせる
 
 🔷1/29（月）〜2/4（日）までのスケジュール
@@ -32,25 +25,59 @@ bun dev
 
 🔷2/5（月）〜2/11（日）までのスケジュール
 
-- Stripe で購入導線を整える
+- 未定
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 技術スタック
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+frontend: Next.js App Router
+backend: Next.js Route Handler
+orm: Prisma
+database: PlanetScale
+css: CSS Modules + Sass
+auth: Firebase Auth + NextAuth
+catalog: Storybook
+hosting: Vercel
+library: react-hook-form, zod, Stripe, use-shopping-cart, etc
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+- clone
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+$ git clone git@github.com:1zumisawashun/unifree-client.git
+$ cd unifree-client
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+$ npm install
+```
 
-## Deploy on Vercel
+- ローカル開発用 URL を開き動作確認をする
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+$ npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+http://localhost:3000/
+
+- 上記の手順で失敗する場合 [Troubleshoot](#Troubleshoot)を確認してください
+
+## How to
+
+- フォーマットを効かせる
+
+```bash
+$ npm run lint
+```
+
+## Troubleshoot
+
+- null
+
+## その他ドキュメント
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
