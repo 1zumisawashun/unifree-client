@@ -1,16 +1,15 @@
 "use client";
 
-import { Button, ButtonWrapper, UnstyledButton } from "@/components/buttons";
-// import { useAuth } from '@/functions/hooks/useAuth'
-// import logo from "@/assets/images/image_header.png";
 import signInGoogle from "@/assets/images/image_signin_google.png";
 import signInMicrosoft from "@/assets/images/image_signin_microsoft.png";
+import { Button, ButtonWrapper, UnstyledButton } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { Nl2br } from "@/components/elements/Nl2br";
 import { Panel } from "@/components/elements/Panel";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
 import { tos } from "@/functions/constants/tos";
+import { useAuth } from "@/functions/hooks/useAuth";
 import { useDialog } from "@/functions/hooks/useDialog";
 import Image from "next/image";
 import { useState } from "react";
@@ -20,16 +19,15 @@ const BLOCK_NAME = "login";
 
 export function Login() {
   const errorModal = useDialog();
-  // const { login, isUser } = useAuth();
+  const { login, isUser } = useAuth();
 
   const [checkbox, setCheckbox] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleLogin = async (method: "google" | "microsoft") => {
-    // const response = await login(method);
+    const response = await login(method);
 
-    // if (!isUser(response)) {
-    if (!method) {
+    if (!isUser(response)) {
       setErrorMessage("");
       errorModal.open();
     }
