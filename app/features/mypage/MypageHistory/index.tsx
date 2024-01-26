@@ -6,12 +6,12 @@ import { books } from "@/functions/constants/books";
 import { Suspense } from "react";
 import "server-only";
 
-export const BookList = async () => {
+export const MypageHistory = async () => {
   // init fetch here
   return (
     <ErrorBoundary fallback={<ErrorFetch />}>
       <Suspense fallback={<LoadingDot />}>
-        <BookCard.List books={books} />
+        <BookCard.List books={books.reverse()} />
       </Suspense>
     </ErrorBoundary>
   );

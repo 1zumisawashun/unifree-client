@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const session = useSession();
   const { status } = session;
 
-  console.log(status);
+  // console.log(session);
 
   if (status === "loading") return null;
 

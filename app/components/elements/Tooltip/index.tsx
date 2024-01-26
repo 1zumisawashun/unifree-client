@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { getOffset } from "../DropdownMenu/getOffset";
+import { getOffset } from "../DropdownMenu/hooks/getOffset";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -28,7 +28,7 @@ const List: React.FC<Props> = ({ children, triggerRef }) => {
     targetRef.current.style.opacity = "1";
     targetRef.current.style.visibility = "visible";
   }, []);
-  
+
   // マウスが離れたらツールチップを非表示
   const handleMouseLeave = useCallback(() => {
     if (!targetRef.current) return;

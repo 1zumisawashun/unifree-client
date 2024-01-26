@@ -2,20 +2,14 @@ import { ButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { ProfileMenu } from "@/components/layouts/ProfileMenu";
 import "server-only";
+import { getRoutes } from "./hooks/getRoutes";
 import styles from "./styles.module.scss";
-
-const publicRoutes = [
-  { href: "/login", value: "Login" },
-  { href: "/cart", value: "Cart" },
-];
-
-const authRoutes = [{ href: "/cart", value: "Cart" }];
-
-const routes = true ? publicRoutes : authRoutes;
 
 const BLOCK_NAME = "header";
 
-export function Header() {
+export async function Header() {
+  const { headerRoutes, profileRoutes } = await getRoutes();
+
   return (
     <header className={styles[`${BLOCK_NAME}`]}>
       <UnstyledButtonAnchor
@@ -24,11 +18,10 @@ export function Header() {
         aria-label="logo"
       >
         <NextJsIcon />
-        unifree-client
       </UnstyledButtonAnchor>
 
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        {routes.map((route) => (
+        {headerRoutes.map((route) => (
           <ButtonAnchor
             key={route.value}
             href={route.href}
@@ -38,7 +31,7 @@ export function Header() {
           </ButtonAnchor>
         ))}
 
-        <ProfileMenu />
+        <ProfileMenu routes={profileRoutes} />
       </div>
     </header>
   );

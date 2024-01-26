@@ -6,7 +6,7 @@ import { books } from "@/functions/constants/books";
 import { Suspense } from "react";
 import "server-only";
 
-export const BookList = async () => {
+export const MypagePost = async () => {
   // init fetch here
   return (
     <ErrorBoundary fallback={<ErrorFetch />}>

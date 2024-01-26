@@ -1,4 +1,4 @@
-import { getDataUrl } from "@/components/forms/InputFile/getDataUrl";
+import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { useDD } from "@/functions/hooks/useDD";

@@ -15,23 +15,16 @@ const avatarParams = {
   height: undefined,
 };
 
-const publicRoutes = [{ href: "/books", value: "Books" }];
-
-const authRoutes = [
-  { href: "/books/create", value: "Create" },
-  { href: "/mypage/profile", value: "Mypage" },
-];
-
-const commonRoutes = [
-  { href: "/tos", value: "Terms of Service" },
-  { href: "/faq", value: "FAQ" },
-];
-
-const margeRoutes = [...publicRoutes, ...authRoutes, ...commonRoutes];
-
 const BLOCK_NAME = "profile-menu";
 
-export const ProfileMenu = () => {
+type Props = {
+  routes: {
+    href: string;
+    value: string;
+  }[];
+};
+
+export const ProfileMenu: React.FC<Props> = ({ routes }) => {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -58,7 +51,7 @@ export const ProfileMenu = () => {
         position="bottomRight"
         triggerRef={triggerRef}
       >
-        {margeRoutes.map((route) => (
+        {routes.map((route) => (
           <li className={styles[`${BLOCK_NAME}-item`]} key={route.value}>
             <ButtonAnchor
               href={route.href}
