@@ -8,23 +8,25 @@
   flex-direction: column;
   gap: 0.625rem;
   border-radius: 0.5rem;
-  background-color: #f3f4f6;
+  border: 1px solid $border;
 }
-
+.book-detail-image {
+  width: 100%;
+  border-radius: 0.5rem;
+}
 .book-detail-title {
   composes: text-large;
   font-weight: bold;
   color: $grey-main;
 }
-
+.book-detail-price {
+  composes: text-large;
+  color: $red-main;
+  font-weight: 600;
+}
 .book-detail-text {
   composes: text-normal;
   color: $grey-main;
-}
-
-.book-detail-image {
-  width: 100%;
-  border-radius: 0.5rem;
 }
 
 // モーダル

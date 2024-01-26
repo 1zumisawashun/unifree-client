@@ -4,6 +4,7 @@ export const books = [
     id: "price_1Oc8ATEjv771bjTX4GMiBBJ6",
     name: "Introduction to Programming",
     price: 2999,
+    active: true,
     // custom
     school: "駒沢大学",
     categories: [
@@ -28,6 +29,7 @@ export const books = [
     id: "price_1N4x5MEjv771bjTXkgcCTNnH",
     name: "World History: A Brief Overview",
     price: 2499,
+    active: true,
     // custom
     school: "日本大学",
     categories: [
@@ -52,6 +54,7 @@ export const books = [
     id: "price_1N4x4gEjv771bjTXW65kuNYe",
     name: "Introduction to Astrophysics",
     price: 3499,
+    active: true,
     // custom
     school: "専修大学",
     categories: [
@@ -76,6 +79,7 @@ export const books = [
     id: "price_1N4x2fEjv771bjTXiqY0QH5h",
     name: "Learning Python for Data Science",
     price: 3999,
+    active: true,
     // custom
     school: "東洋大学",
     categories: [
@@ -104,6 +108,7 @@ export const books = [
     id: "price_1MUi0HEjv771bjTXHmDQ2BET",
     name: "Artificial Intelligence Ethics",
     price: 3299,
+    active: true,
     // custom
     school: "東海大学",
     categories: [

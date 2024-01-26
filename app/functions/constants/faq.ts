@@ -1,5 +1,4 @@
-export const faq = `
-Q: How do I create a new note?
+export const faq = `Q: How do I create a new note?
 A: To create a new note, click the "New Note" button located in the top left corner of the screen. This will open a blank note where you can begin typing.
 
 Q: Can I customize the appearance of my notes?
@@ -22,5 +21,5 @@ A: If you forget your password, you can reset it by clicking the "Forgot Passwor
 
 Q: Do you offer a mobile app?
 A: Yes, we offer a mobile app for both iOS and Android devices. You can download the app from the App Store or Google Play.
-`;
 
+`;

@@ -9,11 +9,11 @@ import { useToast } from "@/functions/hooks/useToast";
 // import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type BookEditProps = {
+type Props = {
   book: Book;
 };
 
-export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
+export const BookEdit: React.FC<Props> = ({ book }) => {
   // const router = useRouter();
 
   const { showToast, closeToast } = useToast();
@@ -23,7 +23,25 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
   }, [closeToast]);
 
   const [name, setName] = useState(book.name);
+  const [price, setPrice] = useState(String(book.price));
   const [body, setBody] = useState(book.body);
+
+  const edit = async () => {
+    const response = await fetch("/api/stripe/prices/delete", {
+      method: "POST",
+      body: JSON.stringify([book.id]),
+    });
+    const json = await response.json();
+    console.log(json);
+    const response2 = await fetch("/api/stripe/prices/create", {
+      method: "POST",
+      body: JSON.stringify({ name, price: +price }),
+    });
+    const json2 = await response2.json();
+    // get productId, priceId
+    // change db productId, priceId
+    console.log(json2);
+  };
 
   return (
     <>
@@ -32,6 +50,11 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
           label="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        ></InputText>
+        <InputText
+          label="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
         ></InputText>
         <InputTextarea
           label="Body"
@@ -48,7 +71,7 @@ export const BookEdit: React.FC<BookEditProps> = ({ book }) => {
           <ButtonAnchor href={`/notes/${book.id}`} variant="outlined">
             Cancel
           </ButtonAnchor>
-          <Button onClick={() => alert("update demo")}>Save</Button>
+          <Button onClick={edit}>Update</Button>
         </ButtonWrapper>
       </FormWrapper>
     </>

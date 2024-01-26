@@ -2,16 +2,17 @@
 
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { Book } from "@/functions/constants/books";
+import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import styles from "./styles.module.scss";
 
-type BookItemProps = {
+type Props = {
   book: Book;
 };
 
 const BLOCK_NAME = "book-item";
 
 /* eslint-disable @next/next/no-img-element */
-export const BookItem: React.FC<BookItemProps> = ({ book }) => {
+export const BookItem: React.FC<Props> = ({ book }) => {
   const { id, name, images, price, status, school } = book;
   return (
     <UnstyledButtonAnchor href={`/books/${id}`}>
@@ -28,7 +29,7 @@ export const BookItem: React.FC<BookItemProps> = ({ book }) => {
         <div className={styles[`${BLOCK_NAME}-content`]}>
           <p>{school}</p>
           <span>|</span>
-          <p>{price}</p>
+          <p>{formatCurrencyString(price)}</p>
         </div>
       </div>
     </UnstyledButtonAnchor>

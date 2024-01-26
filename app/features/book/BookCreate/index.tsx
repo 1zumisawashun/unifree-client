@@ -20,6 +20,8 @@ export const BookCreate: React.FC = () => {
       body: JSON.stringify({ name, price: +price }),
     });
     const json = await response.json();
+    // get productId, priceId
+    // change db productId, priceId
     console.log(json);
   };
 

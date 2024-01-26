@@ -2,7 +2,7 @@ import { UnstyledButtonAnchor } from "@/components/buttons";
 import "server-only";
 import styles from "./styles.module.scss";
 
-type IndexListWrapperProps = {
+type Props = {
   children: React.ReactNode;
   href: string;
   title: string;
@@ -10,7 +10,7 @@ type IndexListWrapperProps = {
 
 const BLOCK_NAME = "index-list-wrapper";
 
-export const IndexListWrapper: React.FC<IndexListWrapperProps> = ({
+export const IndexListWrapper: React.FC<Props> = ({
   children,
   href,
   title,

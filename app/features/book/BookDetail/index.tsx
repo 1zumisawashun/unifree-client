@@ -9,20 +9,31 @@ import {
 import { Dialog } from "@/components/elements/Dialog";
 import { Label } from "@/components/elements/Label";
 import { Book } from "@/functions/constants/books";
+import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import { useDialog } from "@/functions/hooks/useDialog";
 import styles from "./styles.module.scss";
 
-type BookDetailProps = {
+type Props = {
   book: Book;
 };
 
 const BLOCK_NAME = "book-detail";
 
 /* eslint-disable @next/next/no-img-element */
-export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
-  const { id, name, categories, body, images } = book;
+export const BookDetail: React.FC<Props> = ({ book }) => {
+  const { id, name, categories, body, images, price } = book;
 
   const deleteDialog = useDialog();
+
+  const _delete = async () => {
+    const response = await fetch("/api/stripe/prices/delete", {
+      method: "POST",
+      body: JSON.stringify([id]),
+    });
+    const json = await response.json();
+    // change db active props to false
+    console.log(json);
+  };
 
   return (
     <>
@@ -47,13 +58,19 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
           </ButtonWrapper>
         ) : null}
 
+        <p className={styles[`${BLOCK_NAME}-price`]}>
+          {formatCurrencyString(price)}
+        </p>
+
         <p className={styles[`${BLOCK_NAME}-text`]}>{body}</p>
 
         <ButtonWrapper position="end">
-          <Button onClick={deleteDialog.open} variant="outlined">
+          <Button onClick={deleteDialog.open} variant="outlined" theme="danger">
             Delete
           </Button>
-          <ButtonAnchor href={`/books/${id}/edit`}>Edit</ButtonAnchor>
+          <ButtonAnchor href={`/books/${id}/edit`} variant="outlined">
+            Edit
+          </ButtonAnchor>
         </ButtonWrapper>
       </div>
 
@@ -70,7 +87,7 @@ export const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
             >
               Cancel
             </Button>
-            <Button onClick={() => alert("delete demo")} theme="danger">
+            <Button onClick={_delete} theme="danger">
               Delete
             </Button>
           </ButtonWrapper>
