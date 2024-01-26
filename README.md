@@ -27,6 +27,14 @@
 
 - 未定
 
+🔸試してみたいこと
+
+- floating-ui
+- cloudflare-images、もし難しそうならgcs使う
+- テスト実装（RTL・VRT etc）
+- accordion, search-barの実装
+
+
 ## 技術スタック
 
 ```
@@ -36,6 +44,7 @@ orm: Prisma
 database: PlanetScale
 css: CSS Modules + Sass
 auth: Firebase Auth + NextAuth
+storage: Cloudflare Images or GCS
 catalog: Storybook
 hosting: Vercel
 library: react-hook-form, zod, Stripe, use-shopping-cart, etc

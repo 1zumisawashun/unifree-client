@@ -1,7 +1,7 @@
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { useDD } from "@/functions/hooks/useDD";
+import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import Image from "next/image";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import styles from "./styles.module.scss";

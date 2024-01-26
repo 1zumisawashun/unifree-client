@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
         if (idToken) {
           try {
             const decoded = await auth.verifyIdToken(idToken);
-            return { ...decoded, idToken };
+            return decoded;
           } catch (err) {
             console.error(err);
           }
@@ -32,9 +32,10 @@ export const authOptions: NextAuthOptions = {
     },
     // sessionにJWTトークンからのユーザ情報を格納
     async session({ session, token }) {
-      session.user.emailVerified = token.emailVerified;
+      session.user.emailVerified = token.email_verified;
       session.user.uid = token.uid;
-      session.user.token = token["idToken"];
+      session.user.expires = session.expires;
+      session.user.token = token.idToken;
       return session;
     },
   },

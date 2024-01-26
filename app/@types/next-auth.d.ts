@@ -5,19 +5,18 @@ import "next-auth/jwt";
 declare module "next-auth" {
   interface Session {
     user: {
-      // Firebaseの認証情報
       uid: string;
       emailVerified?: boolean;
       token: unknown;
+      expires: string;
     } & DefaultSession["user"];
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT {
-    // Firebaseの認証情報
     uid: string;
-    emailVerified: boolean;
-    token: unknown;
+    email_verified: boolean;
+    idToken: unknown;
   }
 }

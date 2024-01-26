@@ -5,7 +5,7 @@ import { FormWrapper } from "@/components/forms/FormWrapper";
 import { InputText } from "@/components/forms/InputText";
 import { InputTextarea } from "@/components/forms/InputTextarea";
 import { Book } from "@/functions/constants/books";
-import { useToast } from "@/functions/hooks/useToast";
+import { useToast } from "@/components/elements/Toast/hooks/useToast";
 // import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

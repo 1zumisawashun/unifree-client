@@ -2,9 +2,9 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
+import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { CartItem as ICartItem } from "@/functions/constants/cart-details";
 import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
-import { useDialog } from "@/functions/hooks/useDialog";
 import styles from "./styles.module.scss";
 
 type Props = {

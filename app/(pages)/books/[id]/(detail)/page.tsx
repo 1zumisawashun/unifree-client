@@ -7,7 +7,7 @@ import { books } from "@/functions/constants/books";
 
 export default function Page({ params }: { params: { id: string } }) {
   const book = books.find((book) => book.id === params.id);
-  console.log(book);
+  // console.log(book);
 
   return (
     <>
