@@ -1,0 +1,40 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.mypage-container {
+  display: flex;
+  justify-content: space-between;
+}
+.mypage-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.mypage-avatar {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  width: 45px;
+  height: 45px;
+}
+
+.mypage-content {
+  display: grid;
+  align-content: space-evenly;
+}
+.mypage-name {
+  composes: text-normal;
+  font-weight: 600;
+  display: block;
+}
+.mypage-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.mypage-text {
+  composes: text-x-small;
+  color: $grey-main;
+}
+
+

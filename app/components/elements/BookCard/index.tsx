@@ -8,11 +8,14 @@ const BLOCK_NAME = "book-card";
 
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ book }: { book: Book }) => {
-  const { id, name, images, price, status, school } = book;
+  const { id, name, images, price, metadata } = book;
   return (
     <UnstyledButtonAnchor href={`/books/${id}`}>
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        <div className={styles[`${BLOCK_NAME}-layer`]} data-status={status}>
+        <div
+          className={styles[`${BLOCK_NAME}-layer`]}
+          data-status={metadata.status}
+        >
           <img
             className={styles[`${BLOCK_NAME}-image`]}
             src={images[0]?.src}
@@ -22,7 +25,7 @@ const Item = ({ book }: { book: Book }) => {
         </div>
         <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
         <div className={styles[`${BLOCK_NAME}-content`]}>
-          <p>{school}</p>
+          <p>〇〇大学</p>
           <span>|</span>
           <p>{formatCurrencyString(price)}</p>
         </div>

@@ -1,11 +1,9 @@
 "use client";
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { FormWrapper } from "@/components/forms/FormWrapper";
-import { InputText } from "@/components/forms/InputText";
-import { InputTextarea } from "@/components/forms/InputTextarea";
-import { Book } from "@/functions/constants/books";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
+import { FormWrapper, InputText, InputTextarea } from "@/components/forms";
+import { Book } from "@/functions/constants/books";
 // import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -24,7 +22,7 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
 
   const [name, setName] = useState(book.name);
   const [price, setPrice] = useState(String(book.price));
-  const [body, setBody] = useState(book.body);
+  const [description, setDescription] = useState(book.description);
 
   const edit = async () => {
     const response = await fetch("/api/stripe/prices/delete", {
@@ -57,9 +55,9 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
           onChange={(e) => setPrice(e.target.value)}
         ></InputText>
         <InputTextarea
-          label="Body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
+          label="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         ></InputTextarea>
 
         <ButtonWrapper position="end">

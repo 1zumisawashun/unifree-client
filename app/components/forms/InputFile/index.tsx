@@ -1,8 +1,7 @@
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
+import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { useDD } from "@/components/forms/InputFile/hooks/useDD";
-import Image from "next/image";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -71,10 +70,10 @@ export function InputFile({
           /* eslint-disable */
           <div>
             <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
-              <Image
+              <img
                 src={src}
                 alt={src}
-                fill
+                // fill
                 className={styles[`${BLOCK_NAME}-image`]}
               />
             </div>

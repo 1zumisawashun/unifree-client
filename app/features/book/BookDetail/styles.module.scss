@@ -28,17 +28,3 @@
   composes: text-normal;
   color: $grey-main;
 }
-
-// モーダル
-.book-detail-modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-}
-
-.book-detail-modal-text {
-  composes: text-normal;
-  font-weight: bold;
-  color: $grey-main;
-}

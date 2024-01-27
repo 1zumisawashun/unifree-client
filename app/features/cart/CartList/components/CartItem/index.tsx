@@ -1,9 +1,9 @@
 "use client";
 
-import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
+import { Button, ButtonAnchor } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { CartItem as ICartItem } from "@/functions/constants/cart-details";
+import { RemoveDialog } from "@/features/cart/CartList/components/RemoveDialog";
+import { CartItem as ICartItem } from "@/functions/constants/cart";
 import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import styles from "./styles.module.scss";
 
@@ -39,25 +39,7 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
           </Button>
         </div>
       </div>
-      <Dialog ref={removeDialog.ref} close={removeDialog.close}>
-        <div className={styles[`${BLOCK_NAME}-modal-body`]}>
-          <p className={styles[`${BLOCK_NAME}-modal-text`]}>
-            カートから取り除きますか？
-          </p>
-          <ButtonWrapper position="center">
-            <Button
-              onClick={removeDialog.close}
-              theme="danger"
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-            <Button onClick={() => alert("remove demo")} theme="danger">
-              Remove
-            </Button>
-          </ButtonWrapper>
-        </div>
-      </Dialog>
+      <RemoveDialog dialog={removeDialog} />
     </>
   );
 };

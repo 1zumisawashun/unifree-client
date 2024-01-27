@@ -1,10 +1,10 @@
-@import '@/assets/styles/settings/color';
+@import "@/assets/styles/settings/color";
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background: $white-main;
+  border: 1px solid $border;
   border-radius: 1rem;
   padding: 2rem;
 }

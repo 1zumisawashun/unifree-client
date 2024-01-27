@@ -14,11 +14,11 @@
   &::after {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4.5px solid #f472b6;
+    border-top: 4.5px solid $black;
     content: "";
     position: absolute;
     right: 9px;
-    top: 23px;
-    width: 0;
+    top: 19px;
+    // width: 0;
   }
 }

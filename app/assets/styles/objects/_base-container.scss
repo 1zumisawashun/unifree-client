@@ -1,11 +1,11 @@
 /* Object Layer */
 
 // 70px = header・footer
-// 2rem = padding
+// 3rem = padding
 
 @mixin base-container {
   width: 100%;
-  min-height: calc(100vh - 70px - 2rem);
+  min-height: calc(100vh - 70px - 3rem);
 }
 
 .container-pc {
@@ -22,5 +22,5 @@
 }
 
 .container-inner {
-  padding: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
 }

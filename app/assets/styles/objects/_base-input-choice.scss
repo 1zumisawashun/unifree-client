@@ -1,3 +1,5 @@
+@import "@/assets/styles/settings/color";
+
 .input-choice-label {
   align-items: center;
   color: black;
@@ -7,17 +9,17 @@
   line-height: 1;
 }
 
-.input-choice-label[data-variant='card'] {
+.input-choice-label[data-variant="card"] {
   padding: 1rem 2rem;
   border: 1px solid black;
   border-radius: 0.5rem;
   &:has(.input-choice-input:checked) {
-    border: solid 1px #1e3a8a;
-    background-color: #bfdbfe;
+    border: solid 1px $blue-dark;
+    background-color: $blue-bg;
   }
-  &:has(.input-choice-input[data-error='true']) {
-    border: solid 1px #b91c1c;
-    background-color: #fecaca;
+  &:has(.input-choice-input[data-error="true"]) {
+    border: solid 1px $red-dark;
+    background-color: $red-bg;
   }
   &:has(.input-choice-input:disabled) {
     opacity: 0.3;
@@ -25,17 +27,17 @@
 }
 
 // size
-.input-choice-label[data-variant='card'][data-size='small'] {
+.input-choice-label[data-variant="card"][data-size="small"] {
   padding: 0.5rem 1rem;
   min-width: 100px;
   justify-content: center;
 }
-.input-choice-label[data-variant='card'][data-size='medium'] {
+.input-choice-label[data-variant="card"][data-size="medium"] {
   padding: 1rem 2rem;
   min-width: 200px;
   justify-content: center;
 }
-.input-choice-label[data-variant='card'][data-size='large'] {
+.input-choice-label[data-variant="card"][data-size="large"] {
   padding: 1.5rem 3rem;
   min-width: 300px;
   justify-content: center;
@@ -55,13 +57,15 @@
 // NOTE:「+」を使うことでpropsをinputに集約することができる
 // NOTE:親子関係であれば擬似要素hasを使った方が良いと思うが同じ階層の場合は+の方が良いのか
 .input-choice-input:checked + .input-choice-icon {
-  border: solid 1px #1e3a8a;
-  color: #1e3a8a;
+  border: solid 1px $blue-dark;
+  background-color: $blue-bg;
+  color: $blue-dark;
 }
 
-.input-choice-input[data-error='true'] + .input-choice-icon {
-  border: solid 1px red;
-  color: red;
+.input-choice-input[data-error="true"] + .input-choice-icon {
+  border: solid 1px $red-dark;
+  background-color: $red-bg;
+  color: $red-dark;
 }
 
 .input-choice-input:disabled + .input-choice-icon {

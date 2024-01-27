@@ -1,9 +1,12 @@
 "use client";
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { FormWrapper } from "@/components/forms/FormWrapper";
-import { InputText } from "@/components/forms/InputText";
-import { InputTextarea } from "@/components/forms/InputTextarea";
+import {
+  FormWrapper,
+  InputFile,
+  InputText,
+  InputTextarea,
+} from "@/components/forms";
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -12,8 +15,11 @@ export const BookCreate: React.FC = () => {
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [body, setBody] = useState("");
+  const [description, setDescription] = useState("");
+  const [file, setFile] = useState<File | undefined>(undefined);
 
+  console.log(file)
+  
   const create = async () => {
     const response = await fetch("/api/stripe/prices/create", {
       method: "POST",
@@ -38,10 +44,11 @@ export const BookCreate: React.FC = () => {
         onChange={(e) => setPrice(e.target.value)}
       ></InputText>
       <InputTextarea
-        label="Body"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
+        label="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       ></InputTextarea>
+      <InputFile setFile={setFile} />
       <ButtonWrapper position="end">
         <ButtonAnchor href={`/books`} variant="outlined">
           Cancel

@@ -4,7 +4,7 @@ import { Button, ButtonAnchor } from "@/components/buttons";
 import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 // import { LoadingDot } from "@/components/elements/LoadingDot";
 import { CartList } from "@/features/cart/CartList/components/CartList";
-import { CartDetails } from "@/functions/constants/cart-details";
+import { CartDetails } from "@/functions/constants/cart";
 import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";

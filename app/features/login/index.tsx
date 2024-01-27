@@ -2,13 +2,13 @@
 
 import signInGoogle from "@/assets/images/image_signin_google.png";
 import signInMicrosoft from "@/assets/images/image_signin_microsoft.png";
-import { Button, ButtonWrapper, UnstyledButton } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
+import { UnstyledButton } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Nl2br } from "@/components/elements/Nl2br";
 import { Panel } from "@/components/elements/Panel";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
+import { ErrorDialog } from "@/features/login/components/ErrorDialog";
 import { tos } from "@/functions/constants/tos";
 import { useAuth } from "@/functions/hooks/useAuth";
 import Image from "next/image";
@@ -18,18 +18,18 @@ import styles from "./styles.module.scss";
 const BLOCK_NAME = "login";
 
 export function Login() {
-  const errorModal = useDialog();
+  const errorDialog = useDialog();
   const { login, isUser } = useAuth();
 
   const [checkbox, setCheckbox] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const handleLogin = async (method: "google" | "microsoft") => {
     const response = await login(method);
 
     if (!isUser(response)) {
-      setErrorMessage("");
-      errorModal.open();
+      setMessage("");
+      errorDialog.open();
     }
   };
 
@@ -97,25 +97,7 @@ export function Login() {
         </div>
       </div>
 
-      <Dialog ref={errorModal.ref} width="half">
-        <div className={styles[`${BLOCK_NAME}-dialog-inner`]}>
-          <p className={styles[`${BLOCK_NAME}-dialog-title`]}>
-            新規登録もしくはログインに失敗しました。
-          </p>
-          <p>
-            申し訳ございません。
-            <br />
-            以下のエラーが発生し、認証に失敗しました。
-          </p>
-          <p>{errorMessage}</p>
-          <p>
-            お手数ですが、入力内容を再度ご確認の上、もう一度お試しください。
-          </p>
-          <ButtonWrapper position="end">
-            <Button onClick={errorModal.close}>閉じる</Button>
-          </ButtonWrapper>
-        </div>
-      </Dialog>
+      <ErrorDialog dialog={errorDialog} message={message} />
     </>
   );
 }

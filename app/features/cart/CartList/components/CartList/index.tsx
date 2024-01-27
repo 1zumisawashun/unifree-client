@@ -1,7 +1,7 @@
 "use client";
 
 import { CartItem } from "@/features/cart/CartList/components/CartItem";
-import { CartDetails } from "@/functions/constants/cart-details";
+import { CartDetails } from "@/functions/constants/cart";
 import styles from "./styles.module.scss";
 
 type Props = {

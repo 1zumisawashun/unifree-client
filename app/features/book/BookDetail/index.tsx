@@ -6,9 +6,9 @@ import {
   ButtonWrapper,
   UnstyledButtonAnchor,
 } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Label } from "@/components/elements/Label";
+import { DeleteDialog } from "@/features/book/BookDetail/components/DeleteDialog";
 import { Book } from "@/functions/constants/books";
 import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import styles from "./styles.module.scss";
@@ -21,19 +21,9 @@ const BLOCK_NAME = "book-detail";
 
 /* eslint-disable @next/next/no-img-element */
 export const BookDetail: React.FC<Props> = ({ book }) => {
-  const { id, name, categories, body, images, price } = book;
+  const { id, name, categories, description, images, price } = book;
 
   const deleteDialog = useDialog();
-
-  const _delete = async () => {
-    const response = await fetch("/api/stripe/prices/delete", {
-      method: "POST",
-      body: JSON.stringify([id]),
-    });
-    const json = await response.json();
-    // change db active props to false
-    console.log(json);
-  };
 
   return (
     <>
@@ -62,7 +52,7 @@ export const BookDetail: React.FC<Props> = ({ book }) => {
           {formatCurrencyString(price)}
         </p>
 
-        <p className={styles[`${BLOCK_NAME}-text`]}>{body}</p>
+        <p className={styles[`${BLOCK_NAME}-text`]}>{description}</p>
 
         <ButtonWrapper position="end">
           <Button onClick={deleteDialog.open} variant="outlined" theme="danger">
@@ -74,25 +64,7 @@ export const BookDetail: React.FC<Props> = ({ book }) => {
         </ButtonWrapper>
       </div>
 
-      <Dialog ref={deleteDialog.ref} close={deleteDialog.close}>
-        <div className={styles[`${BLOCK_NAME}-modal-body`]}>
-          <p className={styles[`${BLOCK_NAME}-modal-text`]}>
-            本当に削除しますか？
-          </p>
-          <ButtonWrapper position="center">
-            <Button
-              onClick={deleteDialog.close}
-              theme="danger"
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-            <Button onClick={_delete} theme="danger">
-              Delete
-            </Button>
-          </ButtonWrapper>
-        </div>
-      </Dialog>
+      <DeleteDialog dialog={deleteDialog} book={book} />
     </>
   );
 };
