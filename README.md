@@ -9,7 +9,7 @@
 ## Todo
 
 <details>
-<summary>🔷1/22（月）〜1/28（日）までのスケジュール</summary>
+<summary>🔷 1/22（月）〜1/28（日）までのスケジュール</summary>
 
 - 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
 - atoms・molecules 単位のコンポーネントの実装
@@ -21,7 +21,7 @@
 </details>
 
 <details>
-<summary>🔷1/29（月）〜2/4（日）までのスケジュール</summary>
+<summary>🔷 1/29（月）〜2/4（日）までのスケジュール</summary>
 
 - PlanetScale + Prisma を連携させて RDB を組む
 - テーブル設計やヒアリングの実施
@@ -30,13 +30,13 @@
 </details>
 
 <details>
-<summary>🔷2/5（月）〜2/11（日）までのスケジュール</summary>
+<summary>🔷 2/5（月）〜2/11（日）までのスケジュール</summary>
 
 - 未定
 
 </details>
 
-🔸 試してみたいこと
+🔶 試してみたいこと
 
 - floating-ui
 - cloudflare-images、もし難しそうなら gcs 使う
@@ -48,6 +48,8 @@
 <details>
 <summary>index</summary>
 
+- index
+
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d05db166-b0a8-4996-8e60-26d81d5a62a0)
 
 </details>
@@ -56,21 +58,27 @@
 <summary>books</summary>
 
 - book-list
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/dd1af9ac-7691-4806-a231-f49290095880)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/71fcb5a3-d258-4574-8024-f72cb1019b3d)
 
 - book-detail
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/71fcb5a3-d258-4574-8024-f72cb1019b3d)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/dd1af9ac-7691-4806-a231-f49290095880)
 
 - book-create
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/64b3a407-dfda-4f9a-b676-cd65be809db0)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/64b3a407-dfda-4f9a-b676-cd65be809db0)
 
 - book-edit
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/70e90b8e-09fd-4fda-a7d6-e1cc4cbfaed1)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/70e90b8e-09fd-4fda-a7d6-e1cc4cbfaed1)
 
 </details>
 
 <details>
 <summary>cart</summary>
+
+- cart
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6901daab-5d44-4f26-9f8b-ab8a359169ca)
 
@@ -82,15 +90,19 @@
 <summary>mypage</summary>
 
 - mypage-post
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6a2620c2-e9c7-4d7b-9a2d-98f422f8545d)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6a2620c2-e9c7-4d7b-9a2d-98f422f8545d)
 
 - mypage-history
-  ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a01ead40-cc7f-4401-af52-c8eb5009bd75)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a01ead40-cc7f-4401-af52-c8eb5009bd75)
 
 </details>
 
 <details>
 <summary>login</summary>
+
+- login
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/c252b32b-2f91-48ac-b4bd-ac27426a727d)
 
@@ -99,12 +111,16 @@
 <details>
 <summary>tos</summary>
 
+- tos
+
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a42009d0-74ff-4cf4-ad55-754b3f4bfe89)
 
 </details>
 
 <details>
 <summary>faq</summary>
+
+- faq
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d66f5d5d-4768-4b2e-8b10-7bc415a0d555)
 
