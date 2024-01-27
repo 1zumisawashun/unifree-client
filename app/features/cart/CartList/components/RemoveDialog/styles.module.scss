@@ -1,14 +1,14 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/objects/base-text";
 
-.cart-item-modal-body {
+.remove-dialog-body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
 }
 
-.cart-item-modal-text {
+.remove-dialog-text {
   composes: text-normal;
   font-weight: bold;
   color: $grey-main;

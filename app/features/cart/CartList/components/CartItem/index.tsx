@@ -39,7 +39,7 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
           </Button>
         </div>
       </div>
-      <RemoveDialog dialog={removeDialog} />
+      <RemoveDialog dialog={removeDialog} cart={cart} />
     </>
   );
 };

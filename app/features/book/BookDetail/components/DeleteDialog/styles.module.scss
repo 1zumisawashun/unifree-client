@@ -1,14 +1,14 @@
 @import "@/assets/styles/objects/base-text";
 @import "@/assets/styles/settings/color";
 
-.book-detail-modal-body {
+.delete-dialog-body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
 }
 
-.book-detail-modal-text {
+.delete-dialog-text {
   composes: text-normal;
   font-weight: bold;
   color: $grey-main;

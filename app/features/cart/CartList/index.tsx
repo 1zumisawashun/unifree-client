@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, ButtonAnchor } from "@/components/buttons";
+import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 // import { LoadingDot } from "@/components/elements/LoadingDot";
 import { CartList } from "@/features/cart/CartList/components/CartList";
@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 const BLOCK_NAME = "cart";
 
 export function Cart() {
-  const { cartDetails, totalPrice, clearCart } = useShoppingCart();
+  const { cartDetails, totalPrice } = useShoppingCart();
 
   const buy = async () => {
     const params = Object.keys(cartDetails ?? {}).map((key) => key);
@@ -32,24 +32,16 @@ export function Cart() {
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <CartList carts={cartDetails as any as CartDetails} />
       <hr className={styles[`${BLOCK_NAME}-divider`]} />
-      <div className={styles[`${BLOCK_NAME}-total-wrapper`]}>
+      <div className={styles[`${BLOCK_NAME}-between-wrapper`]}>
         <p>合計</p>
         <p>{formatCurrencyString(totalPrice)}</p>
       </div>
       <p className={styles[`${BLOCK_NAME}-text`]}>
         「Pay Now」押下後に決済ページへ遷移します。
       </p>
-      <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
+      <ButtonWrapper direction="column">
         <Button onClick={buy} className={styles[`${BLOCK_NAME}-button`]}>
           Pay Now
-        </Button>
-        <Button
-          onClick={clearCart}
-          className={styles[`${BLOCK_NAME}-button`]}
-          theme="danger"
-          variant="outlined"
-        >
-          Clear Cart
         </Button>
         <ButtonAnchor
           href={"/books"}
@@ -58,7 +50,7 @@ export function Cart() {
         >
           Continue Shopping
         </ButtonAnchor>
-      </div>
+      </ButtonWrapper>
     </div>
   );
 }

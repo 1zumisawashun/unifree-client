@@ -24,14 +24,15 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 50%;
-  // padding: 0.5rem 0;
 }
+
 .cart-item-title {
   font-size: 1rem;
   font-weight: 600;
   color: #4a5568;
   composes: _line-clamp-3;
 }
+
 .cart-item-price {
   font-size: 0.875rem;
   font-weight: 500;

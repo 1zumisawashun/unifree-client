@@ -1,16 +1,21 @@
 @import "@/assets/styles/objects/base-text";
 @import "@/assets/styles/settings/color";
 
-.mypage-container {
+.profile-card-container {
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
 }
-.mypage-wrapper {
+
+.profile-card-flex-wrapper {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
-.mypage-avatar {
+
+.profile-card-avatar {
   overflow: hidden;
   border-radius: 0.5rem;
   object-fit: cover;
@@ -18,23 +23,23 @@
   height: 45px;
 }
 
-.mypage-content {
+.profile-card-between-wrapper {
   display: grid;
   align-content: space-evenly;
 }
-.mypage-name {
+
+.profile-card-name {
   composes: text-normal;
   font-weight: 600;
   display: block;
 }
-.mypage-text-wrapper {
+
+.profile-card-text-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-}
-.mypage-text {
+  gap: 0.5rem;
+  align-items: center;
+  // https://github.com/css-modules/css-modules/issues/190
   composes: text-x-small;
   color: $grey-main;
 }
-
-

@@ -3,22 +3,32 @@
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { CartItem as ICartItem } from "@/functions/constants/cart";
+import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "cart-item";
+const BLOCK_NAME = "remove-dialog";
 
-export const RemoveDialog = ({ dialog }: { dialog: UseDialog }) => {
+export const RemoveDialog = ({
+  dialog,
+  cart,
+}: {
+  dialog: UseDialog;
+  cart: ICartItem;
+}) => {
+  const { removeItem } = useShoppingCart();
+  
   return (
     <Dialog {...dialog}>
-      <div className={styles[`${BLOCK_NAME}-modal-body`]}>
-        <p className={styles[`${BLOCK_NAME}-modal-text`]}>
+      <div className={styles[`${BLOCK_NAME}-body`]}>
+        <p className={styles[`${BLOCK_NAME}-text`]}>
           カートから取り除きますか？
         </p>
         <ButtonWrapper position="center">
           <Button onClick={dialog.close} theme="danger" variant="outlined">
             Cancel
           </Button>
-          <Button onClick={() => alert("remove demo")} theme="danger">
+          <Button onClick={() => removeItem(cart.id)} theme="danger">
             Remove
           </Button>
         </ButtonWrapper>

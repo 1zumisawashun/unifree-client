@@ -1,14 +1,13 @@
 @import "@/assets/styles/objects/base-text";
 @import "@/assets/styles/settings/color";
 
-.mypage-modal-body {
+.edit-dialog-body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  text-align: center;
 }
 
-.mypage-modal-text {
+.edit-dialog-text {
   composes: text-normal;
   font-weight: bold;
   color: $grey-main;

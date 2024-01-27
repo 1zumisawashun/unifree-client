@@ -5,7 +5,7 @@ import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "login";
+const BLOCK_NAME = "error-dialog";
 
 export function ErrorDialog({
   dialog,
@@ -16,8 +16,8 @@ export function ErrorDialog({
 }) {
   return (
     <Dialog {...dialog} width="half">
-      <div className={styles[`${BLOCK_NAME}-dialog-inner`]}>
-        <p className={styles[`${BLOCK_NAME}-dialog-title`]}>
+      <div className={styles[`${BLOCK_NAME}-inner`]}>
+        <p className={styles[`${BLOCK_NAME}-title`]}>
           新規登録もしくはログインに失敗しました。
         </p>
         <p>
