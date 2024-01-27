@@ -1,10 +1,13 @@
-@import '@/assets/styles/settings/color';
+@import "@/assets/styles/settings/color";
 
 .input-label-wrapper {
   display: inline-flex;
   align-items: center;
   flex-direction: row;
   gap: 0.5rem;
+  &:empty {
+    display: none;
+  }
 }
 
 .input-label-text {

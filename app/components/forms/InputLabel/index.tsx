@@ -4,13 +4,15 @@ import styles from "./styles.module.scss";
 const BLOCK_NAME = "input-label";
 
 export function InputLabel({
+  children,
   isOptioned,
   isRequired,
-  children,
 }: InputLabelProps) {
   return (
     <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-      <p className={styles[`${BLOCK_NAME}-text`]}>{children}</p>
+      {children ? (
+        <p className={styles[`${BLOCK_NAME}-text`]}>{children}</p>
+      ) : null}
       {isOptioned ? (
         <span className={styles[`${BLOCK_NAME}-option`]}>任意</span>
       ) : null}

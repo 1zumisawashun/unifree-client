@@ -1,0 +1,14 @@
+.swiper-container {
+  display: flex;
+  position: relative;
+}
+.swiper-left-button {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+}
+.swiper-right-button {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+}

@@ -1,6 +1,6 @@
 import { UnstyledButton } from "@/components/buttons/UnstyledButton";
+import { icons } from "@/components/buttons/button.constant";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
-import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
 import clsx from "clsx";
 import { ComponentProps, forwardRef } from "react";
 import styles from "./styles.module.scss";
@@ -9,12 +9,6 @@ type Props = Omit<ComponentProps<typeof UnstyledButton>, "children"> &
   BaseIconButtonProps;
 
 type Ref = HTMLButtonElement;
-
-const Icons = {
-  add: AddIcon,
-  edit: EditIcon,
-  cross: CrossIcon,
-};
 
 export const IconButton = forwardRef<Ref, Props>(
   (
@@ -25,18 +19,19 @@ export const IconButton = forwardRef<Ref, Props>(
       name = "edit",
       size = "medium",
       shape = "round",
+      className,
       disabled,
       ...props
     },
     ref
   ) => {
-    const Tag = Icons[`${name}`];
+    const Tag = icons[`${name}`];
 
     return (
       <UnstyledButton
         {...props}
         type={type}
-        className={clsx(styles["icon-button"])}
+        className={clsx(styles["icon-button"], className)}
         data-variant={variant}
         data-theme={theme}
         data-size={size}

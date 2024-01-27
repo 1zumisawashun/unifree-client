@@ -9,12 +9,24 @@
   width: 100%;
 }
 
+.input-wrapper-label {
+  &:empty {
+    display: none;
+  }
+}
+
 .input-wrapper-description {
   font-size: 0.875rem;
   color: $grey-light;
+  &:empty {
+    display: none;
+  }
 }
 
 .input-wrapper-error {
   font-size: 0.875rem;
   color: $red-dark;
+  &:empty {
+    display: none;
+  }
 }

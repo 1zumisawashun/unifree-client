@@ -22,21 +22,29 @@ export function InputWrapper({
       className={clsx(styles[`${BLOCK_NAME}`], className)}
       data-width={width}
     >
-      <label htmlFor={id} aria-disabled={disabled}>
-        <InputLabel isOptioned={isOptioned} isRequired={isRequired}>
-          {label}
-        </InputLabel>
+      <label
+        htmlFor={id}
+        aria-disabled={disabled}
+        className={styles[`${BLOCK_NAME}-label`]}
+      >
+        {label && (
+          <InputLabel isOptioned={isOptioned} isRequired={isRequired}>
+            {label}
+          </InputLabel>
+        )}
       </label>
 
-      {description && (
-        <p className={styles[`${BLOCK_NAME}-description`]}>{description}</p>
-      )}
+      <p className={styles[`${BLOCK_NAME}-description`]}>{description}</p>
 
-      <label htmlFor={id} aria-disabled={disabled}>
+      <label
+        htmlFor={id}
+        aria-disabled={disabled}
+        className={styles[`${BLOCK_NAME}-label`]}
+      >
         {children}
       </label>
 
-      {error && <p className={styles[`${BLOCK_NAME}-error`]}>{error}</p>}
+      <p className={styles[`${BLOCK_NAME}-error`]}>{error}</p>
     </div>
   );
 }

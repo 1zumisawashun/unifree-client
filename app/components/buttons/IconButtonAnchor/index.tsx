@@ -1,6 +1,7 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
+import { icons } from "@/components/buttons/button.constant";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
-import { AddIcon, CrossIcon, EditIcon } from "@/components/elements/SvgIcon";
+import clsx from "clsx";
 import { ComponentProps, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
@@ -8,12 +9,6 @@ type Props = Omit<ComponentProps<typeof UnstyledButtonAnchor>, "children"> &
   BaseIconButtonProps;
 
 type Ref = HTMLAnchorElement;
-
-const Icons = {
-  add: AddIcon,
-  edit: EditIcon,
-  cross: CrossIcon,
-};
 
 export const IconButtonAnchor = forwardRef<Ref, Props>(
   (
@@ -23,22 +18,21 @@ export const IconButtonAnchor = forwardRef<Ref, Props>(
       name = "add",
       size = "medium",
       shape = "round",
-      disabled,
+      className,
       ...props
     },
     ref
   ) => {
-    const Tag = Icons[`${name}`];
+    const Tag = icons[`${name}`];
 
     return (
       <UnstyledButtonAnchor
         {...props}
-        className={styles["icon-button"]}
+        className={clsx(styles["icon-button"], className)}
         data-variant={variant}
         data-theme={theme}
         data-size={size}
         data-shape={shape}
-        aria-disabled={disabled}
         ref={ref}
       >
         <Tag />

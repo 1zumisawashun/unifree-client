@@ -15,17 +15,19 @@
   }
 }
 
-
 .book-card-wrapper {
   margin: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  border: 1px solid $border;
+  border-top: none;
+  border-radius: 0.5rem;
 }
 
 .book-card-image {
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .book-card-layer {
@@ -45,7 +47,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 0.5rem;
+      border-radius: 0.5rem 0.5rem 0 0;
     }
     > p {
       position: absolute;
@@ -64,13 +66,18 @@
   font-size: 1rem;
   font-weight: 600;
   color: #4a5568;
-  composes: _line-clamp-3;
+  composes: _line-clamp-2;
+  height: 46px; // これ動的にかえられないか？
+  padding: 0 0.5rem;
 }
 
 .book-card-content {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+
   > p,
   span {
     font-size: 0.875rem;

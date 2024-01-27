@@ -1,3 +1,4 @@
+import { icons } from "@/components/buttons/button.constant";
 import {
   ShapeType,
   SizeType,
@@ -18,7 +19,8 @@ export type BaseButtonProps = BaseProps & {
   suffix?: any;
 };
 
+type IconNames = keyof typeof icons;
+
 export type BaseIconButtonProps = BaseProps & {
-  name?: "add" | "edit" | "cross";
-  disabled?: boolean;
+  name?: IconNames;
 };

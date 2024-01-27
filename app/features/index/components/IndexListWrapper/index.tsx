@@ -1,4 +1,4 @@
-import { UnstyledButtonAnchor } from "@/components/buttons";
+import { LabelButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import "server-only";
 import styles from "./styles.module.scss";
 
@@ -18,12 +18,12 @@ export const IndexListWrapper: React.FC<Props> = ({
   return (
     <section>
       <div className={styles[`${BLOCK_NAME}`]}>
-        <h2 className={styles[`${BLOCK_NAME}-title`]}>{title}</h2>
+        <LabelButtonAnchor href={href}>{title}</LabelButtonAnchor>
         <UnstyledButtonAnchor
           href={href}
           className={styles[`${BLOCK_NAME}-link`]}
         >
-          show →
+          show more...
         </UnstyledButtonAnchor>
       </div>
       {children}
