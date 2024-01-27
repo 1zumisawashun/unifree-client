@@ -1,22 +1,13 @@
 @import "@/assets/styles/settings/color";
 
-.drag-and-drop-button {
-  composes: button from "@/components/buttons/Button/styles.module.scss";
-  min-width: 200px;
-}
-
-.drag-and-drop-text {
-  // composes: _line-clamp-1 -grey;
-}
-
 .drag-and-drop-file {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   padding: 1rem;
-  border: 1px solid grey;
-  border-radius: 1rem;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
   width: 100%;
 }
 

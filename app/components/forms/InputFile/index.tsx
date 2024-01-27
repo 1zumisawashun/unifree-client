@@ -1,3 +1,4 @@
+import { Button } from "@/components/buttons/Button";
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
 import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import { InputWrapper } from "@/components/forms/InputWrapper";
@@ -9,6 +10,10 @@ export type InputFileProps = {
   setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
+
+const BLOCK_NAME = "drag-and-drop";
+
+const accept = "image/png, image/jpeg, image/webp, image/bmp";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // 暗黙のlabelを使っているので問題なし
@@ -25,6 +30,7 @@ export function InputFile({
 }: InputFileProps) {
   const id = useId();
   const dragRef = useRef<HTMLLabelElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const [src, setSrc] = useState<string | null>(null);
 
   const handleUpload = async (e: BaseSyntheticEvent) => {
@@ -41,10 +47,7 @@ export function InputFile({
     setSrc(result);
   });
 
-  const BLOCK_NAME = "drag-and-drop";
-
-  const accept = "image/png, image/jpeg, image/webp, image/bmp";
-
+  /* eslint-disable @next/next/no-img-element */
   return (
     <InputWrapper
       label={label}
@@ -62,18 +65,17 @@ export function InputFile({
           hidden
           multiple={isMultiple}
           accept={accept}
+          ref={inputRef}
           id={id}
           onChange={handleUpload}
         />
 
         {src ? (
-          /* eslint-disable */
           <div>
             <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
               <img
                 src={src}
                 alt={src}
-                // fill
                 className={styles[`${BLOCK_NAME}-image`]}
               />
             </div>
@@ -82,15 +84,13 @@ export function InputFile({
           <p>アップロードしてください</p>
         )}
 
-        <span
-          className={styles[`${BLOCK_NAME}-button`]}
-          data-variant="contained"
-          data-theme="primary"
-          data-size="small"
-          data-shape="round"
+        <Button
+          size="small"
+          shape="round"
+          onClick={() => inputRef.current?.click()}
         >
           ファイルを選択する
-        </span>
+        </Button>
       </label>
     </InputWrapper>
   );

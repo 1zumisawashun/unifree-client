@@ -22,6 +22,7 @@ export function Swiper({
       <IconButton
         size="small"
         name="arrow-left"
+        variant="outlined"
         onClick={() => {
           // @ts-ignore
           swiperRef.current?.slidePrev();
@@ -44,6 +45,7 @@ export function Swiper({
       <IconButton
         size="small"
         name="arrow-right"
+        variant="outlined"
         onClick={() => {
           // @ts-ignore
           swiperRef.current?.slideNext();
