@@ -7,21 +7,21 @@ import {
   InputText,
   InputTextarea,
 } from "@/components/forms";
-// import { useRouter } from "next/navigation";
+import { API } from "@/functions/constants/api";
 import { useState } from "react";
 
-export const BookCreate: React.FC = () => {
-  // const router = useRouter();
+const url = API.createStripePrices;
 
+export const BookCreate: React.FC = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | undefined>(undefined);
 
-  console.log(file)
-  
+  console.log(file);
+
   const create = async () => {
-    const response = await fetch("/api/stripe/prices/create", {
+    const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({ name, price: +price }),
     });

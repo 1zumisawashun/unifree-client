@@ -2,11 +2,14 @@
 
 import { LoadingSpinner } from "@/components/elements/LoadingSpinner";
 import { Panel } from "@/components/elements/Panel";
+import { API } from "@/functions/constants/api";
 import { useEffect, useState } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "cart-thankyou";
+
+const url = API.deleteStripePrices;
 
 /* eslint-disable react-hooks/exhaustive-deps */
 export const CartThankyou: React.FC = () => {
@@ -19,7 +22,7 @@ export const CartThankyou: React.FC = () => {
     setIsPending(true);
     try {
       const params = Object.keys(cartDetails ?? {}).map((key) => key);
-      const response = await fetch("/api/stripe/prices/update", {
+      const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(params),
       });

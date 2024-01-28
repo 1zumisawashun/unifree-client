@@ -4,6 +4,7 @@ import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 // import { LoadingDot } from "@/components/elements/LoadingDot";
 import { CartList } from "@/features/cart/CartList/components/CartList";
+import { API } from "@/functions/constants/api";
 import { CartDetails } from "@/functions/constants/cart";
 import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
 import { useShoppingCart } from "use-shopping-cart";
@@ -11,12 +12,14 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "cart";
 
+const url = API.createStripeCheckoutSessions;
+
 export function Cart() {
   const { cartDetails, totalPrice } = useShoppingCart();
 
   const buy = async () => {
     const params = Object.keys(cartDetails ?? {}).map((key) => key);
-    const response = await fetch("/api/stripe/checkout_sessions/create", {
+    const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(params),
     });

@@ -9,7 +9,7 @@
 ## Todo
 
 <details>
-<summary>🔷 1/22（月）〜1/28（日）までのスケジュール</summary>
+<summary>🔷 1/22（月）〜1/28（日）</summary>
 
 - 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
 - atoms・molecules 単位のコンポーネントの実装
@@ -21,7 +21,7 @@
 </details>
 
 <details>
-<summary>🔷 1/29（月）〜2/4（日）までのスケジュール</summary>
+<summary>🔷 1/29（月）〜2/4（日）</summary>
 
 - PlanetScale + Prisma を連携させて RDB を組む
 - テーブル設計やヒアリングの実施
@@ -30,7 +30,7 @@
 </details>
 
 <details>
-<summary>🔷 2/5（月）〜2/11（日）までのスケジュール</summary>
+<summary>🔷 2/5（月）〜2/11（日）</summary>
 
 - 未定
 

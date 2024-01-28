@@ -5,11 +5,16 @@ import { useToast } from "@/components/elements/Toast/hooks/useToast";
 import { FormWrapper, InputText, InputTextarea } from "@/components/forms";
 import { Book } from "@/functions/constants/books";
 // import { useRouter } from "next/navigation";
+import { API } from "@/functions/constants/api";
 import { useEffect, useState } from "react";
 
 type Props = {
   book: Book;
 };
+
+const createUrl = API.createStripePrices;
+
+const deleteUrl = API.deleteStripePrices;
 
 export const BookEdit: React.FC<Props> = ({ book }) => {
   // const router = useRouter();
@@ -25,13 +30,14 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
   const [description, setDescription] = useState(book.description);
 
   const edit = async () => {
-    const response = await fetch("/api/stripe/prices/delete", {
+    const response = await fetch(deleteUrl, {
       method: "POST",
       body: JSON.stringify([book.id]),
     });
     const json = await response.json();
     console.log(json);
-    const response2 = await fetch("/api/stripe/prices/create", {
+
+    const response2 = await fetch(createUrl, {
       method: "POST",
       body: JSON.stringify({ name, price: +price }),
     });
