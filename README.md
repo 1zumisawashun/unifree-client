@@ -6,16 +6,16 @@
 
 - null
 
-## Todo
+## Schedule
 
 <details>
 <summary>🔷 1/22（月）〜1/28（日）</summary>
 
-- 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
-- atoms・molecules 単位のコンポーネントの実装
-- 最低限先方に見せられるだけの UI を整える
-- Stripe で購入導線を整える（Stripe + use-shopping-cart）
-- ログイン・ログアウト・ログイン中の状態管理を可能にする（FirebaseAuth・NextAuth）
+- ✅ 環境構築・基盤開発（リンター設定・ディレクトリ構成の考案・技術選定 etc）
+- ✅ atoms・molecules 単位のコンポーネントの実装
+- ✅ 最低限先方に見せられるだけの UI を整える
+- ✅ Stripe で購入導線を整える（Stripe + use-shopping-cart）
+- ✅ ログイン・ログアウト・ログイン中の状態管理を可能にする（FirebaseAuth・NextAuth）
 - Vercel へデプロイさせる
 
 </details>
@@ -25,7 +25,8 @@
 
 - PlanetScale + Prisma を連携させて RDB を組む
 - テーブル設計やヒアリングの実施
-- テストの組み込み
+- テストの組み込み（RTL・VRT etc）
+- Vercel へデプロイさせる
 
 </details>
 
@@ -36,14 +37,18 @@
 
 </details>
 
-🔶 試してみたいこと
+## Try
 
-- floating-ui
+<details>
+<summary>🔶 試してみたいこと</summary>
+
+- floating-ui でコンポーネントの改修
 - cloudflare-images、もし難しそうなら gcs 使う
 - テスト実装（RTL・VRT etc）
-- accordion, search-bar の実装
 
-## UI
+</details>
+
+## UI_20240127
 
 <details>
 <summary>index</summary>
@@ -133,7 +138,7 @@ frontend: Next.js App Router
 backend: Next.js Route Handler
 orm: Prisma
 database: PlanetScale
-css: CSS Modules + Sass
+css: ITCSS + CSS Modules + Sass
 auth: Firebase Auth + NextAuth
 storage: Cloudflare Images or GCS
 catalog: Storybook
