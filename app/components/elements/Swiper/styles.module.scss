@@ -1,3 +1,5 @@
+@import "@/assets/styles/settings/media";
+
 .swiper-container {
   display: flex;
   position: relative;
@@ -6,9 +8,15 @@
   position: absolute;
   left: -50px;
   top: 50%;
+  @include sp {
+    display: none;
+  }
 }
 .swiper-right-button {
   position: absolute;
   right: -50px;
   top: 50%;
+  @include sp {
+    display: none;
+  }
 }

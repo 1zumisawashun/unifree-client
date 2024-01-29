@@ -3,16 +3,7 @@
 
 .book-card-list {
   display: grid;
-  gap: 1rem;
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 1rem;
-  }
-
-  @media (min-width: 1280px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .book-card-wrapper {
@@ -58,6 +49,7 @@
       font-weight: bold;
       letter-spacing: 5px;
       color: #fff;
+      text-align: center;
     }
   }
 }

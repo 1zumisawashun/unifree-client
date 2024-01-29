@@ -1,9 +1,13 @@
 @import "@/assets/styles/objects/base-text";
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/settings/media";
+@import "@/assets/styles/utilities/line-clamp";
 
 .profile-card-container {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
   padding: 1rem;
   border: 1px solid $border;
   border-radius: 0.5rem;
@@ -14,18 +18,18 @@
   flex-direction: row;
   gap: 1rem;
 }
+.profile-card-flex-column-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
 .profile-card-avatar {
   overflow: hidden;
   border-radius: 0.5rem;
   object-fit: cover;
-  width: 45px;
-  height: 45px;
-}
-
-.profile-card-between-wrapper {
-  display: grid;
-  align-content: space-evenly;
+  width: 42px;
+  height: 42px;
 }
 
 .profile-card-name {
@@ -34,12 +38,8 @@
   display: block;
 }
 
-.profile-card-text-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: center;
-  // https://github.com/css-modules/css-modules/issues/190
+.profile-card-text {
   composes: text-x-small;
   color: $grey-main;
+  composes: _line-clamp-1;
 }

@@ -7,6 +7,10 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "profile-card";
 
+const university = "駒沢大学";
+const faculty = "経済学部";
+const department = "経済学科";
+
 /* eslint-disable @next/next/no-img-element */
 export function ProfileCard({
   dialog,
@@ -15,6 +19,10 @@ export function ProfileCard({
   dialog: UseDialog;
   user?: Session["user"];
 }) {
+  const college = `${university} ${faculty} ${department}`;
+  const username = user?.name ?? "匿名太郎";
+  const detail = `出品数: ${0} 購入数: ${0}`;
+
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <div className={styles[`${BLOCK_NAME}-flex-wrapper`]}>
@@ -23,24 +31,15 @@ export function ProfileCard({
           className={styles[`${BLOCK_NAME}-avatar`]}
           alt={`${BLOCK_NAME}-avatar`}
         />
-        <div className={styles[`${BLOCK_NAME}-between-wrapper`]}>
-          <div className={styles[`${BLOCK_NAME}-text-wrapper`]}>
-            <p className={styles[`${BLOCK_NAME}-name`]}>
-              {user?.name ?? "匿名"}
-            </p>
-            <div className={styles[`${BLOCK_NAME}-text-wrapper`]}>
-              <p>〇〇大学</p>
-              <p>〇〇学部</p>
-              <p>〇〇学科</p>
-            </div>
-          </div>
-          <div className={styles[`${BLOCK_NAME}-text-wrapper`]}>
-            <p>出品数: 0</p>
-            <p>購入数: 0</p>
-          </div>
+        <div className={styles[`${BLOCK_NAME}-flex-column-wrapper`]}>
+          <p className={styles[`${BLOCK_NAME}-name`]}>{username}</p>
+          <p className={styles[`${BLOCK_NAME}-text`]}>{college}</p>
+          <p className={styles[`${BLOCK_NAME}-text`]}>{detail}</p>
         </div>
       </div>
-      <Button onClick={dialog.open}>変更する</Button>
+      <Button onClick={dialog.open} variant="outlined">
+        変更する
+      </Button>
     </div>
   );
 }

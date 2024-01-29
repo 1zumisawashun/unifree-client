@@ -22,11 +22,7 @@ export async function Header() {
 
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
         {headerRoutes.map((route) => (
-          <ButtonAnchor
-            key={route.value}
-            href={route.href}
-            variant="transparent"
-          >
+          <ButtonAnchor key={route.value} href={route.href} variant="outlined">
             {route.value}
           </ButtonAnchor>
         ))}

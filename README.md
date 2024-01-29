@@ -16,6 +16,7 @@
 - ✅ 最低限先方に見せられるだけの UI を整える
 - ✅ Stripe で購入導線を整える（Stripe + use-shopping-cart）
 - ✅ ログイン・ログアウト・ログイン中の状態管理を可能にする（FirebaseAuth・NextAuth）
+- ✅ 基本的な sp 対応をする
 - Vercel へデプロイさせる
 
 </details>
@@ -45,6 +46,7 @@
 - floating-ui でコンポーネントの改修
 - cloudflare-images、もし難しそうなら gcs 使う
 - テスト実装（RTL・VRT etc）
+- 意識的な button コンポーネントの優先度決め
 
 </details>
 
