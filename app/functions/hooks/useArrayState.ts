@@ -1,10 +1,25 @@
 import { useState } from "react";
 
-export const useArrayState = <T>(initial: T[] = []) => {
-  const [state, setState] = useState<any[]>(initial);
+export type State<T> = T[];
 
-  const add = (newValue: T) => {
-    setState((prev) => [...prev, newValue]);
+export type SetState<T> = {
+  readonly add: (newValues: T[]) => void;
+  readonly remove: (index: number) => void;
+};
+
+export type UseArrayState<T> = [State<T>, SetState<T>];
+
+export const useArrayState = <T>(initial: T[] = []) => {
+  const [state, setState] = useState<T[]>(initial);
+
+  const add = (newValue: T | T[]) => {
+    const isArray = Array.isArray(newValue);
+
+    if (isArray) {
+      setState((prev) => [...prev, ...newValue]);
+    } else {
+      setState((prev) => [...prev, newValue]);
+    }
   };
 
   const remove = (index: number) => {

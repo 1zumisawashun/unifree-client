@@ -1,6 +1,6 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { Book } from "@/functions/constants/books";
-import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
+import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "book-card";

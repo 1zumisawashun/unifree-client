@@ -4,7 +4,7 @@ import { Button, ButtonAnchor } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { RemoveDialog } from "@/features/cart/CartList/components/RemoveDialog";
 import { CartItem as ICartItem } from "@/functions/constants/cart";
-import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
+import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
 type Props = {

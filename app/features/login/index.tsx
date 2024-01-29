@@ -10,7 +10,7 @@ import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
 import { ErrorDialog } from "@/features/login/components/ErrorDialog";
 import { tos } from "@/functions/constants/tos";
-import { useAuth } from "@/functions/hooks/useAuth";
+import { isUser, login } from "@/functions/helpers/auth";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.scss";
@@ -19,7 +19,6 @@ const BLOCK_NAME = "login";
 
 export function Login() {
   const errorDialog = useDialog();
-  const { login, isUser } = useAuth();
 
   const [checkbox, setCheckbox] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");

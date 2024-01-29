@@ -10,7 +10,7 @@ import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Label } from "@/components/elements/Label";
 import { DeleteDialog } from "@/features/book/BookDetail/components/DeleteDialog";
 import { Book } from "@/functions/constants/books";
-import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
+import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
 type Props = {

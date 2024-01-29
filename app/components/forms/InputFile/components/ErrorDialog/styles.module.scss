@@ -1,0 +1,12 @@
+@import "@/assets/styles/settings/color";
+
+.error-dialog-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error-dialog-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}

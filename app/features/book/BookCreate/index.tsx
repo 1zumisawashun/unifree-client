@@ -8,6 +8,7 @@ import {
   InputTextarea,
 } from "@/components/forms";
 import { API } from "@/functions/constants/api";
+import { getDownloadUrl } from "@/functions/helpers/storage";
 import { useState } from "react";
 
 const url = API.createStripePrices;
@@ -16,14 +17,21 @@ export const BookCreate: React.FC = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [file, setFile] = useState<File | undefined>(undefined);
+  const [files, setFiles] = useState<File[]>([]);
 
-  console.log(file);
+  const updateFiles = (files: File[]) => {
+    setFiles(files);
+  };
 
   const create = async () => {
+    if (!files) return;
+
+    const promises = files.map(async (file) => await getDownloadUrl({ file }));
+    const results = (await Promise.all(promises)) as any as string[];
+
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({ name, price: +price }),
+      body: JSON.stringify({ name, price: +price, images: results }),
     });
     const json = await response.json();
     // get productId, priceId
@@ -48,7 +56,7 @@ export const BookCreate: React.FC = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       ></InputTextarea>
-      <InputFile setFile={setFile} />
+      <InputFile onChange={updateFiles} />
       <ButtonWrapper position="end">
         <ButtonAnchor href={`/books`} variant="outlined">
           Cancel

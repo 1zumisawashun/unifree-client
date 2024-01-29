@@ -1,0 +1,25 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.preview-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preview-dialog-text {
+  composes: text-normal;
+  font-weight: bold;
+  color: $grey-main;
+}
+
+.preview-dialog-image-wrapper {
+  max-width: 500px;
+  max-height: 500px;
+  position: relative;
+}
+
+.preview-dialog-image {
+  object-fit: cover;
+  border: 1px solid $border;
+}

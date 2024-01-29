@@ -1,4 +1,7 @@
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/utilities/line-clamp";
+@import "@/assets/styles/objects/base-button";
+@import "@/assets/styles/objects/base-text";
 
 .drag-and-drop-file {
   display: flex;
@@ -10,14 +13,10 @@
   border-radius: 0.5rem;
   width: 100%;
 }
-
-.drag-and-drop-image-wrapper {
-  max-width: 300px;
-  max-height: 300px;
-  position: relative;
+.drag-and-drop-text {
+  composes: text-small;
+  color: $grey-main;
 }
-
-.drag-and-drop-image {
-  object-fit: cover;
-  border: 1px solid $border;
+.drag-and-drop-button {
+  composes: button;
 }

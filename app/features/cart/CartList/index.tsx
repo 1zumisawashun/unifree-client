@@ -6,7 +6,7 @@ import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 import { CartList } from "@/features/cart/CartList/components/CartList";
 import { API } from "@/functions/constants/api";
 import { CartDetails } from "@/functions/constants/cart";
-import { formatCurrencyString } from "@/functions/helpers/formatCurrencyString";
+import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
 
