@@ -1,0 +1,20 @@
+@import "@/assets/styles/settings/color";
+
+.panel {
+  padding: 1rem;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
+}
+
+.input-flex-wrapper {
+  display: flex;
+  gap: 1rem;
+  composes: panel;
+
+  &[data-direction="row"] {
+    flex-direction: row;
+  }
+  &[data-direction="column"] {
+    flex-direction: column;
+  }
+}

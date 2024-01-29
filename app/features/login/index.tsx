@@ -10,7 +10,7 @@ import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
 import { ErrorDialog } from "@/features/login/components/ErrorDialog";
 import { tos } from "@/functions/constants/tos";
-import { isUser, login } from "@/functions/helpers/auth";
+import { isUser, login } from "@/functions/helpers/firebaseAuth";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.scss";

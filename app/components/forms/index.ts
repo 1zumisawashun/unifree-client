@@ -1,6 +1,7 @@
 export { FormWrapper } from "./FormWrapper";
 export { InputCheckbox } from "./InputCheckbox";
 export { InputFile } from "./InputFile";
+export { InputFlexWrapper } from "./InputFlexWrapper";
 export { InputLabel } from "./InputLabel";
 export { InputRadio } from "./InputRadio";
 export { InputSelect } from "./InputSelect";
