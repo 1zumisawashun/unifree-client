@@ -1,19 +1,22 @@
+import { DirectionType, PositionType } from "@/functions/types/Common";
 import styles from "./styles.module.scss";
 
-type ButtonWrapperProps = {
+type Props = {
   children: React.ReactNode;
-  position?: string;
-  direction?: string;
+  position?: PositionType;
+  direction?: DirectionType;
 };
 
-export const ButtonWrapper: React.FC<ButtonWrapperProps> = ({
+const BLOCK_NAME = "button-wrapper";
+
+export const ButtonWrapper: React.FC<Props> = ({
   children,
-  position,
-  direction,
+  position = "start",
+  direction = "row",
 }) => {
   return (
     <div
-      className={styles["button-wrapper"]}
+      className={styles[`${BLOCK_NAME}`]}
       data-position={position}
       data-direction={direction}
     >

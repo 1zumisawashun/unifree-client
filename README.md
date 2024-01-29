@@ -142,7 +142,7 @@ orm: Prisma
 database: PlanetScale
 css: ITCSS + CSS Modules + Sass
 auth: Firebase Auth + NextAuth
-storage: Cloudflare Images or GCS
+storage: GCS
 catalog: Storybook
 hosting: Vercel
 library: react-hook-form, zod, Stripe, use-shopping-cart, etc

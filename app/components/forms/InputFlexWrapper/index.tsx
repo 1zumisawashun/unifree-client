@@ -1,8 +1,9 @@
+import { DirectionType } from "@/functions/types/Common";
 import styles from "./styles.module.scss";
 
 type Props = {
   children: React.ReactNode;
-  direction?: "row" | "column";
+  direction?: DirectionType;
   hasBorder?: boolean;
 };
 
