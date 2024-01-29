@@ -2,10 +2,15 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { FormWrapper, InputText, InputTextarea } from "@/components/forms";
-import { Book } from "@/functions/constants/books";
-// import { useRouter } from "next/navigation";
+import {
+  FormWrapper,
+  InputFile,
+  InputText,
+  InputTextarea,
+} from "@/components/forms";
 import { API } from "@/functions/constants/api";
+import { Book } from "@/functions/constants/books";
+import { useArrayState } from "@/functions/hooks/useArrayState";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -13,12 +18,9 @@ type Props = {
 };
 
 const createUrl = API.createStripePrices;
-
 const deleteUrl = API.deleteStripePrices;
 
 export const BookEdit: React.FC<Props> = ({ book }) => {
-  // const router = useRouter();
-
   const { showToast, closeToast } = useToast();
 
   useEffect(() => {
@@ -28,8 +30,12 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
   const [name, setName] = useState(book.name);
   const [price, setPrice] = useState(String(book.price));
   const [description, setDescription] = useState(book.description);
+  const [files, setFiles] = useArrayState<File | string>(
+    book.images.map((image) => image.src)
+  );
 
   const edit = async () => {
+    console.log(files);
     const response = await fetch(deleteUrl, {
       method: "POST",
       body: JSON.stringify([book.id]),
@@ -65,7 +71,12 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></InputTextarea>
-
+        <InputFile
+          label="Images"
+          description="最大で4枚まで画像アップロードできます"
+          state={files}
+          setState={setFiles}
+        />
         <ButtonWrapper position="end">
           <Button
             onClick={() => showToast({ message: "test", theme: "success" })}

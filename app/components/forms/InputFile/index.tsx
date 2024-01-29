@@ -2,14 +2,15 @@ import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { useArrayState } from "@/functions/hooks/useArrayState";
+import { SetState, State } from "@/functions/hooks/useArrayState";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import { ErrorDialog } from "./components/ErrorDialog";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
 
 export type InputFileProps = {
-  onChange: (files: File[]) => void;
+  state: State<File | string>;
+  setState: SetState<File | string>;
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
 
@@ -25,7 +26,8 @@ const accept = "image/png, image/jpeg, image/webp, image/bmp";
  * @see https://zenn.dev/rabee/articles/input-caution-point
  */
 export function InputFile({
-  onChange,
+  state,
+  setState,
   isMultiple = true,
   label,
   error,
@@ -37,23 +39,22 @@ export function InputFile({
 }: InputFileProps) {
   const id = useId();
   const errorDialog = useDialog();
-  const [state, setState] = useArrayState<File>();
 
   const dragRef = useRef<HTMLLabelElement | null>(null);
 
   const [message, setMessage] = useState("");
 
   const main = ({ fileList }: { fileList: FileList }) => {
-    const _files = [...state, ...Array.from(fileList)];
+    const _files = [...Array.from(fileList)];
 
-    if (_files.length >= 5) {
-      setMessage("※4枚を超えて選択された画像は表示されません");
+    // validate here
+    if ([...state, ..._files].length >= 5) {
+      setMessage("state!※4枚を超えて選択された画像は表示されません");
       errorDialog.open();
       return;
     }
 
-    onChange(_files.slice(0, 4));
-    setState.add(_files.slice(0, 4));
+    setState.add([..._files]);
   };
 
   const handleUpload = (e: BaseSyntheticEvent) => {

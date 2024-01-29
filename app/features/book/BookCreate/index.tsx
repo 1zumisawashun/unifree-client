@@ -9,6 +9,8 @@ import {
 } from "@/components/forms";
 import { API } from "@/functions/constants/api";
 import { getDownloadUrl } from "@/functions/helpers/storage";
+import { isString } from "@/functions/helpers/typeGuard";
+import { useArrayState } from "@/functions/hooks/useArrayState";
 import { useState } from "react";
 
 const url = API.createStripePrices;
@@ -17,16 +19,15 @@ export const BookCreate: React.FC = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [files, setFiles] = useState<File[]>([]);
-
-  const updateFiles = (files: File[]) => {
-    setFiles(files);
-  };
+  const [files, setFiles] = useArrayState<File | string>();
 
   const create = async () => {
     if (!files) return;
 
-    const promises = files.map(async (file) => await getDownloadUrl({ file }));
+    const promises = files.map(async (file) => {
+      if (isString(file)) return file;
+      return await getDownloadUrl({ file });
+    });
     const results = (await Promise.all(promises)) as any as string[];
 
     const response = await fetch(url, {
@@ -56,7 +57,12 @@ export const BookCreate: React.FC = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       ></InputTextarea>
-      <InputFile onChange={updateFiles} />
+      <InputFile
+        label="Images"
+        description="最大で4枚まで画像アップロードできます"
+        state={files}
+        setState={setFiles}
+      />
       <ButtonWrapper position="end">
         <ButtonAnchor href={`/books`} variant="outlined">
           Cancel

@@ -4,6 +4,7 @@ import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
+import { isString } from "@/functions/helpers/typeGuard";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -15,11 +16,15 @@ export const PreviewDialog = ({
   file,
 }: {
   dialog: UseDialog;
-  file: File;
+  file: File | string;
 }) => {
   const [image, setImage] = useState<string>("");
 
-  const init = async ({ file }: { file: File }) => {
+  const init = async ({ file }: { file: File | string }) => {
+    if (isString(file)) {
+      setImage(file);
+      return;
+    }
     const src = (await getDataUrl({ file })) as string;
     setImage(src);
   };
