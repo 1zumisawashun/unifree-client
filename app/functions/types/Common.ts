@@ -1,6 +1,6 @@
 export type ThemeType =
   | "primary"
-  | "secondary"
+  // | "secondary"
   | "danger"
   | "success"
   | "transparent";

@@ -8,12 +8,8 @@
   font-weight: 500;
 
   &[data-theme="primary"] {
-    background-color: $blue-bg;
-    color: $blue-dark;
-  }
-  &[data-theme="secondary"] {
-    background-color: $blue-bg;
-    color: $blue-dark;
+    background-color: $primary-bg;
+    color: $primary-dark;
   }
   &[data-theme="danger"] {
     background-color: $red-bg;

@@ -22,7 +22,7 @@
 }
 
 .loading-spinner-main {
-  border: 1px solid $blue-main;
+  border: 1px solid $primary-main;
   display: inline-block;
   position: relative;
   animation: loading ease 1.5s infinite;
@@ -39,7 +39,7 @@
     transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
-    background-color: $blue-main;
+    background-color: $primary-main;
     border-radius: 50%;
   }
 }

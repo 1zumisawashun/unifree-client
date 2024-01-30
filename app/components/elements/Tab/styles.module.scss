@@ -17,11 +17,12 @@
 }
 
 .nav-item[aria-selected="true"] {
-  color: $blue-main;
+  color: $primary-main;
   font-weight: 600;
 }
 
 .nav-item[aria-selected="false"] {
-  color: #718096;
+  // color: #718096;
+  color: $grey-light;
   font-weight: normal;
 }

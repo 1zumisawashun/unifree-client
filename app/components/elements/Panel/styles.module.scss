@@ -15,10 +15,10 @@
     }
   }
   &[data-theme="primary"] {
-    background-color: $blue-bg;
-    color: $blue-dark;
+    background-color: $primary-bg;
+    color: $primary-dark;
     &[data-border="true"] {
-      border: 1px solid $blue-dark;
+      border: 1px solid $primary-dark;
     }
   }
   &[data-theme="danger"] {

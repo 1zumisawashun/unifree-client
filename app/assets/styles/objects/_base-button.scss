@@ -68,7 +68,6 @@ $large-pd-x: 26px;
   &[data-shape="round"] {
     border-radius: 1.5em;
   }
-  
 
   // button-size
   &[data-size="small"] {
@@ -99,23 +98,13 @@ $large-pd-x: 26px;
   // button-variant-color
   &[data-variant="contained"][data-theme="primary"] {
     color: white;
-    background-color: $blue-main;
-    border: 1px solid $blue-main;
+    background-color: $primary-main;
+    border: 1px solid $primary-main;
   }
   &[data-variant="outlined"][data-theme="primary"] {
-    color: $blue-main;
+    color: $primary-main;
     background-color: white;
-    border: 1px solid $blue-main;
-  }
-  &[data-variant="contained"][data-theme="secondary"] {
-    color: white;
-    background-color: $secondary;
-    border: 1px solid $secondary;
-  }
-  &[data-variant="outlined"][data-theme="secondary"] {
-    color: $secondary;
-    background-color: white;
-    border: 1px solid $secondary;
+    border: 1px solid $primary-main;
   }
   &[data-variant="contained"][data-theme="danger"] {
     color: white;

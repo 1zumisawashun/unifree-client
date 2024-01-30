@@ -36,7 +36,7 @@ $large: 1.125rem;
     border-top: 5px solid transparent;
   }
   &[data-variant="outlined"][data-theme="primary"] {
-    border: 2px solid $blue-main;
+    border: 2px solid $primary-main;
     border-top: 5px solid transparent;
   }
   &[data-variant="contained"][data-theme="danger"] {

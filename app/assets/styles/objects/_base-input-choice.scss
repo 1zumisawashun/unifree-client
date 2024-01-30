@@ -14,8 +14,8 @@
   border: 1px solid black;
   border-radius: 0.5rem;
   &:has(.input-choice-input:checked) {
-    border: solid 1px $blue-dark;
-    background-color: $blue-bg;
+    border: solid 1px $primary-dark;
+    background-color: $primary-bg;
   }
   &:has(.input-choice-input[data-error="true"]) {
     border: solid 1px $red-dark;
@@ -57,9 +57,9 @@
 // NOTE:「+」を使うことでpropsをinputに集約することができる
 // NOTE:親子関係であれば擬似要素hasを使った方が良いと思うが同じ階層の場合は+の方が良いのか
 .input-choice-input:checked + .input-choice-icon {
-  border: solid 1px $blue-dark;
-  background-color: $blue-bg;
-  color: $blue-dark;
+  border: solid 1px $primary-dark;
+  background-color: $primary-bg;
+  color: $primary-dark;
 }
 
 .input-choice-input[data-error="true"] + .input-choice-icon {
