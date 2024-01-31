@@ -13,29 +13,25 @@ import {
   InputWrapper,
 } from "@/components/forms";
 import { API } from "@/functions/constants/api";
-import { Book } from "@/functions/constants/books";
 import {
   categoryOptions,
   paymentMethodOptions,
 } from "@/functions/constants/options";
+import { Product } from "@/functions/constants/products";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
 import { isString } from "@/functions/helpers/typeGuard";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { useState } from "react";
 
-type Props = {
-  book: Book;
-};
-
 const createUrl = API.createStripePrices;
 const deleteUrl = API.deleteStripePrices;
 
-export const BookEdit: React.FC<Props> = ({ book }) => {
-  const [name, setName] = useState(book.name);
-  const [price, setPrice] = useState(String(book.price));
-  const [description, setDescription] = useState(book.description);
+export const ProductEdit = ({ product }: { product: Product }) => {
+  const [name, setName] = useState(product.name);
+  const [price, setPrice] = useState(String(product.price));
+  const [description, setDescription] = useState(product.description);
   const [files, setFiles] = useArrayState<File | string>(
-    book.images.map((image) => image.src)
+    product.images.map((image) => image.src)
   );
   const [isDisplay, setIsDisplay] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
@@ -45,7 +41,7 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
     const promises = files.map(async (file) => {
       if (isString(file)) return file;
       const downloadUrl = await getDownloadUrl({ file });
-      return downloadUrl;
+      return { name: file.name, src: downloadUrl };
     });
 
     const images = await Promise.all(promises);
@@ -54,7 +50,7 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
     // 削除でなくactiveをfalseにして削除した風に見せかける
     const deleteResponse = await fetch(deleteUrl, {
       method: "POST",
-      body: JSON.stringify([book.id]),
+      body: JSON.stringify([product.id]),
     });
     const deleteJson = await deleteResponse.json();
     console.log(deleteJson);
@@ -140,7 +136,7 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
           </InputFlexWrapper>
         </InputWrapper>
         <ButtonWrapper position="end">
-          <ButtonAnchor href={`/notes/${book.id}`} variant="outlined">
+          <ButtonAnchor href={`/products/${product.id}`} variant="outlined">
             Cancel
           </ButtonAnchor>
           <Button onClick={edit}>Update</Button>

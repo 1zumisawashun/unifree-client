@@ -4,7 +4,7 @@ import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { API } from "@/functions/constants/api";
-import { Book } from "@/functions/constants/books";
+import { Product } from "@/functions/constants/products";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "delete-dialog";
@@ -14,12 +14,12 @@ const url = API.deleteStripePrices;
 /* eslint-disable @next/next/no-img-element */
 export const DeleteDialog = ({
   dialog,
-  book,
+  product,
 }: {
   dialog: UseDialog;
-  book: Book;
+  product: Product;
 }) => {
-  const { id } = book;
+  const { id } = product;
 
   const _delete = async () => {
     const response = await fetch(url, {

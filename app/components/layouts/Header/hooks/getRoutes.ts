@@ -13,11 +13,11 @@ function getHeaderRoutes({ session }: { session: any }) {
 }
 
 function getProfileMenuRoutes({ session }: { session: any }) {
-  const publicRoutes = [{ href: "/books", value: "Books" }];
+  const publicRoutes = [{ href: "/products", value: "Products" }];
 
   const authRoutes = session
     ? [
-        { href: "/books/create", value: "Create" },
+        { href: "/products/create", value: "Create" },
         { href: "/mypage/post", value: "Mypage" },
       ]
     : [];

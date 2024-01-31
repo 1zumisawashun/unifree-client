@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import "server-only";
 
-const authRoutes = ["/mypage", "/books/[id]", "/cart"];
+const authRoutes = ["/mypage", "/products/[id]", "/cart"];
 
 export async function AuthProvider({
   children,

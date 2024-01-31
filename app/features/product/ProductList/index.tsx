@@ -1,20 +1,20 @@
-import { BookCard } from "@/components/elements/BookCard";
 import { ErrorBoundary } from "@/components/elements/ErrorBoundary";
 import { ErrorFetch } from "@/components/elements/ErrorFallback";
 import { LoadingDot } from "@/components/elements/LoadingDot";
-import { SearchBar } from "@/features/book/BookList/components/SearchBar";
-import { books } from "@/functions/constants/books";
+import { ProductCard } from "@/components/elements/ProductCard";
+import { SearchBar } from "@/features/product/ProductList/components/SearchBar";
+import { products } from "@/functions/constants/products";
 import { Suspense } from "react";
 import "server-only";
 
-export const BookList = async () => {
+export const ProductList = async () => {
   // init fetch here
   return (
     <>
       <SearchBar />
       <ErrorBoundary fallback={<ErrorFetch />}>
         <Suspense fallback={<LoadingDot />}>
-          <BookCard.List books={books} />
+          <ProductCard.List products={products} />
         </Suspense>
       </ErrorBoundary>
     </>

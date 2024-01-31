@@ -2,22 +2,21 @@ import { FixedFooter } from "@/components/layouts/FixedFooter";
 import { Header } from "@/components/layouts/Header";
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 import { SubHeader } from "@/components/layouts/SubHeader";
-import { BookDetail } from "@/features/book/BookDetail";
-import { books } from "@/functions/constants/books";
+import { ProductDetail } from "@/features/product/ProductDetail";
+import { products } from "@/functions/constants/products";
 
 export default function Page({ params }: { params: { id: string } }) {
-  const book = books.find((book) => book.id === params.id);
-  // console.log(book);
+  const product = products.find((product) => product.id === params.id);
 
   return (
     <>
       <Header />
       <LayoutContainer hasFooter>
-        <SubHeader title="Book Item" href="/books">
-          <BookDetail book={book!} />
+        <SubHeader title="Product Item" href="/products">
+          <ProductDetail product={product!} />
         </SubHeader>
       </LayoutContainer>
-      <FixedFooter book={book!} />
+      <FixedFooter product={product!} />
     </>
   );
 }

@@ -49,7 +49,7 @@ export function InputFile({
 
     // validate here
     if ([...state, ..._files].length >= 5) {
-      setMessage("※4枚を超えて選択された画像は表示されません");
+      setMessage("4枚を超えて選択された画像は表示されません");
       errorDialog.open();
       return;
     }

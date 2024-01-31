@@ -1,16 +1,16 @@
 "use client";
 
-import { BookCard } from "@/components/elements/BookCard";
+import { ProductCard } from "@/components/elements/ProductCard";
 import { Swiper } from "@/components/elements/Swiper";
-import { Book } from "@/functions/constants/books";
+import { Product } from "@/functions/constants/products";
 import { SwiperSlide } from "swiper/react";
 
-export const IndexList = ({ books }: { books: Book[] }) => {
+export const IndexList = ({ products }: { products: Product[] }) => {
   return (
-    <Swiper max={books?.length - 2}>
-      {books.map((book) => (
-        <SwiperSlide key={book.id}>
-          <BookCard.Item book={book} />
+    <Swiper max={products?.length - 2}>
+      {products.map((product) => (
+        <SwiperSlide key={product.id}>
+          <ProductCard.Item product={product} />
         </SwiperSlide>
       ))}
     </Swiper>

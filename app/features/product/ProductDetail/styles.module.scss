@@ -1,7 +1,7 @@
 @import "@/assets/styles/objects/base-text";
 @import "@/assets/styles/settings/color";
 
-.book-detail-container {
+.product-detail-container {
   display: flex;
   position: relative;
   padding: 1.25rem;
@@ -10,21 +10,21 @@
   border-radius: 0.5rem;
   border: 1px solid $border;
 }
-.book-detail-image {
+.product-detail-image {
   width: 100%;
   border-radius: 0.5rem;
 }
-.book-detail-title {
+.product-detail-title {
   composes: text-large;
   font-weight: bold;
   color: $grey-main;
 }
-.book-detail-price {
+.product-detail-price {
   composes: text-large;
   color: $red-main;
   font-weight: 600;
 }
-.book-detail-text {
+.product-detail-text {
   composes: text-normal;
   color: $grey-main;
 }

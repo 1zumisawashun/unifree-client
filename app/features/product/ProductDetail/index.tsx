@@ -8,20 +8,16 @@ import {
 } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Label } from "@/components/elements/Label";
-import { DeleteDialog } from "@/features/book/BookDetail/components/DeleteDialog";
-import { Book } from "@/functions/constants/books";
+import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
+import { Product } from "@/functions/constants/products";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
-type Props = {
-  book: Book;
-};
-
-const BLOCK_NAME = "book-detail";
+const BLOCK_NAME = "product-detail";
 
 /* eslint-disable @next/next/no-img-element */
-export const BookDetail: React.FC<Props> = ({ book }) => {
-  const { id, name, categories, description, images, price } = book;
+export const ProductDetail = ({ product }: { product: Product }) => {
+  const { id, name, categories, description, images, price } = product;
 
   const deleteDialog = useDialog();
 
@@ -40,7 +36,7 @@ export const BookDetail: React.FC<Props> = ({ book }) => {
             {categories.map((category) => (
               <UnstyledButtonAnchor
                 key={category.id}
-                href={`/books?category=${category.name}`}
+                href={`/products?category=${category.name}`}
               >
                 <Label>{category.name}</Label>
               </UnstyledButtonAnchor>
@@ -58,13 +54,13 @@ export const BookDetail: React.FC<Props> = ({ book }) => {
           <Button onClick={deleteDialog.open} variant="outlined" theme="danger">
             Delete
           </Button>
-          <ButtonAnchor href={`/books/${id}/edit`} variant="outlined">
+          <ButtonAnchor href={`/products/${id}/edit`} variant="outlined">
             Edit
           </ButtonAnchor>
         </ButtonWrapper>
       </div>
 
-      <DeleteDialog dialog={deleteDialog} book={book} />
+      <DeleteDialog dialog={deleteDialog} product={product} />
     </>
   );
 };

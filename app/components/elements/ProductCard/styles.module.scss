@@ -1,12 +1,12 @@
 @import "@/assets/styles/utilities/line-clamp";
 @import "@/assets/styles/settings/color";
 
-.book-card-list {
+.product-card-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.book-card-wrapper {
+.product-card-wrapper {
   margin: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -16,12 +16,12 @@
   border-radius: 0.5rem;
 }
 
-.book-card-image {
+.product-card-image {
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.book-card-layer {
+.product-card-layer {
   position: relative;
   &[data-status="available"] {
     > p {
@@ -54,7 +54,7 @@
   }
 }
 
-.book-card-title {
+.product-card-title {
   font-size: 1rem;
   font-weight: 600;
   color: #4a5568;
@@ -63,7 +63,7 @@
   padding: 0 0.5rem;
 }
 
-.book-card-content {
+.product-card-content {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;

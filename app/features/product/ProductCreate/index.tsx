@@ -24,7 +24,7 @@ import { useState } from "react";
 
 const url = API.createStripePrices;
 
-export const BookCreate: React.FC = () => {
+export const ProductCreate: React.FC = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -37,7 +37,7 @@ export const BookCreate: React.FC = () => {
     const promises = files.map(async (file) => {
       if (isString(file)) return file;
       const downloadUrl = await getDownloadUrl({ file });
-      return downloadUrl;
+      return { name: file.name, src: downloadUrl };
     });
 
     const images = await Promise.all(promises);
@@ -123,7 +123,7 @@ export const BookCreate: React.FC = () => {
         </InputFlexWrapper>
       </InputWrapper>
       <ButtonWrapper position="end">
-        <ButtonAnchor href={`/books`} variant="outlined">
+        <ButtonAnchor href={`/products`} variant="outlined">
           Cancel
         </ButtonAnchor>
         <Button onClick={create}>Create</Button>

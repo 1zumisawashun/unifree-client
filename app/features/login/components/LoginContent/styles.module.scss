@@ -1,0 +1,71 @@
+@import "@/assets/styles/settings/color";
+
+$text-x-small: 0.75rem;
+$font-small: 0.875rem;
+$font-medium: 1rem;
+$font-large: 1.125rem;
+$font-x-large: 1.25rem;
+
+.login-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-content-center-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.login-content-text {
+  font-size: 0.875rem;
+  text-align: center;
+  color: $grey-main;
+}
+
+.login-content-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: $grey-main;
+}
+
+// パネル
+.login-content-panel-wrapper {
+  height: 150px;
+}
+
+.login-content-panel-text {
+  font-size: 0.75rem;
+  color: $grey-main;
+}
+
+// ログインボタン
+.login-content-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: fit-content;
+  margin: auto;
+}
+
+.login-content-button {
+  position: relative;
+  &::before {
+    background: $overlay;
+    border-radius: 0.1rem;
+    inset: 1px;
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 2;
+  }
+  &[aria-disabled="false"] {
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    &::before {
+      opacity: 0.3;
+    }
+  }
+}

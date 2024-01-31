@@ -31,7 +31,7 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
           </p>
         </div>
         <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
-          <ButtonAnchor href={`/books/${id}`} variant="outlined">
+          <ButtonAnchor href={`/products/${id}`} variant="outlined">
             Show
           </ButtonAnchor>
           <Button onClick={removeDialog.open} theme="danger" variant="outlined">

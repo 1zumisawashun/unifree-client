@@ -27,7 +27,7 @@ export function ErrorDialog({
           <br />
           以下のエラーが発生し、{domain}に失敗しました。
         </p>
-        <p>{message}</p>
+        <p className={styles[`${BLOCK_NAME}-message`]}>{message}</p>
         <p>お手数ですがエラー内容をご確認の上、もう一度お試しください。</p>
         <ButtonWrapper position="end">
           <Button onClick={dialog.close}>閉じる</Button>

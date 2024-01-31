@@ -1,27 +1,28 @@
 "use client";
 
 import { Button } from "@/components/buttons";
-import { Book } from "@/functions/constants/books";
+import { Product } from "@/functions/constants/products";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "footer";
 
-export function FixedFooter({ book }: { book: Book }) {
+export function FixedFooter({ product }: { product: Product }) {
+  const { name, id, price, images } = product;
   const { addItem, cartDetails } = useShoppingCart();
-  
-  const hasItem = Object.keys(cartDetails ?? {}).includes(book.id);
-  
+
+  const hasItem = Object.keys(cartDetails ?? {}).includes(id);
+
   const add = () => {
     addItem({
-      name: book.name,
-      id: book.id,
-      price: book.price,
+      name,
+      id,
+      price,
       currency: "jpy",
-      image: book.images[0]?.src,
+      image: images[0]?.src,
     });
   };
-  
+
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
       <Button onClick={add} disabled={hasItem}>

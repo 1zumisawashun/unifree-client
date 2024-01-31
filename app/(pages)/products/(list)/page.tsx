@@ -1,10 +1,10 @@
 import { SubHeader } from "@/components/layouts/SubHeader";
-import { BookList } from "@/features/book/BookList";
+import { ProductList } from "@/features/product/ProductList";
 
 export default async function Page() {
   return (
-    <SubHeader title="Book List" href="/">
-      <BookList />
+    <SubHeader title="Product List" href="/">
+      <ProductList />
     </SubHeader>
   );
 }

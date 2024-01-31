@@ -62,21 +62,21 @@
 </details>
 
 <details>
-<summary>books</summary>
+<summary>products</summary>
 
-- book-list
+- products-list
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/71fcb5a3-d258-4574-8024-f72cb1019b3d)
 
-- book-detail
+- products-detail
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/dd1af9ac-7691-4806-a231-f49290095880)
 
-- book-create
+- products-create
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/64b3a407-dfda-4f9a-b676-cd65be809db0)
 
-- book-edit
+- products-edit
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/70e90b8e-09fd-4fda-a7d6-e1cc4cbfaed1)
 

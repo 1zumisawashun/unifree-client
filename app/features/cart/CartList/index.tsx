@@ -47,7 +47,7 @@ export function Cart() {
           Pay Now
         </Button>
         <ButtonAnchor
-          href={"/books"}
+          href="/products"
           variant="outlined"
           className={styles[`${BLOCK_NAME}-button`]}
         >

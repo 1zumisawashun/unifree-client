@@ -1,15 +1,15 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
-import { Book } from "@/functions/constants/books";
+import { Product } from "@/functions/constants/products";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "book-card";
+const BLOCK_NAME = "product-card";
 
 /* eslint-disable @next/next/no-img-element */
-const Item = ({ book }: { book: Book }) => {
-  const { id, name, images, price, metadata } = book;
+const Item = ({ product }: { product: Product }) => {
+  const { id, name, images, price, metadata } = product;
   return (
-    <UnstyledButtonAnchor href={`/books/${id}`}>
+    <UnstyledButtonAnchor href={`/products/${id}`}>
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
         <div
           className={styles[`${BLOCK_NAME}-layer`]}
@@ -33,17 +33,17 @@ const Item = ({ book }: { book: Book }) => {
   );
 };
 
-const List = ({ books }: { books: Book[] }) => {
+const List = ({ products }: { products: Product[] }) => {
   return (
     <div className={styles[`${BLOCK_NAME}-list`]}>
-      {books.map((book) => (
-        <Item key={book.id} book={book} />
+      {products.map((product) => (
+        <Item key={product.id} product={product} />
       ))}
     </div>
   );
 };
 
-export const BookCard = {
+export const ProductCard = {
   List,
   Item,
 };

@@ -1,4 +1,4 @@
-export const books = [
+export const products = [
   {
     // base stripe - mix products and prices
     id: "price_1Oc8ATEjv771bjTX4GMiBBJ6",
@@ -10,6 +10,7 @@ export const books = [
     images: [
       {
         id: 1,
+        name: "sample1",
         src: "https://placehold.jp/400x250.png",
       },
     ],
@@ -40,6 +41,7 @@ export const books = [
     images: [
       {
         id: 2,
+        name: "sample2",
         src: "https://placehold.jp/400x250.png",
       },
     ],
@@ -70,6 +72,7 @@ export const books = [
     images: [
       {
         id: 3,
+        name: "sample3",
         src: "https://placehold.jp/400x250.png",
       },
     ],
@@ -100,6 +103,7 @@ export const books = [
     images: [
       {
         id: 4,
+        name: "sample4",
         src: "https://placehold.jp/400x250.png",
       },
     ],
@@ -134,6 +138,7 @@ export const books = [
     images: [
       {
         id: 5,
+        name: "sample5",
         src: "https://placehold.jp/400x250.png",
       },
     ],
@@ -159,4 +164,4 @@ export const books = [
   },
 ];
 
-export type Book = (typeof books)[number];
+export type Product = (typeof products)[number];
