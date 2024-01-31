@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
     try {
       const parsedPrices = zPrices.parse(prices);
 
+      // 複数選択で削除することを想定してmapで回す
       const updating = parsedPrices.map(async (price) => {
         return await stripe.prices.update(price, {
           active: false,

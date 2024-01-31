@@ -4,11 +4,11 @@ import signInGoogle from "@/assets/images/image_signin_google.png";
 import signInMicrosoft from "@/assets/images/image_signin_microsoft.png";
 import { UnstyledButton } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { Nl2br } from "@/components/elements/Nl2br";
 import { Panel } from "@/components/elements/Panel";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
-import { ErrorDialog } from "@/features/login/components/ErrorDialog";
 import { tos } from "@/functions/constants/tos";
 import { isUser, login } from "@/functions/helpers/firebaseAuth";
 import Image from "next/image";
@@ -96,7 +96,7 @@ export function Login() {
         </div>
       </div>
 
-      <ErrorDialog dialog={errorDialog} message={message} />
+      <ErrorDialog dialog={errorDialog} message={message} domain="認証" />
     </>
   );
 }

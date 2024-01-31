@@ -34,22 +34,24 @@ export const BookCreate: React.FC = () => {
   const [categories, setCategories] = useArrayState<string>();
 
   const create = async () => {
-    if (!files) return;
-
     const promises = files.map(async (file) => {
       if (isString(file)) return file;
-      return await getDownloadUrl({ file });
+      const downloadUrl = await getDownloadUrl({ file });
+      return downloadUrl;
     });
-    const results = (await Promise.all(promises)) as any as string[];
 
+    const images = await Promise.all(promises);
+    console.log(images);
+
+    // priceIdを取得する目的なので最適限のプロパティでok
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({ name, price: +price, images: results }),
+      body: JSON.stringify({ name, price: +price }),
     });
     const json = await response.json();
-    // get productId, priceId
-    // change db productId, priceId
     console.log(json);
+
+    // db logic here
   };
 
   return (

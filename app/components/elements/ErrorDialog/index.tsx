@@ -10,23 +10,25 @@ const BLOCK_NAME = "error-dialog";
 export function ErrorDialog({
   dialog,
   message,
+  domain,
 }: {
   dialog: UseDialog;
   message: string;
+  domain: string;
 }) {
   return (
     <Dialog {...dialog} width="half">
       <div className={styles[`${BLOCK_NAME}-inner`]}>
         <p className={styles[`${BLOCK_NAME}-title`]}>
-          画像アップロードに失敗しました。
+          {domain}に失敗しました。
         </p>
         <p>
           申し訳ございません。
           <br />
-          以下のエラーが発生し、認証に失敗しました。
+          以下のエラーが発生し、{domain}に失敗しました。
         </p>
         <p>{message}</p>
-        <p>お手数ですが、入力内容を再度ご確認の上、もう一度お試しください。</p>
+        <p>お手数ですがエラー内容をご確認の上、もう一度お試しください。</p>
         <ButtonWrapper position="end">
           <Button onClick={dialog.close}>閉じる</Button>
         </ButtonWrapper>

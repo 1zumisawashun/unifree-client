@@ -18,6 +18,8 @@ import {
   categoryOptions,
   paymentMethodOptions,
 } from "@/functions/constants/options";
+import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
+import { isString } from "@/functions/helpers/typeGuard";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { useState } from "react";
 
@@ -40,22 +42,32 @@ export const BookEdit: React.FC<Props> = ({ book }) => {
   const [categories, setCategories] = useArrayState<string>();
 
   const edit = async () => {
-    console.log(files);
-    const response = await fetch(deleteUrl, {
+    const promises = files.map(async (file) => {
+      if (isString(file)) return file;
+      const downloadUrl = await getDownloadUrl({ file });
+      return downloadUrl;
+    });
+
+    const images = await Promise.all(promises);
+    console.log(images);
+
+    // 削除でなくactiveをfalseにして削除した風に見せかける
+    const deleteResponse = await fetch(deleteUrl, {
       method: "POST",
       body: JSON.stringify([book.id]),
     });
-    const json = await response.json();
-    console.log(json);
+    const deleteJson = await deleteResponse.json();
+    console.log(deleteJson);
 
-    const response2 = await fetch(createUrl, {
+    // priceIdを取得する目的なので最適限のプロパティでok
+    const createResponse = await fetch(createUrl, {
       method: "POST",
       body: JSON.stringify({ name, price: +price }),
     });
-    const json2 = await response2.json();
-    // get productId, priceId
-    // change db productId, priceId
-    console.log(json2);
+    const createJson = await createResponse.json();
+    console.log(createJson);
+
+    // db logic here
   };
 
   return (

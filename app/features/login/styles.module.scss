@@ -73,15 +73,3 @@ $font-x-large: 1.25rem;
     }
   }
 }
-
-// ダイアログ
-.login-dialog-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.login-dialog-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-}

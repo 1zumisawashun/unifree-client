@@ -1,10 +1,10 @@
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { SetState, State } from "@/functions/hooks/useArrayState";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
-import { ErrorDialog } from "./components/ErrorDialog";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
 
@@ -49,7 +49,7 @@ export function InputFile({
 
     // validate here
     if ([...state, ..._files].length >= 5) {
-      setMessage("state!※4枚を超えて選択された画像は表示されません");
+      setMessage("※4枚を超えて選択された画像は表示されません");
       errorDialog.open();
       return;
     }
@@ -108,7 +108,11 @@ export function InputFile({
         onChange={handleUpload}
       />
 
-      <ErrorDialog dialog={errorDialog} message={message} />
+      <ErrorDialog
+        dialog={errorDialog}
+        message={message}
+        domain="画像アップロード"
+      />
     </>
   );
 }
