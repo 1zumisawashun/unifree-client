@@ -1,22 +1,22 @@
 "use client";
 
 import { Button } from "@/components/buttons";
-import { Product } from "@/functions/constants/products";
+import { Product } from "@/functions/models/Products";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "footer";
 
 export function FixedFooter({ product }: { product: Product }) {
-  const { name, id, price, images } = product;
+  const { name, stripe_price_id, price, images } = product;
   const { addItem, cartDetails } = useShoppingCart();
 
-  const hasItem = Object.keys(cartDetails ?? {}).includes(id);
+  const hasItem = Object.keys(cartDetails ?? {}).includes(stripe_price_id);
 
   const add = () => {
     addItem({
       name,
-      id,
+      id: stripe_price_id,
       price,
       currency: "jpy",
       image: images[0]?.src,

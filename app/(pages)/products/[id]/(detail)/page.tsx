@@ -6,7 +6,7 @@ import { ProductDetail } from "@/features/product/ProductDetail";
 import { products } from "@/functions/constants/products";
 
 export default function Page({ params }: { params: { id: string } }) {
-  const product = products.find((product) => product.id === params.id);
+  const product = products.find((product) => String(product.id) === params.id);
 
   return (
     <>

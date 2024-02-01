@@ -1,20 +1,18 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
-import { Product } from "@/functions/constants/products";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
+import { Product } from "@/functions/models/Products";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-card";
 
+// mypageでも使用するためcomponentsディレクトリに格納している
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ product }: { product: Product }) => {
-  const { id, name, images, price, metadata } = product;
+  const { id, name, images, price, status } = product;
   return (
     <UnstyledButtonAnchor href={`/products/${id}`}>
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        <div
-          className={styles[`${BLOCK_NAME}-layer`]}
-          data-status={metadata.status}
-        >
+        <div className={styles[`${BLOCK_NAME}-layer`]} data-status={status}>
           <img
             className={styles[`${BLOCK_NAME}-image`]}
             src={images[0]?.src}

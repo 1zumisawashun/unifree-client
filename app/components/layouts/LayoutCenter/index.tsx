@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "center";
 
+// index-page,login-pageで使用中
 export function LayoutCenter({
   children,
   background,

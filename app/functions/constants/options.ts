@@ -3,6 +3,12 @@ export const paymentMethodOptions = [
   { value: "Hand Delivery", label: "Hand Delivery" },
 ];
 
+export const statusOptions = [
+  { value: "available", label: "available" },
+  { value: "waiting", label: "waiting" },
+  { value: "completed", label: "completed" },
+];
+
 export const categoryOptions = [
   { value: "Technology", label: "Technology" },
   { value: "Fashion", label: "Fashion" },

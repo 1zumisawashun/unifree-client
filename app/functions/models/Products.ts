@@ -1,14 +1,15 @@
 import { status } from "@/functions/types/Common";
 import { z } from "zod";
-import { zCategories, zUpsertCategories } from "./Categories";
-import { zImages, zUpsertImage } from "./Image";
+import { zCategories } from "./Categories";
+import { zImages } from "./Image";
 
-// snake_case
+// fetch from planet-scale
 export const zProduct = z.object({
   id: z.number().int(),
   stripe_price_id: z.string(),
   stripe_product_id: z.string(),
   name: z.string(),
+  price: z.number(),
   active: z.boolean(),
   description: z.string(),
   payment_method: z.string(),
@@ -22,19 +23,34 @@ export const zProduct = z.object({
 
 export const zProducts = z.array(zProduct);
 
-// upper_camel_case
-export const zUpsertProduct = z.object({
-  stripePriceId: z.string(),
-  stripeProductId: z.string(),
-  name: z.string(),
-  active: z.boolean(),
-  description: z.string(),
-  paymentMethod: z.string(),
-  status: z.enum(status),
-  images: zUpsertImage,
-  categories: zUpsertCategories,
-});
-
 export type Product = z.infer<typeof zProduct>;
 
 export type Products = z.infer<typeof zProducts>;
+
+const zUpsertProductFile = z.union([z.custom<File>(), z.string()]);
+const zUpsertProductFiles = z.array(zUpsertProductFile);
+
+// react-hook-form
+export const zUpsertProduct = z.object({
+  name: z.string(),
+  price: z.string(),
+  description: z.string(),
+  files: zUpsertProductFiles,
+  status: z.string(),
+  paymentMethod: z.string(),
+  isDisplay: z.boolean(),
+  categories: z.array(z.string()),
+});
+
+export const productEntity = {
+  name: "",
+  price: "",
+  description: "",
+  files: [],
+  status: "available",
+  paymentMethod: "",
+  isDisplay: true,
+  categories: [],
+};
+
+export type UpsertProduct = z.infer<typeof zUpsertProduct>;

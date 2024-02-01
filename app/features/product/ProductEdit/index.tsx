@@ -1,43 +1,41 @@
 "use client";
 
-import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import {
-  FormWrapper,
-  InputCheckbox,
-  InputFile,
-  InputFlexWrapper,
-  InputRadio,
-  InputText,
-  InputTextarea,
-  InputToggle,
-  InputWrapper,
-} from "@/components/forms";
+import { ProductForm } from "@/features/product/components/ProductForm";
 import { API } from "@/functions/constants/api";
-import {
-  categoryOptions,
-  paymentMethodOptions,
-} from "@/functions/constants/options";
-import { Product } from "@/functions/constants/products";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
 import { isString } from "@/functions/helpers/typeGuard";
-import { useArrayState } from "@/functions/hooks/useArrayState";
-import { useState } from "react";
+import { Product, UpsertProduct } from "@/functions/models/Products";
 
 const createUrl = API.createStripePrices;
 const deleteUrl = API.deleteStripePrices;
 
 export const ProductEdit = ({ product }: { product: Product }) => {
-  const [name, setName] = useState(product.name);
-  const [price, setPrice] = useState(String(product.price));
-  const [description, setDescription] = useState(product.description);
-  const [files, setFiles] = useArrayState<File | string>(
-    product.images.map((image) => image.src)
-  );
-  const [isDisplay, setIsDisplay] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [categories, setCategories] = useArrayState<string>();
+  const {
+    name,
+    price,
+    description,
+    images,
+    status,
+    payment_method,
+    active,
+    categories,
+    stripe_price_id,
+  } = product;
 
-  const edit = async () => {
+  const productEntity = {
+    name,
+    price: String(price),
+    description,
+    files: images.map((image) => image.src),
+    status,
+    paymentMethod: payment_method,
+    isDisplay: active,
+    categories: categories.map((category) => category.name),
+  };
+
+  const edit = async (data: UpsertProduct) => {
+    const { files, name, price } = data;
+
     const promises = files.map(async (file) => {
       if (isString(file)) return file;
       const downloadUrl = await getDownloadUrl({ file });
@@ -50,7 +48,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     // 削除でなくactiveをfalseにして削除した風に見せかける
     const deleteResponse = await fetch(deleteUrl, {
       method: "POST",
-      body: JSON.stringify([product.id]),
+      body: JSON.stringify([stripe_price_id]),
     });
     const deleteJson = await deleteResponse.json();
     console.log(deleteJson);
@@ -66,87 +64,5 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     // db logic here
   };
 
-  return (
-    <>
-      <FormWrapper>
-        <InputText
-          label="Name"
-          isRequired
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <InputText
-          label="Price"
-          isRequired
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <InputTextarea
-          label="Description"
-          isRequired
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <InputFile
-          label="Images"
-          isRequired
-          description="最大で4枚まで画像アップロードできます"
-          state={files}
-          setState={setFiles}
-        />
-        <InputWrapper
-          id=""
-          label="Display Setting"
-          description="offにすると購入不可の状態になります"
-          isRequired
-        >
-          <InputFlexWrapper>
-            <InputToggle
-              checked={isDisplay}
-              onChange={(e) => setIsDisplay(e.target.checked)}
-            />
-          </InputFlexWrapper>
-        </InputWrapper>
-        <InputWrapper id="" label="Payment Method" isRequired>
-          <InputFlexWrapper direction="row">
-            {paymentMethodOptions.map((option) => (
-              <InputRadio
-                key={option.value}
-                checked={paymentMethod === option.value}
-                onChange={() => setPaymentMethod(option.value)}
-              >
-                {option.label}
-              </InputRadio>
-            ))}
-          </InputFlexWrapper>
-        </InputWrapper>
-        <InputWrapper
-          id=""
-          label="Categories"
-          description="1つ以上を選択してください"
-          isRequired
-        >
-          <InputFlexWrapper direction="column">
-            {categoryOptions.map((option) => (
-              <InputCheckbox
-                key={option.value}
-                checked={categories.includes(option.value)}
-                onChange={(e) =>
-                  setCategories.filter(option.value, e.target.checked)
-                }
-              >
-                {option.label}
-              </InputCheckbox>
-            ))}
-          </InputFlexWrapper>
-        </InputWrapper>
-        <ButtonWrapper position="end">
-          <ButtonAnchor href={`/products/${product.id}`} variant="outlined">
-            Cancel
-          </ButtonAnchor>
-          <Button onClick={edit}>Update</Button>
-        </ButtonWrapper>
-      </FormWrapper>
-    </>
-  );
+  return <ProductForm submit={edit} product={productEntity} />;
 };

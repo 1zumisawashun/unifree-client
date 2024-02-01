@@ -9,7 +9,7 @@ import {
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Label } from "@/components/elements/Label";
 import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
-import { Product } from "@/functions/constants/products";
+import { Product } from "@/functions/models/Products";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
