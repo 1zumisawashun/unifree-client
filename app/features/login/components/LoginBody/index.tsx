@@ -10,9 +10,9 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "login-content";
+const BLOCK_NAME = "login-body";
 
-export function LoginContent({
+export function LoginBody({
   login,
 }: {
   login: (method: "google" | "microsoft") => Promise<void>;

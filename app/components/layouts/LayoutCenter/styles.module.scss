@@ -1,13 +1,14 @@
 .center-wrapper {
   position: absolute;
-  top: 0;
+  top: 70px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 70px);
   z-index: -1;
-  // 以下をclass-nameで流し込む
-  // background-image: url('../../../../assets/images/image_signin_background.webp');
-  // background-size: cover;
+  &[data-background="index"] {
+    background-image: url("../../../assets/images/image_index_bg.jpg");
+    background-size: cover;
+  }
 }
 
 .center-inner {

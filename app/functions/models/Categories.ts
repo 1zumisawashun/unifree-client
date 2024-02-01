@@ -7,9 +7,7 @@ export const zCategory = z.object({
 
 export const zCategories = z.array(zCategory);
 
-export const zUpsertCategory = z.object({
-  id: z.number(),
-});
+export const zUpsertCategory = zCategory.omit({ id: true });
 
 export const zUpsertCategories = z.array(zUpsertCategory);
 

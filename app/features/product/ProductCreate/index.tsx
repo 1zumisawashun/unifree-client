@@ -84,8 +84,8 @@ export const ProductCreate: React.FC = () => {
       <InputWrapper
         id=""
         label="Display Setting"
-        description="offにすると購入不可の状態になります。"
-        isOptioned
+        description="offにすると購入不可の状態になります"
+        isRequired
       >
         <InputFlexWrapper>
           <InputToggle
@@ -94,7 +94,7 @@ export const ProductCreate: React.FC = () => {
           />
         </InputFlexWrapper>
       </InputWrapper>
-      <InputWrapper id="" label="Payment Method" isOptioned>
+      <InputWrapper id="" label="Payment Method" isRequired>
         <InputFlexWrapper direction="row">
           {paymentMethodOptions.map((option) => (
             <InputRadio
@@ -107,7 +107,12 @@ export const ProductCreate: React.FC = () => {
           ))}
         </InputFlexWrapper>
       </InputWrapper>
-      <InputWrapper id="" label="Categories" isOptioned>
+      <InputWrapper
+        id=""
+        label="Categories"
+        description="1つ以上を選択してください"
+        isRequired
+      >
         <InputFlexWrapper direction="column">
           {categoryOptions.map((option) => (
             <InputCheckbox

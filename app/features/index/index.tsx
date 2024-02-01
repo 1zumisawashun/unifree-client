@@ -1,30 +1,28 @@
-import { ErrorBoundary } from "@/components/elements/ErrorBoundary";
-import { ErrorFetch } from "@/components/elements/ErrorFallback";
-import { LoadingDot } from "@/components/elements/LoadingDot";
-import { IndexList as IndexListComponent } from "@/features/index/components/IndexList";
-import { IndexListWrapper } from "@/features/index/components/IndexListWrapper";
-import { products } from "@/functions/constants/products";
-import { Suspense } from "react";
+import { ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import "server-only";
+import styles from "./styles.module.scss";
 
-export const IndexList = async () => {
-  // init fetch here
+const BLOCK_NAME = "index";
 
+export function Index() {
   return (
-    <ErrorBoundary fallback={<ErrorFetch />}>
-      <Suspense fallback={<LoadingDot />}>
-        <IndexListWrapper title="文系" href={`/products?category=文系`}>
-          <IndexListComponent products={products} />
-        </IndexListWrapper>
-
-        <IndexListWrapper title="理系" href={`/products?category=理系`}>
-          <IndexListComponent products={products} />
-        </IndexListWrapper>
-
-        <IndexListWrapper title="おすすめ" href={`/products?category=おすすめ`}>
-          <IndexListComponent products={products} />
-        </IndexListWrapper>
-      </Suspense>
-    </ErrorBoundary>
+    <div className={styles[`${BLOCK_NAME}-container`]}>
+      <p className={styles[`${BLOCK_NAME}-text`]}>
+        必要なものを必要な人へ
+        <br />
+        あなたの要らないが誰かの役に立つ
+      </p>
+      <p className={styles[`${BLOCK_NAME}-label`]}>
+        UniFliは北海道大学生のための教科書フリマアプリです
+      </p>
+      <ButtonWrapper position="center">
+        <ButtonAnchor href={"/products"} size="large" variant="outlined">
+          教科書を探す
+        </ButtonAnchor>
+        <ButtonAnchor href={"/products/create"} size="large" variant="outlined">
+          教科書を売る
+        </ButtonAnchor>
+      </ButtonWrapper>
+    </div>
   );
-};
+}

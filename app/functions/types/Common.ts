@@ -47,3 +47,5 @@ export type StackPosition = `${"top" | "bottom" | "right" | "left"}${
   | "Left"
   | "Center"
   | "Right"}`;
+
+export const status = ["available", "waiting", "completed"] as const;

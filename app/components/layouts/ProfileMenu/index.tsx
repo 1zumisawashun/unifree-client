@@ -1,6 +1,6 @@
 "use client";
 
-import cover from "@/assets/images/image-cover.jpg";
+import cover from "@/assets/images/image_cover.jpg";
 import { ButtonAnchor, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
 import { DropDownMenu } from "@/components/elements/DropdownMenu";
