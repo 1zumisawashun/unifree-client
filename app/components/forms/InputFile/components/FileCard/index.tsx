@@ -2,7 +2,7 @@ import { IconButton, UnstyledButton } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { isString } from "@/functions/helpers/typeGuard";
 import { SetState, State } from "@/functions/hooks/useArrayState";
-import { PreviewDialog } from "../PreviewDialog";
+import { PreviewDialog } from "../../../../elements/PreviewDialog";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "file-card";

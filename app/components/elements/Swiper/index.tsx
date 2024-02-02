@@ -2,20 +2,38 @@ import { IconButton } from "@/components/buttons";
 import { useActiveStep } from "@/functions/hooks/useActiveStep";
 import { useRef } from "react";
 import "swiper/css";
-import { Swiper as RowSwiper } from "swiper/react";
+import { Swiper as RowSwiper, SwiperSlide } from "swiper/react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "swiper";
 
-export function Swiper({
-  children,
-  max,
-}: {
-  children: React.ReactNode;
-  max: number;
-}) {
+export const Swiper = <T extends { id: number | string }>(props: {
+  rows: T[];
+  render: React.FC<T>;
+  perSlide?: number;
+}) => {
   const swiperRef = useRef();
   const { next, back, activeStep } = useActiveStep();
+
+  const min = activeStep === 0;
+  const max = activeStep === props.rows.length;
+
+  const handleBack = () => {
+    // @ts-ignore
+    swiperRef.current.slidePrev();
+    back();
+  };
+
+  const handleNext = () => {
+    // @ts-ignore
+    swiperRef.current?.slideNext();
+    next();
+  };
+
+  const handleBeforeInit = (swiper: any) => {
+    // @ts-ignore
+    swiperRef.current = swiper;
+  };
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
@@ -23,37 +41,28 @@ export function Swiper({
         size="small"
         name="arrow-left"
         variant="outlined"
-        onClick={() => {
-          // @ts-ignore
-          swiperRef.current?.slidePrev();
-          back();
-        }}
-        disabled={activeStep === 0}
+        onClick={handleBack}
+        disabled={min}
         className={styles[`${BLOCK_NAME}-left-button`]}
       />
       <RowSwiper
-        slidesPerView={2}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
-        onBeforeInit={(swiper) => {
-          // @ts-ignore
-          swiperRef.current = swiper;
-        }}
+        slidesPerView={props.perSlide ?? 1}
+        onBeforeInit={handleBeforeInit}
       >
-        {children}
+        {props.rows.map((row) => (
+          <SwiperSlide key={row.id}>
+            <props.render {...row} />
+          </SwiperSlide>
+        ))}
       </RowSwiper>
       <IconButton
         size="small"
         name="arrow-right"
         variant="outlined"
-        onClick={() => {
-          // @ts-ignore
-          swiperRef.current?.slideNext();
-          next();
-        }}
-        disabled={activeStep === max}
+        onClick={handleNext}
+        disabled={max}
         className={styles[`${BLOCK_NAME}-right-button`]}
       />
     </div>
   );
-}
+};
