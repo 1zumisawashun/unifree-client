@@ -18,6 +18,8 @@ export const Swiper = <T extends { id: number | string }>(props: {
   const min = activeStep === 0;
   const max = activeStep === props.rows.length;
 
+  const shouldHideIconButton = props.rows.length > 1;
+
   const handleBack = () => {
     // @ts-ignore
     swiperRef.current.slidePrev();
@@ -37,14 +39,16 @@ export const Swiper = <T extends { id: number | string }>(props: {
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
-      <IconButton
-        size="small"
-        name="arrow-left"
-        variant="outlined"
-        onClick={handleBack}
-        disabled={min}
-        className={styles[`${BLOCK_NAME}-left-button`]}
-      />
+      {shouldHideIconButton && (
+        <IconButton
+          size="small"
+          name="arrow-left"
+          variant="outlined"
+          onClick={handleBack}
+          disabled={min}
+          className={styles[`${BLOCK_NAME}-left-button`]}
+        />
+      )}
       <RowSwiper
         slidesPerView={props.perSlide ?? 1}
         onBeforeInit={handleBeforeInit}
@@ -55,14 +59,16 @@ export const Swiper = <T extends { id: number | string }>(props: {
           </SwiperSlide>
         ))}
       </RowSwiper>
-      <IconButton
-        size="small"
-        name="arrow-right"
-        variant="outlined"
-        onClick={handleNext}
-        disabled={max}
-        className={styles[`${BLOCK_NAME}-right-button`]}
-      />
+      {shouldHideIconButton && (
+        <IconButton
+          size="small"
+          name="arrow-right"
+          variant="outlined"
+          onClick={handleNext}
+          disabled={max}
+          className={styles[`${BLOCK_NAME}-right-button`]}
+        />
+      )}
     </div>
   );
 };

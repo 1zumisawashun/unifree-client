@@ -4,13 +4,15 @@ import {
   Button,
   ButtonAnchor,
   ButtonWrapper,
+  UnstyledButton,
   UnstyledButtonAnchor,
 } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Label } from "@/components/elements/Label";
+import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
-import { Product } from "@/functions/models/Products";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
+import { Product } from "@/functions/models/Products";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-detail";
@@ -20,15 +22,18 @@ export const ProductDetail = ({ product }: { product: Product }) => {
   const { id, name, categories, description, images, price } = product;
 
   const deleteDialog = useDialog();
+  const previewDialog = useDialog();
 
   return (
     <>
       <div className={styles[`${BLOCK_NAME}-container`]}>
-        <img
-          className={styles[`${BLOCK_NAME}-image`]}
-          src={images[0]?.src}
-          alt=""
-        />
+        <UnstyledButton onClick={previewDialog.open}>
+          <img
+            className={styles[`${BLOCK_NAME}-image`]}
+            src={images[0]?.src}
+            alt=""
+          />
+        </UnstyledButton>
         <h3 className={styles[`${BLOCK_NAME}-title`]}>{name}</h3>
 
         {categories ? (
@@ -61,6 +66,7 @@ export const ProductDetail = ({ product }: { product: Product }) => {
       </div>
 
       <DeleteDialog dialog={deleteDialog} product={product} />
+      <PreviewDialog dialog={previewDialog} images={images} />
     </>
   );
 };
