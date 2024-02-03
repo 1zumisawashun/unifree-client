@@ -7,10 +7,12 @@
 }
 
 .toast-content {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0px 11px 28px rgba(8, 18, 26, 0.24);
   display: inline-flex;
-  padding: 0.5rem 1rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
   &[data-theme="primary"] {
     background-color: $primary-bg;
     color: $primary-dark;
@@ -25,11 +27,8 @@
   }
 }
 
-// .toast-contentText {
-// }
-
-.toast-iconButton {
-  margin-left: 12px;
+.toast-text {
+  font-weight: 700;
 }
 
 /**

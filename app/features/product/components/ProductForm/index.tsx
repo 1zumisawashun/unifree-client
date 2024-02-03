@@ -16,6 +16,7 @@ import {
   statusOptions,
 } from "@/functions/constants/options";
 import { useArrayState } from "@/functions/hooks/useArrayState";
+import { Image } from "@/functions/models/Image";
 import { UpsertProduct } from "@/functions/models/Products";
 import { useState } from "react";
 
@@ -29,7 +30,7 @@ export const ProductForm = ({
   const [name, setName] = useState(product.name);
   const [price, setPrice] = useState(product.price);
   const [description, setDescription] = useState(product.description);
-  const [files, setFiles] = useArrayState<File | string>(product.files);
+  const [files, setFiles] = useArrayState<File | Image>(product.files);
   const [status, setStatus] = useState(product.status);
   const [paymentMethod, setPaymentMethod] = useState(product.paymentMethod);
   const [isDisplay, setIsDisplay] = useState(product.isDisplay);

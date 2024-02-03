@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const zImage = z.object({
+export const zImage = z.object({
   id: z.number().int(),
   name: z.string(),
   src: z.string(),
@@ -9,3 +9,5 @@ const zImage = z.object({
 export const zUpsertImage = zImage.omit({ id: true });
 
 export const zImages = z.array(zImage);
+
+export type Image = z.infer<typeof zImage>

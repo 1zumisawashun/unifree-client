@@ -1,5 +1,16 @@
+import { Image } from "@/functions/models/Image";
+
 const isString = (file: unknown): file is string => {
   return typeof file === "string";
 };
 
-export { isString };
+const isFile = (file: unknown): file is File => {
+  return file instanceof File;
+};
+
+// FIXME:オブジェクトの型ガードをちゃんとやりたい
+const isImage = (file: unknown): file is Image => {
+  return file instanceof Image;
+};
+
+export { isFile, isImage, isString };

@@ -2,37 +2,26 @@ import { IconButton, UnstyledButton } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
-import { isString } from "@/functions/helpers/typeGuard";
+import { isFile } from "@/functions/helpers/typeGuard";
 import { SetState, State } from "@/functions/hooks/useArrayState";
+import { Image } from "@/functions/models/Image";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "file-card";
 
-type Image = {
-  id: number;
-  src: string;
-  name: string;
-};
-
-const Item = ({
-  file,
-  remove,
-}: {
-  file: File | string;
-  remove: () => void;
-}) => {
+const Item = ({ file, remove }: { file: File | Image; remove: () => void }) => {
   const [image, setImage] = useState<Image>();
 
   const dialog = useDialog();
 
-  const init = async ({ file }: { file: File | string }) => {
-    if (isString(file)) {
-      setImage({ id: 1, src: file, name: "sample" });
+  const init = async ({ file }: { file: File | Image }) => {
+    if (isFile(file)) {
+      const src = (await getDataUrl({ file })) as string;
+      setImage({ id: 1, src, name: file.name });
       return;
     }
-    const src = (await getDataUrl({ file })) as string;
-    setImage({ id: 1, src, name: file.name });
+    setImage(file);
   };
 
   useEffect(() => {
@@ -58,8 +47,8 @@ const List = ({
   state,
   setState,
 }: {
-  state: State<File | string>;
-  setState: SetState<File | string>;
+  state: State<File | Image>;
+  setState: SetState<File | Image>;
 }) => {
   if (state.length === 0) return null;
 

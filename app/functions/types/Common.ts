@@ -1,6 +1,6 @@
 export type ThemeType =
   | "primary"
-  // | "secondary"
+  | "secondary"
   | "danger"
   | "success"
   | "transparent";
@@ -14,7 +14,7 @@ export type VariantType =
   | "confirmation"
   | "error";
 
-export type SizeType = "small" | "medium" | "large";
+export type SizeType = "x-small" | "small" | "medium" | "large";
 
 export type PositionType = "start" | "center" | "end";
 

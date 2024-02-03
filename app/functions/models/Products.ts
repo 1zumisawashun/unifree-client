@@ -1,7 +1,7 @@
 import { status } from "@/functions/types/Common";
 import { z } from "zod";
 import { zCategories } from "./Categories";
-import { zImages } from "./Image";
+import { zImage, zImages } from "./Image";
 
 // fetch from planet-scale
 export const zProduct = z.object({
@@ -27,7 +27,7 @@ export type Product = z.infer<typeof zProduct>;
 
 export type Products = z.infer<typeof zProducts>;
 
-const zUpsertProductFile = z.union([z.custom<File>(), z.string()]);
+const zUpsertProductFile = z.union([z.custom<File>(), zImage]);
 const zUpsertProductFiles = z.array(zUpsertProductFile);
 
 // react-hook-form

@@ -3,7 +3,7 @@
 import { ProductForm } from "@/features/product/components/ProductForm";
 import { API } from "@/functions/constants/api";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
-import { isString } from "@/functions/helpers/typeGuard";
+import { isFile } from "@/functions/helpers/typeGuard";
 import { Product, UpsertProduct } from "@/functions/models/Products";
 
 const createUrl = API.createStripePrices;
@@ -26,7 +26,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     name,
     price: String(price),
     description,
-    files: images.map((image) => image.src),
+    files: images,
     status,
     paymentMethod: payment_method,
     isDisplay: active,
@@ -37,9 +37,11 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     const { files, name, price } = data;
 
     const promises = files.map(async (file) => {
-      if (isString(file)) return file;
-      const downloadUrl = await getDownloadUrl({ file });
-      return { name: file.name, src: downloadUrl };
+      if (isFile(file)) {
+        const downloadUrl = await getDownloadUrl({ file });
+        return { name: file.name, src: downloadUrl };
+      }
+      return file;
     });
 
     const images = await Promise.all(promises);

@@ -7,10 +7,11 @@ import { SetState, State } from "@/functions/hooks/useArrayState";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
+import { Image } from "@/functions/models/Image";
 
 export type InputFileProps = {
-  state: State<File | string>;
-  setState: SetState<File | string>;
+  state: State<File | Image>;
+  setState: SetState<File | Image>;
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
 
@@ -44,27 +45,27 @@ export function InputFile({
 
   const [message, setMessage] = useState("");
 
-  const main = ({ fileList }: { fileList: FileList }) => {
-    const _files = [...Array.from(fileList)];
+  const update = ({ fileList }: { fileList: FileList }) => {
+    const files = [...Array.from(fileList)];
 
     // validate here
-    if ([...state, ..._files].length >= 5) {
+    if ([...state, ...files].length >= 5) {
       setMessage("4枚を超えて選択された画像は表示されません");
       errorDialog.open();
       return;
     }
 
-    setState.add([..._files]);
+    setState.add([...files]);
   };
 
   const handleUpload = (e: BaseSyntheticEvent) => {
     const fileList = e.target.files as FileList;
-    main({ fileList });
+    update({ fileList });
   };
 
   useDD(dragRef, (e: DragEvent) => {
     const fileList = e.dataTransfer?.files as FileList;
-    main({ fileList });
+    update({ fileList });
   });
 
   return (

@@ -3,9 +3,8 @@
 import { ProductForm } from "@/features/product/components/ProductForm";
 import { API } from "@/functions/constants/api";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
-import { isString } from "@/functions/helpers/typeGuard";
-import { UpsertProduct,productEntity } from "@/functions/models/Products";
-
+import { isFile } from "@/functions/helpers/typeGuard";
+import { UpsertProduct, productEntity } from "@/functions/models/Products";
 
 const url = API.createStripePrices;
 
@@ -14,9 +13,11 @@ export const ProductCreate: React.FC = () => {
     const { files, name, price } = data;
 
     const promises = files.map(async (file) => {
-      if (isString(file)) return file;
-      const downloadUrl = await getDownloadUrl({ file });
-      return { name: file.name, src: downloadUrl };
+      if (isFile(file)) {
+        const downloadUrl = await getDownloadUrl({ file });
+        return { name: file.name, src: downloadUrl };
+      }
+      return file;
     });
 
     const images = await Promise.all(promises);
@@ -33,5 +34,5 @@ export const ProductCreate: React.FC = () => {
     // db logic here
   };
 
-  return <ProductForm submit={create} product={productEntity}/>;
+  return <ProductForm submit={create} product={productEntity} />;
 };

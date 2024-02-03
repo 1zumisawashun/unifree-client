@@ -1,9 +1,8 @@
-"use client";
+import { IconButton } from "@/components/buttons/IconButton";
+import { Toast as ToastType } from "@/components/elements/ToastProvider";
 import { StackPosition } from "@/functions/types/Common";
 import clsx from "clsx";
 import { useState } from "react";
-import { Toast as ToastType } from "@/components/elements/ToastProvider";
-// import { IconButton } from "../../buttons/IconButton";
 import styles from "./styles.module.scss";
 
 type ToastProps = {
@@ -21,9 +20,9 @@ export const BLOCK_NAME = "toast";
 
 export const Toast: React.FC<ToastProps> = ({
   isShow,
-  toast: { message = "これはテストこれはテスト", theme = "success" },
+  toast: { message = "message", theme = "success" },
   position = "topCenter",
-  // closeToast,
+  closeToast,
   focusEvent: { resetTimeout, setIsShowWithTimeout },
 }) => {
   const [clientHeight, setClientHeight] = useState(0);
@@ -57,9 +56,13 @@ export const Toast: React.FC<ToastProps> = ({
         onBlur={setIsShowWithTimeout}
         data-theme={theme}
       >
-        <span className={styles[`${BLOCK_NAME}-contentText`]}>{message}</span>
-
-        {/* <IconButton name="cross" onClick={closeToast} /> */}
+        <span className={styles[`${BLOCK_NAME}-text`]}>{message}</span>
+        <IconButton
+          name="cross"
+          onClick={closeToast}
+          size="x-small"
+          theme="success"
+        />
       </div>
     </div>
   );

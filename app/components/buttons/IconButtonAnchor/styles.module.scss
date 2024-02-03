@@ -1,9 +1,11 @@
 @import "@/assets/styles/objects/base-button";
 
+$x-small: 0.5rem;
 $small: 0.875rem;
 $medium: 1rem;
 $large: 1.125rem;
 
+$x-small-pd: 8px;
 $small-pd: 10px;
 $medium-pd: 12px;
 $large-pd: 14px;
@@ -20,6 +22,13 @@ $large-pd: 14px;
   }
 
   // button-size
+  &[data-size="x-small"] {
+    padding: $x-small-pd;
+    > svg {
+      width: $small;
+      height: $small;
+    }
+  }
   &[data-size="small"] {
     padding: $small-pd;
     > svg {

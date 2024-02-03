@@ -4,15 +4,10 @@ import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Swiper } from "@/components/elements/Swiper";
+import { Image } from "@/functions/models/Image";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "preview-dialog";
-
-type Image = {
-  id: number;
-  src: string;
-  name: string;
-};
 
 /* eslint-disable @next/next/no-img-element */
 export const PreviewDialog = ({
@@ -33,9 +28,7 @@ export const PreviewDialog = ({
           />
         )}
         <ButtonWrapper position="end">
-          <Button onClick={dialog.close} variant="outlined">
-            Close
-          </Button>
+          <Button onClick={dialog.close}>Close</Button>
         </ButtonWrapper>
       </div>
     </Dialog>

@@ -86,7 +86,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ToastContext.Provider value={{ showToast, closeToast }}>
-      <Toast {...props} />
+      {isShow && <Toast {...props} />}
       {children}
     </ToastContext.Provider>
   );
