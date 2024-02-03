@@ -8,18 +8,20 @@ type DialogProps = {
   close?: () => void;
   children: React.ReactNode;
   width?: WidthType;
+  hasSwiper?: boolean;
 };
 
 type Ref = HTMLDialogElement;
 
 export const Dialog: React.FC<DialogProps> = forwardRef<Ref, DialogProps>(
-  ({ close, children, width }, ref) => {
+  ({ children, width, hasSwiper = false }, ref) => {
     return (
       <dialog
         ref={ref}
-        onClick={close}
+        // onClick={close}
         className={styles["dialog"]}
         data-width={width}
+        data-swiper={hasSwiper}
       >
         {children}
       </dialog>

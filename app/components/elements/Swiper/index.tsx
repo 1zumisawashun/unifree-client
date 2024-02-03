@@ -18,7 +18,7 @@ export const Swiper = <T extends { id: number | string }>(props: {
   const min = activeStep === 0;
   const max = activeStep === props.rows.length;
 
-  const shouldHideIconButton = props.rows.length > 1;
+  const shouldShowIconButton = props.rows.length > 1;
 
   const handleBack = () => {
     // @ts-ignore
@@ -39,7 +39,7 @@ export const Swiper = <T extends { id: number | string }>(props: {
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
-      {shouldHideIconButton && (
+      {shouldShowIconButton && (
         <IconButton
           size="small"
           name="arrow-left"
@@ -59,7 +59,7 @@ export const Swiper = <T extends { id: number | string }>(props: {
           </SwiperSlide>
         ))}
       </RowSwiper>
-      {shouldHideIconButton && (
+      {shouldShowIconButton && (
         <IconButton
           size="small"
           name="arrow-right"

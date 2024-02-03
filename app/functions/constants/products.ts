@@ -23,6 +23,16 @@ export const products: Products = [
         name: "sample1",
         src: "https://placehold.jp/400x250.png",
       },
+      {
+        id: 2,
+        name: "sample2",
+        src: "https://placehold.jp/400x250.png",
+      },
+      {
+        id: 3,
+        name: "sample3",
+        src: "https://placehold.jp/400x250.png",
+      },
     ],
     created_user: "uid",
     created_at: "1678833149",

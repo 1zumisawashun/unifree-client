@@ -1,0 +1,15 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.logout-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.logout-dialog-text {
+  composes: text-normal;
+  font-weight: bold;
+  color: $grey-main;
+}

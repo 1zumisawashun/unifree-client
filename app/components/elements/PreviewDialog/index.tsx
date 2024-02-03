@@ -17,8 +17,9 @@ export const PreviewDialog = ({
   dialog: UseDialog;
   images?: Image[];
 }) => {
+  const hasSwiper = images && images.length > 1;
   return (
-    <Dialog {...dialog} width="half">
+    <Dialog {...dialog} width="half" hasSwiper={hasSwiper}>
       <div className={styles[`${BLOCK_NAME}-body`]}>
         <p className={styles[`${BLOCK_NAME}-text`]}>プレビューダイアログ</p>
         {images && (

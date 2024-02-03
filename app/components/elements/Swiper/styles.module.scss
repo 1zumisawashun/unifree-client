@@ -1,12 +1,20 @@
 @import "@/assets/styles/settings/media";
+@import "@/assets/styles/settings/color";
+
+// $icon-button-width: 36px;
+// $dialog-side-padding: 4rem;
+
+// $center-position: calc(icon-button-width + $dialog-side-padding) / 2;
 
 .swiper-container {
   display: flex;
   position: relative;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
 }
 .swiper-left-button {
   position: absolute;
-  left: -50px;
+  left: calc(-2rem + -18px);
   top: 50%;
   @include sp {
     display: none;
@@ -14,7 +22,7 @@
 }
 .swiper-right-button {
   position: absolute;
-  right: -50px;
+  right: calc(-2rem + -18px);
   top: 50%;
   @include sp {
     display: none;

@@ -11,7 +11,6 @@ const BLOCK_NAME = "delete-dialog";
 
 const url = API.deleteStripePrices;
 
-/* eslint-disable @next/next/no-img-element */
 export const DeleteDialog = ({
   dialog,
   product,

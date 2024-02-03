@@ -3,6 +3,9 @@
     border: none;
     border-radius: 0.5rem;
     padding: 2rem;
+    &[data-swiper="true"] {
+      padding: 2rem 4rem;
+    }
   }
 
   &::backdrop {
