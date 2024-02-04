@@ -19,10 +19,12 @@ function getProfileMenuRoutes({ session }: { session: any }) {
     ? [
         { href: "/products/create", value: "Create" },
         { href: "/mypage/post", value: "Mypage" },
+        { href: "/matches", value: "Match" },
       ]
     : [];
 
   const commonRoutes = [
+    { href: "/guide", value: "Guidance" },
     { href: "/tos", value: "Terms of Service" },
     { href: "/faq", value: "FAQ" },
   ];
