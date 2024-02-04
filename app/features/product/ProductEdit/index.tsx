@@ -66,5 +66,12 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     // db logic here
   };
 
-  return <ProductForm submit={edit} product={productEntity} />;
+  return (
+    <ProductForm
+      submit={edit}
+      product={productEntity}
+      href={`/products/${product.id}`}
+      domain="edit"
+    />
+  );
 };

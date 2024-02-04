@@ -20,7 +20,7 @@ const getProvider = (method: "google" | "microsoft") => {
 };
 
 /* eslint-disable */
-const login = async (method: "google" | "microsoft") => {
+async function login(method: "google" | "microsoft") {
   try {
     const provider = getProvider(method);
     const result = await signInWithPopup(auth, provider);
@@ -46,13 +46,13 @@ const login = async (method: "google" | "microsoft") => {
     }
     return "エラーが発生しました。";
   }
-};
+}
 
-const logout = async () => {
+async function logout() {
   await signOut(auth);
   await signOutByNextAuth({
     callbackUrl: `/`,
   });
-};
+}
 
 export { isUser, login, logout };

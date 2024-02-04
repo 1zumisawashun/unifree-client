@@ -14,8 +14,8 @@
 }
 
 .preview-dialog-image-wrapper {
-  max-width: 500px;
-  max-height: 500px;
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 

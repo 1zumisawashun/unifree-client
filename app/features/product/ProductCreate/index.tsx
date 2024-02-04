@@ -34,5 +34,12 @@ export const ProductCreate: React.FC = () => {
     // db logic here
   };
 
-  return <ProductForm submit={create} product={productEntity} />;
+  return (
+    <ProductForm
+      submit={create}
+      product={productEntity}
+      href={"/products"}
+      domain="create"
+    />
+  );
 };

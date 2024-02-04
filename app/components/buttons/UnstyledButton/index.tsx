@@ -9,7 +9,7 @@ type Ref = HTMLButtonElement;
 
 export const UnstyledButton = forwardRef<Ref, Props>(
   ({ type = "button", children, ...props }, ref) => (
-    <button {...props} type={type} ref={ref}>
+    <button {...props} type={type} ref={ref} style={{ cursor: "pointer" }}>
       {children}
     </button>
   )

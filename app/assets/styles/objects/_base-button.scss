@@ -25,11 +25,6 @@ $large-pd-x: 26px;
   position: relative;
   text-align: center;
 
-  &:hover {
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-  }
-
   &[data-shape="square"]::before {
     background: $overlay;
     border-radius: 0.5rem;
@@ -50,6 +45,13 @@ $large-pd-x: 26px;
     opacity: 0;
     transition: 0.3s;
     z-index: 2;
+  }
+
+  &:hover {
+    transition: opacity 0.3s ease;
+    &::before {
+      opacity: 0.3;
+    }
   }
 
   // button-disabled

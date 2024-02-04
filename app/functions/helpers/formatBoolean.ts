@@ -1,15 +1,23 @@
 import { breakpoints } from "@/functions/constants/breakpoints";
 
-const isLocalhost = () => {
+function isLocalhost() {
   return document.location.hostname === "localhost";
-};
+}
 
-const isIphone5 = () => window.innerWidth <= breakpoints.iphone5;
+function isIphone5() {
+  window.innerWidth <= breakpoints.iphone5;
+}
 
-const isSp = () => window.innerWidth <= breakpoints.sp;
+function isSp() {
+  window.innerWidth <= breakpoints.sp;
+}
 
-const isTab = () => window.innerWidth <= breakpoints.tab;
+function isTab() {
+  window.innerWidth <= breakpoints.tab;
+}
 
-const isPc = () => window.innerWidth <= breakpoints.pc;
+function isPc() {
+  window.innerWidth <= breakpoints.pc;
+}
 
 export { isIphone5, isLocalhost, isPc, isSp, isTab };

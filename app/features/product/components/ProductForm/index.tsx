@@ -15,6 +15,7 @@ import {
   paymentMethodOptions,
   statusOptions,
 } from "@/functions/constants/options";
+import { formatFirstLetterUpperCase } from "@/functions/helpers/formatString";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/models/Image";
 import { UpsertProduct } from "@/functions/models/Products";
@@ -23,9 +24,13 @@ import { useState } from "react";
 export const ProductForm = ({
   product,
   submit,
+  href,
+  domain,
 }: {
   product: UpsertProduct;
   submit: (data: UpsertProduct) => void;
+  href: string;
+  domain: "create" | "edit";
 }) => {
   const [name, setName] = useState(product.name);
   const [price, setPrice] = useState(product.price);
@@ -129,10 +134,12 @@ export const ProductForm = ({
           </InputFlexWrapper>
         </InputWrapper>
         <ButtonWrapper position="end">
-          <ButtonAnchor href={`/products`} variant="outlined">
+          <ButtonAnchor href={href} variant="outlined">
             Cancel
           </ButtonAnchor>
-          <Button onClick={() => submit(product)}>Update</Button>
+          <Button onClick={() => submit(product)}>
+            {formatFirstLetterUpperCase(domain)}
+          </Button>
         </ButtonWrapper>
       </FormWrapper>
     </>
