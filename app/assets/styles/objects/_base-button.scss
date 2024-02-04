@@ -18,6 +18,7 @@ $large-pd-x: 26px;
   line-height: 1;
   min-width: 100px;
   align-items: center;
+  border-radius: 0.5em;
   cursor: pointer;
   display: inline-flex;
   gap: 0.5rem;
@@ -25,7 +26,7 @@ $large-pd-x: 26px;
   position: relative;
   text-align: center;
 
-  &[data-shape="square"]::before {
+  &::before {
     background: $overlay;
     border-radius: 0.5rem;
     inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
@@ -36,15 +37,12 @@ $large-pd-x: 26px;
     z-index: 2;
   }
 
+  &[data-shape="square"]::before {
+    border-radius: 0rem;
+  }
+
   &[data-shape="round"]::before {
-    background: $overlay;
     border-radius: 1.5rem;
-    inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
-    content: "";
-    position: absolute;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 2;
   }
 
   &:hover {
@@ -65,7 +63,7 @@ $large-pd-x: 26px;
 
   // button-shape
   &[data-shape="square"] {
-    border-radius: 0.5em;
+    border-radius: 0em;
   }
   &[data-shape="round"] {
     border-radius: 1.5em;

@@ -56,6 +56,7 @@ export const ProfileMenu: React.FC<Props> = ({ routes }) => {
             <ButtonAnchor
               href={route.href}
               variant="transparent"
+              shape="square"
               className={styles[`${BLOCK_NAME}-anchor-button`]}
             >
               {route.value}

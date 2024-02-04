@@ -1,5 +1,4 @@
 @import "@/assets/styles/settings/color";
-@import "@/assets/styles/objects/base-button";
 
 .profile-menu-trigger-button {
   width: 40px;
@@ -14,28 +13,6 @@
 }
 
 .profile-menu-anchor-button {
-  // composes: button;
-  // override from here
-
-  // font-weight: 500;
-  // min-width: 100%;
   width: 100%;
-  // max-width: 100%;
-  justify-content: flex-start;
-  // &[data-shape="square"]::before {
-  //   background: $overlay;
-  //   border-radius: 2rem;
-  //   inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
-  //   content: "";
-  //   position: absolute;
-  //   opacity: 0;
-  //   transition: 0.3s;
-  //   z-index: 2;
-  // }
-  // &:hover {
-  //   transition: opacity 0.3s ease;
-  //   &::before {
-  //     opacity: 0.3;
-  //   }
-  // }
+  justify-content: normal !important;
 }

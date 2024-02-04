@@ -17,7 +17,7 @@ export const Button = forwardRef<Ref, Props>(
       theme = "primary",
       variant = "contained",
       size = "medium",
-      shape = "square",
+      shape,
       loading,
       disabled,
       className,

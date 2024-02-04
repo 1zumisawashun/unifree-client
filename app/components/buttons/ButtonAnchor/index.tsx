@@ -15,7 +15,7 @@ export const ButtonAnchor = forwardRef<Ref, Props>(
       theme = "primary",
       variant = "contained",
       size = "medium",
-      shape = "square",
+      shape,
       className,
       prefix,
       suffix,
