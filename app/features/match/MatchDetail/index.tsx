@@ -1,7 +1,5 @@
+import { MatchRoom } from "@/features/match/MatchDetail/components/MatchRoom";
+
 export function MatchDetail() {
-  return (
-    <div>
-      <p>match-detail</p>
-    </div>
-  );
+  return <MatchRoom messages={[]} />;
 }

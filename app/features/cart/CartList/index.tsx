@@ -1,9 +1,8 @@
 "use client";
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { ErrorEmpty } from "@/components/elements/ErrorFallback";
-// import { LoadingDot } from "@/components/elements/LoadingDot";
 import { Divider } from "@/components/elements/Divider";
+import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 import { CartList } from "@/features/cart/CartList/components/CartList";
 import { API } from "@/functions/constants/api";
 import { CartDetails } from "@/functions/constants/cart";
@@ -27,8 +26,6 @@ export function Cart() {
     const json = await response.json();
     window.location.href = json.url;
   };
-
-  // if (Object.values(cartDetails ?? {}).length === 0) return <LoadingDot />;
 
   if (!totalPrice) return <ErrorEmpty />;
 

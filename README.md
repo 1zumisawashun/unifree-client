@@ -57,7 +57,7 @@
 
 - index
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d05db166-b0a8-4996-8e60-26d81d5a62a0)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/11eebdab-62dc-4b8c-a4c8-dfa8da4b6d0f)
 
 </details>
 
@@ -66,19 +66,19 @@
 
 - products-list
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/71fcb5a3-d258-4574-8024-f72cb1019b3d)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/79780bc6-d3b1-4fbd-aed5-0cafd1f24574)
 
 - products-detail
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/dd1af9ac-7691-4806-a231-f49290095880)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/92cd1d9e-d696-462c-a1a6-8730bf8c3895)
 
 - products-create
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/64b3a407-dfda-4f9a-b676-cd65be809db0)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/5948cbf3-ad36-4742-97ca-3b14e6e09f2c)
 
 - products-edit
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/70e90b8e-09fd-4fda-a7d6-e1cc4cbfaed1)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/07de310b-a4bc-4643-ad95-ec93e444d406)
 
 </details>
 
@@ -87,7 +87,7 @@
 
 - cart
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6901daab-5d44-4f26-9f8b-ab8a359169ca)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/354aca3f-c26d-4059-879e-f1c9b4e1ca07)
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d79584be-8ba3-41ac-8a01-015889cd017f)
 
@@ -98,11 +98,17 @@
 
 - mypage-post
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6a2620c2-e9c7-4d7b-9a2d-98f422f8545d)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/784a2a77-6128-41d8-a0a0-4b0ff0815562)
 
 - mypage-history
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a01ead40-cc7f-4401-af52-c8eb5009bd75)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/3049e851-a342-4290-bc19-314d568f3094)
+
+- mypage-setting
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/11d77907-4b44-4fd9-bb10-61dbfa5e7c4c)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/05c7e73b-3e47-43de-a748-b4558bc8285a)
 
 </details>
 

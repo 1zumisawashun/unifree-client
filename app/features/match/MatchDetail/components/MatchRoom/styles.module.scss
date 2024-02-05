@@ -1,0 +1,53 @@
+@import "@/assets/styles/settings/color";
+
+.organization-container {
+  /* give the outermost container a predefined size */
+  position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // right: 0;
+  top: calc(50% + 35px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 576px;
+  // width: 100%;
+  // width: calc(100% - 300px);
+  height: calc(100% - 70px);
+
+  display: flex;
+  flex-direction: column;
+  background-color: $white-light;
+}
+
+.organization-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  /* for Firefox */
+  min-height: 0;
+}
+
+.organization-scrollable-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* for Firefox */
+  min-height: 0;
+}
+
+.organization-scrollable-inner {
+  position: absolute;
+  width: 100%;
+}
+
+.organization-header {
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+  align-items: center;
+  background-color: #eceff1;
+}

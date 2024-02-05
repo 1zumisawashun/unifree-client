@@ -43,7 +43,7 @@ export const ProfileMenu: React.FC<Props> = ({ routes }) => {
         ref={triggerRef}
         className={styles[`${BLOCK_NAME}-trigger-button`]}
       >
-        <Avatar {...avatarParams}></Avatar>
+        <Avatar {...avatarParams} />
       </UnstyledButton>
       <DropDownMenu.List
         onClose={onClose}

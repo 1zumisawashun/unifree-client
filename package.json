@@ -12,7 +12,13 @@
     "lint-staged": "lint-staged",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "prisma db seed --preview-feature",
+    "prisma:dev": "run-s -l prisma:generate prisma:migrate prisma:seed",
+    "prisma:format": "npx prisma format",
+    "prisma:studio": "npx prisma studio"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.1.0",
@@ -23,6 +29,7 @@
     "firebase-admin": "^12.0.0",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
+    "prisma": "^5.9.1",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1",

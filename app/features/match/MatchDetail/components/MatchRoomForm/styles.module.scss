@@ -1,0 +1,53 @@
+// @import "@/assets/styles/objects/base-input.scss";
+// @import "@/assets/styles/settings/color";
+@import "@/assets/styles/settings/color";
+
+.chat-form-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 95%;
+  margin: 1rem auto;
+}
+
+.chat-form-wrapper {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chat-form-textarea {
+  resize: none;
+  max-height: calc(58px + 24px + 24px);
+  overflow-y: hidden;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
+  &[data-error="true"] {
+    border-color: $red-dark;
+  }
+  &:focus {
+    border-color: $blue-main;
+  }
+}
+
+.chat-form-submit-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: $primary-main;
+}
+
+.chat-form-reset-button-wrapper {
+  display: flex;
+  align-items: end;
+  margin: 0 0 0.5rem 0;
+}
+
+.chat-form-reset-button {
+  text-wrap: nowrap;
+}
