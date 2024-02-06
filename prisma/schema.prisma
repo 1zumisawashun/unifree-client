@@ -26,24 +26,27 @@ model User {
 }
 
 model Product {
-  id              Int      @id @default(autoincrement())
-  stripePriceId   String   @map("stripe_price_id")
-  stripeProductId String   @map("stripe_product_id")
+  id Int @id @default(autoincrement())
+
+  stripePriceId   String  @map("stripe_price_id")
+  stripeProductId String  @map("stripe_product_id")
   name            String
   price           Int
   active          Boolean
-  description     String
-  paymentMethod   String   @map("payment_method")
+  description     String  @db.Text
+  paymentMethod   String? @map("payment_method")
   status          String
-  images          Image[]
-  createdAt       DateTime @default(now()) @map("created_at")
-  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   user   User @relation(fields: [userId], references: [id])
-  userId Int  @unique @map("user_id")
+  userId Int  @map("user_id")
 
-  categories CategoriesOnProducts[]
+  categories Category[]
+  images     Image[]
 
+  @@index([userId])
   @@map("products")
 }
 
@@ -53,7 +56,10 @@ model Image {
   src  String
 
   product   Product @relation(fields: [productId], references: [id])
-  productId Int     @unique @map("product_id")
+  productId Int     @map("product_id")
+
+  @@index([productId])
+  @@map("images")
 }
 
 model Category {
@@ -62,20 +68,9 @@ model Category {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  products CategoriesOnProducts[]
+  products Product[]
 
   @@map("categories")
-}
-
-model CategoriesOnProducts {
-  product    Product  @relation(fields: [productId], references: [id])
-  productId  Int // relation scalar field (used in the `@relation` attribute above)
-  category   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int // relation scalar field (used in the `@relation` attribute above)
-
-  @@id([productId, categoryId])
-  @@index([productId])
-  @@index([categoryId])
 }
 
 model Match {
@@ -91,9 +86,9 @@ model Message {
   userId  Int // relation scalar field (used in the `@relation` attribute above)
   match   Match  @relation(fields: [matchId], references: [id])
   matchId Int // relation scalar field (used in the `@relation` attribute above)
-  message String
+  message String @db.Text
 
-  @@id([userId, matchId])
+  @@id([userId, matchId]) // connectするidになる
   @@index([userId])
   @@index([matchId])
   @@map("messages")
