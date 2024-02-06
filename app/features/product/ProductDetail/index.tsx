@@ -12,7 +12,7 @@ import { Label } from "@/components/elements/Label";
 import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
-import { Product } from "@/functions/models/Products";
+import { Product } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-detail";

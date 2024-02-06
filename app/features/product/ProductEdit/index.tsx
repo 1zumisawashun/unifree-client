@@ -4,7 +4,8 @@ import { ProductForm } from "@/features/product/components/ProductForm";
 import { API } from "@/functions/constants/api";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
 import { isFile } from "@/functions/helpers/typeGuard";
-import { Product, UpsertProduct } from "@/functions/models/Products";
+import { UpsertProduct } from "@/functions/models/Products";
+import { Product } from "@/functions/types/Prisma";
 
 const createUrl = API.createStripePrices;
 const deleteUrl = API.deleteStripePrices;
@@ -16,10 +17,10 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     description,
     images,
     status,
-    payment_method,
+    paymentMethod: payment_method,
     active,
     categories,
-    stripe_price_id,
+    stripePriceId: stripe_price_id,
   } = product;
 
   const productEntity = {
@@ -28,7 +29,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     description,
     files: images,
     status,
-    paymentMethod: payment_method,
+    paymentMethod: payment_method!,
     isDisplay: active,
     categories: categories.map((category) => category.name),
   };

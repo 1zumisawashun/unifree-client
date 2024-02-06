@@ -3,12 +3,11 @@ import { ErrorFetch } from "@/components/elements/ErrorFallback";
 import { LoadingDot } from "@/components/elements/LoadingDot";
 import { ProductCard } from "@/components/elements/ProductCard";
 import { SearchBar } from "@/features/product/ProductList/components/SearchBar";
-import { products } from "@/functions/constants/products";
+import { Product } from "@/functions/types/Prisma";
 import { Suspense } from "react";
 import "server-only";
 
-export const ProductList = async () => {
-  // init fetch here
+export const ProductList = ({ products }: { products: Product[] }) => {
   return (
     <>
       <SearchBar />

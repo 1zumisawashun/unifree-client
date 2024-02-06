@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { Product } from "@/functions/models/Products";
+import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
@@ -10,16 +10,16 @@ import styles from "./styles.module.scss";
 const BLOCK_NAME = "footer";
 
 export function FixedFooter({ product }: { product: Product }) {
-  const { name, stripe_price_id, price, images } = product;
+  const { name, stripePriceId, price, images } = product;
   const { addItem, cartDetails } = useShoppingCart();
   const { showToast, closeToast } = useToast();
 
-  const hasItem = Object.keys(cartDetails ?? {}).includes(stripe_price_id);
+  const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId);
 
   const add = () => {
     addItem({
       name,
-      id: stripe_price_id,
+      id: stripePriceId,
       price,
       currency: "jpy",
       image: images[0]?.src,

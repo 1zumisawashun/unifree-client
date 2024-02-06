@@ -1,11 +1,12 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
-import { Product } from "@/functions/models/Products";
+import { Product } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-card";
 
 // mypageでも使用するためcomponentsディレクトリに格納している
+
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ product }: { product: Product }) => {
   const { id, name, images, price, status } = product;
