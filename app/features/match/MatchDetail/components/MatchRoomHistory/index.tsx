@@ -15,30 +15,33 @@ const avatarParams = {
   height: undefined,
 };
 
-type Message = {
-  id: number;
-  text: string;
-  created_by: string;
-  src: string;
-};
-
 /* eslint-disable react/no-array-index-key */
-export function MatchRoomHistory({ messages }: { messages: Message[] }) {
+export function MatchRoomHistory({ messages }: { messages: any[] }) {
   return (
     <div>
       {messages.map((message) => (
         <div className={styles[`${BLOCK_NAME}-container`]} key={message.id}>
-          <div>
-            <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
-              <Avatar {...avatarParams} />
-            </div>
+          <div
+            className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}
+            data-role={message.user.role}
+          >
+            <Avatar {...avatarParams} />
           </div>
-
-          <p>
-            <span>
-              <Nl2br>{message.text}</Nl2br>
-            </span>
-          </p>
+          <div
+            className={styles[`${BLOCK_NAME}-content-wrapper`]}
+            data-role={message.user.role}
+          >
+            <p className={styles[`${BLOCK_NAME}-text`]}>匿名太郎</p>
+            <div
+              className={styles[`${BLOCK_NAME}-message-wrapper`]}
+              data-role={message.user.role}
+            >
+              <p className={styles[`${BLOCK_NAME}-message`]}>
+                <Nl2br>{message.message}</Nl2br>
+              </p>
+            </div>
+            <p className={styles[`${BLOCK_NAME}-text`]}>2024/02/06</p>
+          </div>
         </div>
       ))}
     </div>

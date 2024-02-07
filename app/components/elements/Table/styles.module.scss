@@ -1,0 +1,12 @@
+@import "@/assets/styles/settings/color";
+
+.table {
+  display: table;
+  width: auto;
+}
+
+.table-body {
+  border-collapse: separate; /* ボーダーをセパレートモデルに設定 */
+  border-spacing: 0 1px; /* 上下方向に1pxの間隔を設定（divide-yのデフォルト値） */
+  border-color: $border; /* ボーダーカラーを指定 */
+}

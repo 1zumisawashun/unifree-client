@@ -1,10 +1,15 @@
+import { UnstyledButtonAnchor } from "@/components/buttons";
+import styles from "./styles.module.scss";
+
+const BLOCK_NAME = "table";
+
 export const Table = <T extends { id: number | string }>(props: {
   rows: T[];
   render: React.FC<T>;
 }) => {
   return (
-    <table>
-      <tbody>
+    <table className={styles[`${BLOCK_NAME}`]}>
+      <tbody className={styles[`${BLOCK_NAME}-body`]}>
         {props.rows.map((row) => (
           <props.render {...row} key={row.id} />
         ))}
@@ -13,15 +18,21 @@ export const Table = <T extends { id: number | string }>(props: {
   );
 };
 
-{
-  /* <Table
-  rows={[{ id: 1, name: "shun", age: 26 }]}
-  render={(row) => {
-    return (
-      <tr>
-        <td>{row.name}</td>
-      </tr>
-    );
-  }}
-/>; */
-}
+export const LinkableTable = <
+  T extends { id: number | string; href: string }
+>(props: {
+  rows: T[];
+  render: React.FC<T>;
+}) => {
+  return (
+    <table className={styles[`${BLOCK_NAME}`]}>
+      <tbody className={styles[`${BLOCK_NAME}-body`]}>
+        {props.rows.map((row) => (
+          <UnstyledButtonAnchor href={row.href} key={row.id}>
+            <props.render {...row} />
+          </UnstyledButtonAnchor>
+        ))}
+      </tbody>
+    </table>
+  );
+};

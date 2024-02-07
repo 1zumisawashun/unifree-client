@@ -1,27 +1,49 @@
-@import '@/assets/styles/settings/color';
+@import "@/assets/styles/settings/color";
+@import "@/assets/styles/objects/base-text";
 
 .chat-history-container {
   padding: 1rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-
-  &[data-conversation-role='user'] {
-    background-color: $blue-bg;
-  }
-  &[data-conversation-role='bot'] {
-    background-color: $white;
-  }
 }
 
-.chat-history-image-wrapper {
+.chat-history-user-thumbnail-wrapper {
   width: 50px;
   height: 50px;
   position: relative;
+  flex-wrap: nowrap;
+  &[data-role="user"] {
+    display: none;
+  }
 }
-
-.chat-history-image {
-  object-fit: cover;
-  border-radius: 999rem;
-  border: 1px solid $white-main;
+.chat-history-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+  &[data-role="user"] {
+    display: grid;
+    justify-items: end;
+  }
+}
+.chat-history-message-wrapper {
+  border: 1px solid $border;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 80%;
+  &[data-role="user"] {
+    background-color: $primary-bg;
+  }
+  &[data-role="receiver"] {
+    background-color: $white;
+  }
+}
+.chat-history-text {
+  composes: text-x-small;
+  color: $grey-main;
+}
+.chat-history-message {
+  composes: text-small;
+  color: $grey-main;
 }
