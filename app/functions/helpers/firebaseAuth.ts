@@ -23,17 +23,15 @@ const getProvider = (method: "google" | "microsoft") => {
 async function login(method: "google" | "microsoft") {
   try {
     const provider = getProvider(method);
-    const result = await signInWithPopup(auth, provider);
-    const { user } = result;
-    const idToken = await user.getIdToken();
+    const userCredential = await signInWithPopup(auth, provider);
+    const idToken = await userCredential.user.getIdToken();
 
     const response = await signInByNextAuth("credentials", {
       idToken,
-      callbackUrl: `/`,
+      callbackUrl: `/mypage/setting`,
     });
-    console.log(response);
 
-    return { status: "ok" };
+    return response;
   } catch (error) {
     if (error instanceof FirebaseError) {
       if (error.code === "auth/account-exists-with-different-credential") {

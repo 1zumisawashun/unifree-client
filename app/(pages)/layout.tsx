@@ -1,5 +1,6 @@
 import "@/assets/styles/generics/custom-reset.css";
 import "@/assets/styles/generics/the-new-css-reset.css";
+import { AuthProvider } from "@/components/elements/AuthProvider";
 import { ClientProvider } from "@/providers/client";
 import { Noto_Sans_JP } from "next/font/google";
 
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={NotoSansJP.className}>
-        <ClientProvider>{children}</ClientProvider>
+        <AuthProvider>
+          <ClientProvider>{children}</ClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -10,8 +10,10 @@ generator client {
 
 model User {
   id               Int      @id @default(autoincrement())
+  uid              String   @unique
+  photoURL         String?
+  displayName      String?  @map("display_name")
   stripeCustomerId String?  @map("stripe_customer_id")
-  name             String?
   university       String?
   faculty          String?
   department       String?

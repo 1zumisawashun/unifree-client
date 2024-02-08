@@ -7,9 +7,9 @@ import { EditDialog } from "@/features/mypage/MypageSetting/components/EditDialo
 import { LogoutDialog } from "@/features/mypage/MypageSetting/components/LogoutDialog";
 import { MypageSettingContainer } from "@/features/mypage/MypageSetting/components/MypageSettingContainer";
 import { ProfileCard } from "@/features/mypage/MypageSetting/components/ProfileCard";
-import type { Session } from "next-auth";
+import { User } from "@/functions/types/Prisma";
 
-export function MypageSetting({ user }: { user?: Session["user"] }) {
+export function MypageSetting({ user }: { user: User }) {
   const editDialog = useDialog();
   const logoutDialog = useDialog();
 

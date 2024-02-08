@@ -1,7 +1,9 @@
-import { Category, Image, Product as RowProduct, User } from "@prisma/client";
+import { Category as RowCategory, Image as RowImage, Product as RowProduct, User as RowUser } from "@prisma/client";
 
 export type Product = RowProduct & {
-  user: User;
-  images: Image[];
-  categories: Category[];
+  user: RowUser;
+  images: RowImage[];
+  categories: RowCategory[];
 };
+
+export type User = RowUser

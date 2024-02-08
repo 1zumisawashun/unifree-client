@@ -1,4 +1,4 @@
-import { categories, products } from "@/functions/constants/seed";
+import { categories, products, users } from "@/functions/constants/seed";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -10,9 +10,11 @@ async function main() {
   await prisma.product.deleteMany();
 
   // seeding
-  await prisma.user.create({
-    data: {},
-  });
+  for (const user of users) {
+    await prisma.user.create({
+      data: user,
+    });
+  }
 
   // NOTE:categoryが存在しないとproducts作成でconnectできないので先にcategoryを作成する
   for (const category of categories) {

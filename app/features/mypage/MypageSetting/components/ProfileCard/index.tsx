@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/buttons";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import type { Session } from "next-auth";
+import { User } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "profile-card";
@@ -17,17 +17,17 @@ export function ProfileCard({
   user,
 }: {
   dialog: UseDialog;
-  user?: Session["user"];
+  user: User;
 }) {
   const college = `${university} ${faculty} ${department}`;
-  const username = user?.name ?? "匿名太郎";
+  const username = user?.displayName ?? "匿名太郎";
   const detail = `出品数: ${0} 購入数: ${0}`;
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <div className={styles[`${BLOCK_NAME}-flex-wrapper`]}>
         <img
-          src={user?.image ?? undefined}
+          src={user?.photoURL ?? undefined}
           className={styles[`${BLOCK_NAME}-avatar`]}
           alt={`${BLOCK_NAME}-avatar`}
         />

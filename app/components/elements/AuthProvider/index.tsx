@@ -1,10 +1,11 @@
+import { privateRoutes } from "@/functions/constants/routes";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import "server-only";
 
-const authRoutes = ["/mypage", "/products/[id]", "/cart"];
+const authRoutes = privateRoutes.map((route) => route.href);
 
 export async function AuthProvider({
   children,
@@ -16,7 +17,9 @@ export async function AuthProvider({
   const pathname = headersList.get("x-url") || "";
 
   // 未ログインの場合
-  if (!session) return <>{children}</>;
+  if (!session) {
+    redirect("/login");
+  }
 
   // authが必要なrouteの場合
   if (authRoutes.includes(pathname)) {
