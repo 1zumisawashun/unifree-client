@@ -17,24 +17,36 @@
 - ✅ Stripe で購入導線を整える（Stripe + use-shopping-cart）
 - ✅ ログイン・ログアウト・ログイン中の状態管理を可能にする（FirebaseAuth・NextAuth）
 - ✅ 基本的な sp 対応をする
-- Vercel へデプロイさせる
 
 </details>
 
 <details>
 <summary>🔷 1/29（月）〜2/4（日）</summary>
 
-- PlanetScale + Prisma を連携させて RDB を組む
-- テーブル設計やヒアリングの実施
-- テストの組み込み（RTL・VRT etc）
-- Vercel へデプロイさせる
+- ✅ 画像アップロードの機能の実装（GCS 連携）
+- ✅ Product と User の CRUD 機能の実装
+- ✅ UI のアップデート（トースト等）
+- ✅ 全体的なコードのリファクタリング
+- ✅ Prisma スキーマの骨子を作成
 
 </details>
 
 <details>
 <summary>🔷 2/5（月）〜2/11（日）</summary>
 
-- 未定
+- ✅ PlanetScale + Prisma を連携させて RDB を組む
+- ✅ Prisma スキーマ作成
+- ✅ DM 機能の実装
+- ✅ Product と User の CRUD API 繋ぎ込み
+- ✅ その他 UI 改修
+- ✅ next-auth の改修（ログインユーザーで操作可能なバリデーションの実装）
+
+</details>
+
+<details>
+<summary>🔷 2/12（月）〜2/18（日）</summary>
+
+- Vercel へのデプロイ
 
 </details>
 

@@ -18,14 +18,15 @@ export async function AuthProvider({
 
   // 未ログインの場合
   if (!session) {
-    redirect("/login");
+    console.log("未ログインユーザーです");
+    // redirect("/login"); // これなんかバグる
   }
 
   // authが必要なrouteの場合
   if (authRoutes.includes(pathname)) {
     // トークンが切れている場合
-    if (new Date(session.user.expires) < new Date()) {
-      console.log("tokenが切れています");
+    if (new Date(session!.user.expires) < new Date()) {
+      console.log("ログインユーザーのトークンが切れています");
       redirect("/login");
     }
   }

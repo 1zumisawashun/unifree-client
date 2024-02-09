@@ -49,7 +49,7 @@ async function login(method: "google" | "microsoft") {
 async function logout() {
   await signOut(auth);
   await signOutByNextAuth({
-    callbackUrl: `/`,
+    callbackUrl: `/login`,
   });
 }
 

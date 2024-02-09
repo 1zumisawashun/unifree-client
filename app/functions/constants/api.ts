@@ -9,6 +9,7 @@ export const API = {
   createPrismaProduct: `${apiUrl}/api/prisma/product/create`,
   editPrismaProduct: (productId: number) =>
     `${apiUrl}/api/prisma/product/${productId}/edit`,
+  createPrismaMatch: `${apiUrl}/api/prisma/match/create`,
   //stripe
   createStripePrices: `${apiUrl}/api/stripe/prices/create`,
   editStripePrices: (priceId: string) =>

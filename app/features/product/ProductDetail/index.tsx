@@ -13,16 +13,20 @@ import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import { Product } from "@/functions/types/Prisma";
+import { useSession } from "next-auth/react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-detail";
 
 /* eslint-disable @next/next/no-img-element */
 export const ProductDetail = ({ product }: { product: Product }) => {
-  const { id, name, categories, description, images, price } = product;
+  const { id, name, categories, description, images, price, user } = product;
 
   const deleteDialog = useDialog();
   const previewDialog = useDialog();
+  const session = useSession();
+
+  const shouldShow = user.id === session.data?.user.id;
 
   return (
     <>
@@ -55,14 +59,20 @@ export const ProductDetail = ({ product }: { product: Product }) => {
 
         <p className={styles[`${BLOCK_NAME}-text`]}>{description}</p>
 
-        <ButtonWrapper position="end">
-          <Button onClick={deleteDialog.open} variant="outlined" theme="danger">
-            Delete
-          </Button>
-          <ButtonAnchor href={`/products/${id}/edit`} variant="outlined">
-            Edit
-          </ButtonAnchor>
-        </ButtonWrapper>
+        {shouldShow && (
+          <ButtonWrapper position="end">
+            <Button
+              onClick={deleteDialog.open}
+              variant="outlined"
+              theme="danger"
+            >
+              Delete
+            </Button>
+            <ButtonAnchor href={`/products/${id}/edit`} variant="outlined">
+              Edit
+            </ButtonAnchor>
+          </ButtonWrapper>
+        )}
       </div>
 
       <DeleteDialog dialog={deleteDialog} product={product} />

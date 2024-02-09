@@ -8,10 +8,24 @@ export default async function Page() {
 
   const user = await prisma.user.findUniqueOrThrow({
     where: { id: session!.user.id },
-    include: { matches: true },
+    include: { matches: { include: { users: true, messages: true } } },
   });
 
-  console.log(user);
+  const rows = user.matches.map((match, index) => {
+    const opponent = match.users.filter(
+      (user) => user.id !== session!.user.id
+    )[0];
 
-  return <MatchList />;
+    return {
+      id: index + 1,
+      title: opponent?.displayName ?? "匿名",
+      annotation:
+        match.messages.length === 0
+          ? "no messages"
+          : match.messages[0]?.message ?? "",
+      href: `/matches/${match.id}`,
+    };
+  });
+
+  return <MatchList rows={rows} />;
 }

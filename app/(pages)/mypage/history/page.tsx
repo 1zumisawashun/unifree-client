@@ -1,3 +1,4 @@
+import { ErrorEmpty } from "@/components/elements/ErrorFallback";
 import { MypageHistory } from "@/features/mypage/MypageHistory";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { prisma } from "@/functions/libs/prisma";
@@ -13,5 +14,10 @@ export default async function Page() {
     },
   });
 
-  return <MypageHistory products={user.products} />;
+  const hasProducts = user.products.length > 0;
+
+  if (hasProducts) {
+    return <MypageHistory products={user.products} />;
+  }
+  return <ErrorEmpty />;
 }

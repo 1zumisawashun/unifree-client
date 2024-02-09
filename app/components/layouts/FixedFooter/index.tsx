@@ -1,22 +1,28 @@
 "use client";
 
-import { Button } from "@/components/buttons";
+import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
+import { createMatchRoom } from "@/components/layouts/FixedFooter/hooks/createMatchRoom";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
-
 const BLOCK_NAME = "footer";
 
-export function FixedFooter({ product }: { product: Product }) {
-  const { name, stripePriceId, price, images } = product;
+export function FixedFooter({
+  product,
+  currentUserId,
+}: {
+  product: Product;
+  currentUserId: number;
+}) {
+  const { name, stripePriceId, price, images, userId } = product;
   const { addItem, cartDetails } = useShoppingCart();
   const { showToast, closeToast } = useToast();
 
   const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId);
 
-  const add = () => {
+  const addCart = () => {
     addItem({
       name,
       id: stripePriceId,
@@ -33,9 +39,18 @@ export function FixedFooter({ product }: { product: Product }) {
 
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
-      <Button onClick={add} disabled={hasItem}>
-        カートに入れる
-      </Button>
+      <ButtonWrapper>
+        <Button
+          onClick={() =>
+            createMatchRoom({ currentUserId, opponentUserId: userId })
+          }
+        >
+          チャットで交渉する
+        </Button>
+        <Button onClick={addCart} disabled={hasItem}>
+          カートに入れる
+        </Button>
+      </ButtonWrapper>
     </footer>
   );
 }
