@@ -1,14 +1,12 @@
 "use client";
 
 import { ProductForm } from "@/features/product/components/ProductForm";
+import { createStripeIds } from "@/features/product/hooks/createStripeIds";
+import { editStripeProduct } from "@/features/product/hooks/editStripeProduct";
+import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { API } from "@/functions/constants/api";
-import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
-import { isFile } from "@/functions/helpers/typeGuard";
 import { UpsertProduct } from "@/functions/models/Products";
 import { Product } from "@/functions/types/Prisma";
-
-const createUrl = API.createStripePrices;
-const deleteUrl = API.deleteStripePrices;
 
 export const ProductEdit = ({ product }: { product: Product }) => {
   const {
@@ -18,7 +16,6 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     images,
     status,
     paymentMethod: payment_method,
-    active,
     categories,
     stripePriceId: stripe_price_id,
   } = product;
@@ -30,41 +27,33 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     files: images,
     status,
     paymentMethod: payment_method!,
-    isDisplay: active,
-    categories: categories.map((category) => category.name),
+    categories: categories.map((category) => category.id),
   };
 
+  const url = API.editPrismaProduct(product.id);
+
   const edit = async (data: UpsertProduct) => {
-    const { files, name, price } = data;
+    const { files, name, price, ...rest } = data;
 
-    const promises = files.map(async (file) => {
-      if (isFile(file)) {
-        const downloadUrl = await getDownloadUrl({ file });
-        return { name: file.name, src: downloadUrl };
-      }
-      return file;
-    });
+    await editStripeProduct({ stripe_price_id });
 
-    const images = await Promise.all(promises);
-    console.log(images);
+    const images = await imagesFactory({ files });
+    const stripeIds = await createStripeIds({ name, price });
 
-    // 削除でなくactiveをfalseにして削除した風に見せかける
-    const deleteResponse = await fetch(deleteUrl, {
+    const params = {
+      ...rest,
+      name,
+      price: +price,
+      images,
+      ...stripeIds,
+    };
+
+    const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify([stripe_price_id]),
+      body: JSON.stringify(params),
     });
-    const deleteJson = await deleteResponse.json();
-    console.log(deleteJson);
-
-    // priceIdを取得する目的なので最適限のプロパティでok
-    const createResponse = await fetch(createUrl, {
-      method: "POST",
-      body: JSON.stringify({ name, price: +price }),
-    });
-    const createJson = await createResponse.json();
-    console.log(createJson);
-
-    // db logic here
+    const json = await response.json();
+    console.log(json, "json");
   };
 
   return (

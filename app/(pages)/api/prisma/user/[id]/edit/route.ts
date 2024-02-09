@@ -2,25 +2,27 @@ import { prisma } from "@/functions/libs/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 type Json = {
-  uid: string;
-  photoURL: string | null;
   displayName: string | null;
+  university: string | null;
+  faculty: string | null;
+  department: string | null;
 };
 
-export async function POST(req: NextRequest) {
+export async function POST(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   if (req.method === "POST") {
     const json: Json = await req.json();
     try {
-      const user = await prisma.user.findFirstOrThrow({
-        where: json,
+      const user = await prisma.user.update({
+        where: { id: +params.id },
+        data: json,
       });
 
       return NextResponse.json({ id: user.id });
     } catch (err) {
-      const user = await prisma.user.create({
-        data: json,
-      });
-      return NextResponse.json({ id: user.id });
+      return new NextResponse(`Method Not Allowed`, { status: 405 });
     }
   } else {
     return new NextResponse(`Method Not Allowed`, { status: 405 });

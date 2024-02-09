@@ -1,5 +1,4 @@
 import { stripe } from "@/functions/libs/stripe";
-import { zPrices } from "@/functions/models/Cart";
 import { NextRequest, NextResponse } from "next/server";
 
 /**
@@ -7,23 +6,17 @@ import { NextRequest, NextResponse } from "next/server";
  * 本当に削除したい場合はstripe.products.deleteメソッドを使う
  * @see https://github.com/stripe/stripe-node/issues/916
  */
-export async function POST(req: NextRequest) {
+export async function POST(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   if (req.method === "POST") {
-    const prices = await req.json();
-
     try {
-      const parsedPrices = zPrices.parse(prices);
-
-      // 複数選択で削除することを想定してmapで回す
-      const updating = parsedPrices.map(async (price) => {
-        return await stripe.prices.update(price, {
-          active: false,
-        });
+      const response = await stripe.prices.update(params.id, {
+        active: false,
       });
 
-      const results = Promise.all(updating);
-
-      return NextResponse.json({ results });
+      return NextResponse.json({ response });
     } catch (err) {
       console.log(err);
       const errorMessage =

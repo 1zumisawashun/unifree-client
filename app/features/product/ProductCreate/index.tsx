@@ -1,37 +1,34 @@
 "use client";
 
 import { ProductForm } from "@/features/product/components/ProductForm";
+import { createStripeIds } from "@/features/product/hooks/createStripeIds";
+import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { API } from "@/functions/constants/api";
-import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
-import { isFile } from "@/functions/helpers/typeGuard";
 import { UpsertProduct, productEntity } from "@/functions/models/Products";
 
-const url = API.createStripePrices;
+const url = API.createPrismaProduct;
 
 export const ProductCreate: React.FC = () => {
   const create = async (data: UpsertProduct) => {
-    const { files, name, price } = data;
+    const { files, name, price, ...rest } = data;
 
-    const promises = files.map(async (file) => {
-      if (isFile(file)) {
-        const downloadUrl = await getDownloadUrl({ file });
-        return { name: file.name, src: downloadUrl };
-      }
-      return file;
-    });
+    const images = await imagesFactory({ files });
+    const stripeIds = await createStripeIds({ name, price });
 
-    const images = await Promise.all(promises);
-    console.log(images);
+    const params = {
+      ...rest,
+      name,
+      price: +price,
+      images,
+      ...stripeIds,
+    };
 
-    // priceIdを取得する目的なので最適限のプロパティでok
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({ name, price: +price }),
+      body: JSON.stringify(params),
     });
     const json = await response.json();
-    console.log(json);
-
-    // db logic here
+    console.log(json, "json");
   };
 
   return (

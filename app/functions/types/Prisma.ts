@@ -1,4 +1,10 @@
-import { Category as RowCategory, Image as RowImage, Product as RowProduct, User as RowUser } from "@prisma/client";
+import {
+  Category as RowCategory,
+  Image as RowImage,
+  Match as RowMatch,
+  Product as RowProduct,
+  User as RowUser,
+} from "@prisma/client";
 
 export type Product = RowProduct & {
   user: RowUser;
@@ -6,4 +12,7 @@ export type Product = RowProduct & {
   categories: RowCategory[];
 };
 
-export type User = RowUser
+export type User = RowUser & {
+  matches: RowMatch[];
+  products: RowProduct[];
+};

@@ -10,14 +10,14 @@ export const statusOptions = [
 ];
 
 export const categoryOptions = [
-  { value: "Technology", label: "Technology" },
-  { value: "Fashion", label: "Fashion" },
-  { value: "Food and Beverage", label: "Food and Beverage" },
-  { value: "Health and Wellness", label: "Health and Wellness" },
-  { value: "Sports", label: "Sports" },
-  { value: "Entertainment", label: "Entertainment" },
-  { value: "Travel", label: "Travel" },
-  { value: "Education", label: "Education" },
-  { value: "Automotive", label: "Automotive" },
-  { value: "Home and Garden", label: "Home and Garden" },
+  { value: 1, label: "Technology" },
+  { value: 2, label: "Fashion" },
+  { value: 3, label: "Food and Beverage" },
+  { value: 4, label: "Health and Wellness" },
+  { value: 5, label: "Sports" },
+  { value: 6, label: "Entertainment" },
+  { value: 7, label: "Travel" },
+  { value: 8, label: "Education" },
+  { value: 9, label: "Automotive" },
+  { value: 10, label: "Home and Garden" },
 ];

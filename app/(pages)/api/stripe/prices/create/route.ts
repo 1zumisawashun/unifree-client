@@ -20,9 +20,10 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      console.log(price);
-
-      return NextResponse.json({ priceId: price.id, productId: price.product });
+      return NextResponse.json({
+        stripePriceId: price.id,
+        stripeProductId: price.product,
+      });
     } catch (err) {
       console.log(err);
       const errorMessage =

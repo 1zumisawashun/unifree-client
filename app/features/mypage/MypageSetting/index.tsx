@@ -24,7 +24,7 @@ export function MypageSetting({ user }: { user: User }) {
         </Button>
       </ButtonWrapper>
 
-      <EditDialog dialog={editDialog} />
+      <EditDialog dialog={editDialog} user={user}/>
       <LogoutDialog dialog={logoutDialog} />
     </MypageSettingContainer>
   );

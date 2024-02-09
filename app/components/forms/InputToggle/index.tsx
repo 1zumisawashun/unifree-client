@@ -35,3 +35,10 @@ export const InputToggle = forwardRef<Ref, Props>(
 );
 
 InputToggle.displayName = "InputToggle";
+
+{
+  /* <InputToggle
+  checked={isDisplay}
+  onChange={(e) => setIsDisplay(e.target.checked)}
+/>; */
+}

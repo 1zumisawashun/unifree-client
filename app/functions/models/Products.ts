@@ -38,8 +38,7 @@ export const zUpsertProduct = z.object({
   files: zUpsertProductFiles,
   status: z.string(),
   paymentMethod: z.string(),
-  isDisplay: z.boolean(),
-  categories: z.array(z.string()),
+  categories: z.array(z.number()),
 });
 
 export const productEntity = {
@@ -49,7 +48,6 @@ export const productEntity = {
   files: [],
   status: "available",
   paymentMethod: "",
-  isDisplay: true,
   categories: [],
 };
 

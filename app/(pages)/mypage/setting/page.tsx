@@ -8,6 +8,7 @@ export default async function Page() {
 
   const user = await prisma.user.findFirstOrThrow({
     where: { id: session!.user.id },
+    include: { matches: true, products: true },
   });
 
   return <MypageSetting user={user} />;

@@ -4,16 +4,35 @@ import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { FormWrapper, InputText } from "@/components/forms";
+import { API } from "@/functions/constants/api";
+import { User } from "@/functions/types/Prisma";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "edit-dialog";
 
-export function EditDialog({ dialog }: { dialog: UseDialog }) {
-  const [name, setName] = useState("");
-  const [university, setUniversity] = useState("");
-  const [faculty, setFaculty] = useState("");
-  const [department, setDepartment] = useState("");
+export function EditDialog({
+  dialog,
+  user,
+}: {
+  dialog: UseDialog;
+  user: User;
+}) {
+  const [displayName, setDisplayName] = useState(user.displayName ?? "");
+  const [university, setUniversity] = useState(user.university ?? "");
+  const [faculty, setFaculty] = useState(user.faculty ?? "");
+  const [department, setDepartment] = useState(user.department ?? "");
+
+  const url = API.editPrismaUser(user.id);
+
+  const submit = async () => {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ displayName, university, faculty, department }),
+    });
+    const json = await response.json();
+    console.log(json);
+  };
 
   return (
     <Dialog {...dialog} width="half">
@@ -23,8 +42,8 @@ export function EditDialog({ dialog }: { dialog: UseDialog }) {
           <InputText
             label="氏名"
             isOptioned
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
           />
           <InputText
             label="大学名"
@@ -49,7 +68,7 @@ export function EditDialog({ dialog }: { dialog: UseDialog }) {
           <Button onClick={dialog.close} variant="outlined">
             Cancel
           </Button>
-          <Button onClick={() => alert("demo")}>Update</Button>
+          <Button onClick={submit}>Update</Button>
         </ButtonWrapper>
       </div>
     </Dialog>

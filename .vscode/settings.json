@@ -5,7 +5,8 @@
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    // "source.organizeImports": true, // 勝手に変わっていた
+    "source.organizeImports": "explicit"
   },
   "files.insertFinalNewline": true
 }

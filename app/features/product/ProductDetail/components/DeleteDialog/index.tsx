@@ -9,8 +9,6 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "delete-dialog";
 
-const url = API.deleteStripePrices;
-
 export const DeleteDialog = ({
   dialog,
   product,
@@ -21,6 +19,8 @@ export const DeleteDialog = ({
   const { id } = product;
 
   const _delete = async () => {
+    const url = API.editStripePrices(product.stripePriceId);
+
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify([id]),

@@ -7,7 +7,6 @@ import {
   InputRadio,
   InputText,
   InputTextarea,
-  InputToggle,
   InputWrapper,
 } from "@/components/forms";
 import {
@@ -38,8 +37,7 @@ export const ProductForm = ({
   const [files, setFiles] = useArrayState<File | Image>(product.files);
   const [status, setStatus] = useState(product.status);
   const [paymentMethod, setPaymentMethod] = useState(product.paymentMethod);
-  const [isDisplay, setIsDisplay] = useState(product.isDisplay);
-  const [categories, setCategories] = useArrayState<string>(product.categories);
+  const [categories, setCategories] = useArrayState<number>(product.categories);
 
   return (
     <>
@@ -69,19 +67,6 @@ export const ProductForm = ({
           state={files}
           setState={setFiles}
         />
-        <InputWrapper
-          id=""
-          label="Display Setting"
-          description="offにすると購入不可の状態になります"
-          isRequired
-        >
-          <InputFlexWrapper>
-            <InputToggle
-              checked={isDisplay}
-              onChange={(e) => setIsDisplay(e.target.checked)}
-            />
-          </InputFlexWrapper>
-        </InputWrapper>
         <InputWrapper
           id=""
           label="Status"
@@ -137,7 +122,19 @@ export const ProductForm = ({
           <ButtonAnchor href={href} variant="outlined">
             Cancel
           </ButtonAnchor>
-          <Button onClick={() => submit(product)}>
+          <Button
+            onClick={() =>
+              submit({
+                name,
+                price,
+                description,
+                files,
+                status,
+                paymentMethod,
+                categories,
+              })
+            }
+          >
             {formatFirstLetterUpperCase(domain)}
           </Button>
         </ButtonWrapper>
