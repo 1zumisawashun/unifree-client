@@ -13,4 +13,6 @@ const isImage = (file: unknown): file is Image => {
   return file instanceof Image;
 };
 
-export { isFile, isImage, isString };
+const isUser = (user: any) => !!user?.id;
+
+export { isFile, isImage, isString,isUser };

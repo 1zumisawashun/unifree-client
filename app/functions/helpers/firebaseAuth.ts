@@ -6,8 +6,6 @@ import {
   signOut as signOutByNextAuth,
 } from "next-auth/react";
 
-const isUser = (item: any) => !!item?.status;
-
 const getProvider = (method: "google" | "microsoft") => {
   switch (method) {
     case "google":
@@ -28,7 +26,7 @@ async function login(method: "google" | "microsoft") {
 
     const response = await signInByNextAuth("credentials", {
       idToken,
-      callbackUrl: `/mypage/setting`,
+      callbackUrl: `/`,
     });
 
     return response;
@@ -53,4 +51,4 @@ async function logout() {
   });
 }
 
-export { isUser, login, logout };
+export { login, logout };

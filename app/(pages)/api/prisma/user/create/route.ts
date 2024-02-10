@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     const json: Json = await req.json();
     try {
       const user = await prisma.user.findFirstOrThrow({
-        where: json,
+        where: { uid: json.uid },
       });
 
       return NextResponse.json({ id: user.id });

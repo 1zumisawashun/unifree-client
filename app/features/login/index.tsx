@@ -4,7 +4,8 @@ import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { LoginBody } from "@/features/login/components/LoginBody";
 import { LoginContainer } from "@/features/login/components/LoginContainer";
-import { isUser, login } from "@/functions/helpers/firebaseAuth";
+import { login } from "@/functions/helpers/firebaseAuth";
+import { isUser } from "@/functions/helpers/typeGuard";
 import { useState } from "react";
 
 export function Login() {
