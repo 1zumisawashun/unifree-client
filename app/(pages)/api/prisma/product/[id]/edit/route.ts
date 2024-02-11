@@ -27,13 +27,15 @@ export async function POST(
     const data: any = {
       ...rest,
       images: {
-        // one-to-many
+        // one-to-many disconnect
         deleteMany: {},
+        // one-to-many connect
         create: images,
       },
       categories: {
-        // many-to-many
+        // many-to-many disconnect
         set: [],
+        // many-to-many connect
         connect: categories.map((category) => ({ id: category })),
       },
     };

@@ -2,11 +2,12 @@
 
 .table {
   display: table;
-  width: auto;
+  width: 100%;
 }
 
+// borderで敷居を入れないときに便利
 .table-body {
-  border-collapse: separate; /* ボーダーをセパレートモデルに設定 */
-  border-spacing: 0 1px; /* 上下方向に1pxの間隔を設定（divide-yのデフォルト値） */
-  border-color: $border; /* ボーダーカラーを指定 */
+  border-collapse: separate;
+  border-spacing: 0 1px;
+  border-color: $border;
 }

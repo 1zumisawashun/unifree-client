@@ -1,29 +1,21 @@
-"use client";
-import NextImage, { StaticImageData } from "next/image";
+import { ShapeType } from "@/functions/types/Common";
 import styles from "./styles.module.scss";
 
 type Image = {
-  src: string | StaticImageData;
-  alt: string;
-  blurredDataUrl?: string;
-  width?: number;
-  height?: number;
+  src: string;
+  shape?: ShapeType;
 };
 
-// NOTE:Image型を内包していればok
-type HasImageProperties<T> = T extends Image ? T : never;
+const BLOCK_NAME = "avatar";
 
-export const Avatar =  <T,>(image: HasImageProperties<T>) => {
-  // NOTE:下記だとLSが発生しない
+export const Avatar = ({ src, shape = "round" }: Image) => {
   return (
-    <NextImage
-      src={image.src}
-      alt={image.alt}
-      width={30}
-      height={30}
-      className={styles["avatar"]}
-      placeholder="blur"
-      // blurDataURL={image.blurredDataUrl}
-    ></NextImage>
+    /* eslint-disable @next/next/no-img-element */
+    <img
+      src={src}
+      className={styles[`${BLOCK_NAME}`]}
+      alt="avatar"
+      data-shape={shape}
+    />
   );
 };

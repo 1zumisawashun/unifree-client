@@ -16,13 +16,15 @@ export default async function Page() {
       (user) => user.id !== session!.user.id
     )[0];
 
+    const hasMessage = match.messages.length !== 0;
+    const latestMessage = match.messages[0]?.message ?? "";
+
+    const title = `${match.name} （${opponent?.displayName ?? "匿名"}）`;
+
     return {
       id: index + 1,
-      title: opponent?.displayName ?? "匿名",
-      annotation:
-        match.messages.length === 0
-          ? "no messages"
-          : match.messages[0]?.message ?? "",
+      title,
+      annotation: hasMessage ? latestMessage : "no messages",
       href: `/matches/${match.id}`,
     };
   });

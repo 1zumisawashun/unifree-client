@@ -1,7 +1,12 @@
 .avatar {
   overflow: hidden;
-  border-radius: 9999px;
   object-fit: cover;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+  &[data-shape="round"] {
+    border-radius: 9999rem;
+  }
+  &[data-shape="square"] {
+    border-radius: 0.5rem;
+  }
 }

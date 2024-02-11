@@ -1,19 +1,10 @@
 "use client";
 
-import cover from "@/assets/images/image_cover.jpg";
 import { ButtonAnchor, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
 import { DropDownMenu } from "@/components/elements/DropdownMenu";
 import { useRef, useState } from "react";
 import styles from "./styles.module.scss";
-
-const avatarParams = {
-  src: cover,
-  alt: "",
-  blurredDataUrl: undefined,
-  width: undefined,
-  height: undefined,
-};
 
 const BLOCK_NAME = "profile-menu";
 
@@ -38,12 +29,8 @@ export const ProfileMenu: React.FC<Props> = ({ routes }) => {
 
   return (
     <DropDownMenu.Frame>
-      <UnstyledButton
-        onClick={onClick}
-        ref={triggerRef}
-        className={styles[`${BLOCK_NAME}-trigger-button`]}
-      >
-        <Avatar {...avatarParams} />
+      <UnstyledButton onClick={onClick} ref={triggerRef}>
+        <Avatar src="https://avatar.iran.liara.run/public/boy?username=Ash" />
       </UnstyledButton>
       <DropDownMenu.List
         onClose={onClose}

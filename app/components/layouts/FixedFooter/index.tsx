@@ -2,7 +2,7 @@
 
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { createMatchRoom } from "@/components/layouts/FixedFooter/hooks/createMatchRoom";
+import { createMatch } from "@/components/layouts/FixedFooter/hooks/createMatch";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
@@ -42,7 +42,11 @@ export function FixedFooter({
       <ButtonWrapper>
         <Button
           onClick={() =>
-            createMatchRoom({ currentUserId, opponentUserId: userId })
+            createMatch({
+              currentUserId,
+              opponentUserId: userId,
+              name: product.name,
+            })
           }
         >
           チャットで交渉する

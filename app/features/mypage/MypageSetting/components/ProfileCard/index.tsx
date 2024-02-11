@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/buttons";
+import { Avatar } from "@/components/elements/Avatar";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { User } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
@@ -27,11 +28,7 @@ export function ProfileCard({
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <div className={styles[`${BLOCK_NAME}-flex-wrapper`]}>
-        <img
-          src={user?.photoURL ?? undefined}
-          className={styles[`${BLOCK_NAME}-avatar`]}
-          alt={`${BLOCK_NAME}-avatar`}
-        />
+        <Avatar src={user?.photoURL!} shape="square" />
         <div className={styles[`${BLOCK_NAME}-flex-column-wrapper`]}>
           <p className={styles[`${BLOCK_NAME}-name`]}>{username}</p>
           <p className={styles[`${BLOCK_NAME}-text`]}>{college}</p>

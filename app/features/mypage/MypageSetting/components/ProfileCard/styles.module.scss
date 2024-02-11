@@ -21,13 +21,6 @@
   gap: 0.25rem;
 }
 
-.profile-card-avatar {
-  overflow: hidden;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  width: 42px;
-  height: 42px;
-}
 
 .profile-card-name {
   composes: text-normal;

@@ -13,7 +13,7 @@
   height: 50px;
   position: relative;
   flex-wrap: nowrap;
-  &[data-role="user"] {
+  &[data-current-user="true"] {
     display: none;
   }
 }
@@ -22,7 +22,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: fit-content;
-  &[data-role="user"] {
+  &[data-current-user="true"] {
     display: grid;
     justify-items: end;
   }
@@ -32,10 +32,10 @@
   border-radius: 1rem;
   padding: 1rem;
   width: 80%;
-  &[data-role="user"] {
+  &[data-current-user="true"] {
     background-color: $primary-bg;
   }
-  &[data-role="receiver"] {
+  &[data-current-user="false"] {
     background-color: $white;
   }
 }
