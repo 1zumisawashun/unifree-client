@@ -5,10 +5,13 @@ import { createStripeIds } from "@/features/product/hooks/createStripeIds";
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { API } from "@/functions/constants/api";
 import { UpsertProduct, productEntity } from "@/functions/models/Products";
+import { useRouter } from "next/navigation";
 
 const url = API.createPrismaProduct;
 
 export const ProductCreate: React.FC = () => {
+  const router = useRouter();
+
   const create = async (data: UpsertProduct) => {
     const { files, name, price, ...rest } = data;
 
@@ -29,6 +32,9 @@ export const ProductCreate: React.FC = () => {
     });
     const json = await response.json();
     console.log(json, "json");
+
+    router.push(`/products`);
+    router.refresh();
   };
 
   return (

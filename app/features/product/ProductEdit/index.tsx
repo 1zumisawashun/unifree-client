@@ -7,6 +7,7 @@ import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { API } from "@/functions/constants/api";
 import { UpsertProduct } from "@/functions/models/Products";
 import { Product } from "@/functions/types/Prisma";
+import { useRouter } from "next/navigation";
 
 export const ProductEdit = ({ product }: { product: Product }) => {
   const {
@@ -32,6 +33,8 @@ export const ProductEdit = ({ product }: { product: Product }) => {
 
   const url = API.editPrismaProduct(product.id);
 
+  const router = useRouter();
+
   const edit = async (data: UpsertProduct) => {
     const { files, name, price, ...rest } = data;
 
@@ -54,6 +57,9 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     });
     const json = await response.json();
     console.log(json, "json");
+
+    router.push(`/products/${product.id}`);
+    router.refresh();
   };
 
   return (
