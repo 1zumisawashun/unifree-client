@@ -1,6 +1,6 @@
 @import "@/assets/styles/settings/color";
 
-.organization-container {
+.match-detail-container {
   /* give the outermost container a predefined size */
   position: absolute;
   // top: 0;
@@ -19,7 +19,7 @@
   background-color: $white-light;
 }
 
-.organization-section {
+.match-detail-section {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
   min-height: 0;
 }
 
-.organization-scrollable-content {
+.match-detail-scrollable-content {
   flex-grow: 1;
   overflow-y: auto;
   position: relative;
@@ -39,12 +39,12 @@
   min-height: 0;
 }
 
-.organization-scrollable-inner {
+.match-detail-scrollable-inner {
   position: absolute;
   width: 100%;
 }
 
-.organization-header {
+.match-detail-header {
   display: flex;
   justify-content: end;
   padding: 1rem;

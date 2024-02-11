@@ -12,18 +12,12 @@ export default async function Page() {
   });
 
   const rows = user.matches.map((match, index) => {
-    const opponent = match.users.filter(
-      (user) => user.id !== session!.user.id
-    )[0];
-
     const hasMessage = match.messages.length !== 0;
-    const latestMessage = match.messages[0]?.message ?? "";
-
-    const title = `${match.name} （${opponent?.displayName ?? "匿名"}）`;
+    const latestMessage = match.messages.reverse()[0]?.message ?? "";
 
     return {
       id: index + 1,
-      title,
+      title: match.name,
       annotation: hasMessage ? latestMessage : "no messages",
       href: `/matches/${match.id}`,
     };

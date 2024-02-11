@@ -1,14 +1,14 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/objects/base-text";
 
-.chat-history-container {
+.match-history-container {
   padding: 1rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.chat-history-user-thumbnail-wrapper {
+.match-history-user-thumbnail-wrapper {
   width: 50px;
   height: 50px;
   position: relative;
@@ -17,7 +17,7 @@
     display: none;
   }
 }
-.chat-history-content-wrapper {
+.match-history-content-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -27,7 +27,7 @@
     justify-items: end;
   }
 }
-.chat-history-message-wrapper {
+.match-history-message-wrapper {
   border: 1px solid $border;
   border-radius: 1rem;
   padding: 1rem;
@@ -39,11 +39,11 @@
     background-color: $white;
   }
 }
-.chat-history-text {
+.match-history-text {
   composes: text-x-small;
   color: $grey-main;
 }
-.chat-history-message {
+.match-history-message {
   composes: text-small;
   color: $grey-main;
 }

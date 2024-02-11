@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "organization";
+const BLOCK_NAME = "match-detail";
 
 export function MatchDetail(props: Messages) {
   const { userId, matchId } = props;

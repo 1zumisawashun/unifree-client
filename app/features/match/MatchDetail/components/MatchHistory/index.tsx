@@ -5,14 +5,13 @@ import { Nl2br } from "@/components/elements/Nl2br";
 import { Messages } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "chat-history";
+const BLOCK_NAME = "match-history";
 
-/* eslint-disable react/no-array-index-key */
 export function MatchHistory({ messages, userId }: Messages) {
   return (
     <div>
-      {messages.map((message, index) => (
-        <div className={styles[`${BLOCK_NAME}-container`]} key={index}>
+      {messages.map((message) => (
+        <div className={styles[`${BLOCK_NAME}-container`]} key={message.id}>
           <div
             className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}
             data-current-user={message.userId === userId}
@@ -35,7 +34,7 @@ export function MatchHistory({ messages, userId }: Messages) {
               </p>
             </div>
             <p className={styles[`${BLOCK_NAME}-text`]}>
-              {message.createdAt.toISOString()}
+              {message.createdAt.toDateString()}
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/utilities/line-clamp";
 
 .table-row {
   position: relative;
@@ -18,11 +19,14 @@
 
 .table-name {
   composes: text-normal;
+  composes: _line-clamp-1;
   font-weight: bold;
   color: $grey-dark;
+  margin-bottom: 0.5rem;
 }
 
 .table-annotation {
   composes: text-small;
+  composes: _line-clamp-1;
   color: $grey-light;
 }

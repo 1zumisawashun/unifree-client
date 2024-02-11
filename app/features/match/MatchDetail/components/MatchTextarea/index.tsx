@@ -4,7 +4,7 @@ import { useAutoResize } from "@/features/match/MatchDetail/hooks/useAutoResize"
 import { BaseSyntheticEvent } from "react";
 import styles from "./styles.module.scss";
 
-const BLOCK_NAME = "chat-form";
+const BLOCK_NAME = "match-textarea";
 
 export function MatchTextarea({
   value,

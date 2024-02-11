@@ -1,8 +1,6 @@
-// @import "@/assets/styles/objects/base-input.scss";
-// @import "@/assets/styles/settings/color";
 @import "@/assets/styles/settings/color";
 
-.chat-form-container {
+.match-textarea-container {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -10,7 +8,7 @@
   margin: 1rem auto;
 }
 
-.chat-form-wrapper {
+.match-textarea-wrapper {
   display: flex;
   overflow: hidden;
   position: relative;
@@ -18,7 +16,7 @@
   width: 100%;
 }
 
-.chat-form-textarea {
+.match-textarea-textarea {
   resize: none;
   max-height: calc(58px + 24px + 24px);
   overflow-y: hidden;
@@ -31,23 +29,13 @@
     border-color: $red-dark;
   }
   &:focus {
-    border-color: $blue-main;
+    border-color: $primary-main;
   }
 }
 
-.chat-form-submit-button {
+.match-textarea-submit-button {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
   color: $primary-main;
-}
-
-.chat-form-reset-button-wrapper {
-  display: flex;
-  align-items: end;
-  margin: 0 0 0.5rem 0;
-}
-
-.chat-form-reset-button {
-  text-wrap: nowrap;
 }
