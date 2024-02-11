@@ -6,6 +6,7 @@ import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { FormWrapper, InputText } from "@/components/forms";
 import { API } from "@/functions/constants/api";
 import { User } from "@/functions/types/Prisma";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -23,15 +24,25 @@ export function EditDialog({
   const [faculty, setFaculty] = useState(user.faculty ?? "");
   const [department, setDepartment] = useState(user.department ?? "");
 
+  const { refresh } = useRouter();
+
   const url = API.editPrismaUser(user.id);
 
   const submit = async () => {
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify({ displayName, university, faculty, department }),
-    });
-    const json = await response.json();
-    console.log(json);
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({ displayName, university, faculty, department }),
+      });
+      const json = await response.json();
+      console.log(json);
+
+      refresh();
+      dialog.close();
+    } catch (error) {
+      // modal?
+      console.log(error);
+    }
   };
 
   return (

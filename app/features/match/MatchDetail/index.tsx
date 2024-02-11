@@ -27,6 +27,7 @@ export function MatchDetail(props: Messages) {
       refresh();
       setMessage("");
     } catch (error) {
+      // modal?
       console.log(error);
     }
   };

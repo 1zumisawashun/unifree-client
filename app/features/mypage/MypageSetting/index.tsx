@@ -5,16 +5,18 @@ import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Divider } from "@/components/elements/Divider";
 import { EditDialog } from "@/features/mypage/MypageSetting/components/EditDialog";
 import { LogoutDialog } from "@/features/mypage/MypageSetting/components/LogoutDialog";
-import { MypageSettingContainer } from "@/features/mypage/MypageSetting/components/MypageSettingContainer";
 import { ProfileCard } from "@/features/mypage/MypageSetting/components/ProfileCard";
 import { User } from "@/functions/types/Prisma";
+import styles from "./styles.module.scss";
+
+const BLOCK_NAME = "mypage-setting-container";
 
 export function MypageSetting({ user }: { user: User }) {
   const editDialog = useDialog();
   const logoutDialog = useDialog();
 
   return (
-    <MypageSettingContainer>
+    <div className={styles[`${BLOCK_NAME}`]}>
       <ProfileCard dialog={editDialog} user={user} />
       <Divider />
 
@@ -24,8 +26,8 @@ export function MypageSetting({ user }: { user: User }) {
         </Button>
       </ButtonWrapper>
 
-      <EditDialog dialog={editDialog} user={user}/>
+      <EditDialog dialog={editDialog} user={user} />
       <LogoutDialog dialog={logoutDialog} />
-    </MypageSettingContainer>
+    </div>
   );
 }
