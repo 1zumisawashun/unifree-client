@@ -37,7 +37,7 @@
 - ✅ PlanetScale + Prisma を連携させて RDB を組む
 - ✅ Prisma スキーマ作成
 - ✅ DM 機能の実装
-- ✅ Product と User の CRUD API 繋ぎ込み
+- ✅ Product, User, Match, Message の CRUD API 繋ぎ込み
 - ✅ その他 UI 改修
 - ✅ next-auth の改修（ログインユーザーで操作可能なバリデーションの実装）
 
@@ -47,6 +47,9 @@
 <summary>🔷 2/12（月）〜2/18（日）</summary>
 
 - Vercel へのデプロイ
+- ガイダンスページの作成
+- 異常系の UI 差し込み（Empty, Error）
+- 入力バリデーションのハンドリング実装
 
 </details>
 
@@ -62,14 +65,14 @@
 
 </details>
 
-## UI_20240127
+## UI_20240211
 
 <details>
 <summary>index</summary>
 
 - index
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/11eebdab-62dc-4b8c-a4c8-dfa8da4b6d0f)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/0acfe14b-7520-4390-8616-2ed66a4bf769)
 
 </details>
 
@@ -78,19 +81,21 @@
 
 - products-list
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/79780bc6-d3b1-4fbd-aed5-0cafd1f24574)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/61861852-bc61-4add-8611-7c3b038f591e)
 
 - products-detail
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/92cd1d9e-d696-462c-a1a6-8730bf8c3895)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/5ed8d8c4-85be-4765-a5e7-1fe76f69c7dc)
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a0eac003-673d-41d3-8f92-6e26c015b3e9)
 
 - products-create
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/5948cbf3-ad36-4742-97ca-3b14e6e09f2c)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/c87b6c1d-b670-41f3-ab73-360abb379b9e)
 
 - products-edit
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/07de310b-a4bc-4643-ad95-ec93e444d406)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/00c8d5eb-e0b5-488d-ae84-fb835210334a)
 
 </details>
 
@@ -99,7 +104,7 @@
 
 - cart
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/354aca3f-c26d-4059-879e-f1c9b4e1ca07)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/12c4ba03-641e-4020-8d1b-411228f4c68a)
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d79584be-8ba3-41ac-8a01-015889cd017f)
 
@@ -110,17 +115,17 @@
 
 - mypage-post
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/784a2a77-6128-41d8-a0a0-4b0ff0815562)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/b5637521-4f1a-4100-a588-d7f9b0cabc8e)
 
 - mypage-history
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/3049e851-a342-4290-bc19-314d568f3094)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a24ca930-dcc9-4c7a-ba6a-07aac36ba4d3)
 
 - mypage-setting
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/11d77907-4b44-4fd9-bb10-61dbfa5e7c4c)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/86ef3b86-d0ec-4048-98e9-5c1aa8a3f68f)
 
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/05c7e73b-3e47-43de-a748-b4558bc8285a)
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/7717d156-1aec-470f-b400-069588816e9a)
 
 </details>
 
@@ -148,6 +153,19 @@
 - faq
 
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d66f5d5d-4768-4b2e-8b10-7bc415a0d555)
+
+</details>
+
+<details>
+<summary>match</summary>
+
+- match list
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6d0df88d-0fa5-4af7-aed2-96ce10f939ff)
+
+- match detail
+
+![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/f9c4458e-1aaf-4d60-85d1-c04981991753)
 
 </details>
 
