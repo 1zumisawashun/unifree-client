@@ -10,8 +10,10 @@ import styles from "./styles.module.scss";
 const BLOCK_NAME = "profile-menu";
 
 export const ProfileMenu = ({
+  userId,
   isAuthenticated,
 }: {
+  userId?: number;
   isAuthenticated: boolean;
 }) => {
   const [open, setOpen] = useState(false);
@@ -26,7 +28,7 @@ export const ProfileMenu = ({
         onClick={() => setOpen((prevOpen) => !prevOpen)}
         ref={triggerRef}
       >
-        <Avatar src="https://avatar.iran.liara.run/public/boy?username=Ash" />
+        <Avatar id={userId} />
       </UnstyledButton>
       <DropDownMenu.List
         onClose={() => setOpen(false)}

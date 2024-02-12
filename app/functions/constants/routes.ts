@@ -6,7 +6,6 @@ const publicRoutes = {
   profile: {
     primary: [{ href: "/products", value: "Product List" }],
     secondary: [
-      { href: "/guide", value: "Guidance" },
       { href: "/tos", value: "Terms of Service" },
       { href: "/faq", value: "FAQ" },
     ],

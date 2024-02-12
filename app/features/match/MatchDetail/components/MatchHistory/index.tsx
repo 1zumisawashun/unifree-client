@@ -16,7 +16,7 @@ export function MatchHistory({ messages, userId }: Messages) {
             className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}
             data-current-user={message.userId === userId}
           >
-            <Avatar src={message.user.photoURL!} />
+            <Avatar />
           </div>
           <div
             className={styles[`${BLOCK_NAME}-content-wrapper`]}

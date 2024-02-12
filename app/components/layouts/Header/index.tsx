@@ -12,6 +12,8 @@ const BLOCK_NAME = "header";
 export async function Header() {
   const session = await getServerSession(authOptions);
   const isAuthenticated = !!session;
+  const userId = session?.user.id;
+
   const routes = headerRoutes({ isAuthenticated });
 
   return (
@@ -31,7 +33,7 @@ export async function Header() {
           </ButtonAnchor>
         ))}
 
-        <ProfileMenu isAuthenticated={isAuthenticated} />
+        <ProfileMenu isAuthenticated={isAuthenticated} userId={userId} />
       </div>
     </header>
   );
