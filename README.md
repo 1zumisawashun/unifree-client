@@ -60,6 +60,12 @@
 
 </details>
 
+## Folder-Structure
+
+以下参照
+
+https://github.com/1zumisawashun/folder-structure-template
+
 ## Try
 
 - card に list, item を格納する
