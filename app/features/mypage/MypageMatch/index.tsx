@@ -11,7 +11,7 @@ type Row = {
   href: string;
 };
 
-export function MatchList({ rows }: { rows: Row[] }) {
+export function MypageMatch({ rows }: { rows: Row[] }) {
   return (
     <Table
       rows={rows}

@@ -1,4 +1,5 @@
-import { MatchList } from "@/features/mypage/MypageMatch";
+import { EmptyFallback } from "@/components/elements/EmptyFallback";
+import { MypageMatch } from "@/features/mypage/MypageMatch";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { prisma } from "@/functions/libs/prisma";
 import { getServerSession } from "next-auth";
@@ -23,5 +24,10 @@ export default async function Page() {
     };
   });
 
-  return <MatchList rows={rows} />;
+  const hasMatches = rows.length > 0;
+
+  if (hasMatches) {
+    return <MypageMatch rows={rows} />;
+  }
+  return <EmptyFallback />;
 }

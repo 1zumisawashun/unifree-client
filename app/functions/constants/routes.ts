@@ -20,17 +20,17 @@ const privateRoutes = {
   },
   mypage: {
     primary: [
+      { href: "/mypage/setting", value: "設定" },
       { href: "/mypage/post", value: "出品商品" },
       { href: "/mypage/history", value: "購入商品" },
-      { href: "/mypage/setting", value: "設定" },
-      { href: "/mypage/match", value: "マッチ" },
+      { href: "/mypage/match", value: "マッチング" },
     ],
     secondary: [],
   },
   profile: {
     primary: [
       { href: "/products/create", value: "Product Create" },
-      { href: "/mypage/post", value: "Mypage" },
+      { href: "/mypage/setting", value: "Mypage" },
     ],
     secondary: [],
   },

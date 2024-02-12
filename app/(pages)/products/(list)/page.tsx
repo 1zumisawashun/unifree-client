@@ -1,4 +1,4 @@
-import { SubHeader } from "@/components/layouts/SubHeader";
+import { EmptyFallback } from "@/components/elements/EmptyFallback";
 import { ProductList } from "@/features/product/ProductList";
 import { prisma } from "@/functions/libs/prisma";
 
@@ -7,9 +7,10 @@ export default async function Page() {
     include: { user: true, images: true, categories: true },
   });
 
-  return (
-    <SubHeader title="Product List" href="/">
-      <ProductList products={products} />
-    </SubHeader>
-  );
+  const hasProducts = products.length > 0;
+
+  if (hasProducts) {
+    return <ProductList products={products} />;
+  }
+  return <EmptyFallback />;
 }

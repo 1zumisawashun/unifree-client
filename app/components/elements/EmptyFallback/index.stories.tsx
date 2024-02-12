@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorFallback } from "./index";
+import { EmptyFallback } from "./index";
 
-const meta: Meta<typeof ErrorFallback> = {
-  title: "ErrorFallback",
-  component: ErrorFallback,
+const meta: Meta<typeof EmptyFallback> = {
+  title: "EmptyFallback",
+  component: EmptyFallback,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,7 +19,7 @@ const meta: Meta<typeof ErrorFallback> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ErrorFallback>;
+type Story = StoryObj<typeof EmptyFallback>;
 
 export const Primary: Story = {
   args: {},

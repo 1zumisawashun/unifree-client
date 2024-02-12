@@ -2,7 +2,7 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { Divider } from "@/components/elements/Divider";
-import { ErrorEmpty } from "@/components/elements/ErrorFallback";
+import { EmptyFallback } from "@/components/elements/EmptyFallback";
 import { CartCard } from "@/features/cart/CartList/components/CartCard";
 import { API } from "@/functions/constants/api";
 import { CartDetails } from "@/functions/constants/cart";
@@ -27,7 +27,7 @@ export function Cart() {
     window.location.href = json.url;
   };
 
-  if (!totalPrice) return <ErrorEmpty />;
+  if (!totalPrice) return <EmptyFallback />;
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>

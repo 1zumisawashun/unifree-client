@@ -10,12 +10,7 @@ import { getServerSession } from "next-auth";
 export default async function Page({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
 
-  // const user = await prisma.user.findUniqueOrThrow({
-  //   where: { id: session!.user.id },
-  //   include: { matches: true },
-  // });
-
-  const userId = session!.user.id;
+  const userId = session?.user.id;
 
   const product = await prisma.product.findUniqueOrThrow({
     where: { id: +params.id },
@@ -30,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <ProductDetail product={product} />
         </SubHeader>
       </LayoutContainer>
-      <FixedFooter product={product} currentUserId={userId} />
+      {userId && <FixedFooter product={product} currentUserId={userId} />}
     </>
   );
 }

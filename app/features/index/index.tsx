@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "index";
 
-export function Index() {
+export function Index({ isAuthenticated }: { isAuthenticated: boolean }) {
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <p className={styles[`${BLOCK_NAME}-text`]}>
@@ -19,9 +19,15 @@ export function Index() {
         <ButtonAnchor href={"/products"} size="large" variant="outlined">
           教科書を探す
         </ButtonAnchor>
-        <ButtonAnchor href={"/products/create"} size="large" variant="outlined">
-          教科書を売る
-        </ButtonAnchor>
+        {isAuthenticated && (
+          <ButtonAnchor
+            href={"/products/create"}
+            size="large"
+            variant="outlined"
+          >
+            教科書を売る
+          </ButtonAnchor>
+        )}
       </ButtonWrapper>
     </div>
   );

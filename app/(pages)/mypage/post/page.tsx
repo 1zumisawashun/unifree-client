@@ -1,4 +1,4 @@
-import { ErrorEmpty } from "@/components/elements/ErrorFallback";
+import { EmptyFallback } from "@/components/elements/EmptyFallback";
 import { MypagePost } from "@/features/mypage/MypagePost";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { prisma } from "@/functions/libs/prisma";
@@ -19,5 +19,5 @@ export default async function Page() {
   if (hasProducts) {
     return <MypagePost products={user.products} />;
   }
-  return <ErrorEmpty />;
+  return <EmptyFallback />;
 }
