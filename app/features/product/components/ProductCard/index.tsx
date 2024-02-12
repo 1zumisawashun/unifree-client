@@ -5,11 +5,9 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-card";
 
-// mypageでも使用するためcomponentsディレクトリに格納している
-
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ product }: { product: Product }) => {
-  const { id, name, images, price, status } = product;
+  const { id, name, images, price, status, user } = product;
   return (
     <UnstyledButtonAnchor href={`/products/${id}`}>
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
@@ -23,7 +21,7 @@ const Item = ({ product }: { product: Product }) => {
         </div>
         <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
         <div className={styles[`${BLOCK_NAME}-content`]}>
-          <p>〇〇大学</p>
+          <p>{user.university ?? "〇〇大学"}</p>
           <span>|</span>
           <p>{formatCurrencyString(price)}</p>
         </div>

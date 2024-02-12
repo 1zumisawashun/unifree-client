@@ -24,8 +24,8 @@ type Story = StoryObj<typeof Tab>;
 export const Primary: Story = {
   args: {
     items: [
-      { text: "FAQ", href: "/help/faq" },
-      { text: "Terms", href: "/help/tos" },
+      { value: "FAQ", href: "/help/faq" },
+      { value: "Terms", href: "/help/tos" },
     ],
   },
 };

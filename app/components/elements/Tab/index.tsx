@@ -1,11 +1,11 @@
 "use client";
 
-import { UnstyledButtonAnchor } from "@/components/buttons";
+import { ButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { usePathname } from "next/navigation";
 import styles from "./styles.module.scss";
 
 type Item = {
-  text: string;
+  value: string;
   href: string;
 };
 
@@ -13,7 +13,30 @@ type TabProps = {
   items: Item[];
 };
 
-export const Tab: React.FC<TabProps> = ({ items }) => {
+// 既存のボタンコンポーネントだけでタブ実装
+// @/components/buttonsに移動しても良いかも
+export const TabButton = ({ items }: TabProps) => {
+  const pathname = usePathname();
+
+  return (
+    <nav className={styles["nav"]}>
+      {items.map((item) => (
+        <ButtonAnchor
+          shape="round"
+          size="small"
+          variant={pathname === item.href ? "contained" : "outlined"}
+          key={item.href}
+          href={item.href}
+        >
+          {item.value}
+        </ButtonAnchor>
+      ))}
+    </nav>
+  );
+};
+
+// レイアウトは決めていないがこっちが期待値のタブになる
+export const Tab = ({ items }: TabProps) => {
   const pathname = usePathname();
 
   return (
@@ -25,7 +48,7 @@ export const Tab: React.FC<TabProps> = ({ items }) => {
           aria-selected={pathname === item.href}
           className={styles["nav-item"]}
         >
-          {item.text}
+          {item.value}
         </UnstyledButtonAnchor>
       ))}
     </nav>

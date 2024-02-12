@@ -2,7 +2,13 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/objects/base-text";
 
-.cart-item-container {
+.cart-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-card-container {
   margin: 0.5rem;
   display: flex;
   flex-direction: row;
@@ -10,38 +16,38 @@
 }
 
 // image
-.cart-item-image-wrapper {
+.cart-card-image-wrapper {
   width: 30%;
 }
-.cart-item-image {
+.cart-card-image {
   width: 100%;
   border-radius: 0.5rem;
   height: 100px;
 }
 
 // content
-.cart-item-content {
+.cart-card-content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 50%;
 }
 
-.cart-item-title {
+.cart-card-title {
   font-size: 1rem;
   font-weight: 600;
   color: #4a5568;
   composes: _line-clamp-3;
 }
 
-.cart-item-price {
+.cart-card-price {
   font-size: 0.875rem;
   font-weight: 500;
   color: #cbd5e0;
 }
 
 // button
-.cart-item-button-wrapper {
+.cart-card-button-wrapper {
   align-content: space-around;
   display: grid;
 }

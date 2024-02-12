@@ -1,30 +1,45 @@
 const publicRoutes = {
-  primary: [
-    { href: "/", value: "Index" },
-    { href: "/products", value: "Product List" },
-  ],
-  secondary: [
-    { href: "/guide", value: "Guidance" },
-    { href: "/tos", value: "Terms of Service" },
-    { href: "/faq", value: "FAQ" },
-  ],
+  header: {
+    primary: [{ href: "/login", value: "Login" }],
+    secondary: [],
+  },
+  profile: {
+    primary: [{ href: "/products", value: "Product List" }],
+    secondary: [
+      { href: "/guide", value: "Guidance" },
+      { href: "/tos", value: "Terms of Service" },
+      { href: "/faq", value: "FAQ" },
+    ],
+  },
 };
 
-const privateRoutes = [
-  { href: "/products/create", value: "Product Create" },
-  { href: "/products/[id]/edit", value: "Product Edit" },
-  { href: "/mypage/post", value: "Mypage Post" },
-  { href: "/mypage/history", value: "Mypage History" },
-  { href: "/mypage/setting", value: "Mypage Setting" },
-  { href: "/matches", value: "Match List" },
-  { href: "/matches/[id]", value: "Match Detail" },
-  { href: "/cart", value: "Cart" },
+const privateRoutes = {
+  header: {
+    primary: [{ href: "/cart", value: "Cart" }],
+    secondary: [],
+  },
+  mypage: {
+    primary: [
+      { href: "/mypage/post", value: "出品商品" },
+      { href: "/mypage/history", value: "購入商品" },
+      { href: "/mypage/setting", value: "設定" },
+      { href: "/mypage/match", value: "マッチ" },
+    ],
+    secondary: [],
+  },
+  profile: {
+    primary: [
+      { href: "/products/create", value: "Product Create" },
+      { href: "/mypage/post", value: "Mypage" },
+    ],
+    secondary: [],
+  },
+};
+
+const authRoutes = [
+  ...privateRoutes.header.primary,
+  ...privateRoutes.profile.primary,
+  ...privateRoutes.mypage.primary,
 ];
 
-const routes = [
-  ...publicRoutes.primary,
-  ...privateRoutes,
-  ...publicRoutes.secondary,
-];
-
-export { privateRoutes, publicRoutes, routes };
+export { authRoutes, privateRoutes, publicRoutes };

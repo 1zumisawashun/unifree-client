@@ -1,14 +1,18 @@
 import { ButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { ProfileMenu } from "@/components/layouts/ProfileMenu";
+import { headerRoutes } from "@/functions/helpers/getRoutes";
+import { authOptions } from "@/functions/libs/nextAuth";
+import { getServerSession } from "next-auth";
 import "server-only";
-import { getRoutes } from "./hooks/getRoutes";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "header";
 
 export async function Header() {
-  const { headerRoutes, profileRoutes } = await getRoutes();
+  const session = await getServerSession(authOptions);
+  const isAuthenticated = !!session;
+  const routes = headerRoutes({ isAuthenticated });
 
   return (
     <header className={styles[`${BLOCK_NAME}`]}>
@@ -21,13 +25,13 @@ export async function Header() {
       </UnstyledButtonAnchor>
 
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        {headerRoutes.map((route) => (
+        {routes.map((route) => (
           <ButtonAnchor key={route.value} href={route.href} variant="outlined">
             {route.value}
           </ButtonAnchor>
         ))}
 
-        <ProfileMenu routes={profileRoutes} />
+        <ProfileMenu isAuthenticated={isAuthenticated} />
       </div>
     </header>
   );

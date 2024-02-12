@@ -3,19 +3,15 @@
 import { Button, ButtonAnchor } from "@/components/buttons";
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { RemoveDialog } from "@/features/cart/CartList/components/RemoveDialog";
-import { CartItem as ICartItem } from "@/functions/constants/cart";
+import { CartDetails, CartItem as ICartItem } from "@/functions/constants/cart";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import styles from "./styles.module.scss";
 
-type Props = {
-  cart: ICartItem;
-};
-
-const BLOCK_NAME = "cart-item";
+const BLOCK_NAME = "cart-card";
 
 /* eslint-disable @next/next/no-img-element */
-export const CartItem: React.FC<Props> = ({ cart }) => {
-  const { id, name, image, price } = cart;
+const Item = ({ cart }: { cart: ICartItem }) => {
+  const { name, image, price, product_data } = cart;
 
   const removeDialog = useDialog();
   return (
@@ -31,7 +27,10 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
           </p>
         </div>
         <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
-          <ButtonAnchor href={`/products/${id}`} variant="outlined">
+          <ButtonAnchor
+            href={`/products/${(product_data as any).id}`}
+            variant="outlined"
+          >
             Show
           </ButtonAnchor>
           <Button onClick={removeDialog.open} theme="danger" variant="outlined">
@@ -43,3 +42,17 @@ export const CartItem: React.FC<Props> = ({ cart }) => {
     </>
   );
 };
+
+const List = ({ carts }: { carts: CartDetails }) => {
+  const formattedCarts = Object.values(carts).map((cart) => cart);
+
+  return (
+    <div className={styles[`${BLOCK_NAME}-wrapper`]}>
+      {formattedCarts.map((cart) => (
+        <Item key={cart.id} cart={cart} />
+      ))}
+    </div>
+  );
+};
+
+export const CartCard = { List, Item };

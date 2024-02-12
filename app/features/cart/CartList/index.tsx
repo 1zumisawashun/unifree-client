@@ -3,7 +3,7 @@
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
 import { Divider } from "@/components/elements/Divider";
 import { ErrorEmpty } from "@/components/elements/ErrorFallback";
-import { CartList } from "@/features/cart/CartList/components/CartList";
+import { CartCard } from "@/features/cart/CartList/components/CartCard";
 import { API } from "@/functions/constants/api";
 import { CartDetails } from "@/functions/constants/cart";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
@@ -31,7 +31,7 @@ export function Cart() {
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
-      <CartList carts={cartDetails as any as CartDetails} />
+      <CartCard.List carts={cartDetails as any as CartDetails} />
       <Divider />
       <div className={styles[`${BLOCK_NAME}-between-wrapper`]}>
         <p>合計</p>

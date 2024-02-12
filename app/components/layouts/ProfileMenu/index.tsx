@@ -3,37 +3,33 @@
 import { ButtonAnchor, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
 import { DropDownMenu } from "@/components/elements/DropdownMenu";
+import { profileRoutes } from "@/functions/helpers/getRoutes";
 import { useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "profile-menu";
 
-type Props = {
-  routes: {
-    href: string;
-    value: string;
-  }[];
-};
-
-export const ProfileMenu: React.FC<Props> = ({ routes }) => {
+export const ProfileMenu = ({
+  isAuthenticated,
+}: {
+  isAuthenticated: boolean;
+}) => {
   const [open, setOpen] = useState(false);
+
   const triggerRef = useRef<HTMLButtonElement>(null);
 
-  const onClick = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
+  const routes = profileRoutes({ isAuthenticated });
 
   return (
     <DropDownMenu.Frame>
-      <UnstyledButton onClick={onClick} ref={triggerRef}>
+      <UnstyledButton
+        onClick={() => setOpen((prevOpen) => !prevOpen)}
+        ref={triggerRef}
+      >
         <Avatar src="https://avatar.iran.liara.run/public/boy?username=Ash" />
       </UnstyledButton>
       <DropDownMenu.List
-        onClose={onClose}
+        onClose={() => setOpen(false)}
         open={open}
         position="bottomRight"
         triggerRef={triggerRef}

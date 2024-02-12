@@ -1,4 +1,4 @@
-import { MatchList } from "@/features/match/MatchList";
+import { MatchList } from "@/features/mypage/MypageMatch";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { prisma } from "@/functions/libs/prisma";
 import { getServerSession } from "next-auth";

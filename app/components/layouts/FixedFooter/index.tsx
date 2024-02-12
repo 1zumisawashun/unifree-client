@@ -16,7 +16,7 @@ export function FixedFooter({
   product: Product;
   currentUserId: number;
 }) {
-  const { name, stripePriceId, price, images, userId } = product;
+  const { name, stripePriceId, price, images, userId, id } = product;
   const { addItem, cartDetails } = useShoppingCart();
   const { showToast, closeToast } = useToast();
 
@@ -26,6 +26,9 @@ export function FixedFooter({
     addItem({
       name,
       id: stripePriceId,
+      product_data: {
+        id,
+      },
       price,
       currency: "jpy",
       image: images[0]?.src,

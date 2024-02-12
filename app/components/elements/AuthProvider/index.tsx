@@ -1,11 +1,11 @@
-import { privateRoutes } from "@/functions/constants/routes";
+import { authRoutes as routes } from "@/functions/constants/routes";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import "server-only";
 
-const authRoutes = privateRoutes.map((route) => route.href);
+const authRoutes = routes.map((route) => route.href);
 
 export async function AuthProvider({
   children,
