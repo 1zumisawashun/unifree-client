@@ -13,6 +13,6 @@ const isImage = (file: unknown): file is Image => {
   return file instanceof Image;
 };
 
-const isUser = (user: any) => !!user?.id;
+const isUser = (user: any) => user?.status === "ok";
 
-export { isFile, isImage, isString,isUser };
+export { isFile, isImage, isString, isUser };

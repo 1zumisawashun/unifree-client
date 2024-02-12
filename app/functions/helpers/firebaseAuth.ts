@@ -24,12 +24,12 @@ async function login(method: "google" | "microsoft") {
     const userCredential = await signInWithPopup(auth, provider);
     const idToken = await userCredential.user.getIdToken();
 
-    const response = await signInByNextAuth("credentials", {
+    await signInByNextAuth("credentials", {
       idToken,
       callbackUrl: `/`,
     });
 
-    return response;
+    return { status: "ok" };
   } catch (error) {
     if (error instanceof FirebaseError) {
       if (error.code === "auth/account-exists-with-different-credential") {
