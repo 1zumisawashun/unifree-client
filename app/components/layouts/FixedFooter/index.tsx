@@ -7,14 +7,17 @@ import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import styles from "./styles.module.scss";
+
 const BLOCK_NAME = "footer";
 
 export function FixedFooter({
   product,
   currentUserId,
+  matchId,
 }: {
   product: Product;
   currentUserId: number;
+  matchId?: number;
 }) {
   const { name, stripePriceId, price, images, userId, id } = product;
   const { addItem, cartDetails } = useShoppingCart();
@@ -22,17 +25,19 @@ export function FixedFooter({
 
   const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId);
 
+  const item = {
+    name,
+    id: stripePriceId,
+    product_data: {
+      id,
+    },
+    price,
+    currency: "jpy",
+    image: images[0]?.src,
+  };
+
   const addCart = () => {
-    addItem({
-      name,
-      id: stripePriceId,
-      product_data: {
-        id,
-      },
-      price,
-      currency: "jpy",
-      image: images[0]?.src,
-    });
+    addItem(item);
     showToast({ message: "カートに追加しました", theme: "success" });
   };
 
@@ -51,6 +56,7 @@ export function FixedFooter({
               name: product.name,
             })
           }
+          disabled={!!matchId}
         >
           チャットで交渉する
         </Button>

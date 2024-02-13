@@ -16,6 +16,16 @@ export default async function Page({ params }: { params: { id: string } }) {
     include: { user: true, images: true, categories: true },
   });
 
+  const user = await prisma.user.findUniqueOrThrow({
+    where: { id: userId },
+    include: {
+      matches: { select: { name: true, id: true } },
+    },
+  });
+
+  // FIXME:nameではなくproductIdに変えたい
+  const matchId = user.matches.find((match) => match.name === product.name)?.id;
+
   return (
     <>
       <LayoutContainer hasFooter>
@@ -23,7 +33,13 @@ export default async function Page({ params }: { params: { id: string } }) {
           <ProductDetail product={product} />
         </SubHeader>
       </LayoutContainer>
-      {userId && <FixedFooter product={product} currentUserId={userId} />}
+      {userId && (
+        <FixedFooter
+          product={product}
+          currentUserId={userId}
+          matchId={matchId}
+        />
+      )}
     </>
   );
 }
