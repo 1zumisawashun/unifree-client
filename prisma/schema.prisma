@@ -11,7 +11,7 @@ generator client {
 model User {
   id               Int      @id @default(autoincrement())
   uid              String   @unique
-  photoURL         String?  // 使っていない_20240212
+  photoURL         String? // 使っていない_20240212
   displayName      String?  @map("display_name")
   stripeCustomerId String?  @map("stripe_customer_id")
   university       String?
@@ -57,7 +57,7 @@ model Image {
   name String
   src  String
 
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId Int     @map("product_id")
 
   @@index([productId])

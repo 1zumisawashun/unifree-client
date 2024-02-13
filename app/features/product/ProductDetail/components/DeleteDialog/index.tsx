@@ -28,7 +28,7 @@ export const DeleteDialog = ({
       const json = await deletePrismaProduct({ product });
       if (!json) throw new Error();
 
-      router.push(`/products/${product.id}`);
+      router.push(`/products`);
       router.refresh();
     } catch (error) {
       console.log(error);
