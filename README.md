@@ -47,20 +47,22 @@
 <summary>🔷 2/12（月）〜2/18（日）</summary>
 
 - Vercel へのデプロイ
-- ガイダンスページの作成
 - 異常系の UI 差し込み（Empty, Error）
 - 入力バリデーションのハンドリング実装
-- メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）
+- メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
 - ✅ 商品一覧の検索機能
 - ✅ プロダクトカードの大学名の繋ぎ込み
 - ✅ カートアイテムのリンク先改修、Card（List, Item）にまとめる
 - ✅ Match をマイページに移行させる
 - マッチした後の FixedFooter の disable にする
 - フェッチ系の関数を hooks ディレクトリに移行する
-- どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）
+- フェッチコンポーネントを Suspense でラップする、戦略的にどうするか検討する
+- パネルコンポーネントをいい感じに使い回す（shape）
+- どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
 - 再度 sp 画面の確認をする
 - Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
 - リポジトリをプライベートに変更する
+- cloudflare でドメインを取る
 
 </details>
 
@@ -74,6 +76,7 @@ https://github.com/1zumisawashun/folder-structure-template
 
 - card に list, item を格納する
 - domain の入った共通コンポーネントの配置について
+- 3 月以降は VRT と RTL を導入する
 
 <details>
 <summary>🔶 試してみたいこと</summary>
@@ -188,6 +191,15 @@ https://github.com/1zumisawashun/folder-structure-template
 ![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/f9c4458e-1aaf-4d60-85d1-c04981991753)
 
 </details>
+
+## 機能一覧
+
+- auth 系（ログイン・ログアウト）
+- 商品追加、編集
+- DM 機能
+- カート機能（use-shopping-cart の状態管理 redux を拝借）
+- fetch は(pages)だけに閉じ込めて page router と同じにした
+- でもあれか zenn のスクラップに書けば問題ないのか
 
 ## 技術スタック
 

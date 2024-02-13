@@ -29,7 +29,7 @@ export function ProfileCard({
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <div className={styles[`${BLOCK_NAME}-flex-wrapper`]}>
-        <Avatar id={user.id} shape="square" />
+        <Avatar id={user.id} />
         <div className={styles[`${BLOCK_NAME}-flex-column-wrapper`]}>
           <p className={styles[`${BLOCK_NAME}-name`]}>
             {displayName ?? "匿名"}

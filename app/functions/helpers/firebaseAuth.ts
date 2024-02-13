@@ -24,10 +24,12 @@ async function login(method: "google" | "microsoft") {
     const userCredential = await signInWithPopup(auth, provider);
     const idToken = await userCredential.user.getIdToken();
 
-    await signInByNextAuth("credentials", {
+    // これcallbacksのsign-inでロジック組まないとundefinedなのかも
+    const response = await signInByNextAuth("credentials", {
       idToken,
       callbackUrl: `/`,
     });
+    console.log(response);
 
     return { status: "ok" };
   } catch (error) {

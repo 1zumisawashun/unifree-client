@@ -3,10 +3,5 @@
   object-fit: cover;
   width: 42px;
   height: 42px;
-  &[data-shape="round"] {
-    border-radius: 9999rem;
-  }
-  &[data-shape="square"] {
-    border-radius: 0.5rem;
-  }
+  border-radius: 9999rem;
 }

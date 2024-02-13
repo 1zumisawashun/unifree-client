@@ -1,4 +1,3 @@
-import { Header } from "@/components/layouts/Header";
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 
 /**
@@ -9,10 +8,5 @@ import { LayoutContainer } from "@/components/layouts/LayoutContainer";
  * @see https://job-draft.jp/companies/1853/messages/talk
  */
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Header />
-      <LayoutContainer>{children}</LayoutContainer>
-    </>
-  );
+  return <LayoutContainer>{children}</LayoutContainer>;
 }
