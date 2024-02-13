@@ -47,24 +47,39 @@
 <summary>🔷 2/12（月）〜2/18（日）</summary>
 
 - Vercel へのデプロイ
-- 異常系の UI 差し込み（Empty, Error）
-- 入力バリデーションのハンドリング実装
-- メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
 - ✅ 商品一覧の検索機能
 - ✅ プロダクトカードの大学名の繋ぎ込み
 - ✅ カートアイテムのリンク先改修、Card（List, Item）にまとめる
-- ✅ Match をマイページに移行させる
+- ✅ Match をマイページに移行させる（全体的なマイページの UI 改修）
 - ✅ マッチした後の FixedFooter の disable にする
 - ✅ フェッチ系の関数を hooks ディレクトリに移行する
-- フェッチコンポーネントを Suspense でラップする。戦略的にどうするか検討する → これ今回のサバコン戦略的に loading.tsx で良い気がしてきた
-- パネルコンポーネントをいい感じに使い回す（shape）
-- どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
-- 再度 sp 画面の確認をする
-- Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
-- リポジトリをプライベートに変更する
-- cloudflare でドメインを取る
 
 </details>
+
+<details>
+<summary>🔷 2/19（月）〜2/25（日）</summary>
+
+- パネルコンポーネントをいい感じに使い回す（shape）
+- 再度 sp 画面の確認をする
+- 異常系の UI 差し込み（Empty, Error）
+- 入力バリデーションのハンドリング実装
+- メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
+- フェッチコンポーネントを Suspense でラップする。戦略的にどうするか検討する → これ今回のサバコン戦略的に loading.tsx で良い気がしてきた
+- どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
+
+</details>
+
+## 引き継ぎ作業
+
+- リポジトリをプライベートに変更する
+- Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
+- cloudflare でドメインを取る
+- 3 月以降は VRT と RTL を導入する
+
+## MEMO
+
+- card に list, item を格納する, good
+- domain の入った共通コンポーネントの配置について, good
 
 ## Folder-Structure
 
@@ -73,10 +88,6 @@
 https://github.com/1zumisawashun/folder-structure-template
 
 ## Try
-
-- card に list, item を格納する
-- domain の入った共通コンポーネントの配置について
-- 3 月以降は VRT と RTL を導入する
 
 <details>
 <summary>🔶 試してみたいこと</summary>
