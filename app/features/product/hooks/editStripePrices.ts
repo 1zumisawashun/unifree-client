@@ -1,17 +1,14 @@
 import { API } from "@/functions/constants/api";
+import { Product } from "@/functions/types/Prisma";
 
-export async function editStripeProduct({
-  stripe_price_id,
-}: {
-  stripe_price_id: string;
-}) {
-  const url = API.editStripePrices(stripe_price_id);
+export async function editStripePrices({ product }: { product: Product }) {
+  const url = API.editStripePrices(product.stripePriceId);
 
   // 削除でなくactiveをfalseにして削除した風に見せかける
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify({}),
   });
-  const json = await response.json();
-  return json;
+
+  return response.ok;
 }

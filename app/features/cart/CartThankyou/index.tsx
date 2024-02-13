@@ -20,12 +20,7 @@ export const CartThankyou: React.FC = () => {
     try {
       const params = Object.keys(cartDetails ?? {}).map((key) => key);
       console.log(params);
-      // const response = await fetch(url, {
-      //   method: "POST",
-      //   body: JSON.stringify(params),
-      // });
-      // const json = await response.json();
-      // console.log(json);
+      // db upsert
       clearCart();
       setIsPending(false);
     } catch (error) {

@@ -1,22 +1,22 @@
 import { API } from "@/functions/constants/api";
 
-const url = API.createPrismaMatch;
-
 type Props = {
   currentUserId: number;
   opponentUserId: number;
   name: string;
 };
 
-export async function createMatch({
+export async function createPrismaMatch({
   currentUserId,
   opponentUserId,
   name,
 }: Props) {
+  const url = API.createPrismaMatch;
+
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify({ currentUserId, opponentUserId, name }),
   });
-  const json = await response.json();
-  return json;
+
+  return response.ok;
 }

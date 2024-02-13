@@ -2,7 +2,7 @@
 
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { createMatch } from "@/components/layouts/FixedFooter/hooks/createMatch";
+import { createPrismaMatch } from "@/components/layouts/FixedFooter/hooks/createPrismaMatch";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
@@ -45,19 +45,24 @@ export function FixedFooter({
     return () => closeToast();
   }, [closeToast]);
 
+  const createMatch = async () => {
+    const params = {
+      currentUserId,
+      opponentUserId: userId,
+      name: product.name,
+    };
+    try {
+      const response = await createPrismaMatch(params);
+      if (!response) throw new Error();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
       <ButtonWrapper>
-        <Button
-          onClick={() =>
-            createMatch({
-              currentUserId,
-              opponentUserId: userId,
-              name: product.name,
-            })
-          }
-          disabled={!!matchId}
-        >
+        <Button onClick={createMatch} disabled={!!matchId}>
           チャットで交渉する
         </Button>
         <Button onClick={addCart} disabled={hasItem}>

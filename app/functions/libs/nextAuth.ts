@@ -1,12 +1,10 @@
-import { API } from "@/functions/constants/api";
+import { createPrismaUser } from "@/features/login/hooks/createPrismaUser";
 import auth from "@/functions/libs/firebaseAdmin";
 import { DecodedIdToken } from "firebase-admin/auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { redirect } from "next/navigation";
 import "server-only";
-
-const url = API.createPrismaUser;
 
 type JwtUser = { uid: DecodedIdToken["uid"]; id: number };
 
@@ -24,14 +22,8 @@ export const authOptions: NextAuthOptions = {
         try {
           const decodedIdToken = await auth.verifyIdToken(idToken);
           const { uid, picture } = decodedIdToken;
-
-          const response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify({ uid, photoURL: picture, displayName: null }),
-          });
-          const json = await response.json();
-
-          return { uid, id: json.id };
+          const userId = await createPrismaUser({ uid, picture });
+          return { uid, id: userId };
         } catch (err) {
           console.error(err);
           redirect("/login");

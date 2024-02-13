@@ -1,10 +1,10 @@
 "use client";
 
+import { editPrismaProduct } from "@/features/product/ProductEdit/hooks/editPrismaProduct";
 import { ProductForm } from "@/features/product/components/ProductForm";
-import { createStripeIds } from "@/features/product/hooks/createStripeIds";
-import { editStripeProduct } from "@/features/product/hooks/editStripeProduct";
+import { createStripePrices } from "@/features/product/hooks/createStripePrices";
+import { editStripePrices } from "@/features/product/hooks/editStripePrices";
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
-import { API } from "@/functions/constants/api";
 import { UpsertProduct } from "@/functions/models/Products";
 import { Product } from "@/functions/types/Prisma";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,6 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     status,
     paymentMethod: payment_method,
     categories,
-    stripePriceId: stripe_price_id,
   } = product;
 
   const productEntity = {
@@ -31,35 +30,34 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     categories: categories.map((category) => category.id),
   };
 
-  const url = API.editPrismaProduct(product.id);
-
   const router = useRouter();
 
   const edit = async (data: UpsertProduct) => {
     const { files, name, price, ...rest } = data;
 
-    await editStripeProduct({ stripe_price_id });
+    try {
+      const response = await editStripePrices({ product });
+      if (!response) throw new Error();
 
-    const images = await imagesFactory({ files });
-    const stripeIds = await createStripeIds({ name, price });
+      const images = await imagesFactory({ files });
+      const stripeIds = await createStripePrices({ name, price });
 
-    const params = {
-      ...rest,
-      name,
-      price: +price,
-      images,
-      ...stripeIds,
-    };
+      const params = {
+        ...rest,
+        name,
+        price: +price,
+        images,
+        ...stripeIds,
+      };
 
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(params),
-    });
-    const json = await response.json();
-    console.log(json, "json");
+      const json = await editPrismaProduct({ product, params });
+      if (!json) throw new Error();
 
-    router.push(`/products/${product.id}`);
-    router.refresh();
+      router.push(`/products/${product.id}`);
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -2,7 +2,7 @@
 
 import { MatchHistory } from "@/features/match/MatchDetail/components/MatchHistory";
 import { MatchTextarea } from "@/features/match/MatchDetail/components/MatchTextarea";
-import { createMessage } from "@/features/match/MatchDetail/hooks/createMessage";
+import { createPrismaMessage } from "@/features/match/MatchDetail/hooks/createPrismaMessage";
 import { useScrollToLatest } from "@/features/match/MatchDetail/hooks/useScrollToLatest";
 import { Messages } from "@/functions/types/Prisma";
 import { useRouter } from "next/navigation";
@@ -13,21 +13,21 @@ const BLOCK_NAME = "match-detail";
 
 export function MatchDetail(props: Messages) {
   const { userId, matchId } = props;
-  
+
   const { refresh } = useRouter();
   const { ref } = useScrollToLatest();
 
   const [message, setMessage] = useState("");
 
   const submit = async () => {
+    const params = { message, userId, matchId };
     try {
-      const response = await createMessage({ message, userId, matchId });
-      console.log(response);
+      const response = await createPrismaMessage(params);
+      if (!response) throw new Error();
 
       refresh();
       setMessage("");
     } catch (error) {
-      // modal?
       console.log(error);
     }
   };

@@ -43,14 +43,14 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
     if (!isShow) return;
     timer.current = setTimeout(() => {
       setIsShow(false);
-    }, 5000);
+    }, 2000);
   }, [isShow]);
 
   const setIsShowWithTimeout = useCallback(() => {
     if (timer.current === undefined && isShow) {
       timer.current = setTimeout(() => {
         setIsShow(false);
-      }, 5000);
+      }, 2000);
     }
   }, [isShow]);
 

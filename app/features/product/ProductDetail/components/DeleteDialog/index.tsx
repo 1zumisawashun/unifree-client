@@ -3,8 +3,10 @@
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { API } from "@/functions/constants/api";
+import { deletePrismaProduct } from "@/features/product/ProductDetail/components/DeleteDialog/hooks/deletePrismaProduct";
+import { editStripePrices } from "@/features/product/hooks/editStripePrices";
 import { Product } from "@/functions/types/Prisma";
+import { useRouter } from "next/navigation";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "delete-dialog";
@@ -16,18 +18,21 @@ export const DeleteDialog = ({
   dialog: UseDialog;
   product: Product;
 }) => {
-  const { id } = product;
+  const router = useRouter();
 
   const _delete = async () => {
-    const url = API.editStripePrices(product.stripePriceId);
+    try {
+      const response = await editStripePrices({ product });
+      if (!response) throw new Error();
 
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify([id]),
-    });
-    const json = await response.json();
-    // change db active props to false
-    console.log(json);
+      const json = await deletePrismaProduct({ product });
+      if (!json) throw new Error();
+
+      router.push(`/products/${product.id}`);
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

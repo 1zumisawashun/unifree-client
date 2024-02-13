@@ -1,13 +1,11 @@
 "use client";
 
+import { createPrismaProduct } from "@/features/product/ProductCreate/hooks/createPrismaProduct";
 import { ProductForm } from "@/features/product/components/ProductForm";
-import { createStripeIds } from "@/features/product/hooks/createStripeIds";
+import { createStripePrices } from "@/features/product/hooks/createStripePrices";
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
-import { API } from "@/functions/constants/api";
 import { UpsertProduct, productEntity } from "@/functions/models/Products";
 import { useRouter } from "next/navigation";
-
-const url = API.createPrismaProduct;
 
 export const ProductCreate: React.FC = () => {
   const router = useRouter();
@@ -15,26 +13,26 @@ export const ProductCreate: React.FC = () => {
   const create = async (data: UpsertProduct) => {
     const { files, name, price, ...rest } = data;
 
-    const images = await imagesFactory({ files });
-    const stripeIds = await createStripeIds({ name, price });
+    try {
+      const images = await imagesFactory({ files });
+      const stripeIds = await createStripePrices({ name, price });
 
-    const params = {
-      ...rest,
-      name,
-      price: +price,
-      images,
-      ...stripeIds,
-    };
+      const params = {
+        ...rest,
+        name,
+        price: +price,
+        images,
+        ...stripeIds,
+      };
 
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(params),
-    });
-    const json = await response.json();
-    console.log(json, "json");
+      const json = await createPrismaProduct({ params });
+      if (!json) throw new Error();
 
-    router.push(`/products`);
-    router.refresh();
+      router.push(`/products`);
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
