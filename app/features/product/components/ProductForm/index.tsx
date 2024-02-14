@@ -1,6 +1,6 @@
 import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
+import { Panel } from "@/components/elements/Panel";
 import {
-  FormWrapper,
   InputCheckbox,
   InputFile,
   InputFlexWrapper,
@@ -40,8 +40,8 @@ export const ProductForm = ({
   const [categories, setCategories] = useArrayState<number>(product.categories);
 
   return (
-    <>
-      <FormWrapper>
+    <Panel.Flame hasBorder>
+      <Panel.GapInner>
         <InputText
           label="Name"
           isRequired
@@ -138,7 +138,7 @@ export const ProductForm = ({
             {formatFirstLetterUpperCase(domain)}
           </Button>
         </ButtonWrapper>
-      </FormWrapper>
-    </>
+      </Panel.GapInner>
+    </Panel.Flame>
   );
 };

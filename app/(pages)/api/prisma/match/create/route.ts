@@ -7,6 +7,7 @@ type Json = {
   name: string;
 };
 
+// server-actionに移行したため使用していない
 export async function POST(req: NextRequest) {
   if (req.method === "POST") {
     const json: Json = await req.json();

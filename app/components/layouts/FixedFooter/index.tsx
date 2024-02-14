@@ -3,6 +3,7 @@
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
 import { createPrismaMatch } from "@/components/layouts/FixedFooter/hooks/createPrismaMatch";
+import { useServerAction } from "@/functions/hooks/useServerAction";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
@@ -22,28 +23,25 @@ export function FixedFooter({
   const { name, stripePriceId, price, images, userId, id } = product;
   const { addItem, cartDetails } = useShoppingCart();
   const { showToast, closeToast } = useToast();
+  const { isPending, serverAction } = useServerAction();
 
   const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId);
-
-  const item = {
-    name,
-    id: stripePriceId,
-    product_data: {
-      id,
-    },
-    price,
-    currency: "jpy",
-    image: images[0]?.src,
-  };
+  const hasMatch = !!matchId;
 
   const addCart = () => {
-    addItem(item);
+    const params = {
+      name,
+      id: stripePriceId,
+      product_data: {
+        id,
+      },
+      price,
+      currency: "jpy",
+      image: images[0]?.src,
+    };
+    addItem(params);
     showToast({ message: "カートに追加しました", theme: "success" });
   };
-
-  useEffect(() => {
-    return () => closeToast();
-  }, [closeToast]);
 
   const createMatch = async () => {
     const params = {
@@ -51,18 +49,23 @@ export function FixedFooter({
       opponentUserId: userId,
       name: product.name,
     };
-    try {
-      const response = await createPrismaMatch(params);
-      if (!response) throw new Error();
-    } catch (error) {
-      console.log(error);
+
+    const response = await serverAction(() => createPrismaMatch(params));
+    if (response.ok) {
+      showToast({ message: "マッチングに成功しました", theme: "success" });
+    } else {
+      showToast({ message: "マッチングに失敗しました", theme: "danger" });
     }
   };
+
+  useEffect(() => {
+    return () => closeToast();
+  }, [closeToast]);
 
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
       <ButtonWrapper>
-        <Button onClick={createMatch} disabled={!!matchId}>
+        <Button onClick={createMatch} disabled={hasMatch} loading={isPending}>
           チャットで交渉する
         </Button>
         <Button onClick={addCart} disabled={hasItem}>

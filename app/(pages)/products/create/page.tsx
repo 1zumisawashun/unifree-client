@@ -1,5 +1,5 @@
 import { ProductCreate } from "@/features/product/ProductCreate";
 
-export default async function Page() {
+export default function Page() {
   return <ProductCreate />;
 }

@@ -36,9 +36,11 @@ export const CartThankyou: React.FC = () => {
   if (isPending) return <LoadingSpinner />;
 
   return (
-    <Panel theme="success">
-      <h3 className={styles[`${BLOCK_NAME}-title`]}>Thank You For Buying.</h3>
-      <p>Hi, Your order has been successfully placed.</p>
-    </Panel>
+    <Panel.Flame theme="success">
+      <Panel.Inner>
+        <h3 className={styles[`${BLOCK_NAME}-title`]}>Thank You For Buying.</h3>
+        <p>Hi, Your order has been successfully placed.</p>
+      </Panel.Inner>
+    </Panel.Flame>
   );
 };

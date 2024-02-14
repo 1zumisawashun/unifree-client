@@ -53,18 +53,18 @@
 - ✅ Match をマイページに移行させる（全体的なマイページの UI 改修）
 - ✅ マッチした後の FixedFooter の disable にする
 - ✅ フェッチ系の関数を hooks ディレクトリに移行する
+- ✅ パネルコンポーネントをいい感じに使い回す（shape）
+- ✅ 異常系の UI 差し込み（Empty, Error）
+- ✅ フェッチコンポーネントを Suspense でラップする。（これ今回のサバコン戦略的に loading.tsx で良い気がしてきた）
 
 </details>
 
 <details>
 <summary>🔷 2/19（月）〜2/25（日）</summary>
 
-- パネルコンポーネントをいい感じに使い回す（shape）
 - 再度 sp 画面の確認をする
-- 異常系の UI 差し込み（Empty, Error）
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
-- フェッチコンポーネントを Suspense でラップする。戦略的にどうするか検討する → これ今回のサバコン戦略的に loading.tsx で良い気がしてきた
 - どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
 
 </details>
@@ -80,6 +80,8 @@
 
 - card に list, item を格納する, good
 - domain の入った共通コンポーネントの配置について, good
+- page.tsx で async function は全て loading.tsx を配置する
+- action には button loading を配置する
 
 ## Folder-Structure
 

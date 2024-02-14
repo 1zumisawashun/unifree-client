@@ -1,4 +1,3 @@
-export { FormWrapper } from "./FormWrapper";
 export { InputCheckbox } from "./InputCheckbox";
 export { InputFile } from "./InputFile";
 export { InputFlexWrapper } from "./InputFlexWrapper";

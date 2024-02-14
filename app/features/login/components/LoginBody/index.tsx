@@ -1,11 +1,9 @@
 import signInGoogle from "@/assets/images/image_signin_google.png";
 import signInMicrosoft from "@/assets/images/image_signin_microsoft.png";
 import { UnstyledButton } from "@/components/buttons";
-import { Nl2br } from "@/components/elements/Nl2br";
-import { Panel } from "@/components/elements/Panel";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
-import { tos } from "@/functions/constants/tos";
+import { LoginTos } from "@/features/login/components/LoginTos";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.scss";
@@ -30,15 +28,7 @@ export function LoginBody({
         利用規約 & プライバシーポリシー
       </p>
 
-      <Panel
-        scrollable
-        hasBorder
-        className={styles[`${BLOCK_NAME}-panel-wrapper`]}
-      >
-        <p className={styles[`${BLOCK_NAME}-panel-text`]}>
-          <Nl2br>{tos}</Nl2br>
-        </p>
-      </Panel>
+      <LoginTos />
 
       <div className={styles[`${BLOCK_NAME}-center-wrapper`]}>
         <InputCheckbox
