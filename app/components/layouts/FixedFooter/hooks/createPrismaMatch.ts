@@ -1,5 +1,6 @@
 "use server";
 
+import { API } from "@/functions/constants/api";
 import { prisma } from "@/functions/libs/prisma";
 import { revalidatePath } from "next/cache";
 
@@ -39,25 +40,17 @@ export async function createPrismaMatch({
   }
 }
 
-// import { API } from "@/functions/constants/api";
+export async function createPrismaMatch2({
+  currentUserId,
+  opponentUserId,
+  name,
+}: Props) {
+  const url = API.createPrismaMatch;
 
-// type Props = {
-//   currentUserId: number;
-//   opponentUserId: number;
-//   name: string;
-// };
+  const response = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ currentUserId, opponentUserId, name }),
+  });
 
-// export async function createPrismaMatch({
-//   currentUserId,
-//   opponentUserId,
-//   name,
-// }: Props) {
-//   const url = API.createPrismaMatch;
-
-//   const response = await fetch(url, {
-//     method: "POST",
-//     body: JSON.stringify({ currentUserId, opponentUserId, name }),
-//   });
-
-//   return response.ok;
-// }
+  return response.ok;
+}

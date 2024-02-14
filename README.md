@@ -63,6 +63,7 @@
 <summary>🔷 2/19（月）〜2/25（日）</summary>
 
 - 再度 sp 画面の確認をする
+- server-action へのリプレイス
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
 - どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
@@ -71,6 +72,7 @@
 
 ## 引き継ぎ作業
 
+- stroy-book の panel と dropdown-menu どうするか問題
 - リポジトリをプライベートに変更する
 - Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
 - cloudflare でドメインを取る

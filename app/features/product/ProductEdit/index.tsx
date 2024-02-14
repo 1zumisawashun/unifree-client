@@ -8,6 +8,7 @@ import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { UpsertProduct } from "@/functions/models/Products";
 import { Product } from "@/functions/types/Prisma";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export const ProductEdit = ({ product }: { product: Product }) => {
   const {
@@ -32,7 +33,11 @@ export const ProductEdit = ({ product }: { product: Product }) => {
 
   const router = useRouter();
 
+  const [isPending, setIsPending] = useState(false);
+
   const edit = async (data: UpsertProduct) => {
+    setIsPending(true);
+
     const { files, name, price, ...rest } = data;
 
     try {
@@ -57,6 +62,8 @@ export const ProductEdit = ({ product }: { product: Product }) => {
       router.refresh();
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -66,6 +73,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
       product={productEntity}
       href={`/products/${product.id}`}
       domain="edit"
+      isPending={isPending}
     />
   );
 };

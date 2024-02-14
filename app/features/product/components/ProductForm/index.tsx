@@ -25,11 +25,13 @@ export const ProductForm = ({
   submit,
   href,
   domain,
+  isPending,
 }: {
   product: UpsertProduct;
   submit: (data: UpsertProduct) => void;
   href: string;
   domain: "create" | "edit";
+  isPending: boolean;
 }) => {
   const [name, setName] = useState(product.name);
   const [price, setPrice] = useState(product.price);
@@ -134,6 +136,7 @@ export const ProductForm = ({
                 categories,
               })
             }
+            loading={isPending}
           >
             {formatFirstLetterUpperCase(domain)}
           </Button>

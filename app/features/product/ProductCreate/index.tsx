@@ -6,11 +6,16 @@ import { createStripePrices } from "@/features/product/hooks/createStripePrices"
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
 import { UpsertProduct, productEntity } from "@/functions/models/Products";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export const ProductCreate: React.FC = () => {
   const router = useRouter();
 
+  const [isPending, setIsPending] = useState(false);
+
   const create = async (data: UpsertProduct) => {
+    setIsPending(true);
+
     const { files, name, price, ...rest } = data;
 
     try {
@@ -32,6 +37,8 @@ export const ProductCreate: React.FC = () => {
       router.refresh();
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -41,6 +48,7 @@ export const ProductCreate: React.FC = () => {
       product={productEntity}
       href={"/products"}
       domain="create"
+      isPending={isPending}
     />
   );
 };
