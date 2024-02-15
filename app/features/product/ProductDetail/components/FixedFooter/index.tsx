@@ -2,7 +2,7 @@
 
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { createPrismaMatch } from "@/components/layouts/FixedFooter/hooks/createPrismaMatch";
+import { createPrismaMatch } from "@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch";
 import { useServerAction } from "@/functions/hooks/useServerAction";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
