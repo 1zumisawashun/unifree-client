@@ -1,4 +1,5 @@
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/settings/media";
 
 .index-container {
   display: flex;
@@ -16,6 +17,9 @@
   font-weight: 700;
   text-align: center;
   color: $white-main;
+  @include sp {
+    font-size: 1.5rem;
+  }
 }
 
 .index-label {
@@ -23,4 +27,7 @@
   font-weight: 700;
   text-align: center;
   color: $white-main;
+  @include sp {
+    font-size: 1rem;
+  }
 }

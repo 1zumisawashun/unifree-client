@@ -14,6 +14,7 @@ import {
   paymentMethodOptions,
   statusOptions,
 } from "@/functions/constants/options";
+import { isSp } from "@/functions/helpers/formatBoolean";
 import { formatFirstLetterUpperCase } from "@/functions/helpers/formatString";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/models/Image";
@@ -75,7 +76,7 @@ export const ProductForm = ({
           description="販売中・入荷中・終売いずれかのステータスを選択できます"
           isRequired
         >
-          <InputFlexWrapper direction="row">
+          <InputFlexWrapper direction={isSp() ? "column" : "row"}>
             {statusOptions.map((option) => (
               <InputRadio
                 key={option.value}
@@ -88,7 +89,7 @@ export const ProductForm = ({
           </InputFlexWrapper>
         </InputWrapper>
         <InputWrapper id="" label="Payment Method" isRequired>
-          <InputFlexWrapper direction="row">
+          <InputFlexWrapper direction={isSp() ? "column" : "row"}>
             {paymentMethodOptions.map((option) => (
               <InputRadio
                 key={option.value}

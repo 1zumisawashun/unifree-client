@@ -22,7 +22,6 @@ export function LoginBody({
       <div className={styles[`${BLOCK_NAME}-center-wrapper`]}>
         <NextJsIcon />
       </div>
-      <hr />
 
       <p className={styles[`${BLOCK_NAME}-label`]}>
         利用規約 & プライバシーポリシー
@@ -39,7 +38,7 @@ export function LoginBody({
           同意する
         </InputCheckbox>
       </div>
-      <hr />
+
       <p className={styles[`${BLOCK_NAME}-text`]}>
         どちらかにて新規登録もしくはログインしてください。
       </p>

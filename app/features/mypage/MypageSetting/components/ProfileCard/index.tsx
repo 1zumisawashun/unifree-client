@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/buttons";
+import { Button, ButtonWrapper } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { User } from "@/functions/types/Prisma";
@@ -41,9 +41,14 @@ export function ProfileCard({
           ))}
         </div>
       </div>
-      <Button onClick={dialog.open} variant="outlined">
-        変更する
-      </Button>
+      <ButtonWrapper
+        position="end"
+        className={styles[`${BLOCK_NAME}-button-wrapper`]}
+      >
+        <Button onClick={dialog.open} variant="outlined">
+          変更する
+        </Button>
+      </ButtonWrapper>
     </div>
   );
 }

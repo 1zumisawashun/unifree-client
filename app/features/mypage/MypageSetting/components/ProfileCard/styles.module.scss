@@ -8,6 +8,9 @@
   justify-content: space-between;
   gap: 1rem;
   align-items: flex-start;
+  @include sp {
+    flex-direction: column;
+  }
 }
 
 .profile-card-flex-wrapper {
@@ -20,7 +23,11 @@
   flex-direction: column;
   gap: 0.25rem;
 }
-
+.profile-card-button-wrapper {
+  @include sp {
+    width: 100%;
+  }
+}
 
 .profile-card-name {
   composes: text-normal;

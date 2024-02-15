@@ -1,5 +1,6 @@
 @import "@/assets/styles/utilities/line-clamp";
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/settings/media";
 
 .product-card-list {
   display: grid;
@@ -20,6 +21,9 @@
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
   height: 160px;
+  @include sp {
+    height: 100px;
+  }
 }
 
 .product-card-layer {

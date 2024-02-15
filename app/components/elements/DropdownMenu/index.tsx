@@ -44,10 +44,6 @@ function List({
     setFadeOut(true);
   });
 
-  // const handleInnerClick = useCallback(() => {
-  //   setFadeOut(true)
-  // }, [setFadeOut])
-
   const handleAnimationEnd = useCallback(
     (event: AnimationEvent) => {
       if (event.animationName.includes(FADE_IN_ANIMATION)) return;

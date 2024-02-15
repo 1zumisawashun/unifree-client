@@ -21,7 +21,7 @@ const privateRoutes = {
     primary: [
       { href: "/mypage/setting", value: "設定" },
       { href: "/mypage/post", value: "出品商品" },
-      { href: "/mypage/history", value: "購入商品" },
+      // { href: "/mypage/history", value: "購入商品" },
       { href: "/mypage/match", value: "マッチング" },
     ],
     secondary: [],

@@ -46,7 +46,7 @@
 <details>
 <summary>🔷 2/12（月）〜2/18（日）</summary>
 
-- Vercel へのデプロイ
+- ✅ Vercel へのデプロイ
 - ✅ 商品一覧の検索機能
 - ✅ プロダクトカードの大学名の繋ぎ込み
 - ✅ カートアイテムのリンク先改修、Card（List, Item）にまとめる
@@ -56,13 +56,14 @@
 - ✅ パネルコンポーネントをいい感じに使い回す（shape）
 - ✅ 異常系の UI 差し込み（Empty, Error）
 - ✅ フェッチコンポーネントを Suspense でラップする。（これ今回のサバコン戦略的に loading.tsx で良い気がしてきた）
+- ✅ 再度 sp 画面の確認をする
+- error.tsx の改修
 
 </details>
 
 <details>
 <summary>🔷 2/19（月）〜2/25（日）</summary>
 
-- 再度 sp 画面の確認をする
 - server-action へのリプレイス
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる

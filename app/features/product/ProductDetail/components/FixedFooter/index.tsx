@@ -3,6 +3,7 @@
 import { Button, ButtonWrapper } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
 import { createPrismaMatch } from "@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch";
+import { isSp } from "@/functions/helpers/formatBoolean";
 import { useServerAction } from "@/functions/hooks/useServerAction";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
@@ -64,12 +65,24 @@ export function FixedFooter({
 
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
-      <ButtonWrapper>
-        <Button onClick={createMatch} disabled={hasMatch} loading={isPending}>
+      <ButtonWrapper
+        direction={isSp() ? "column" : "row"}
+        className={styles[`${BLOCK_NAME}-button-wrapper`]}
+      >
+        <Button
+          onClick={createMatch}
+          disabled={hasMatch}
+          loading={isPending}
+          className={styles[`${BLOCK_NAME}-button`]}
+        >
           チャットで交渉する
         </Button>
-        <Button onClick={addCart} disabled={hasItem}>
-          カートに入れる
+        <Button
+          onClick={addCart}
+          disabled={hasItem}
+          className={styles[`${BLOCK_NAME}-button`]}
+        >
+          カートに追加する
         </Button>
       </ButtonWrapper>
     </footer>

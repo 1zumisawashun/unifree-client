@@ -1,11 +1,8 @@
 @import "@/assets/styles/settings/color";
+@import "@/assets/styles/settings/media";
 
 .footer {
   display: flex;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
   justify-content: center;
   align-items: center;
   border-top: 1px solid $border;
@@ -14,4 +11,21 @@
   bottom: 0;
   background: $white;
   width: 100%;
+  @include sp {
+    height: auto;
+  }
+}
+
+.footer-button-wrapper {
+  @include sp {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
+.footer-button {
+  width: 200px;
+  @include sp {
+    width: 100%;
+  }
 }

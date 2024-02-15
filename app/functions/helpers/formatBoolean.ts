@@ -5,19 +5,19 @@ function isLocalhost() {
 }
 
 function isIphone5() {
-  window.innerWidth <= breakpoints.iphone5;
+  return window.innerWidth <= breakpoints.iphone5;
 }
 
 function isSp() {
-  window.innerWidth <= breakpoints.sp;
+  return window.innerWidth <= breakpoints.sp;
 }
 
 function isTab() {
-  window.innerWidth <= breakpoints.tab;
+  return window.innerWidth <= breakpoints.tab;
 }
 
 function isPc() {
-  window.innerWidth <= breakpoints.pc;
+  return window.innerWidth <= breakpoints.pc;
 }
 
 export { isIphone5, isLocalhost, isPc, isSp, isTab };
