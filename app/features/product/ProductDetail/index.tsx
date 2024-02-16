@@ -43,7 +43,7 @@ export const ProductDetail = ({ product }: { product: Product }) => {
           <h3 className={styles[`${BLOCK_NAME}-title`]}>{name}</h3>
 
           {categories ? (
-            <ButtonWrapper>
+            <ButtonWrapper className={styles[`${BLOCK_NAME}-category-wrapper`]}>
               {categories.map((category) => (
                 <UnstyledButtonAnchor
                   key={category.id}

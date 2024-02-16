@@ -57,9 +57,9 @@
 - ✅ 異常系の UI 差し込み（Empty, Error）
 - ✅ フェッチコンポーネントを Suspense でラップする。（これ今回のサバコン戦略的に loading.tsx で良い気がしてきた）
 - ✅ 再度 sp 画面の確認をする
-- error.tsx の UI 改修
-- faker.js の導入
-- prisma-erd の導入
+- ✅ error.tsx の UI 改修
+- ✅ faker.js の導入
+- prisma-erd-generate の導入
 
 </details>
 
@@ -92,7 +92,7 @@
 - ISBN で何かできる？
 - リポジトリをプライベートに変更する
 - Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
-- layout → error（error-boundary） → loading（suspense）  → page（async function）
+- layout → error（error-boundary） → loading（suspense） → page（async function）
 
 ## Folder-Structure
 

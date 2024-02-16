@@ -19,3 +19,7 @@
   composes: text-normal;
   color: $grey-main;
 }
+.product-detail-category-wrapper {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

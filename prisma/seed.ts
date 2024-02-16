@@ -1,5 +1,5 @@
-import { categories, products, users } from "@/functions/constants/seed";
 import { PrismaClient } from "@prisma/client";
+import { categories, matches, products, users } from "./constants";
 
 const prisma = new PrismaClient();
 
@@ -8,6 +8,8 @@ async function main() {
   await prisma.user.deleteMany();
   await prisma.category.deleteMany();
   await prisma.product.deleteMany();
+  await prisma.match.deleteMany();
+  await prisma.message.deleteMany();
 
   // seeding
   for (const user of users) {
@@ -26,6 +28,12 @@ async function main() {
   for (const product of products) {
     await prisma.product.create({
       data: product,
+    });
+  }
+
+  for (const match of matches) {
+    await prisma.match.create({
+      data: match,
     });
   }
 }
