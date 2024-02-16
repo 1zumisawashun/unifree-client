@@ -2,10 +2,12 @@
 
 .center-wrapper {
   position: absolute;
-  top: 70px;
+  // top: 70px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 70px);
+  // height: calc(100% - 0px);
+  height: 100%;
   z-index: -1;
   &[data-background="index"] {
     background-image: url("../../../assets/images/image_index_bg.jpg");

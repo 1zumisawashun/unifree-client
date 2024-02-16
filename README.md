@@ -59,7 +59,7 @@
 - ✅ 再度 sp 画面の確認をする
 - ✅ error.tsx の UI 改修
 - ✅ faker.js の導入
-- prisma-erd-generate の導入
+- ✅ prisma-erd-generate の導入
 
 </details>
 
@@ -71,6 +71,7 @@
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
 - どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
+- iconをhero-iconにする。たしかツリーシェイキングの対応されていたはず。
 
 </details>
 
@@ -99,6 +100,12 @@
 以下参照
 
 https://github.com/1zumisawashun/folder-structure-template
+
+## ERD
+
+以下参照
+
+https://github.com/1zumisawashun/unifree-client/blob/main/prisma/scheme.md
 
 ## Try
 

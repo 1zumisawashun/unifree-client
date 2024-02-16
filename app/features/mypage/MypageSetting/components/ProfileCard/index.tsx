@@ -21,10 +21,9 @@ export function ProfileCard({
     department ?? "〇〇学科"
   }`;
   const post = `出品数 : ${user.products.length}`;
-  const buy = `購入数 : ${0}`;
   const match = `マッチ数 : ${user.matches.length}`;
 
-  const texts = [college, post, buy, match];
+  const texts = [college, post, match];
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
