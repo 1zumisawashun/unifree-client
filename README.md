@@ -57,13 +57,16 @@
 - ✅ 異常系の UI 差し込み（Empty, Error）
 - ✅ フェッチコンポーネントを Suspense でラップする。（これ今回のサバコン戦略的に loading.tsx で良い気がしてきた）
 - ✅ 再度 sp 画面の確認をする
-- error.tsx の改修
+- error.tsx の UI 改修
+- faker.js の導入
+- prisma-erd の導入
 
 </details>
 
 <details>
 <summary>🔷 2/19（月）〜2/25（日）</summary>
 
+- planet-scale の branching 機能を対応する
 - server-action へのリプレイス
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
@@ -71,13 +74,14 @@
 
 </details>
 
-## 引き継ぎ作業
+<details>
+<summary>🔷 2/26（月）〜3/3（日）</summary>
 
 - stroy-book の panel と dropdown-menu どうするか問題
-- リポジトリをプライベートに変更する
-- Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
-- cloudflare でドメインを取る
 - 3 月以降は VRT と RTL を導入する
+- cloudflare でドメインを取る
+
+</details>
 
 ## MEMO
 
@@ -85,6 +89,10 @@
 - domain の入った共通コンポーネントの配置について, good
 - page.tsx で async function は全て loading.tsx を配置する
 - action には button loading を配置する
+- ISBN で何かできる？
+- リポジトリをプライベートに変更する
+- Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
+- layout → error（error-boundary） → loading（suspense）  → page（async function）
 
 ## Folder-Structure
 

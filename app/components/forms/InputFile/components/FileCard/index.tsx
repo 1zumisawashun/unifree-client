@@ -4,14 +4,16 @@ import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
 import { isFile } from "@/functions/helpers/typeGuard";
 import { SetState, State } from "@/functions/hooks/useArrayState";
-import { Image } from "@/functions/models/Image";
+import { Image } from "@/functions/types/Prisma";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "file-card";
 
+type ImageWithoutProductId = Omit<Image, "productId">;
+
 const Item = ({ file, remove }: { file: File | Image; remove: () => void }) => {
-  const [image, setImage] = useState<Image>();
+  const [image, setImage] = useState<ImageWithoutProductId>();
 
   const dialog = useDialog();
 

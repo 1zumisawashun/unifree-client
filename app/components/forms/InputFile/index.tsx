@@ -7,7 +7,7 @@ import { SetState, State } from "@/functions/hooks/useArrayState";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
-import { Image } from "@/functions/models/Image";
+import { Image } from "@/functions/types/Prisma";
 
 export type InputFileProps = {
   state: State<File | Image>;

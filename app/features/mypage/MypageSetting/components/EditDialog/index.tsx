@@ -51,32 +51,34 @@ export function EditDialog({
       <div className={styles[`${BLOCK_NAME}-body`]}>
         <p className={styles[`${BLOCK_NAME}-text`]}>プロフィール変更</p>
         <Panel.Flame hasBorder>
-          <Panel.GapInner>
-            <InputText
-              label="氏名"
-              isOptioned
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-            />
-            <InputText
-              label="大学名"
-              isOptioned
-              value={university}
-              onChange={(e) => setUniversity(e.target.value)}
-            />
-            <InputText
-              label="学部名"
-              isOptioned
-              value={faculty}
-              onChange={(e) => setFaculty(e.target.value)}
-            />
-            <InputText
-              label="学科名"
-              isOptioned
-              value={department}
-              onChange={(e) => setDepartment(e.target.value)}
-            />
-          </Panel.GapInner>
+          <div className={styles[`${BLOCK_NAME}-form-container`]}>
+            <Panel.Inner>
+              <InputText
+                label="氏名"
+                isOptioned
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+              />
+              <InputText
+                label="大学名"
+                isOptioned
+                value={university}
+                onChange={(e) => setUniversity(e.target.value)}
+              />
+              <InputText
+                label="学部名"
+                isOptioned
+                value={faculty}
+                onChange={(e) => setFaculty(e.target.value)}
+              />
+              <InputText
+                label="学科名"
+                isOptioned
+                value={department}
+                onChange={(e) => setDepartment(e.target.value)}
+              />
+            </Panel.Inner>
+          </div>
         </Panel.Flame>
         <ButtonWrapper position="end">
           <Button onClick={dialog.close} variant="outlined">

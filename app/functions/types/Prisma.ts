@@ -27,3 +27,5 @@ export type Messages = {
   userId: number;
   messages: Message[];
 };
+
+export type Image = RowImage;

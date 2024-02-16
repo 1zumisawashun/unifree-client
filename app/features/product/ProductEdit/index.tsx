@@ -5,7 +5,7 @@ import { ProductForm } from "@/features/product/components/ProductForm";
 import { createStripePrices } from "@/features/product/hooks/createStripePrices";
 import { editStripePrices } from "@/features/product/hooks/editStripePrices";
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
-import { UpsertProduct } from "@/functions/models/Products";
+import { UpsertProduct } from "@/features/product/product.model";
 import { Product } from "@/functions/types/Prisma";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

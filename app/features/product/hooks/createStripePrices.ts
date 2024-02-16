@@ -1,5 +1,5 @@
+import { UpsertProduct } from "@/features/product/product.model";
 import { API } from "@/functions/constants/api";
-import { UpsertProduct } from "@/functions/models/Products";
 
 type StripeIds = {
   stripeProductId: string;

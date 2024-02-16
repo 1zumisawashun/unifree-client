@@ -9,6 +9,7 @@ import {
   InputTextarea,
   InputWrapper,
 } from "@/components/forms";
+import { UpsertProduct } from "@/features/product/product.model";
 import {
   categoryOptions,
   paymentMethodOptions,
@@ -17,9 +18,11 @@ import {
 import { isSp } from "@/functions/helpers/formatBoolean";
 import { formatFirstLetterUpperCase } from "@/functions/helpers/formatString";
 import { useArrayState } from "@/functions/hooks/useArrayState";
-import { Image } from "@/functions/models/Image";
-import { UpsertProduct } from "@/functions/models/Products";
+import { Image } from "@/functions/types/Prisma";
 import { useState } from "react";
+import styles from "./styles.module.scss";
+
+const BLOCK_NAME = "product-form";
 
 export const ProductForm = ({
   product,
@@ -44,105 +47,107 @@ export const ProductForm = ({
 
   return (
     <Panel.Flame hasBorder>
-      <Panel.GapInner>
-        <InputText
-          label="Name"
-          isRequired
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <InputText
-          label="Price"
-          isRequired
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <InputTextarea
-          label="Description"
-          isRequired
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <InputFile
-          label="Images"
-          isRequired
-          description="最大で4枚まで画像アップロードできます"
-          state={files}
-          setState={setFiles}
-        />
-        <InputWrapper
-          id=""
-          label="Status"
-          description="販売中・入荷中・終売いずれかのステータスを選択できます"
-          isRequired
-        >
-          <InputFlexWrapper direction={isSp() ? "column" : "row"}>
-            {statusOptions.map((option) => (
-              <InputRadio
-                key={option.value}
-                checked={status === option.value}
-                onChange={() => setStatus(option.value)}
-              >
-                {option.label}
-              </InputRadio>
-            ))}
-          </InputFlexWrapper>
-        </InputWrapper>
-        <InputWrapper id="" label="Payment Method" isRequired>
-          <InputFlexWrapper direction={isSp() ? "column" : "row"}>
-            {paymentMethodOptions.map((option) => (
-              <InputRadio
-                key={option.value}
-                checked={paymentMethod === option.value}
-                onChange={() => setPaymentMethod(option.value)}
-              >
-                {option.label}
-              </InputRadio>
-            ))}
-          </InputFlexWrapper>
-        </InputWrapper>
-        <InputWrapper
-          id=""
-          label="Categories"
-          description="1つ以上を選択してください"
-          isRequired
-        >
-          <InputFlexWrapper direction="column">
-            {categoryOptions.map((option) => (
-              <InputCheckbox
-                key={option.value}
-                checked={categories.includes(option.value)}
-                onChange={(e) =>
-                  setCategories.filter(option.value, e.target.checked)
-                }
-              >
-                {option.label}
-              </InputCheckbox>
-            ))}
-          </InputFlexWrapper>
-        </InputWrapper>
-        <ButtonWrapper position="end">
-          <ButtonAnchor href={href} variant="outlined">
-            Cancel
-          </ButtonAnchor>
-          <Button
-            onClick={() =>
-              submit({
-                name,
-                price,
-                description,
-                files,
-                status,
-                paymentMethod,
-                categories,
-              })
-            }
-            loading={isPending}
+      <div className={styles[`${BLOCK_NAME}-container`]}>
+        <Panel.Inner>
+          <InputText
+            label="Name"
+            isRequired
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <InputText
+            label="Price"
+            isRequired
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <InputTextarea
+            label="Description"
+            isRequired
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <InputFile
+            label="Images"
+            isRequired
+            description="最大で4枚まで画像アップロードできます"
+            state={files}
+            setState={setFiles}
+          />
+          <InputWrapper
+            id=""
+            label="Status"
+            description="販売中・入荷中・終売いずれかのステータスを選択できます"
+            isRequired
           >
-            {formatFirstLetterUpperCase(domain)}
-          </Button>
-        </ButtonWrapper>
-      </Panel.GapInner>
+            <InputFlexWrapper direction={isSp() ? "column" : "row"}>
+              {statusOptions.map((option) => (
+                <InputRadio
+                  key={option.value}
+                  checked={status === option.value}
+                  onChange={() => setStatus(option.value)}
+                >
+                  {option.label}
+                </InputRadio>
+              ))}
+            </InputFlexWrapper>
+          </InputWrapper>
+          <InputWrapper id="" label="Payment Method" isRequired>
+            <InputFlexWrapper direction={isSp() ? "column" : "row"}>
+              {paymentMethodOptions.map((option) => (
+                <InputRadio
+                  key={option.value}
+                  checked={paymentMethod === option.value}
+                  onChange={() => setPaymentMethod(option.value)}
+                >
+                  {option.label}
+                </InputRadio>
+              ))}
+            </InputFlexWrapper>
+          </InputWrapper>
+          <InputWrapper
+            id=""
+            label="Categories"
+            description="1つ以上を選択してください"
+            isRequired
+          >
+            <InputFlexWrapper direction="column">
+              {categoryOptions.map((option) => (
+                <InputCheckbox
+                  key={option.value}
+                  checked={categories.includes(option.value)}
+                  onChange={(e) =>
+                    setCategories.filter(option.value, e.target.checked)
+                  }
+                >
+                  {option.label}
+                </InputCheckbox>
+              ))}
+            </InputFlexWrapper>
+          </InputWrapper>
+          <ButtonWrapper position="end">
+            <ButtonAnchor href={href} variant="outlined">
+              Cancel
+            </ButtonAnchor>
+            <Button
+              onClick={() =>
+                submit({
+                  name,
+                  price,
+                  description,
+                  files,
+                  status,
+                  paymentMethod,
+                  categories,
+                })
+              }
+              loading={isPending}
+            >
+              {formatFirstLetterUpperCase(domain)}
+            </Button>
+          </ButtonWrapper>
+        </Panel.Inner>
+      </div>
     </Panel.Flame>
   );
 };

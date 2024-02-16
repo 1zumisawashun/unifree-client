@@ -46,15 +46,8 @@
 
 // inner
 .panel-inner {
-  padding: 1rem;
-}
-
-.panel-gap-inner {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
-  @include sp {
-    padding: 1rem;
-  }
+  padding: 1rem;
 }

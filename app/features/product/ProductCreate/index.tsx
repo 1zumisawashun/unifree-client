@@ -4,7 +4,7 @@ import { createPrismaProduct } from "@/features/product/ProductCreate/hooks/crea
 import { ProductForm } from "@/features/product/components/ProductForm";
 import { createStripePrices } from "@/features/product/hooks/createStripePrices";
 import { imagesFactory } from "@/features/product/hooks/imagesFactory";
-import { UpsertProduct, productEntity } from "@/functions/models/Products";
+import { UpsertProduct, productEntity } from "@/features/product/product.model";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

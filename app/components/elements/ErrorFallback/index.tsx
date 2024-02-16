@@ -3,14 +3,14 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "error-fallback";
 
-export const ErrorFallback = () => {
+export const ErrorFallback = ({ message }: { message: string }) => {
   return (
     <Panel.Flame theme="danger">
       <Panel.Inner>
         <h3 className={styles[`${BLOCK_NAME}-title`]}>
-          Error while fetching data.
+          Something went wrong!{/* Error while fetching data. */}
         </h3>
-        <p>Something seriously bad happened.</p>
+        <p>{message ?? "Something seriously bad happened."}</p>
       </Panel.Inner>
     </Panel.Flame>
   );

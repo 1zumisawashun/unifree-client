@@ -1,5 +1,5 @@
 import { stripe } from "@/functions/libs/stripe";
-import { zPrices } from "@/functions/models/Cart";
+import { zPrices } from "@/features/cart/cart.model";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 

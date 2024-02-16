@@ -1,6 +1,6 @@
+import { UpsertProduct } from "@/features/product/product.model";
 import { getDownloadUrl } from "@/functions/helpers/firebaseStorage";
 import { isFile } from "@/functions/helpers/typeGuard";
-import { UpsertProduct } from "@/functions/models/Products";
 
 export async function imagesFactory({
   files,

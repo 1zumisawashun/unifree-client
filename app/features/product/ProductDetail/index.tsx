@@ -32,7 +32,7 @@ export const ProductDetail = ({ product }: { product: Product }) => {
   return (
     <>
       <Panel.Flame hasBorder>
-        <Panel.GapInner>
+        <Panel.Inner>
           <UnstyledButton onClick={previewDialog.open}>
             <img
               className={styles[`${BLOCK_NAME}-image`]}
@@ -75,7 +75,7 @@ export const ProductDetail = ({ product }: { product: Product }) => {
               </ButtonAnchor>
             </ButtonWrapper>
           )}
-        </Panel.GapInner>
+        </Panel.Inner>
       </Panel.Flame>
 
       <DeleteDialog dialog={deleteDialog} product={product} />

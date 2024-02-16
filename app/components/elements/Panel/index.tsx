@@ -38,12 +38,7 @@ const Inner = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles[`${BLOCK_NAME}-inner`]}>{children}</div>;
 };
 
-const GapInner = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles[`${BLOCK_NAME}-gap-inner`]}>{children}</div>;
-};
-
 export const Panel = {
   Flame,
   Inner,
-  GapInner,
 };

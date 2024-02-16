@@ -1,4 +1,4 @@
-import { Image } from "@/functions/models/Image";
+import { Image } from "@/functions/types/Prisma";
 
 const isString = (file: unknown): file is string => {
   return typeof file === "string";

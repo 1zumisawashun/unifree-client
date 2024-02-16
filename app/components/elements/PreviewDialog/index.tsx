@@ -4,10 +4,12 @@ import { Button, ButtonWrapper } from "@/components/buttons";
 import { Dialog } from "@/components/elements/Dialog";
 import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { Swiper } from "@/components/elements/Swiper";
-import { Image } from "@/functions/models/Image";
+import { Image } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "preview-dialog";
+
+type ImageWithoutProductId = Omit<Image, "productId">;
 
 /* eslint-disable @next/next/no-img-element */
 export const PreviewDialog = ({
@@ -15,7 +17,7 @@ export const PreviewDialog = ({
   images,
 }: {
   dialog: UseDialog;
-  images?: Image[];
+  images?: ImageWithoutProductId[];
 }) => {
   const hasSwiper = images && images.length > 1;
   return (
@@ -36,7 +38,7 @@ export const PreviewDialog = ({
   );
 };
 
-const ImageRender = ({ src, name }: Image) => {
+const ImageRender = ({ src, name }: ImageWithoutProductId) => {
   return (
     <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
       <img src={src} alt={name} className={styles[`${BLOCK_NAME}-image`]} />

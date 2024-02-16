@@ -15,7 +15,7 @@ export function MypageSetting({ user }: { user: User }) {
 
   return (
     <Panel.Flame hasBorder>
-      <Panel.GapInner>
+      <Panel.Inner>
         <ProfileCard dialog={editDialog} user={user} />
         <Divider />
 
@@ -27,7 +27,7 @@ export function MypageSetting({ user }: { user: User }) {
 
         <EditDialog dialog={editDialog} user={user} />
         <LogoutDialog dialog={logoutDialog} />
-      </Panel.GapInner>
+      </Panel.Inner>
     </Panel.Flame>
   );
 }
