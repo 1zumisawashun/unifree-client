@@ -1,8 +1,15 @@
-import { FixedFooterContainer } from "@/features/product/ProductDetail/components/FixedFooterContainer";
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 import { SubHeader } from "@/components/layouts/SubHeader";
+import { FixedFooterContainer } from "@/features/product/ProductDetail/components/FixedFooterContainer";
 import { authOptions } from "@/functions/libs/nextAuth";
+import { Metadata } from "next";
 import { getServerSession } from "next-auth";
+
+const title = "Product Detail";
+
+export const metadata: Metadata = {
+  title: `unifree-client | ${title}`,
+};
 
 export default async function Layout({
   params,
@@ -18,7 +25,7 @@ export default async function Layout({
   return (
     <>
       <LayoutContainer hasFooter={!!userId}>
-        <SubHeader title="Product Item" href="/products">
+        <SubHeader title={title} href="/products">
           {children}
         </SubHeader>
       </LayoutContainer>

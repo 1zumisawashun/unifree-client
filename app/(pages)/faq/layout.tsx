@@ -2,7 +2,7 @@ import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 import { SubHeader } from "@/components/layouts/SubHeader";
 import { Metadata } from "next";
 
-const title = "Product Create";
+const title = "FAQ";
 
 export const metadata: Metadata = {
   title: `unifree-client | ${title}`,
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <LayoutContainer>
-      <SubHeader title={title} href="/products">
+      <SubHeader title={title} href="/">
         {children}
       </SubHeader>
     </LayoutContainer>

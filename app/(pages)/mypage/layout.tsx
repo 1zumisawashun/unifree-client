@@ -2,6 +2,13 @@ import { TabButton } from "@/components/elements/Tab";
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 import { SubHeader } from "@/components/layouts/SubHeader";
 import { mypageRoutes } from "@/functions/helpers/getRoutes";
+import { Metadata } from "next";
+
+const title = "Mypage";
+
+export const metadata: Metadata = {
+  title: `unifree-client | ${title}`,
+};
 
 export default async function Layout({
   children,
@@ -11,7 +18,7 @@ export default async function Layout({
   const routes = mypageRoutes();
   return (
     <LayoutContainer>
-      <SubHeader title="Mypage" href="/">
+      <SubHeader title={title} href="/">
         <TabButton items={routes} />
         {children}
       </SubHeader>
