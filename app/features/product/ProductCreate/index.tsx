@@ -47,7 +47,7 @@ export const ProductCreate: React.FC = () => {
       submit={create}
       product={productEntity}
       href={"/products"}
-      domain="create"
+      domain="作成する"
       isPending={isPending}
     />
   );

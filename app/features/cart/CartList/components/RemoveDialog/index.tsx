@@ -17,7 +17,7 @@ export const RemoveDialog = ({
   cart: ICartItem;
 }) => {
   const { removeItem } = useShoppingCart();
-  
+
   return (
     <Dialog {...dialog}>
       <div className={styles[`${BLOCK_NAME}-body`]}>
@@ -26,10 +26,10 @@ export const RemoveDialog = ({
         </p>
         <ButtonWrapper position="center">
           <Button onClick={dialog.close} theme="danger" variant="outlined">
-            Cancel
+            キャンセル
           </Button>
           <Button onClick={() => removeItem(cart.id)} theme="danger">
-            Remove
+            取り除く
           </Button>
         </ButtonWrapper>
       </div>

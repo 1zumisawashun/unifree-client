@@ -36,18 +36,18 @@ export function Cart() {
         <p>{formatCurrencyString(totalPrice)}</p>
       </div>
       <p className={styles[`${BLOCK_NAME}-text`]}>
-        「Pay Now」押下後に決済ページへ遷移します。
+        「レジに進む」押下後に決済ページへ遷移します。
       </p>
       <ButtonWrapper direction="column">
         <Button onClick={buy} className={styles[`${BLOCK_NAME}-button`]}>
-          Pay Now
+          レジに進む
         </Button>
         <ButtonAnchor
           href="/products"
           variant="outlined"
           className={styles[`${BLOCK_NAME}-button`]}
         >
-          Continue Shopping
+          買い物を続ける
         </ButtonAnchor>
       </ButtonWrapper>
     </div>

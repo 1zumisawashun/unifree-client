@@ -41,10 +41,10 @@ export const DeleteDialog = ({
         <p className={styles[`${BLOCK_NAME}-text`]}>本当に削除しますか？</p>
         <ButtonWrapper position="center">
           <Button onClick={dialog.close} theme="danger" variant="outlined">
-            Cancel
+            キャンセル
           </Button>
           <Button onClick={_delete} theme="danger">
-            Delete
+            削除する
           </Button>
         </ButtonWrapper>
       </div>

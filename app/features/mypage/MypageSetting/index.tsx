@@ -21,7 +21,7 @@ export function MypageSetting({ user }: { user: User }) {
 
         <ButtonWrapper position="end">
           <Button onClick={logoutDialog.open} theme="danger" variant="outlined">
-            Logout
+            ログアウト
           </Button>
         </ButtonWrapper>
 

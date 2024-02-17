@@ -68,10 +68,10 @@ export const ProductDetail = ({ product }: { product: Product }) => {
                 variant="outlined"
                 theme="danger"
               >
-                Delete
+                削除する
               </Button>
               <ButtonAnchor href={`/products/${id}/edit`} variant="outlined">
-                Edit
+                変更する
               </ButtonAnchor>
             </ButtonWrapper>
           )}

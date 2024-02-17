@@ -22,7 +22,7 @@ export const SearchBar = () => {
       <InputText
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search...."
+        placeholder="検索する...."
         width="full"
       />
     </form>

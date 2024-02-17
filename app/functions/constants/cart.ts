@@ -12,7 +12,8 @@ const cartDetails = {
       type: "fruit",
     },
     product_data: {
-      type: "fruit",
+      id: 1,
+      description: "A banana",
     },
     formattedValue: "$56.00",
     formattedPrice: "$4.00",
@@ -34,7 +35,8 @@ const cartItem = {
     type: "fruit",
   },
   product_data: {
-    type: "fruit",
+    id: 1,
+    description: "A banana",
   },
   formattedValue: "$56.00",
   formattedPrice: "$4.00",

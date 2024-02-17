@@ -17,10 +17,10 @@ export const LogoutDialog = ({ dialog }: { dialog: UseDialog }) => {
         </p>
         <ButtonWrapper position="center">
           <Button onClick={dialog.close} theme="danger" variant="outlined">
-            Cancel
+            キャンセル
           </Button>
           <Button onClick={logout} theme="danger">
-            Logout
+            ログアウト
           </Button>
         </ButtonWrapper>
       </div>

@@ -1,12 +1,12 @@
 export const paymentMethodOptions = [
-  { value: "Delivery Locker", label: "Delivery Locker" },
-  { value: "Hand Delivery", label: "Hand Delivery" },
+  { value: "Delivery Locker", label: "宅配ロッカー" },
+  { value: "Hand Delivery", label: "手渡し" },
 ];
 
 export const statusOptions = [
-  { value: "available", label: "available" },
-  { value: "waiting", label: "waiting" },
-  { value: "completed", label: "completed" },
+  { value: "available", label: "販売中" },
+  { value: "waiting", label: "入荷中" },
+  { value: "completed", label: "終売" },
 ];
 
 export const categoryOptions = [

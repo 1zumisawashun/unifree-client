@@ -82,9 +82,9 @@ export function EditDialog({
         </Panel.Flame>
         <ButtonWrapper position="end">
           <Button onClick={dialog.close} variant="outlined">
-            Cancel
+            キャンセル
           </Button>
-          <Button onClick={submit}>Update</Button>
+          <Button onClick={submit}>変更する</Button>
         </ButtonWrapper>
       </div>
     </Dialog>

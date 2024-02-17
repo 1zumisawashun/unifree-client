@@ -21,7 +21,8 @@ export function FixedFooter({
   currentUserId: number;
   matchId?: number;
 }) {
-  const { name, stripePriceId, price, images, userId, id } = product;
+  const { name, stripePriceId, price, images, userId, id, description } =
+    product;
   const { addItem, cartDetails } = useShoppingCart();
   const { showToast, closeToast } = useToast();
   const { isPending, serverAction } = useServerAction();
@@ -35,6 +36,7 @@ export function FixedFooter({
       id: stripePriceId,
       product_data: {
         id,
+        description,
       },
       price,
       currency: "jpy",

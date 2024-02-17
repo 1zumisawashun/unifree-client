@@ -1,12 +1,12 @@
 const publicRoutes = {
   header: {
-    primary: [{ href: "/login", value: "Login" }],
+    primary: [{ href: "/login", value: "ログイン" }],
     secondary: [],
   },
   profile: {
-    primary: [{ href: "/products", value: "Product List" }],
+    primary: [{ href: "/products", value: "商品一覧" }],
     secondary: [
-      { href: "/tos", value: "Terms of Service" },
+      { href: "/tos", value: "利用規約" },
       { href: "/faq", value: "FAQ" },
     ],
   },
@@ -14,7 +14,7 @@ const publicRoutes = {
 
 const privateRoutes = {
   header: {
-    primary: [{ href: "/cart", value: "Cart" }],
+    primary: [{ href: "/cart", value: "カート" }],
     secondary: [],
   },
   mypage: {
@@ -28,8 +28,8 @@ const privateRoutes = {
   },
   profile: {
     primary: [
-      { href: "/products/create", value: "Product Create" },
-      { href: "/mypage/setting", value: "Mypage" },
+      { href: "/products/create", value: "商品追加" },
+      { href: "/mypage/setting", value: "マイページ" },
     ],
     secondary: [],
   },

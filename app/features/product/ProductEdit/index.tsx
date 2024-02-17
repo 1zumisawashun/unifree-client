@@ -72,7 +72,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
       submit={edit}
       product={productEntity}
       href={`/products/${product.id}`}
-      domain="edit"
+      domain="変更する"
       isPending={isPending}
     />
   );

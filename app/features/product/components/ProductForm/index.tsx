@@ -16,7 +16,6 @@ import {
   statusOptions,
 } from "@/functions/constants/options";
 import { isSp } from "@/functions/helpers/formatBoolean";
-import { formatFirstLetterUpperCase } from "@/functions/helpers/formatString";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/types/Prisma";
 import { useState } from "react";
@@ -34,7 +33,7 @@ export const ProductForm = ({
   product: UpsertProduct;
   submit: (data: UpsertProduct) => void;
   href: string;
-  domain: "create" | "edit";
+  domain: "作成する" | "変更する";
   isPending: boolean;
 }) => {
   const [name, setName] = useState(product.name);
@@ -50,25 +49,26 @@ export const ProductForm = ({
       <div className={styles[`${BLOCK_NAME}-container`]}>
         <Panel.Inner>
           <InputText
-            label="Name"
+            label="商品名"
             isRequired
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <InputText
-            label="Price"
+            label="価格"
             isRequired
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
           <InputTextarea
-            label="Description"
+            label="詳細情報"
             isRequired
+            description="商品の詳細情報を入力してください"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <InputFile
-            label="Images"
+            label="画像"
             isRequired
             description="最大で4枚まで画像アップロードできます"
             state={files}
@@ -76,8 +76,8 @@ export const ProductForm = ({
           />
           <InputWrapper
             id=""
-            label="Status"
-            description="販売中・入荷中・終売いずれかのステータスを選択できます"
+            label="ステータス"
+            description="商品一覧の表示を変えることができます"
             isRequired
           >
             <InputFlexWrapper direction={isSp() ? "column" : "row"}>
@@ -92,7 +92,7 @@ export const ProductForm = ({
               ))}
             </InputFlexWrapper>
           </InputWrapper>
-          <InputWrapper id="" label="Payment Method" isRequired>
+          <InputWrapper id="" label="支払い方法" isRequired>
             <InputFlexWrapper direction={isSp() ? "column" : "row"}>
               {paymentMethodOptions.map((option) => (
                 <InputRadio
@@ -107,7 +107,7 @@ export const ProductForm = ({
           </InputWrapper>
           <InputWrapper
             id=""
-            label="Categories"
+            label="カテゴリー"
             description="1つ以上を選択してください"
             isRequired
           >
@@ -127,7 +127,7 @@ export const ProductForm = ({
           </InputWrapper>
           <ButtonWrapper position="end">
             <ButtonAnchor href={href} variant="outlined">
-              Cancel
+              キャンセル
             </ButtonAnchor>
             <Button
               onClick={() =>
@@ -143,7 +143,7 @@ export const ProductForm = ({
               }
               loading={isPending}
             >
-              {formatFirstLetterUpperCase(domain)}
+              {domain}
             </Button>
           </ButtonWrapper>
         </Panel.Inner>

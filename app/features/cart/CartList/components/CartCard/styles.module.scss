@@ -9,20 +9,19 @@
 }
 
 .cart-card-container {
-  margin: 0.5rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-// image
 .cart-card-image-wrapper {
-  width: 30%;
+  width: 40%;
 }
+
 .cart-card-image {
   width: 100%;
   border-radius: 0.5rem;
-  height: 100px;
+  height: fit-content;
 }
 
 // content
@@ -30,24 +29,25 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 50%;
+  width: 60%;
 }
 
 .cart-card-title {
   font-size: 1rem;
   font-weight: 600;
   color: #4a5568;
-  composes: _line-clamp-3;
+  composes: _line-clamp-1;
+}
+
+.cart-card-description {
+  font-size: 0.875rem;
+  color: #cbd5e0;
+  composes: _line-clamp-2;
 }
 
 .cart-card-price {
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #cbd5e0;
-}
-
-// button
-.cart-card-button-wrapper {
-  align-content: space-around;
-  display: grid;
+  color: $red-main;
+  font-weight: 600;
+  composes: _line-clamp-1;
 }
