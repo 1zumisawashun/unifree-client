@@ -1,8 +1,7 @@
 "use client";
 
 import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
-import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { Dialog, UseDialog } from "@/components/elements/Dialog";
 import { Swiper } from "@/components/elements/Swiper";
 import { Image } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";

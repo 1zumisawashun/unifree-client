@@ -1,8 +1,7 @@
 "use client";
 
 import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
-import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { Dialog, UseDialog } from "@/components/elements/Dialog";
 import { Panel } from "@/components/elements/Panel";
 import { InputText } from "@/components/forms";
 import { editPrismaUser } from "@/features/mypage/MypageSetting/components/EditDialog/hooks/editPrismaUser";

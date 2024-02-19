@@ -1,8 +1,7 @@
 "use client";
 
 import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
-import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { Dialog, UseDialog } from "@/components/elements/Dialog";
 import { deletePrismaProduct } from "@/features/product/ProductDetail/components/DeleteDialog/hooks/deletePrismaProduct";
 import { editStripePrices } from "@/features/product/hooks/editStripePrices";
 import { Product } from "@/functions/types/Prisma";

@@ -1,8 +1,7 @@
 "use client";
 
 import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
-import { UseDialog } from "@/components/elements/Dialog/hooks/useDialog";
+import { Dialog, UseDialog } from "@/components/elements/Dialog";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "error-dialog";

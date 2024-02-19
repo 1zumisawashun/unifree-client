@@ -1,11 +1,7 @@
 "use client";
 
 import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog } from "@/components/elements/Dialog";
-import {
-  UseDialog,
-  useDialog,
-} from "@/components/elements/Dialog/hooks/useDialog";
+import { Dialog, UseDialog, useDialog } from "@/components/elements/Dialog";
 import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { LoadingSpinner } from "@/components/elements/LoadingSpinner";
 import { logoutByFirebaseAuth } from "@/functions/helpers/firebaseAuth";
