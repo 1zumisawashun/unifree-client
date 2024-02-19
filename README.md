@@ -68,6 +68,7 @@
 
 - ✅ server-action へのリプレイス（責務わけのために中止・match と message だけ対応済み）
 - ✅ icon を hero-icon にする。たしかツリーシェイキングの対応されていたはず。
+- badge uiとaccordion uiの作成 
 - planet-scale の branching 機能を対応する
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
@@ -88,6 +89,7 @@
 
 ## MEMO
 
+- badge、dropdown-menuはslotで作りたい
 - card に list, item を格納する, good
 - domain の入った共通コンポーネントの配置について, good
 - page.tsx で async function は全て loading.tsx を配置する

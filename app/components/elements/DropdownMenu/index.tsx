@@ -1,100 +1,95 @@
 "use client";
 
+import { useAnimationEnd } from "@/functions/hooks/useAnimationEnd";
 import { useOuterClick } from "@/functions/hooks/useOuterClick";
-import { StackPosition } from "@/functions/types/Common";
-import clsx from "clsx";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { getOffset } from "./hooks/getOffset";
+import {
+  autoUpdate,
+  computePosition,
+  offset,
+  Placement,
+} from "@floating-ui/dom";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
-type ListProps = {
-  id?: string;
+type ListProps<T> = {
   onClose: () => void;
   open: boolean;
-  position?: StackPosition;
-  triggerRef: React.RefObject<HTMLButtonElement>;
-  children: React.ReactNode;
+  placement?: Placement;
+  referenceRef: React.RefObject<HTMLButtonElement>;
+  rows: T[];
+  render: React.FC<T>;
 };
 
 export const BLOCK_NAME = "dropdown-menu";
 
 const FADE_IN_ANIMATION = "fade-in";
 
-type Rect = { width: number; height: number };
-
-const initRect = { width: 0, height: 0 };
-
-function List({
-  children,
-  id,
+function List<T extends { id: number | string }>({
   onClose,
   open,
-  position = "bottomCenter",
-  triggerRef,
-}: ListProps) {
-  const targetRef = useRef<HTMLUListElement>(null);
+  placement = "bottom-end",
+  referenceRef,
+  ...props
+}: ListProps<T>) {
+  const floatingRef = useRef<HTMLUListElement>(null);
 
   const [fadeOut, setFadeOut] = useState(false);
 
-  const [triggerRect, setTriggerRect] = useState<Rect>(initRect);
-  const [targetRect, setTargetRect] = useState<Rect>(initRect);
-
-  useOuterClick([targetRef, triggerRef], () => {
+  useOuterClick([floatingRef, referenceRef], () => {
     if (!open) return;
     setFadeOut(true);
   });
 
-  const handleAnimationEnd = useCallback(
-    (event: AnimationEvent) => {
-      if (event.animationName.includes(FADE_IN_ANIMATION)) return;
-      onClose();
-      setFadeOut(false);
-    },
-    [onClose, setFadeOut]
-  );
+  /**
+   * open=true:fade-inアニメーションが終わったらスルーする
+   * open=false:fade-outアニメーションが終わったら実行する
+   */
+  useAnimationEnd(floatingRef, (e) => {
+    if (e.animationName.includes(FADE_IN_ANIMATION)) return;
+    setFadeOut(false);
+    onClose();
+  });
 
-  useEffect(() => {
-    const target = targetRef.current;
-    target?.addEventListener("animationend", handleAnimationEnd, false);
-
-    return () =>
-      target?.removeEventListener("animationend", handleAnimationEnd, false);
-  }, [targetRef, handleAnimationEnd]);
-
-  // Triggerの縦横幅を取得
-  useEffect(() => {
-    if (!triggerRef.current) return;
-
-    const { height, width } = triggerRef.current.getBoundingClientRect();
-    setTriggerRect({ height, width });
-  }, [triggerRef]);
-
-  // Targetの縦幅を取得
+  /**
+   * openの挙動を監視するのはuseEffect的には良くないので解決策があれば変更する
+   * @see https://floating-ui.com/docs/computePosition
+   * @see https://floating-ui.com/docs/offset#offset
+   */
   useEffect(() => {
     if (!open) return;
-    if (!targetRef.current) return;
 
-    const { height, width } = targetRef.current.getBoundingClientRect();
-    setTargetRect({ height, width });
-  }, [open]);
+    const referenceEl = referenceRef.current!;
+    const floatingEl = floatingRef.current!;
+
+    const cleanup = autoUpdate(referenceEl, floatingEl, async () => {
+      const { x, y } = await computePosition(referenceEl, floatingEl, {
+        placement,
+        middleware: [offset(8)],
+      });
+
+      Object.assign(floatingEl.style, {
+        left: `${x}px`,
+        top: `${y}px`,
+      });
+    });
+
+    return () => cleanup();
+  }, [referenceRef, floatingRef, open, placement]);
 
   if (!open) return null;
 
-  /* eslint-disable jsx-a11y/click-events-have-key-events */
   return (
     <ul
-      id={id}
-      // onClick={handleInnerClick}
-      className={clsx(
-        styles[`${BLOCK_NAME}`],
-        styles[`${BLOCK_NAME}-${position}`]
-      )}
+      className={styles[`${BLOCK_NAME}`]}
       data-is-fade-out={fadeOut}
-      ref={targetRef}
+      ref={floatingRef}
       role="menu"
-      style={getOffset({ triggerRect, targetRect, position })}
     >
-      {children}
+      {props.rows.map((row) => (
+        <li key={row.id}>
+          <props.render {...row} />
+        </li>
+      ))}
     </ul>
   );
 }

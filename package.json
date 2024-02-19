@@ -25,6 +25,7 @@
     "prisma:reset": "npx prisma db push --force-reset && npm run prisma:seed"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.6.3",
     "@next/bundle-analyzer": "^14.1.0",
     "@prisma/client": "^5.8.1",
     "clsx": "^2.1.0",

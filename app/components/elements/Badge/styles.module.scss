@@ -1,13 +1,13 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/tools/main";
 
-.dropdown-menu-flame {
+.badge-flame {
   position: relative;
   display: flex;
   // width: fit-content;
 }
 
-.dropdown-menu {
+.badge {
   animation: 0.1s fade-in;
   border-radius: 12px;
   box-sizing: border-box;

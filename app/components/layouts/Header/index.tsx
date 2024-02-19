@@ -1,6 +1,6 @@
 import { IconButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
-import { ProfileMenu } from "@/components/layouts/ProfileMenu";
+import { HeaderMenu } from "@/components/layouts/HeaderMenu";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { getServerSession } from "next-auth";
 import "server-only";
@@ -39,7 +39,7 @@ export async function Header() {
           </>
         )}
 
-        <ProfileMenu isAuthenticated={isAuthenticated} userId={userId} />
+        <HeaderMenu isAuthenticated={isAuthenticated} userId={userId} />
       </div>
     </header>
   );

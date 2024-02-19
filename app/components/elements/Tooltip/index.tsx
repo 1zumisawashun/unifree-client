@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { getOffset } from "../DropdownMenu/hooks/getOffset";
+// import { getOffset } from "../DropdownMenu/hooks/getOffset";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -72,7 +72,11 @@ const List: React.FC<Props> = ({ children, triggerRef }) => {
       ref={targetRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={getOffset({ triggerRect, targetRect, position })}
+      // style={getOffset({ triggerRect, targetRect, position })}
+      style={{
+        top: triggerRect.height + targetRect.height,
+        left: triggerRect.width + targetRect.width,
+      }}
     >
       {children}
     </div>

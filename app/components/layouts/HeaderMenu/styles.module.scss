@@ -1,0 +1,10 @@
+@import "@/assets/styles/settings/color";
+
+.profile-menu-anchor-button {
+  width: 100%;
+  justify-content: normal !important;
+  // child-selector適応できない作りにしてしまったのでネガティブマージンする
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  margin-top: -1px;
+}
