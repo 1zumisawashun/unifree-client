@@ -1,5 +1,4 @@
 import signInGoogle from "@/assets/images/image_signin_google.png";
-import signInMicrosoft from "@/assets/images/image_signin_microsoft.png";
 import { UnstyledButton } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
@@ -52,18 +51,6 @@ export function LoginBody({
           <Image
             src={signInGoogle}
             alt="sign-in-google"
-            width={250}
-            height={40}
-          />
-        </UnstyledButton>
-        <UnstyledButton
-          onClick={() => login("microsoft")}
-          aria-disabled={checkbox}
-          className={styles[`${BLOCK_NAME}-button`]}
-        >
-          <Image
-            src={signInMicrosoft}
-            alt="sign-in-microsoft"
             width={250}
             height={40}
           />

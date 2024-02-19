@@ -6,7 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { redirect } from "next/navigation";
 import "server-only";
 
-type JwtUser = { uid: DecodedIdToken["uid"]; id: number };
+type User = { uid: DecodedIdToken["uid"]; id: number };
 
 /* eslint-disable */
 export const authOptions: NextAuthOptions = {
@@ -31,6 +31,10 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  /**
+   * The default is `"jwt"`, an encrypted JWT (JWE) stored in the session cookie.
+   * @see https://next-auth.js.org/configuration/options
+   */
   session: {
     strategy: "jwt",
   },
@@ -43,7 +47,7 @@ export const authOptions: NextAuthOptions = {
      * そのためuserをsessionでも使用したい場合はtokenにuserを追加する必要がある
      */
     async jwt({ token, user }) {
-      return { ...token, ...(user as unknown as JwtUser) };
+      return { ...token, ...(user as unknown as User) };
     },
     /**
      * jwtコールバックが呼ばれた後に実行される
@@ -55,6 +59,9 @@ export const authOptions: NextAuthOptions = {
       /**
        * session.expiresはgetServerSessionで取得できないぽい
        * @see https://github.com/nextauthjs/next-auth/discussions/8907
+       * 
+       * 公式ドキュメントでも触れられているぽい（This means that the expires value is stripped away from session in Server Components.）
+       * @see https://next-auth.js.org/configuration/nextjs#in-app-directory 
        */
       session.user.expires = session.expires;
 

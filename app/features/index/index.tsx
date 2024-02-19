@@ -19,13 +19,17 @@ export function Index({ isAuthenticated }: { isAuthenticated: boolean }) {
         <ButtonAnchor href={"/products"} size="large" variant="outlined">
           教科書を探す
         </ButtonAnchor>
-        {isAuthenticated && (
+        {isAuthenticated ? (
           <ButtonAnchor
             href={"/products/create"}
             size="large"
             variant="outlined"
           >
             教科書を売る
+          </ButtonAnchor>
+        ) : (
+          <ButtonAnchor href={"/login"} size="large" variant="outlined">
+            ログインする
           </ButtonAnchor>
         )}
       </div>

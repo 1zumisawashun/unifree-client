@@ -17,7 +17,7 @@ export function ErrorDialog({
   domain: string;
 }) {
   return (
-    <Dialog {...dialog} width="half">
+    <Dialog {...dialog}>
       <div className={styles[`${BLOCK_NAME}-inner`]}>
         <p className={styles[`${BLOCK_NAME}-title`]}>
           {domain}に失敗しました。

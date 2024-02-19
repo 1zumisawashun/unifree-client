@@ -1,4 +1,5 @@
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
+import { SubHeader } from "@/components/layouts/SubHeader";
 import { Metadata } from "next";
 
 const title = "Login";
@@ -8,5 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <LayoutContainer>{children}</LayoutContainer>;
+  return (
+    <LayoutContainer>
+      <SubHeader title={title} href="/">
+        {children}
+      </SubHeader>
+    </LayoutContainer>
+  );
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import { ButtonAnchor, UnstyledButton } from "@/components/buttons";
+import { Button, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
 import { DropDownMenu } from "@/components/elements/DropdownMenu";
 import { profileRoutes } from "@/functions/helpers/getRoutes";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -19,8 +20,13 @@ export const ProfileMenu = ({
   const [open, setOpen] = useState(false);
 
   const triggerRef = useRef<HTMLButtonElement>(null);
-
   const routes = profileRoutes({ isAuthenticated });
+  const router = useRouter();
+
+  const handleClick = (href: string) => {
+    router.push(href);
+    setOpen(false);
+  };
 
   return (
     <DropDownMenu.Frame>
@@ -38,14 +44,14 @@ export const ProfileMenu = ({
       >
         {routes.map((route) => (
           <li className={styles[`${BLOCK_NAME}-item`]} key={route.value}>
-            <ButtonAnchor
-              href={route.href}
+            <Button
               variant="transparent"
               shape="square"
               className={styles[`${BLOCK_NAME}-anchor-button`]}
+              onClick={() => handleClick(route.href)}
             >
               {route.value}
-            </ButtonAnchor>
+            </Button>
           </li>
         ))}
       </DropDownMenu.List>

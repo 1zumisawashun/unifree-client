@@ -3,6 +3,9 @@ import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "input-simple-text";
 
+/**
+ * @see https://twitter.com/codewithshripal/status/1753040463874101725?s=12&t=0Bs_ltBYiO3nhiiL9YZAEw
+ */
 export function InputSimpleText() {
   const id = useId();
   const label = "First Name";

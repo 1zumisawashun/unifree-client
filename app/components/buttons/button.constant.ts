@@ -2,8 +2,10 @@ import {
   AddIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  BellIcon,
   CrossIcon,
   EditIcon,
+  ShoppingCartIcon,
 } from "@/components/elements/SvgIcon";
 
 export const icons = {
@@ -12,4 +14,6 @@ export const icons = {
   cross: CrossIcon,
   "arrow-left": ArrowLeftIcon,
   "arrow-right": ArrowRightIcon,
+  bell: BellIcon,
+  "shopping-cart": ShoppingCartIcon,
 };

@@ -1,10 +1,6 @@
 import { auth } from "@/functions/libs/firebase";
 import { FirebaseError } from "firebase/app";
 import { OAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import {
-  signIn as signInByNextAuth,
-  signOut as signOutByNextAuth,
-} from "next-auth/react";
 
 const getProvider = (method: "google" | "microsoft") => {
   switch (method) {
@@ -18,39 +14,45 @@ const getProvider = (method: "google" | "microsoft") => {
 };
 
 /* eslint-disable */
-async function login(method: "google" | "microsoft") {
+async function loginByFirebaseAuth(
+  method: "google" | "microsoft"
+): Promise<
+  { ok: boolean; idToken: string } | { ok: boolean; message: string }
+> {
   try {
     const provider = getProvider(method);
     const userCredential = await signInWithPopup(auth, provider);
     const idToken = await userCredential.user.getIdToken();
 
-    // これcallbacksのsign-inでロジック組まないとundefinedなのかも
-    const response = await signInByNextAuth("credentials", {
-      idToken,
-      callbackUrl: `/`,
-    });
-    console.log(response);
-
-    return { status: "ok" };
+    return { ok: true, idToken };
   } catch (error) {
     if (error instanceof FirebaseError) {
       if (error.code === "auth/account-exists-with-different-credential") {
-        return `${error.customData?.["email"]}は他のSNSと連携した既存ユーザーが登録済みです。`;
+        return {
+          ok: false,
+          message: `${error.customData?.["email"]}は他のSNSと連携した既存ユーザーが登録済みです。`,
+        };
       }
-      return `ログイン/新規登録に失敗しました。\n${error.message}`;
+      return {
+        ok: false,
+        message: `ログイン/新規登録に失敗しました。\n${error.message}`,
+      };
     }
     if (error instanceof Error) {
-      return `エラーが発生しました。\n${error.message}`;
+      return {
+        ok: false,
+        message: `エラーが発生しました。\n${error.message}`,
+      };
     }
-    return "エラーが発生しました。";
+    return {
+      ok: false,
+      message: `エラーが発生しました。`,
+    };
   }
 }
 
-async function logout() {
+async function logoutByFirebaseAuth() {
   await signOut(auth);
-  await signOutByNextAuth({
-    callbackUrl: `/login`,
-  });
 }
 
-export { login, logout };
+export { loginByFirebaseAuth, logoutByFirebaseAuth };

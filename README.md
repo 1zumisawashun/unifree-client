@@ -66,12 +66,14 @@
 <details>
 <summary>🔷 2/19（月）〜2/25（日）</summary>
 
+- ✅ server-action へのリプレイス（責務わけのために中止・match と message だけ対応済み）
+- ✅ icon を hero-icon にする。たしかツリーシェイキングの対応されていたはず。
 - planet-scale の branching 機能を対応する
-- server-action へのリプレイス
 - 入力バリデーションのハンドリング実装
-- メッセージの通知機能（messages に read をつける:https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae）ということはヘッダーにベルアイコンを仕込む必要があるのか、headerのベルからマイページマッチに遷移させる
+- メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
+  - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
 - どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
-- iconをhero-iconにする。たしかツリーシェイキングの対応されていたはず。
+- send-grid で email する
 
 </details>
 

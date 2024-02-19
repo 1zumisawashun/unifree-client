@@ -1,7 +1,6 @@
-import { ButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
+import { IconButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { ProfileMenu } from "@/components/layouts/ProfileMenu";
-import { headerRoutes } from "@/functions/helpers/getRoutes";
 import { authOptions } from "@/functions/libs/nextAuth";
 import { getServerSession } from "next-auth";
 import "server-only";
@@ -14,8 +13,6 @@ export async function Header() {
   const isAuthenticated = !!session;
   const userId = session?.user.id;
 
-  const routes = headerRoutes({ isAuthenticated });
-
   return (
     <header className={styles[`${BLOCK_NAME}`]}>
       <UnstyledButtonAnchor
@@ -27,11 +24,20 @@ export async function Header() {
       </UnstyledButtonAnchor>
 
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        {routes.map((route) => (
-          <ButtonAnchor key={route.value} href={route.href} variant="outlined">
-            {route.value}
-          </ButtonAnchor>
-        ))}
+        {isAuthenticated && (
+          <>
+            <IconButtonAnchor
+              name="shopping-cart"
+              href={"/cart"}
+              variant="outlined"
+            />
+            <IconButtonAnchor
+              name="bell"
+              href={"/mypage/match"}
+              variant="outlined"
+            />
+          </>
+        )}
 
         <ProfileMenu isAuthenticated={isAuthenticated} userId={userId} />
       </div>

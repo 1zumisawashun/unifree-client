@@ -1,8 +1,4 @@
 const publicRoutes = {
-  header: {
-    primary: [{ href: "/login", value: "ログイン" }],
-    secondary: [],
-  },
   profile: {
     primary: [{ href: "/products", value: "商品一覧" }],
     secondary: [
@@ -13,10 +9,6 @@ const publicRoutes = {
 };
 
 const privateRoutes = {
-  header: {
-    primary: [{ href: "/cart", value: "カート" }],
-    secondary: [],
-  },
   mypage: {
     primary: [
       { href: "/mypage/setting", value: "設定" },
@@ -36,7 +28,6 @@ const privateRoutes = {
 };
 
 const authRoutes = [
-  ...privateRoutes.header.primary,
   ...privateRoutes.profile.primary,
   ...privateRoutes.mypage.primary,
 ];
