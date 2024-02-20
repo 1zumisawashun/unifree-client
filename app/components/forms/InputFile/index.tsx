@@ -3,15 +3,15 @@ import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { useDD } from "@/components/forms/InputFile/hooks/useDD";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { SetState, State } from "@/functions/hooks/useArrayState";
+import { UseArrayState } from "@/functions/hooks/useArrayState";
+import { Image } from "@/functions/types/Prisma";
 import { BaseSyntheticEvent, useId, useRef, useState } from "react";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
-import { Image } from "@/functions/types/Prisma";
 
 export type InputFileProps = {
-  state: State<File | Image>;
-  setState: SetState<File | Image>;
+  state: UseArrayState<File | Image>[0];
+  setState: UseArrayState<File | Image>[1];
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
 

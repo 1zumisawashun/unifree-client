@@ -3,7 +3,7 @@ import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { PreviewDialog } from "@/components/elements/PreviewDialog";
 import { getDataUrl } from "@/components/forms/InputFile/hooks/getDataUrl";
 import { isFile } from "@/functions/helpers/typeGuard";
-import { SetState, State } from "@/functions/hooks/useArrayState";
+import { UseArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/types/Prisma";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
@@ -49,8 +49,8 @@ const List = ({
   state,
   setState,
 }: {
-  state: State<File | Image>;
-  setState: SetState<File | Image>;
+  state: UseArrayState<File | Image>[0];
+  setState: UseArrayState<File | Image>[1];
 }) => {
   if (state.length === 0) return null;
 

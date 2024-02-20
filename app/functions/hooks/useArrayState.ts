@@ -1,15 +1,5 @@
 import { useCallback, useState } from "react";
 
-export type State<T> = T[];
-
-export type SetState<T> = {
-  readonly add: (newValues: T[]) => void;
-  readonly remove: (index: number) => void;
-  readonly filter: (newValue: T, checked: boolean) => void;
-};
-
-export type UseArrayState<T> = [State<T>, SetState<T>];
-
 export const useArrayState = <T>(initial: T[] = []) => {
   const [state, setState] = useState<T[]>(initial);
 
@@ -43,3 +33,5 @@ export const useArrayState = <T>(initial: T[] = []) => {
 
   return [state, { add, remove, filter }] as const;
 };
+
+export type UseArrayState<T> = ReturnType<typeof useArrayState<T>>;

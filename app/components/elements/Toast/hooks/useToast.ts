@@ -7,6 +7,7 @@ export const useToast = () => {
   return useContext(ToastContext);
 };
 
+// MEMO:遷移時にToastを閉じる
 // const { showToast, closeToast } = useToast();
 
 //   useEffect(() => {
