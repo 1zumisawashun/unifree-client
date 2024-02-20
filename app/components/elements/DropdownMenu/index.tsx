@@ -1,5 +1,3 @@
-"use client";
-
 import { useAnimationEnd } from "@/functions/hooks/useAnimationEnd";
 import { useOuterClick } from "@/functions/hooks/useOuterClick";
 import {
@@ -11,7 +9,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
-type ListProps<T> = {
+type DropDownMenuProps<T> = {
   onClose: () => void;
   open: boolean;
   placement?: Placement;
@@ -24,13 +22,13 @@ export const BLOCK_NAME = "dropdown-menu";
 
 const FADE_IN_ANIMATION = "fade-in";
 
-function List<T extends { id: number | string }>({
+export function DropDownMenu<T extends { id: number | string }>({
   onClose,
   open,
   placement = "bottom-end",
   referenceRef,
   ...props
-}: ListProps<T>) {
+}: DropDownMenuProps<T>) {
   const floatingRef = useRef<HTMLUListElement>(null);
 
   const [fadeOut, setFadeOut] = useState(false);
@@ -41,8 +39,7 @@ function List<T extends { id: number | string }>({
   });
 
   /**
-   * open=true:fade-inアニメーションが終わったらスルーする
-   * open=false:fade-outアニメーションが終わったら実行する
+   * fade-outアニメーションが終わったらリセットする
    */
   useAnimationEnd(floatingRef, (e) => {
     if (e.animationName.includes(FADE_IN_ANIMATION)) return;
@@ -93,12 +90,3 @@ function List<T extends { id: number | string }>({
     </ul>
   );
 }
-
-function Frame({ children }: { children: React.ReactNode }) {
-  return <div className={styles[`${BLOCK_NAME}-flame`]}>{children}</div>;
-}
-
-export const DropDownMenu = {
-  Frame,
-  List,
-};

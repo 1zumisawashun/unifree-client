@@ -26,11 +26,11 @@ export const HeaderMenu = ({
   const { isOpen, close, toggle } = useDisclosure();
 
   return (
-    <DropDownMenu.Frame>
+    <>
       <UnstyledButton onClick={toggle} ref={referenceRef}>
         <Avatar id={userId} />
       </UnstyledButton>
-      <DropDownMenu.List
+      <DropDownMenu
         onClose={close}
         open={isOpen}
         referenceRef={referenceRef}
@@ -48,6 +48,6 @@ export const HeaderMenu = ({
           </Button>
         )}
       />
-    </DropDownMenu.Frame>
+    </>
   );
 };

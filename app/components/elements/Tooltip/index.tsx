@@ -1,93 +1,65 @@
 "use client";
-import clsx from "clsx";
-import { useCallback, useEffect, useRef, useState } from "react";
-// import { getOffset } from "../DropdownMenu/hooks/getOffset";
+
+import { useTooltip } from "@/components/elements/Tooltip/hooks/useTooltip";
+import { useAnimationEnd } from "@/functions/hooks/useAnimationEnd";
+import {
+  Placement,
+  autoUpdate,
+  computePosition,
+  offset,
+} from "@floating-ui/dom";
+import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
-type Props = {
+type TooltipProps = {
   children: React.ReactNode;
-  triggerRef: React.RefObject<HTMLElement>;
+  placement?: Placement;
+  referenceRef: React.RefObject<HTMLElement>;
 };
 
-type Rect = { width: number; height: number };
-
-const initRect = { width: 0, height: 0 };
-
 const BLOCK_NAME = "tool-tip";
-const position = "bottomRight";
 
-const List: React.FC<Props> = ({ children, triggerRef }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
+const FADE_IN_ANIMATION = "fade-in";
 
-  const [triggerRect, setTriggerRect] = useState<Rect>(initRect);
-  const [targetRect, setTargetRect] = useState<Rect>(initRect);
+export function Tooltip({ children, placement, referenceRef }: TooltipProps) {
+  const floatingRef = useRef<HTMLDivElement>(null);
 
-  // マウスが乗ったらツールチップを表示
-  const handleMouseEnter = useCallback(() => {
-    if (!targetRef.current) return;
-    targetRef.current.style.opacity = "1";
-    targetRef.current.style.visibility = "visible";
-  }, []);
+  const [fadeOut, setFadeOut] = useState(false);
 
-  // マウスが離れたらツールチップを非表示
-  const handleMouseLeave = useCallback(() => {
-    if (!targetRef.current) return;
-    targetRef.current.style.opacity = "0";
-    targetRef.current.style.visibility = "hidden";
-  }, []);
+  useTooltip(referenceRef, floatingRef, (value) => setFadeOut(value));
+
+  useAnimationEnd(floatingRef, (e) => {
+    if (e.animationName.includes(FADE_IN_ANIMATION)) return;
+    setFadeOut(false);
+  });
 
   useEffect(() => {
-    const trigger = triggerRef.current;
-    trigger?.addEventListener("mouseenter", handleMouseEnter);
-    trigger?.addEventListener("mouseleave", handleMouseLeave);
+    const referenceEl = referenceRef.current!;
+    const floatingEl = floatingRef.current!;
 
-    return () => {
-      trigger?.removeEventListener("mouseenter", handleMouseEnter);
-      trigger?.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [triggerRef, handleMouseEnter, handleMouseLeave]);
+    const cleanup = autoUpdate(referenceEl, floatingEl, async () => {
+      const { x, y } = await computePosition(referenceEl, floatingEl, {
+        placement,
+        middleware: [offset(8)],
+      });
 
-  // Triggerの縦横幅を取得
-  useEffect(() => {
-    if (!triggerRef.current) return;
+      Object.assign(floatingEl.style, {
+        left: `${x}px`,
+        top: `${y}px`,
+      });
+    });
 
-    const { height, width } = triggerRef.current.getBoundingClientRect();
-    setTriggerRect({ height, width });
-  }, [triggerRef]);
-
-  // Targetの縦幅を取得
-  useEffect(() => {
-    if (!targetRef.current) return;
-
-    const { height, width } = targetRef.current.getBoundingClientRect();
-    setTargetRect({ height, width });
-  }, [targetRef]);
+    return () => cleanup();
+  }, [referenceRef, floatingRef, placement]);
 
   return (
     <div
-      className={clsx(
-        styles[`${BLOCK_NAME}`],
-        styles[`${BLOCK_NAME}-${position}`]
-      )}
-      ref={targetRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      // style={getOffset({ triggerRect, targetRect, position })}
-      style={{
-        top: triggerRect.height + targetRect.height,
-        left: triggerRect.width + targetRect.width,
-      }}
+      className={styles[`${BLOCK_NAME}`]}
+      data-is-fade-out={fadeOut}
+      ref={floatingRef}
+      role="tooltip"
     >
       {children}
     </div>
   );
-};
-
-const Frame = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles[`${BLOCK_NAME}-wrapper`]}>{children}</div>;
-};
-
-export const Tooltip = {
-  Frame,
-  List,
-};
+}

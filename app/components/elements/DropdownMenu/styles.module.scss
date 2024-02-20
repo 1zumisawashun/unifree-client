@@ -1,14 +1,9 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/tools/main";
 
-.dropdown-menu-flame {
-  position: relative;
-  display: flex;
-  // width: fit-content;
-}
-
 .dropdown-menu {
   animation: 0.1s fade-in;
+  background: $white;
   border-radius: 12px;
   box-sizing: border-box;
   padding: 12px 0;
@@ -16,7 +11,7 @@
   width: 270px;
   z-index: 5;
   border: 1px solid $border;
-  background: $white;
+
   &[data-is-fade-out="true"] {
     animation: 0.1s fade-out;
     opacity: 0;

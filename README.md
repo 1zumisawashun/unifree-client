@@ -68,7 +68,7 @@
 
 - ✅ server-action へのリプレイス（責務わけのために中止・match と message だけ対応済み）
 - ✅ icon を hero-icon にする。たしかツリーシェイキングの対応されていたはず。
-- badge uiとaccordion uiの作成 
+- badge ui, tooltip, toast の作成と改修
 - planet-scale の branching 機能を対応する
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
@@ -89,7 +89,7 @@
 
 ## MEMO
 
-- badge、dropdown-menuはslotで作りたい
+- badge、dropdown-menu は slot で作りたい
 - card に list, item を格納する, good
 - domain の入った共通コンポーネントの配置について, good
 - page.tsx で async function は全て loading.tsx を配置する
@@ -98,6 +98,7 @@
 - リポジトリをプライベートに変更する
 - Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
 - layout → error（error-boundary） → loading（suspense） → page（async function）
+- 意識的な button コンポーネントの優先度決め
 
 ## Folder-Structure
 
@@ -110,18 +111,6 @@ https://github.com/1zumisawashun/folder-structure-template
 以下参照
 
 https://github.com/1zumisawashun/unifree-client/blob/main/prisma/scheme.md
-
-## Try
-
-<details>
-<summary>🔶 試してみたいこと</summary>
-
-- floating-ui でコンポーネントの改修
-- cloudflare-images、もし難しそうなら gcs 使う
-- テスト実装（RTL・VRT etc）
-- 意識的な button コンポーネントの優先度決め
-
-</details>
 
 ## UI_20240211
 

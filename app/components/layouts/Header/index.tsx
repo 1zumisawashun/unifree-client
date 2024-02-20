@@ -1,4 +1,5 @@
 import { IconButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
+import { Badge } from "@/components/elements/Badge";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { HeaderMenu } from "@/components/layouts/HeaderMenu";
 import { authOptions } from "@/functions/libs/nextAuth";
@@ -26,16 +27,20 @@ export async function Header() {
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
         {isAuthenticated && (
           <>
-            <IconButtonAnchor
-              name="shopping-cart"
-              href={"/cart"}
-              variant="outlined"
-            />
-            <IconButtonAnchor
-              name="bell"
-              href={"/mypage/match"}
-              variant="outlined"
-            />
+            <Badge count={1}>
+              <IconButtonAnchor
+                name="shopping-cart"
+                href={"/cart"}
+                variant="outlined"
+              />
+            </Badge>
+            <Badge count={0}>
+              <IconButtonAnchor
+                name="bell"
+                href={"/mypage/match"}
+                variant="outlined"
+              />
+            </Badge>
           </>
         )}
 
