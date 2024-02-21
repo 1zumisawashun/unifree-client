@@ -9,7 +9,7 @@ import "server-only";
 type User = { uid: DecodedIdToken["uid"]; id: number };
 
 /* eslint-disable */
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       credentials: {},
@@ -59,13 +59,13 @@ export const authOptions: NextAuthOptions = {
       /**
        * session.expiresはgetServerSessionで取得できないぽい
        * @see https://github.com/nextauthjs/next-auth/discussions/8907
-       * 
+       *
        * 公式ドキュメントでも触れられているぽい（This means that the expires value is stripped away from session in Server Components.）
-       * @see https://next-auth.js.org/configuration/nextjs#in-app-directory 
+       * @see https://next-auth.js.org/configuration/nextjs#in-app-directory
        */
       session.user.expires = session.expires;
 
       return session;
     },
   },
-};
+} satisfies NextAuthOptions;

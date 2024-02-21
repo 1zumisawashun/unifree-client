@@ -68,7 +68,8 @@
 
 - ✅ server-action へのリプレイス（責務わけのために中止・match と message だけ対応済み）
 - ✅ icon を hero-icon にする。たしかツリーシェイキングの対応されていたはず。
-- badge ui, tooltip, toast の作成と改修
+- ✅ badge ui, tooltip, toast の作成と改修
+- ✅ withAuthで未ログインユーザーのハンドリングを実装した
 - planet-scale の branching 機能を対応する
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる

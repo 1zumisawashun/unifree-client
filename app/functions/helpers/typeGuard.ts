@@ -9,10 +9,8 @@ const isFile = (file: unknown): file is File => {
 };
 
 // FIXME:オブジェクトの型ガードをちゃんとやりたい
-const isImage = (file: unknown): file is Image => {
-  return file instanceof Image;
+const isImage = (file: any): file is Image => {
+  return file?.productId;
 };
 
-const isUser = (user: any) => user?.status === "ok";
-
-export { isFile, isImage, isString, isUser };
+export { isFile, isImage, isString };
