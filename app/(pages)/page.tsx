@@ -1,11 +1,9 @@
 import { LayoutCenter } from "@/components/layouts/LayoutCenter";
 import { Index } from "@/features/index";
-import { authOptions } from "@/functions/libs/nextAuth";
-import { getServerSession } from "next-auth";
+import { auth } from "@/functions/helpers/nextAuth/server";
 
 export default async function Page() {
-  const session = await getServerSession(authOptions);
-  const isAuthenticated = !!session;
+  const { isAuthenticated } = await auth();
 
   return (
     <LayoutCenter background="index">

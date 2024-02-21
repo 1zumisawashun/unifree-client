@@ -1,10 +1,9 @@
 import { MypageSetting } from "@/features/mypage/MypageSetting";
-import { authOptions } from "@/functions/libs/nextAuth";
+import { auth } from "@/functions/helpers/nextAuth/server";
 import { prisma } from "@/functions/libs/prisma";
-import { getServerSession } from "next-auth";
 
 export default async function Page() {
-  const session = await getServerSession(authOptions);
+  const { session } = await auth();
 
   const user = await prisma.user.findFirstOrThrow({
     where: { id: session!.user.id },

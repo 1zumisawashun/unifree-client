@@ -5,7 +5,7 @@ import { Dialog, UseDialog, useDialog } from "@/components/elements/Dialog";
 import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { LoadingSpinner } from "@/components/elements/LoadingSpinner";
 import { logoutByFirebaseAuth } from "@/functions/helpers/firebaseAuth";
-import { logoutByNextAuth } from "@/functions/helpers/nextAuth";
+import { logoutByNextAuth } from "@/functions/helpers/nextAuth/client";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 

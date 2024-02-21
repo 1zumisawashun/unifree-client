@@ -2,16 +2,14 @@ import { IconButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
 import { Badge } from "@/components/elements/Badge";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { HeaderMenu } from "@/components/layouts/HeaderMenu";
-import { authOptions } from "@/functions/libs/nextAuth";
-import { getServerSession } from "next-auth";
+import { auth } from "@/functions/helpers/nextAuth/server";
 import "server-only";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "header";
 
 export async function Header() {
-  const session = await getServerSession(authOptions);
-  const isAuthenticated = !!session;
+  const { isAuthenticated, session } = await auth();
   const userId = session?.user.id;
 
   return (
