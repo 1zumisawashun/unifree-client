@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { ElementRef, useEffect, useRef } from "react";
 
 export function useAutoResize(value: string | undefined) {
-  const ref = useRef<HTMLTextAreaElement | null>(null);
+  const ref = useRef<ElementRef<"textarea">>(null);
 
   useEffect(() => {
     const element = ref.current;

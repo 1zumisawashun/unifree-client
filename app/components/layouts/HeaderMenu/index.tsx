@@ -6,7 +6,7 @@ import { DropDownMenu } from "@/components/elements/DropdownMenu";
 import { profileRoutes } from "@/functions/helpers/getRoutes";
 import { useDisclosure } from "@/functions/hooks/useDisclosure";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { ElementRef, useRef } from "react";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "profile-menu";
@@ -18,7 +18,7 @@ export const HeaderMenu = ({
   userId?: number;
   isAuthenticated: boolean;
 }) => {
-  const referenceRef = useRef<HTMLButtonElement>(null);
+  const referenceRef = useRef<ElementRef<"button">>(null);
 
   const routes = profileRoutes({ isAuthenticated });
 

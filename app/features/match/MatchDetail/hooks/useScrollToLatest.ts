@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { ElementRef, useEffect, useRef } from "react";
 
 export function useScrollToLatest() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<ElementRef<"div">>(null);
 
   const scrollToLatest = () => {
     if (ref.current) {

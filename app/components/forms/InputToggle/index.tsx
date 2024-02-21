@@ -1,12 +1,17 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ReactNode,
+  forwardRef,
+} from "react";
 import styles from "./styles.module.scss";
 
 type Props = ComponentPropsWithoutRef<"input"> & {
-  children?: React.ReactNode;
+  children?: ReactNode;
   error?: string;
 };
 
-type Ref = HTMLInputElement;
+type Ref = ElementRef<"input">;
 
 const BLOCK_NAME = "input-toggle";
 

@@ -1,12 +1,17 @@
 import Link, { LinkProps } from "next/link";
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ReactNode,
+  forwardRef,
+} from "react";
 
 type Props = ComponentPropsWithoutRef<"a"> & {
   children: ReactNode;
   className?: string;
 } & LinkProps;
 
-type Ref = HTMLAnchorElement;
+type Ref = ElementRef<"a">;
 
 export const UnstyledButtonAnchor = forwardRef<Ref, Props>(
   ({ children, ...props }, ref) => (

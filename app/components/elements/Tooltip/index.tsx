@@ -8,13 +8,20 @@ import {
   computePosition,
   offset,
 } from "@floating-ui/dom";
-import { useEffect, useRef, useState } from "react";
+import {
+  ElementRef,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./styles.module.scss";
 
 type TooltipProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   placement?: Placement;
-  referenceRef: React.RefObject<HTMLElement>;
+  referenceRef: RefObject<ElementRef<"div">>;
 };
 
 const BLOCK_NAME = "tool-tip";
@@ -22,7 +29,7 @@ const BLOCK_NAME = "tool-tip";
 const FADE_IN_ANIMATION = "fade-in";
 
 export function Tooltip({ children, placement, referenceRef }: TooltipProps) {
-  const floatingRef = useRef<HTMLDivElement>(null);
+  const floatingRef = useRef<ElementRef<"div">>(null);
 
   const [fadeOut, setFadeOut] = useState(false);
 

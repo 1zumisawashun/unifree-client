@@ -1,11 +1,11 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
 import { Label, LabelProps } from "@/components/elements/Label";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, ElementRef, forwardRef } from "react";
 
 type Props = ComponentProps<typeof UnstyledButtonAnchor> &
   Omit<LabelProps, "children">;
 
-type Ref = HTMLAnchorElement;
+type Ref = ElementRef<"a">;
 
 export const LabelButtonAnchor = forwardRef<Ref, Props>(
   ({ children, theme = "primary", ...props }, ref) => {

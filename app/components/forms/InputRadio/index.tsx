@@ -1,16 +1,21 @@
 import { CheckIcon } from "@/components/elements/SvgIcon";
 import { SizeType, VariantType } from "@/functions/types/Common";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ReactNode,
+  forwardRef,
+} from "react";
 import styles from "./styles.module.scss";
 
 type Props = Omit<ComponentPropsWithoutRef<"input">, "size"> & {
-  children?: React.ReactNode;
+  children?: ReactNode;
   error?: string;
   variant?: Extract<VariantType, "card">;
   size?: SizeType;
 };
 
-type Ref = HTMLInputElement;
+type Ref = ElementRef<"input">;
 
 const BLOCK_NAME = "input-radio";
 

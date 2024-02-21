@@ -2,13 +2,13 @@ import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor"
 import { icons } from "@/components/buttons/button.constant";
 import { BaseIconButtonProps } from "@/components/buttons/button.type";
 import clsx from "clsx";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, ElementRef, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
 type Props = Omit<ComponentProps<typeof UnstyledButtonAnchor>, "children"> &
   BaseIconButtonProps;
 
-type Ref = HTMLAnchorElement;
+type Ref = ElementRef<"a">;
 
 export const IconButtonAnchor = forwardRef<Ref, Props>(
   (

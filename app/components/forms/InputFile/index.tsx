@@ -5,7 +5,7 @@ import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { UseArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/types/Prisma";
-import { BaseSyntheticEvent, useId, useRef, useState } from "react";
+import { BaseSyntheticEvent, ElementRef, useId, useRef, useState } from "react";
 import { FileCard } from "./components/FileCard";
 import styles from "./styles.module.scss";
 
@@ -41,7 +41,7 @@ export function InputFile({
   const id = useId();
   const errorDialog = useDialog();
 
-  const dragRef = useRef<HTMLLabelElement | null>(null);
+  const dragRef = useRef<ElementRef<"label">>(null);
 
   const [message, setMessage] = useState("");
 

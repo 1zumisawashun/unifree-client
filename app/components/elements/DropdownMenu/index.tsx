@@ -6,16 +6,16 @@ import {
   offset,
   Placement,
 } from "@floating-ui/dom";
-import React, { useEffect, useRef, useState } from "react";
+import { ElementRef, FC, RefObject, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 type DropDownMenuProps<T> = {
   onClose: () => void;
   open: boolean;
   placement?: Placement;
-  referenceRef: React.RefObject<HTMLButtonElement>;
+  referenceRef: RefObject<ElementRef<"button">>;
   rows: T[];
-  render: React.FC<T>;
+  render: FC<T>;
 };
 
 export const BLOCK_NAME = "dropdown-menu";
@@ -29,7 +29,7 @@ export function DropDownMenu<T extends { id: number | string }>({
   referenceRef,
   ...props
 }: DropDownMenuProps<T>) {
-  const floatingRef = useRef<HTMLUListElement>(null);
+  const floatingRef = useRef<ElementRef<"ul">>(null);
 
   const [fadeOut, setFadeOut] = useState(false);
 

@@ -1,11 +1,16 @@
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  ReactNode,
+  forwardRef,
+} from "react";
 
 type Props = ComponentPropsWithoutRef<"button"> & {
   type?: "button" | "submit" | "reset";
   children: ReactNode;
 };
 
-type Ref = HTMLButtonElement;
+type Ref = ElementRef<"button">;
 
 export const UnstyledButton = forwardRef<Ref, Props>(
   ({ type = "button", children, ...props }, ref) => (

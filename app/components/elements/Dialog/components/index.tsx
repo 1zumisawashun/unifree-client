@@ -1,7 +1,7 @@
 "use client";
 
 import { WidthType } from "@/functions/types/Common";
-import { forwardRef } from "react";
+import { ElementRef, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
 type DialogProps = {
@@ -11,7 +11,7 @@ type DialogProps = {
   hasSwiper?: boolean;
 };
 
-type Ref = HTMLDialogElement;
+type Ref = ElementRef<"dialog">;
 
 export const Dialog: React.FC<DialogProps> = forwardRef<Ref, DialogProps>(
   ({ children, width, hasSwiper = false }, ref) => {
