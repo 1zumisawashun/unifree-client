@@ -116,9 +116,11 @@ export const ProductForm = ({
                 <InputCheckbox
                   key={option.value}
                   checked={categories.includes(option.value)}
-                  onChange={(e) =>
-                    setCategories.filter(option.value, e.target.checked)
-                  }
+                  onChange={(e) => {
+                    e.target.checked
+                      ? setCategories.add(option.value)
+                      : setCategories.remove(option.value);
+                  }}
                 >
                   {option.label}
                 </InputCheckbox>

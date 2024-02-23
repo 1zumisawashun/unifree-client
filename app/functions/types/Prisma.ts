@@ -28,4 +28,4 @@ export type Messages = {
   messages: Message[];
 };
 
-export type Image = RowImage & {};
+export type Image = RowImage;

@@ -26,6 +26,8 @@ export const Primary: Story = {
   args: {
     variant: "contained",
     theme: "primary",
+    disabled: false,
+    loading: false,
     children: "Button",
   },
 };
@@ -34,6 +36,8 @@ export const PrimaryWithPrefix: Story = {
   args: {
     variant: "contained",
     theme: "primary",
+    disabled: false,
+    loading: false,
     children: "Button",
     prefix: <AddIcon />,
   },
@@ -43,6 +47,8 @@ export const PrimaryWithSuffix: Story = {
   args: {
     variant: "contained",
     theme: "primary",
+    disabled: false,
+    loading: false,
     children: "Button",
     suffix: <EditIcon />,
   },

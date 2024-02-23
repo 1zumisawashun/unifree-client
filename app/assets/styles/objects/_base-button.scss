@@ -19,23 +19,10 @@ $large-pd-x: 26px;
   // min-width: 100px;
   align-items: center;
   border-radius: 0.5em;
-  cursor: pointer;
   display: inline-flex;
   gap: 0.5rem;
   justify-content: center;
-  position: relative;
   text-align: center;
-
-  &::before {
-    background: $overlay;
-    border-radius: 0.5rem;
-    inset: -1px; // NOTE:button borderのpx分ネガティブマージンする
-    content: "";
-    position: absolute;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 2;
-  }
 
   &[data-shape="square"]::before {
     border-radius: 0rem;
@@ -46,19 +33,24 @@ $large-pd-x: 26px;
   }
 
   &:hover {
-    transition: opacity 0.3s ease;
-    &::before {
-      opacity: 0.3;
-    }
+    cursor: pointer;
+  }
+
+  &:is(:hover, :focus-visible) {
+    transition: filter 0.3s ease;
+    filter: brightness(90%);
+  }
+
+  &:active {
+    transition: filter 0.3s ease;
+    filter: brightness(80%);
   }
 
   // button-disabled
   &[aria-disabled="true"] {
     pointer-events: none;
-    transition: opacity 0.3s ease;
-    &::before {
-      opacity: 0.3;
-    }
+    transition: filter 0.3s ease;
+    filter: brightness(80%);
   }
 
   // button-shape

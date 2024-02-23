@@ -36,22 +36,11 @@
 }
 
 .login-body-button {
-  position: relative;
-  &::before {
-    background: $overlay;
-    border-radius: 0.1rem;
-    inset: 1px;
-    content: "";
-    position: absolute;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 2;
-  }
+  transition: filter 0.3s ease;
+  filter: brightness(100%);
   &[aria-disabled="false"] {
     pointer-events: none;
-    transition: opacity 0.3s ease;
-    &::before {
-      opacity: 0.3;
-    }
+    transition: filter 0.3s ease;
+    filter: brightness(80%);
   }
 }
