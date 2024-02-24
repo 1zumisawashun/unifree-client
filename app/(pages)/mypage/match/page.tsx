@@ -8,7 +8,12 @@ export default async function Page() {
 
   const user = await prisma.user.findUniqueOrThrow({
     where: { id: session!.user.id },
-    include: { matches: { include: { users: true, messages: true } } },
+    include: {
+      matches: {
+        // orderBy: { createdAt: "desc" }, // createdAt is not available in Match model
+        include: { users: true, messages: true },
+      },
+    },
   });
 
   const rows = user.matches.map((match, index) => {

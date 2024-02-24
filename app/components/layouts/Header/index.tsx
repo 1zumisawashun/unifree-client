@@ -1,11 +1,11 @@
-import { IconButtonAnchor, UnstyledButtonAnchor } from "@/components/buttons";
-import { Badge } from "@/components/elements/Badge";
+import { UnstyledButtonAnchor } from "@/components/buttons";
 import { NextJsIcon } from "@/components/elements/SvgIcon";
+import { MessageIconButtonAnchor } from "@/components/layouts/Header/components/MessageIconButtonAnchor";
+import { ShoppingCartIconButtonAnchor } from "@/components/layouts/Header/components/ShoppingCartIconButtonAnchor";
 import { HeaderMenu } from "@/components/layouts/HeaderMenu";
 import { auth } from "@/functions/helpers/nextAuth/server";
 import "server-only";
 import styles from "./styles.module.scss";
-
 const BLOCK_NAME = "header";
 
 export async function Header() {
@@ -25,20 +25,8 @@ export async function Header() {
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
         {isAuthenticated && (
           <>
-            <Badge count={1}>
-              <IconButtonAnchor
-                name="shopping-cart"
-                href={"/cart"}
-                variant="outlined"
-              />
-            </Badge>
-            <Badge count={0}>
-              <IconButtonAnchor
-                name="bell"
-                href={"/mypage/match"}
-                variant="outlined"
-              />
-            </Badge>
+            <ShoppingCartIconButtonAnchor />
+            <MessageIconButtonAnchor />
           </>
         )}
 

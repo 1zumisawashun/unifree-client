@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar } from "@/components/elements/Avatar";
-import { Nl2br } from "@/components/elements/Nl2br";
+import { formatLinkableText } from "@/functions/helpers/formatString";
 import { Messages } from "@/functions/types/Prisma";
 import styles from "./styles.module.scss";
 
@@ -29,12 +29,15 @@ export function MatchHistory({ messages, userId }: Messages) {
               className={styles[`${BLOCK_NAME}-message-wrapper`]}
               data-current-user={message.userId === userId}
             >
-              <p className={styles[`${BLOCK_NAME}-message`]}>
-                <Nl2br>{message.message}</Nl2br>
-              </p>
+              <p
+                className={styles[`${BLOCK_NAME}-message`]}
+                dangerouslySetInnerHTML={{
+                  __html: formatLinkableText(message.message),
+                }}
+              />
             </div>
             <p className={styles[`${BLOCK_NAME}-text`]}>
-              {message.createdAt.toDateString()}
+              {message.createdAt.toLocaleString()}
             </p>
           </div>
         </div>

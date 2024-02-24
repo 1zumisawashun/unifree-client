@@ -5,6 +5,7 @@ import {
   BellIcon,
   CrossIcon,
   EditIcon,
+  MessageIcon,
   ShoppingCartIcon,
 } from "@/components/elements/SvgIcon";
 
@@ -16,4 +17,5 @@ export const icons = {
   "arrow-right": ArrowRightIcon,
   bell: BellIcon,
   "shopping-cart": ShoppingCartIcon,
+  message: MessageIcon,
 };

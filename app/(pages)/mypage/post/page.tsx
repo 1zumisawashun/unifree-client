@@ -9,7 +9,10 @@ export default async function Page() {
   const user = await prisma.user.findUniqueOrThrow({
     where: { id: session!.user.id },
     include: {
-      products: { include: { images: true, categories: true, user: true } },
+      products: {
+        orderBy: { createdAt: "desc" },
+        include: { images: true, categories: true, user: true },
+      },
     },
   });
 

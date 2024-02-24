@@ -69,11 +69,19 @@
 - ✅ server-action へのリプレイス（責務わけのために中止・match と message だけ対応済み）
 - ✅ icon を hero-icon にする。たしかツリーシェイキングの対応されていたはず。
 - ✅ badge ui, tooltip, toast の作成と改修
-- ✅ withAuthで未ログインユーザーのハンドリングを実装した
+- ✅ withAuth で未ログインユーザーのハンドリングを実装した
+- ✅ DM 機能に http 変換を加える
+- ✅ 一覧の順番を新しい順にする、出品日の追加
+- ✅ 画像が伸びるバグ？制限が不明、おそらく cart？
+- ✅ header のバッジの api を繋ぎこむ + DM のアイコンを変える
+- ✅ 出品から 1 週間以内なら NEW のラベルを付与する
+- match-detail に has セレクターを加える改修
+- カテゴリーを日本語に変換する
 - planet-scale の branching 機能を対応する
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
+- match テーブルに createdAt を追加する
 - どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
 - send-grid で email する
 

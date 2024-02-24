@@ -21,7 +21,8 @@ const BLOCK_NAME = "product-detail";
 
 /* eslint-disable @next/next/no-img-element */
 export const ProductDetail = ({ product }: { product: Product }) => {
-  const { id, name, categories, description, images, price, user } = product;
+  const { id, name, categories, description, images, price, user, createdAt } =
+    product;
 
   const deleteDialog = useDialog();
   const previewDialog = useDialog();
@@ -57,6 +58,10 @@ export const ProductDetail = ({ product }: { product: Product }) => {
 
           <p className={styles[`${BLOCK_NAME}-price`]}>
             {formatCurrencyString(price)}
+          </p>
+
+          <p className={styles[`${BLOCK_NAME}-text`]}>
+            出品日: {createdAt.toLocaleDateString()}
           </p>
 
           <p className={styles[`${BLOCK_NAME}-text`]}>{description}</p>

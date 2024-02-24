@@ -16,7 +16,7 @@ const Item = ({ cart }: { cart: ICartItem }) => {
     name,
     image,
     price,
-    product_data: { id, description },
+    product_data: { id },
   } = cart;
 
   const removeDialog = useDialog();
@@ -32,7 +32,6 @@ const Item = ({ cart }: { cart: ICartItem }) => {
             <p className={styles[`${BLOCK_NAME}-price`]}>
               {formatCurrencyString(price)}
             </p>
-            <p className={styles[`${BLOCK_NAME}-description`]}>{description}</p>
             <ButtonWrapper>
               <ButtonAnchor
                 href={`/products/${id}`}

@@ -11,6 +11,7 @@ export default async function Page({
 }) {
   const products = await prisma.product.findMany({
     where: { name: { contains: params.term } },
+    orderBy: { createdAt: "desc" },
     include: { user: true, images: true, categories: true },
   });
 

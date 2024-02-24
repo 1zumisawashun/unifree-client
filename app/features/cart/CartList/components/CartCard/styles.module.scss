@@ -21,7 +21,8 @@
 .cart-card-image {
   width: 100%;
   border-radius: 0.5rem;
-  height: fit-content;
+  height: 120px;
+  object-fit: cover;
 }
 
 // content
@@ -35,13 +36,8 @@
 .cart-card-title {
   font-size: 1rem;
   font-weight: 600;
+  height: 46px; // これ動的にかえられないか？
   color: #4a5568;
-  composes: _line-clamp-1;
-}
-
-.cart-card-description {
-  font-size: 0.875rem;
-  color: #cbd5e0;
   composes: _line-clamp-2;
 }
 

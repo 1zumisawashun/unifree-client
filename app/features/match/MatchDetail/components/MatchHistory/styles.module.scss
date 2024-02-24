@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  justify-content: flex-end;
 }
 
 .match-history-user-thumbnail-wrapper {
@@ -24,7 +25,7 @@
   width: fit-content;
   &[data-current-user="true"] {
     display: grid;
-    justify-items: end;
+    justify-items: flex-end;
   }
 }
 .match-history-message-wrapper {
@@ -46,4 +47,9 @@
 .match-history-message {
   composes: text-small;
   color: $grey-main;
+  overflow-wrap: break-word;
+  > a {
+    color: $blue-main;
+    text-decoration: underline;
+  }
 }
