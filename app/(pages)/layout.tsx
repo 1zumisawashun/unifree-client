@@ -2,6 +2,7 @@ import "@/assets/styles/generics/custom-reset.css";
 import "@/assets/styles/generics/the-new-css-reset.css";
 import { Header } from "@/components/layouts/Header";
 import { ClientProvider } from "@/providers/client";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Noto_Sans_JP } from "next/font/google";
 
 const NotoSansJP = Noto_Sans_JP({
@@ -26,6 +27,8 @@ export default function RootLayout({
         <ClientProvider>
           <Header />
           {children}
+          {/* https://vercel.com/1zumisawashun/unifree-client/speed-insights */}
+          <SpeedInsights />
         </ClientProvider>
       </body>
     </html>

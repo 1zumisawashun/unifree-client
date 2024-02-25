@@ -10,14 +10,14 @@ export const statusOptions = [
 ];
 
 export const categoryOptions = [
-  { value: 1, label: "Technology" },
-  { value: 2, label: "Fashion" },
-  { value: 3, label: "Food and Beverage" },
-  { value: 4, label: "Health and Wellness" },
-  { value: 5, label: "Sports" },
-  { value: 6, label: "Entertainment" },
-  { value: 7, label: "Travel" },
-  { value: 8, label: "Education" },
-  { value: 9, label: "Automotive" },
-  { value: 10, label: "Home and Garden" },
+  { value: 1, label: "テクノロジー" },
+  { value: 2, label: "ファッション" },
+  { value: 3, label: "食品と飲料" },
+  { value: 4, label: "健康とウェルネス" },
+  { value: 5, label: "スポーツ" },
+  { value: 6, label: "エンターテイメント" },
+  { value: 7, label: "旅行" },
+  { value: 8, label: "教育" },
+  { value: 9, label: "自動車" },
+  { value: 10, label: "家庭とガーデニング" },
 ];

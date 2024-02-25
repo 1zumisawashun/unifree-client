@@ -2,7 +2,7 @@
 
 import { RefObject, useCallback, useEffect } from "react";
 
-export const useDD = (
+export const useDDUpload = (
   dragRef: RefObject<HTMLElement>,
   cb: (e: DragEvent) => void
 ) => {

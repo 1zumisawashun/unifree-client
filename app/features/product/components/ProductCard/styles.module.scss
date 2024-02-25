@@ -21,6 +21,7 @@
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
   height: 160px;
+  object-fit: cover;
   @include sp {
     height: 100px;
   }

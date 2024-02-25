@@ -1,6 +1,6 @@
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { ErrorDialog } from "@/components/elements/ErrorDialog";
-import { useDD } from "@/components/forms/InputFile/hooks/useDD";
+import { useDDUpload } from "@/components/forms/InputFile/hooks/useDDUpload";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { UseArrayState } from "@/functions/hooks/useArrayState";
@@ -63,7 +63,7 @@ export function InputFile({
     update({ fileList });
   };
 
-  useDD(dragRef, (e: DragEvent) => {
+  useDDUpload(dragRef, (e: DragEvent) => {
     const fileList = e.dataTransfer?.files as FileList;
     update({ fileList });
   });

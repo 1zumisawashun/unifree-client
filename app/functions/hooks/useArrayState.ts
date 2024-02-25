@@ -49,7 +49,23 @@ export const useArrayState = <T>(initial: T[] = []) => {
     }
   }, []);
 
-  return [state, { add, remove, update }] as const;
+  /**
+   * 配列の要素を移動させる
+   */
+  const move = (currentIndex: number, targetIndex: number) => {
+    const targetItem = state[currentIndex]!;
+    // currentIdの位置にあるstateをnullにしたarrayを作る
+    let array = state.map((target, i) => (i === currentIndex ? null : target));
+    // targetIndexにtargetItemを挿入する
+    array.splice(targetIndex, 0, targetItem);
+    // nullを取り除く（array.map + array.filterの複合技、ユーザ定義型ガードが必要ない）
+    const newItems = array.flatMap((target) =>
+      target !== null ? [target] : []
+    );
+    update(newItems);
+  };
+
+  return [state, { add, remove, update, move }] as const;
 };
 
 export type UseArrayState<T> = ReturnType<typeof useArrayState<T>>;

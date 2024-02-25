@@ -1,10 +1,10 @@
 # unifree-client
 
-- null
+- 北海道大学生のための教科書フリマアプリです
 
 ## Overview
 
-- null
+- nothing
 
 ## Schedule
 
@@ -75,21 +75,24 @@
 - ✅ 画像が伸びるバグ？制限が不明、おそらく cart？
 - ✅ header のバッジの api を繋ぎこむ + DM のアイコンを変える
 - ✅ 出品から 1 週間以内なら NEW のラベルを付与する
-- match-detail に has セレクターを加える改修
-- カテゴリーを日本語に変換する
-- planet-scale の branching 機能を対応する
-- 入力バリデーションのハンドリング実装
-- メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
-  - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
-- match テーブルに createdAt を追加する
-- どれをサムネイルにするのかの判定を実装する（images に isThumbnail をつける）、何もチェックがない場合は一番上の画像をサムネイルにする
-- send-grid で email する
 
 </details>
 
 <details>
 <summary>🔷 2/26（月）〜3/3（日）</summary>
 
+- ✅ カテゴリーを日本語に変換する
+- ✅ カートを非表示にする
+- ✅ どれをサムネイルにするのかの判定を実装する →DD で実装した
+- match-detail に has セレクターを加える改修
+- create・edit でフォームをリセットする
+- product-form の isSp を削除して改修する
+- planet-scale の branching 機能を対応する
+- 入力バリデーションのハンドリング実装
+- メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
+  - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
+- match テーブルに createdAt を追加する
+- send-grid で email する
 - stroy-book の panel と dropdown-menu どうするか問題
 - 3 月以降は VRT と RTL を導入する
 - cloudflare でドメインを取る
@@ -108,131 +111,21 @@
 - Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
 - layout → error（error-boundary） → loading（suspense） → page（async function）
 - 意識的な button コンポーネントの優先度決め
-
-## Folder-Structure
-
-以下参照
-
-https://github.com/1zumisawashun/folder-structure-template
-
-## ERD
-
-以下参照
-
-https://github.com/1zumisawashun/unifree-client/blob/main/prisma/scheme.md
-
-## UI_20240211
-
-<details>
-<summary>index</summary>
-
-- index
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/0acfe14b-7520-4390-8616-2ed66a4bf769)
-
-</details>
-
-<details>
-<summary>products</summary>
-
-- products-list
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/61861852-bc61-4add-8611-7c3b038f591e)
-
-- products-detail
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/5ed8d8c4-85be-4765-a5e7-1fe76f69c7dc)
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a0eac003-673d-41d3-8f92-6e26c015b3e9)
-
-- products-create
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/c87b6c1d-b670-41f3-ab73-360abb379b9e)
-
-- products-edit
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/00c8d5eb-e0b5-488d-ae84-fb835210334a)
-
-</details>
-
-<details>
-<summary>cart</summary>
-
-- cart
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/12c4ba03-641e-4020-8d1b-411228f4c68a)
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d79584be-8ba3-41ac-8a01-015889cd017f)
-
-</details>
-
-<details>
-<summary>mypage</summary>
-
-- mypage-post
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/b5637521-4f1a-4100-a588-d7f9b0cabc8e)
-
-- mypage-history
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a24ca930-dcc9-4c7a-ba6a-07aac36ba4d3)
-
-- mypage-setting
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/86ef3b86-d0ec-4048-98e9-5c1aa8a3f68f)
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/7717d156-1aec-470f-b400-069588816e9a)
-
-</details>
-
-<details>
-<summary>login</summary>
-
-- login
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/c252b32b-2f91-48ac-b4bd-ac27426a727d)
-
-</details>
-
-<details>
-<summary>tos</summary>
-
-- tos
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/a42009d0-74ff-4cf4-ad55-754b3f4bfe89)
-
-</details>
-
-<details>
-<summary>faq</summary>
-
-- faq
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/d66f5d5d-4768-4b2e-8b10-7bc415a0d555)
-
-</details>
-
-<details>
-<summary>match</summary>
-
-- match list
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/6d0df88d-0fa5-4af7-aed2-96ce10f939ff)
-
-- match detail
-
-![image](https://github.com/1zumisawashun/unifree-client/assets/65071534/f9c4458e-1aaf-4d60-85d1-c04981991753)
-
-</details>
-
-## 機能一覧
-
-- auth 系（ログイン・ログアウト）
-- 商品追加、編集
-- DM 機能
 - カート機能（use-shopping-cart の状態管理 redux を拝借）
 - fetch は(pages)だけに閉じ込めて page router と同じにした
 - でもあれか zenn のスクラップに書けば問題ないのか
+
+## Folder Structure
+
+See [Configuration Reference](https://github.com/1zumisawashun/folder-structure-template).
+
+## ERD
+
+See [Configuration Reference](https://github.com/1zumisawashun/unifree-client/blob/main/prisma/scheme.md).
+
+## Performance Check
+
+See [Configuration Reference](https://vercel.com/1zumisawashun/unifree-client/speed-insights).
 
 ## 技術スタック
 
@@ -246,7 +139,6 @@ auth: Firebase Auth + NextAuth
 storage: GCS
 catalog: Storybook
 hosting: Vercel
-library: react-hook-form, zod, Stripe, use-shopping-cart, etc
 ```
 
 ## Installation
@@ -274,18 +166,10 @@ http://localhost:3000/
 
 - 上記の手順で失敗する場合 [Troubleshoot](#Troubleshoot)を確認してください
 
-## How to
-
-- フォーマットを効かせる
-
-```bash
-$ npm run lint
-```
-
 ## Troubleshoot
 
-- null
+- nothing
 
 ## その他ドキュメント
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://nextjs.org/).
