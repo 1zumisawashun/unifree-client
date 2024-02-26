@@ -73,27 +73,38 @@ export function useDDSwap() {
     };
   };
 
+  const changeBorderStyle = (type: "dotted" | "solid", index: number) => {
+    const itemId = index.toString();
+    const elm = $refs.current.get(itemId);
+    if (!elm) return;
+    elm.style.border = `3px ${type} #d1d5db`;
+  };
+
+  const calculateTargetIndex = (event: DragEvent, index: number) => {
+    const itemId = index.toString();
+    const elm = $refs.current.get(itemId);
+    if (!elm) return;
+
+    // カーソルが当たっている要素の相対位置情報を取得
+    const rect = elm.getBoundingClientRect();
+    // 要素内でのカーソル位置
+    const posY = event.clientY - rect.top;
+    // 要素の縦幅に対しての割合(念のため0-1に丸めておく)
+    const ratioY = Math.min(1, Math.max(0, posY / rect.height));
+    // 移動先のindexを更新
+    setTargetIndex(index + Math.round(ratioY));
+  };
+
   /**
    * ドラッグ先の要素に設定するpropsを生成する
    */
   const getItemProps = (index: number) => {
-    const itemId = index.toString();
     return {
       draggable: true,
       onDragOver(event: DragEvent) {
         event.preventDefault();
-        const elm = $refs.current.get(itemId);
-        if (!elm) return;
-        elm.style.border = "1px dotted #666";
-
-        // カーソルが当たっている要素の相対位置情報を取得
-        const rect = elm.getBoundingClientRect();
-        // 要素内でのカーソル位置
-        const posY = event.clientY - rect.top;
-        // 要素の縦幅に対しての割合(念のため0-1に丸めておく)
-        const ratioY = Math.min(1, Math.max(0, posY / rect.height));
-        // 移動先のindexを更新
-        setTargetIndex(index + Math.round(ratioY));
+        changeBorderStyle("dotted", index);
+        calculateTargetIndex(event, index);
       },
       // 初期のイベントはキャンセルしておく(制御されていないEventの発生を無くすため)
       onDragEnter(event: DragEvent) {
@@ -101,15 +112,11 @@ export function useDDSwap() {
       },
       onDragLeave(event: DragEvent) {
         event.preventDefault();
-        const elm = $refs.current.get(itemId);
-        if (!elm) return;
-        elm.style.border = "1px solid #666";
+        changeBorderStyle("solid", index);
       },
       onDrop(event: DragEvent) {
         event.preventDefault();
-        const elm = $refs.current.get(itemId);
-        if (!elm) return;
-        elm.style.border = "1px solid #666";
+        changeBorderStyle("solid", index);
       },
     };
   };

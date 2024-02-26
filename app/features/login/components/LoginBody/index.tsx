@@ -1,6 +1,6 @@
+import logo from "@/assets/images/image_logo_header.png";
 import signInGoogle from "@/assets/images/image_signin_google.png";
 import { UnstyledButton } from "@/components/buttons";
-import { NextJsIcon } from "@/components/elements/SvgIcon";
 import { InputCheckbox } from "@/components/forms/InputCheckbox";
 import { LoginTos } from "@/features/login/components/LoginTos";
 import Image from "next/image";
@@ -19,7 +19,7 @@ export function LoginBody({
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
       <div className={styles[`${BLOCK_NAME}-center-wrapper`]}>
-        <NextJsIcon />
+        <Image src={logo} alt="" width={150} height={50} />
       </div>
 
       <p className={styles[`${BLOCK_NAME}-label`]}>

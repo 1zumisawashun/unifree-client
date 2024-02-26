@@ -14,11 +14,11 @@
 
   &[data-direction="row"] {
     flex-direction: row;
+    @include sp {
+      flex-direction: column;
+    }
   }
   &[data-direction="column"] {
-    flex-direction: column;
-  }
-  @include sp {
     flex-direction: column;
   }
 }
