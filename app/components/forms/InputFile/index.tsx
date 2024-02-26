@@ -1,6 +1,7 @@
 import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
 import { ErrorDialog } from "@/components/elements/ErrorDialog";
 import { useDDUpload } from "@/components/forms/InputFile/hooks/useDDUpload";
+import { InputFlexWrapper } from "@/components/forms/InputFlexWrapper";
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
 import { UseArrayState } from "@/functions/hooks/useArrayState";
@@ -61,6 +62,7 @@ export function InputFile({
   const handleUpload = (e: BaseSyntheticEvent) => {
     const fileList = e.target.files as FileList;
     update({ fileList });
+    e.target.value = "";
   };
 
   useDDUpload(dragRef, (e: DragEvent) => {
@@ -98,7 +100,21 @@ export function InputFile({
         </label>
       </InputWrapper>
 
-      <FileCard.List state={state} setState={setState} />
+      {state.length > 0 && (
+        <InputWrapper
+          id=""
+          label="画像プレビュー"
+          description={`画像名を押下すると画像プレビューを閲覧することができます。
+        一番上の画像（赤枠）がサムネイルになります。`}
+        >
+          <InputFlexWrapper direction="column">
+            <p className={styles[`${BLOCK_NAME}-text`]}>
+              ドラッグアンドドロップで並び替えができます
+            </p>
+            <FileCard.List state={state} setState={setState} />
+          </InputFlexWrapper>
+        </InputWrapper>
+      )}
 
       <input
         type="file"

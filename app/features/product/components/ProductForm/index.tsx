@@ -15,7 +15,6 @@ import {
   paymentMethodOptions,
   statusOptions,
 } from "@/functions/constants/options";
-import { isSp } from "@/functions/helpers/formatBoolean";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/types/Prisma";
 import { useState } from "react";
@@ -80,7 +79,7 @@ export const ProductForm = ({
             description="商品一覧の表示を変えることができます"
             isRequired
           >
-            <InputFlexWrapper direction={isSp() ? "column" : "row"}>
+            <InputFlexWrapper>
               {statusOptions.map((option) => (
                 <InputRadio
                   key={option.value}
@@ -93,7 +92,7 @@ export const ProductForm = ({
             </InputFlexWrapper>
           </InputWrapper>
           <InputWrapper id="" label="支払い方法" isRequired>
-            <InputFlexWrapper direction={isSp() ? "column" : "row"}>
+            <InputFlexWrapper>
               {paymentMethodOptions.map((option) => (
                 <InputRadio
                   key={option.value}

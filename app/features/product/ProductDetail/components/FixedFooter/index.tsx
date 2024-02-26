@@ -1,9 +1,8 @@
 "use client";
 
-import { Button, ButtonWrapper } from "@/components/buttons";
+import { Button } from "@/components/buttons";
 import { useToast } from "@/components/elements/Toast/hooks/useToast";
 import { createPrismaMatch } from "@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch";
-import { isSp } from "@/functions/helpers/formatBoolean";
 import { useServerAction } from "@/functions/hooks/useServerAction";
 import { Product } from "@/functions/types/Prisma";
 import { useEffect } from "react";
@@ -16,10 +15,12 @@ export function FixedFooter({
   product,
   currentUserId,
   matchId,
+  isProduction,
 }: {
   product: Product;
   currentUserId: number;
   matchId?: number;
+  isProduction: boolean;
 }) {
   const { name, stripePriceId, price, images, userId, id, description } =
     product;
@@ -67,10 +68,7 @@ export function FixedFooter({
 
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
-      <ButtonWrapper
-        direction={isSp() ? "column" : "row"}
-        className={styles[`${BLOCK_NAME}-button-wrapper`]}
-      >
+      <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
         <Button
           onClick={createMatch}
           disabled={hasMatch}
@@ -79,14 +77,16 @@ export function FixedFooter({
         >
           チャットで交渉する
         </Button>
-        <Button
-          onClick={addCart}
-          disabled={hasItem}
-          className={styles[`${BLOCK_NAME}-button`]}
-        >
-          カートに追加する
-        </Button>
-      </ButtonWrapper>
+        {!isProduction && (
+          <Button
+            onClick={addCart}
+            disabled={hasItem}
+            className={styles[`${BLOCK_NAME}-button`]}
+          >
+            カートに追加する
+          </Button>
+        )}
+      </div>
     </footer>
   );
 }

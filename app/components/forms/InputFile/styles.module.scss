@@ -1,5 +1,4 @@
 @import "@/assets/styles/settings/color";
-@import "@/assets/styles/utilities/line-clamp";
 @import "@/assets/styles/objects/base-button";
 @import "@/assets/styles/objects/base-text";
 
@@ -16,6 +15,7 @@
 .drag-and-drop-text {
   composes: text-small;
   color: $grey-main;
+  text-align: center;
 }
 .drag-and-drop-button {
   composes: button;

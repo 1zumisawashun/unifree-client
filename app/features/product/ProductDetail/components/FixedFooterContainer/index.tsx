@@ -1,4 +1,5 @@
 import { FixedFooter } from "@/features/product/ProductDetail/components/FixedFooter";
+import env from "@/functions/libs/env";
 import { prisma } from "@/functions/libs/prisma";
 import "server-only";
 
@@ -25,6 +26,11 @@ export async function FixedFooterContainer({
   const matchId = user.matches.find((match) => match.name === product.name)?.id;
 
   return (
-    <FixedFooter product={product} currentUserId={userId} matchId={matchId} />
+    <FixedFooter
+      product={product}
+      currentUserId={userId}
+      matchId={matchId}
+      isProduction={env.isProduction}
+    />
   );
 }

@@ -1,3 +1,4 @@
+import { Nl2br } from "@/components/elements/Nl2br";
 import { InputLabel } from "@/components/forms/InputLabel";
 import { InputWrapperProps } from "@/components/forms/input.type";
 import clsx from "clsx";
@@ -34,7 +35,9 @@ export function InputWrapper({
         )}
       </label>
 
-      <p className={styles[`${BLOCK_NAME}-description`]}>{description}</p>
+      <p className={styles[`${BLOCK_NAME}-description`]}>
+        {description && <Nl2br>{description}</Nl2br>}
+      </p>
 
       <label
         htmlFor={id}

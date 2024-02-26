@@ -85,8 +85,8 @@
 - ✅ カートを非表示にする
 - ✅ どれをサムネイルにするのかの判定を実装する →DD で実装した
 - match-detail に has セレクターを加える改修
-- create・edit でフォームをリセットする
-- product-form の isSp を削除して改修する
+- ✅ create・edit でフォームをリセットする
+- ✅ ブラウザで警告が出ていたので product-form の isSp を削除して改修する
 - planet-scale の branching 機能を対応する
 - 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
@@ -101,6 +101,7 @@
 
 ## MEMO
 
+- pages 以外でフェッチをする時は container コンポーネントを作って明示的にする
 - badge、dropdown-menu は slot で作りたい
 - card に list, item を格納する, good
 - domain の入った共通コンポーネントの配置について, good

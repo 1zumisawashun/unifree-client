@@ -17,9 +17,14 @@
 }
 
 .footer-button-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
   @include sp {
     padding: 1rem;
     width: 100%;
+    flex-direction: column;
   }
 }
 
