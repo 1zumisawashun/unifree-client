@@ -22,10 +22,13 @@
     "prisma:format": "npx prisma format",
     "prisma:studio": "npx prisma studio",
     "prisma:push": "npx prisma db push",
-    "prisma:reset": "npx prisma db push --force-reset && npm run prisma:seed"
+    "prisma:reset": "npx prisma db push --force-reset && npm run prisma:seed",
+    "ps:dev": "pscale connect unifree-client develop --port 3309",
+    "ps:prod": "pscale connect unifree-client main --port 3309"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.3",
+    "@hookform/resolvers": "^3.3.4",
     "@next/bundle-analyzer": "^14.1.0",
     "@prisma/client": "^5.8.1",
     "@vercel/speed-insights": "^1.0.10",
@@ -39,6 +42,7 @@
     "prisma": "^5.9.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
     "server-only": "^0.0.1",
     "stripe": "^14.13.0",
     "swiper": "^11.0.5",
