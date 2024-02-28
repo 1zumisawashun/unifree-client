@@ -50,12 +50,14 @@ erDiagram
   "matches" {
     Int id "🗝️"
     String name 
+    DateTime created_at 
     }
   
 
   "messages" {
     Int id "🗝️"
     String message 
+    Boolean read 
     DateTime created_at 
     DateTime updated_at 
     }
