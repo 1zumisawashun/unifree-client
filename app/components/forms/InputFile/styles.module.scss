@@ -2,7 +2,7 @@
 @import "@/assets/styles/objects/base-button";
 @import "@/assets/styles/objects/base-text";
 
-.drag-and-drop-file {
+.input-file-file {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -12,11 +12,11 @@
   border-radius: 0.5rem;
   width: 100%;
 }
-.drag-and-drop-text {
+.input-file-text {
   composes: text-small;
   color: $grey-main;
   text-align: center;
 }
-.drag-and-drop-button {
+.input-file-button {
   composes: button;
 }

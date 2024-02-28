@@ -16,7 +16,7 @@ export type InputFileProps = {
   isMultiple?: boolean;
 } & InputWrapperPropsPassThroughProps;
 
-const BLOCK_NAME = "drag-and-drop";
+const BLOCK_NAME = "input-file";
 
 const accept = "image/png, image/jpeg, image/webp, image/bmp";
 
@@ -50,6 +50,20 @@ export function InputFile({
     const files = [...Array.from(fileList)];
 
     // validate here
+    for (const file of files) {
+      if (!file.type.includes("image")) {
+        setMessage("画像ファイル以外はアップロードできません");
+        errorDialog.open();
+        return;
+      }
+    }
+    for (const file of files) {
+      if (file.size < 500000) {
+        setMessage("ファイルサイズは最大5MBです");
+        errorDialog.open();
+        return;
+      }
+    }
     if ([...state, ...files].length >= 5) {
       setMessage("4枚を超えて選択された画像は表示されません");
       errorDialog.open();
