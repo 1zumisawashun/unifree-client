@@ -89,13 +89,22 @@
 - ✅ ブラウザで警告が出ていたので product-form の isSp を削除して改修する
 - ✅ ロゴを正式なものに差し替え
 - match-detail に has セレクターを加える改修
-- planet-scale の branching 機能を対応する
-- メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
+- product-card のオーバーレイを改修する
+- ✅ planet-scale の branching 機能を対応する
+- ✅ メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
-- match テーブルに createdAt を追加する
+- ✅ match テーブルに createdAt を追加する
+
+</details>
+
+<details>
+<summary>🔷 3/4（月）〜3/10（日）</summary>
+
 - send-grid で email する
+- stripe で購入導線を整える
 - stroy-book の panel と dropdown-menu どうするか問題
-- 3 月以降は VRT と RTL を導入する
+- VRT の導入
+- RTL の導入
 - cloudflare でドメインを取る
 
 </details>
@@ -162,7 +171,8 @@ $ npm install
 - ローカル開発用 URL を開き動作確認をする
 
 ```bash
-$ npm run dev
+$ npm run ps:dev # planet-scale
+$ npm run dev # next.js
 ```
 
 http://localhost:3000/

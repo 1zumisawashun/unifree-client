@@ -10,7 +10,7 @@ export default async function Page() {
     where: { id: session!.user.id },
     include: {
       matches: {
-        // orderBy: { createdAt: "desc" }, // createdAt is not available in Match model
+        orderBy: { createdAt: "desc" },
         include: { users: true, messages: true },
       },
     },
