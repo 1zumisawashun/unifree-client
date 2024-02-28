@@ -22,3 +22,10 @@ export type InputWrapperPropsPassThroughProps = Omit<
   InputWrapperProps,
   "children" | "className" | "id"
 >;
+
+export type SelectOption<T extends string = string> = {
+  value: T;
+  label: string;
+};
+
+export type SelectOptions<T extends string = string> = SelectOption<T>[];

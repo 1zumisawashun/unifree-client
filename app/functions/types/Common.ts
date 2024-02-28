@@ -28,13 +28,6 @@ export type ShapeType = "square" | "round";
 
 export type ColorType = "black" | "grey";
 
-export type SelectOption<T extends string = string> = {
-  value: T;
-  label: string;
-};
-
-export type SelectOptions<T extends string = string> = SelectOption<T>[];
-
 export type SearchParams = { [key: string]: string | string[] | undefined };
 
 type Position = "top" | "bottom" | "right" | "left";

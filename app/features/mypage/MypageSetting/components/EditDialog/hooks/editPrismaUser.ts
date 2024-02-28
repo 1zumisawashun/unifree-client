@@ -1,26 +1,14 @@
+import { UpsertUser } from "@/features/mypage/user.model";
 import { API } from "@/functions/constants/api";
-import { User } from "@/functions/types/Prisma";
 
-type Props = {
-  user: User;
-  displayName: string;
-  university: string;
-  faculty: string;
-  department: string;
-};
+type Props = { userId: number } & UpsertUser;
 
-export async function editPrismaUser({
-  user,
-  displayName,
-  university,
-  faculty,
-  department,
-}: Props) {
-  const url = API.editPrismaUser(user.id);
+export async function editPrismaUser({ userId, ...rest }: Props) {
+  const url = API.editPrismaUser(userId);
 
   const response = await fetch(url, {
     method: "POST",
-    body: JSON.stringify({ displayName, university, faculty, department }),
+    body: JSON.stringify(rest),
   });
 
   return response.ok;

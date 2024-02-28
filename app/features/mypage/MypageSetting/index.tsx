@@ -13,6 +13,13 @@ export function MypageSetting({ user }: { user: User }) {
   const editDialog = useDialog();
   const logoutDialog = useDialog();
 
+  const upsertUser = {
+    university: user.university ?? "",
+    displayName: user.displayName ?? "",
+    faculty: user.faculty ?? "",
+    department: user.department ?? "",
+  };
+
   return (
     <Panel.Flame hasBorder>
       <Panel.Inner>
@@ -25,7 +32,7 @@ export function MypageSetting({ user }: { user: User }) {
           </Button>
         </ButtonWrapper>
 
-        <EditDialog dialog={editDialog} user={user} />
+        <EditDialog dialog={editDialog} user={upsertUser} userId={user.id} />
         <LogoutDialog dialog={logoutDialog} />
       </Panel.Inner>
     </Panel.Flame>

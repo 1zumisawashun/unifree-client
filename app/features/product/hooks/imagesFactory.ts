@@ -7,6 +7,10 @@ export async function imagesFactory({
 }: {
   files: UpsertProduct["files"];
 }) {
+  if (files.length === 0) {
+    return [{ name: "default", src: "https://placehold.jp/400x250.png" }];
+  }
+
   const promises = files.map(async (file) => {
     if (isFile(file)) {
       const downloadUrl = await getDownloadUrl({ file });

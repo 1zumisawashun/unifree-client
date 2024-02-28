@@ -1,6 +1,6 @@
 import { InputWrapper } from "@/components/forms/InputWrapper";
 import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { SelectOptions } from "@/functions/types/Common";
+import { SelectOptions } from "@/components/forms/input.type";
 import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
 import styles from "./styles.module.scss";
 

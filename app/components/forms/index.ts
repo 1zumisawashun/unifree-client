@@ -3,6 +3,7 @@ export { InputFile } from "./InputFile";
 export { InputFlexWrapper } from "./InputFlexWrapper";
 export { InputLabel } from "./InputLabel";
 export { InputRadio } from "./InputRadio";
+export { InputMultiple } from "./InputMultiple";
 export { InputSelect } from "./InputSelect";
 export { InputText } from "./InputText";
 export { InputTextarea } from "./InputTextarea";

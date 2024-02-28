@@ -84,11 +84,12 @@
 - ✅ カテゴリーを日本語に変換する
 - ✅ カートを非表示にする
 - ✅ どれをサムネイルにするのかの判定を実装する →DD で実装した
-- match-detail に has セレクターを加える改修
+- ✅ 入力バリデーションのハンドリング実装
 - ✅ create・edit でフォームをリセットする
 - ✅ ブラウザで警告が出ていたので product-form の isSp を削除して改修する
+- ✅ ロゴを正式なものに差し替え
+- match-detail に has セレクターを加える改修
 - planet-scale の branching 機能を対応する
-- 入力バリデーションのハンドリング実装
 - メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
 - match テーブルに createdAt を追加する
@@ -99,22 +100,23 @@
 
 </details>
 
-## MEMO
+## Guideline
 
-- pages 以外でフェッチをする時は container コンポーネントを作って明示的にする
-- badge、dropdown-menu は slot で作りたい
-- card に list, item を格納する, good
-- domain の入った共通コンポーネントの配置について, good
-- page.tsx で async function は全て loading.tsx を配置する
-- action には button loading を配置する
-- ISBN で何かできる？
-- リポジトリをプライベートに変更する
-- Zenn に記事を書いてエンジニアを募集する（今年の目標も視野に入れる）
-- layout → error（error-boundary） → loading（suspense） → page（async function）
-- 意識的な button コンポーネントの優先度決め
-- カート機能（use-shopping-cart の状態管理 redux を拝借）
-- fetch は(pages)だけに閉じ込めて page router と同じにした
-- でもあれか zenn のスクラップに書けば問題ないのか
+箇条書きでまとめていく
+
+### (pages)ディレクトリ
+
+- layout.tsx > error.tsx（error-boundary） > loading.tsx（suspense） > page.tsx（async function）で構成する
+- 特に page.tsx で フェッチしている場合は error.tsx と loading.tsx はマストで配置する
+- フェッチするのは(pages)ディレクトリに限定する、該当するのは layout か page になるはず
+- 例外的に(pages)ディレクトリ以外でフェッチをする時は〇〇 container.tsx として明示的にコンポーネントを作る
+- フェッチ を(pages)ディレクトリに閉じ込めるのは Page Router との差分をなくし開発者の認知負荷を下げるため
+
+### loading コンポーネント
+
+- フェッチ = LoadingDot コンポーネント
+- ユーザーインタラクション = Button コンポーネント + CircularProgress コンポーネント
+- それ以外、または明らかなユーザーインタラクションの阻止が必要な場合（ログイン・ログアウト等）　= LoadingSpinner コンポーネント
 
 ## Folder Structure
 

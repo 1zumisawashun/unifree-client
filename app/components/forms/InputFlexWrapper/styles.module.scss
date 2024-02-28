@@ -1,17 +1,14 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/settings/media";
 
-.panel {
-  padding: 1rem;
-  border: 1px solid $border;
-  border-radius: 0.5rem;
-}
-
 .input-flex-wrapper {
   display: flex;
   gap: 1rem;
-  composes: panel;
+  padding: 1rem;
+  border: 1px solid $border;
+  border-radius: 0.5rem;
 
+  // direction
   &[data-direction="row"] {
     flex-direction: row;
     @include sp {
@@ -20,5 +17,10 @@
   }
   &[data-direction="column"] {
     flex-direction: column;
+  }
+
+  // error
+  &[data-error="true"] {
+    border-color: $red-dark;
   }
 }

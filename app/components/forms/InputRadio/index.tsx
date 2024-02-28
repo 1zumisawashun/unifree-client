@@ -47,3 +47,15 @@ export const InputRadio = forwardRef<Ref, Props>(
 );
 
 InputRadio.displayName = "InputRadio";
+
+// ex) multiple input radio
+
+// {statusOptions.map((option) => (
+//   <InputRadio
+//     key={option.value}
+//     checked={status === option.value}
+//     onChange={() => setStatus(option.value)}
+//   >
+//     {option.label}
+//   </InputRadio>
+// ))}

@@ -3,13 +3,15 @@ import { Panel } from "@/components/elements/Panel";
 import {
   InputCheckbox,
   InputFile,
-  InputFlexWrapper,
+  InputMultiple,
   InputRadio,
   InputText,
   InputTextarea,
-  InputWrapper,
 } from "@/components/forms";
-import { UpsertProduct } from "@/features/product/product.model";
+import {
+  UpsertProduct,
+  zUpsertProduct,
+} from "@/features/product/product.model";
 import {
   categoryOptions,
   paymentMethodOptions,
@@ -17,7 +19,8 @@ import {
 } from "@/functions/constants/options";
 import { useArrayState } from "@/functions/hooks/useArrayState";
 import { Image } from "@/functions/types/Prisma";
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "product-form";
@@ -35,13 +38,25 @@ export const ProductForm = ({
   domain: "作成する" | "変更する";
   isPending: boolean;
 }) => {
-  const [name, setName] = useState(product.name);
-  const [price, setPrice] = useState(product.price);
-  const [description, setDescription] = useState(product.description);
   const [files, setFiles] = useArrayState<File | Image>(product.files);
-  const [status, setStatus] = useState(product.status);
-  const [paymentMethod, setPaymentMethod] = useState(product.paymentMethod);
-  const [categories, setCategories] = useArrayState<number>(product.categories);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UpsertProduct>({
+    resolver: zodResolver(zUpsertProduct),
+    mode: "onChange",
+    defaultValues: product,
+  });
+
+  const onSubmit: SubmitHandler<UpsertProduct> = (data) => {
+    submit({ ...data, files });
+  };
+
+  const onError: SubmitErrorHandler<UpsertProduct> = (errors) => {
+    console.log(errors);
+  };
 
   return (
     <Panel.Flame hasBorder>
@@ -50,98 +65,73 @@ export const ProductForm = ({
           <InputText
             label="商品名"
             isRequired
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            error={errors.name?.message}
+            {...register("name")}
           />
           <InputText
             label="価格"
             isRequired
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            error={errors.price?.message}
+            {...register("price")}
           />
           <InputTextarea
             label="詳細情報"
             isRequired
             description="商品の詳細情報を入力してください"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            error={errors.description?.message}
+            {...register("description")}
           />
           <InputFile
             label="画像"
-            isRequired
-            description="最大で4枚まで画像アップロードできます"
+            isOptioned
+            description={`最大で4枚まで画像アップロードできます
+            画像なしの場合はダミー画像が挿入されます`}
             state={files}
             setState={setFiles}
           />
-          <InputWrapper
-            id=""
+          <InputMultiple
             label="ステータス"
             description="商品一覧の表示を変えることができます"
             isRequired
-          >
-            <InputFlexWrapper>
-              {statusOptions.map((option) => (
-                <InputRadio
-                  key={option.value}
-                  checked={status === option.value}
-                  onChange={() => setStatus(option.value)}
-                >
-                  {option.label}
-                </InputRadio>
-              ))}
-            </InputFlexWrapper>
-          </InputWrapper>
-          <InputWrapper id="" label="支払い方法" isRequired>
-            <InputFlexWrapper>
-              {paymentMethodOptions.map((option) => (
-                <InputRadio
-                  key={option.value}
-                  checked={paymentMethod === option.value}
-                  onChange={() => setPaymentMethod(option.value)}
-                >
-                  {option.label}
-                </InputRadio>
-              ))}
-            </InputFlexWrapper>
-          </InputWrapper>
-          <InputWrapper
-            id=""
+            error={errors.status?.message}
+            rows={statusOptions}
+            render={(option) => (
+              <InputRadio {...register("status")} value={option.value}>
+                {option.label}
+              </InputRadio>
+            )}
+          />
+          <InputMultiple
+            label="支払い方法"
+            isRequired
+            error={errors.paymentMethod?.message}
+            rows={paymentMethodOptions}
+            render={(option) => (
+              <InputRadio {...register("paymentMethod")} value={option.value}>
+                {option.label}
+              </InputRadio>
+            )}
+          />
+          {/* https://github.com/orgs/react-hook-form/discussions/11445 */}
+          <InputMultiple
             label="カテゴリー"
             description="1つ以上を選択してください"
             isRequired
-          >
-            <InputFlexWrapper direction="column">
-              {categoryOptions.map((option) => (
-                <InputCheckbox
-                  key={option.value}
-                  checked={categories.includes(option.value)}
-                  onChange={(e) => {
-                    e.target.checked
-                      ? setCategories.add(option.value)
-                      : setCategories.remove(option.value);
-                  }}
-                >
-                  {option.label}
-                </InputCheckbox>
-              ))}
-            </InputFlexWrapper>
-          </InputWrapper>
+            error={errors.categories?.message}
+            rows={categoryOptions}
+            direction="column"
+            render={(option) => (
+              <InputCheckbox {...register("categories")} value={option.value}>
+                {option.label}
+              </InputCheckbox>
+            )}
+          />
           <ButtonWrapper position="end">
             <ButtonAnchor href={href} variant="outlined">
               キャンセル
             </ButtonAnchor>
             <Button
-              onClick={() =>
-                submit({
-                  name,
-                  price,
-                  description,
-                  files,
-                  status,
-                  paymentMethod,
-                  categories,
-                })
-              }
+              onClick={handleSubmit(onSubmit, onError)}
               loading={isPending}
             >
               {domain}

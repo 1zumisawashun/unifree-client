@@ -23,12 +23,12 @@ export const ProductEdit = ({ product }: { product: Product }) => {
 
   const productEntity = {
     name,
-    price: String(price),
+    price: price.toString(),
     description,
     files: images,
     status,
     paymentMethod: payment_method!,
-    categories: categories.map((category) => category.id),
+    categories: categories.map((category) => category.id.toString()),
   };
 
   const router = useRouter();
@@ -38,7 +38,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
   const edit = async (data: UpsertProduct) => {
     setIsPending(true);
 
-    const { files, name, price, ...rest } = data;
+    const { files, name, price, categories, ...rest } = data;
 
     try {
       const response = await editStripePrices({ product });
@@ -50,7 +50,8 @@ export const ProductEdit = ({ product }: { product: Product }) => {
       const params = {
         ...rest,
         name,
-        price: +price,
+        price: Number(price),
+        categories: categories.map(Number),
         images,
         ...stripeIds,
       };

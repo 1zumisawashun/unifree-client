@@ -5,9 +5,10 @@ import { Dialog, UseDialog } from "@/components/elements/Dialog";
 import { Panel } from "@/components/elements/Panel";
 import { InputText } from "@/components/forms";
 import { editPrismaUser } from "@/features/mypage/MypageSetting/components/EditDialog/hooks/editPrismaUser";
-import { User } from "@/functions/types/Prisma";
+import { UpsertUser, zUpsertUser } from "@/features/mypage/user.model";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "edit-dialog";
@@ -15,34 +16,39 @@ const BLOCK_NAME = "edit-dialog";
 export function EditDialog({
   dialog,
   user,
+  userId,
 }: {
   dialog: UseDialog;
-  user: User;
+  user: UpsertUser;
+  userId: number;
 }) {
-  const [displayName, setDisplayName] = useState(user.displayName ?? "");
-  const [university, setUniversity] = useState(user.university ?? "");
-  const [faculty, setFaculty] = useState(user.faculty ?? "");
-  const [department, setDepartment] = useState(user.department ?? "");
-
   const router = useRouter();
 
-  const submit = async () => {
-    const params = {
-      user,
-      displayName,
-      university,
-      faculty,
-      department,
-    };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UpsertUser>({
+    resolver: zodResolver(zUpsertUser),
+    mode: "onChange",
+    defaultValues: user,
+  });
+
+  const onSubmit: SubmitHandler<UpsertUser> = async (data) => {
     try {
-      const response = await editPrismaUser(params);
+      const response = await editPrismaUser({ userId, ...data });
       if (!response) throw new Error();
 
       router.refresh();
-      dialog.close();
     } catch (error) {
       console.log(error);
+    } finally {
+      dialog.close();
     }
+  };
+
+  const onError: SubmitErrorHandler<UpsertUser> = (errors) => {
+    console.log(errors);
   };
 
   return (
@@ -55,26 +61,26 @@ export function EditDialog({
               <InputText
                 label="氏名"
                 isOptioned
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
+                error={errors.displayName?.message}
+                {...register("displayName")}
               />
               <InputText
                 label="大学名"
                 isOptioned
-                value={university}
-                onChange={(e) => setUniversity(e.target.value)}
+                error={errors.university?.message}
+                {...register("university")}
               />
               <InputText
                 label="学部名"
                 isOptioned
-                value={faculty}
-                onChange={(e) => setFaculty(e.target.value)}
+                error={errors.faculty?.message}
+                {...register("faculty")}
               />
               <InputText
                 label="学科名"
                 isOptioned
-                value={department}
-                onChange={(e) => setDepartment(e.target.value)}
+                error={errors.department?.message}
+                {...register("department")}
               />
             </Panel.Inner>
           </div>
@@ -83,7 +89,7 @@ export function EditDialog({
           <Button onClick={dialog.close} variant="outlined">
             キャンセル
           </Button>
-          <Button onClick={submit}>変更する</Button>
+          <Button onClick={handleSubmit(onSubmit, onError)}>変更する</Button>
         </ButtonWrapper>
       </div>
     </Dialog>

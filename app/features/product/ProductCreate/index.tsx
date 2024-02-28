@@ -16,7 +16,7 @@ export const ProductCreate: React.FC = () => {
   const create = async (data: UpsertProduct) => {
     setIsPending(true);
 
-    const { files, name, price, ...rest } = data;
+    const { files, name, price, categories, ...rest } = data;
 
     try {
       const images = await imagesFactory({ files });
@@ -25,7 +25,8 @@ export const ProductCreate: React.FC = () => {
       const params = {
         ...rest,
         name,
-        price: +price,
+        price: Number(price),
+        categories: categories.map(Number),
         images,
         ...stripeIds,
       };

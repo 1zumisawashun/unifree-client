@@ -9,12 +9,11 @@
   outline: none;
   transition: border-color 0.1s, box-shadow 0.1s;
   padding: 0.75rem 1rem;
-
-  &[data-error="true"] {
-    border-color: $red-dark;
-  }
   &:focus {
     border-color: $primary-dark;
     box-shadow: 0 0 0 1px $primary-dark;
+  }
+  &[data-error="true"] {
+    border-color: $red-dark;
   }
 }

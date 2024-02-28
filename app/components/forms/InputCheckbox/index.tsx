@@ -47,3 +47,19 @@ export const InputCheckbox = forwardRef<Ref, Props>(
 );
 
 InputCheckbox.displayName = "InputCheckbox";
+
+// ex) multiple input checkbox
+
+// {categoryOptions.map((option) => (
+//   <InputCheckbox
+//     key={option.value}
+//     checked={categories.includes(option.value)}
+//     onChange={(e) => {
+//       e.target.checked
+//         ? setCategories.add(option.value)
+//         : setCategories.remove(option.value);
+//     }}
+//   >
+//     {option.label}
+//   </InputCheckbox>
+// ))}
