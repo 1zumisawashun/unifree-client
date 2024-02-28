@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputToggle } from "./index";
+import { Button } from "@/components/buttons/Button";
+import { Dialog, useDialog } from "@/components/elements/Dialog";
 
-const meta: Meta<typeof InputToggle> = {
-  title: "forms/InputToggle",
-  component: InputToggle,
+const meta: Meta<typeof Dialog> = {
+  title: "elements/Dialog",
+  component: Dialog,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,10 +20,21 @@ const meta: Meta<typeof InputToggle> = {
 
 export default meta;
 
-type Story = StoryObj<typeof InputToggle>;
+type Story = StoryObj<typeof Dialog>;
+
+const DialogWithHooks = () => {
+  const dialog = useDialog();
+  return (
+    <>
+      <Button onClick={dialog.open}>Dialog</Button>
+      <Dialog {...dialog}>
+        Dialog
+        <Button onClick={dialog.close}>Close</Button>
+      </Dialog>
+    </>
+  );
+};
 
 export const Primary: Story = {
-  args: {
-    children: "InputToggle",
-  },
+  render: () => <DialogWithHooks />,
 };

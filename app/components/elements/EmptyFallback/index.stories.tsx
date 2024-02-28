@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { EmptyFallback } from "./index";
 
 const meta: Meta<typeof EmptyFallback> = {
-  title: "EmptyFallback",
+  title: "elements/EmptyFallback",
   component: EmptyFallback,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

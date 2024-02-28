@@ -4,7 +4,7 @@ import { AddIcon, EditIcon } from "@/components/elements/SvgIcon";
 import { ButtonAnchor } from "./index";
 
 const meta: Meta<typeof ButtonAnchor> = {
-  title: "ButtonAnchor",
+  title: "buttons/ButtonAnchor",
   component: ButtonAnchor,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

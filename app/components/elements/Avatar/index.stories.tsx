@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputToggle } from "./index";
+import { Avatar } from "@/components/elements/Avatar";
 
-const meta: Meta<typeof InputToggle> = {
-  title: "forms/InputToggle",
-  component: InputToggle,
+const meta: Meta<typeof Avatar> = {
+  title: "elements/Avatar",
+  component: Avatar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,10 +19,8 @@ const meta: Meta<typeof InputToggle> = {
 
 export default meta;
 
-type Story = StoryObj<typeof InputToggle>;
+type Story = StoryObj<typeof Avatar>;
 
 export const Primary: Story = {
-  args: {
-    children: "InputToggle",
-  },
+  args: {},
 };

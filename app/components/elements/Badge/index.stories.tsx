@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Toast } from "./index";
+import { Avatar } from "@/components/elements/Avatar";
+import { Badge } from "@/components/elements/Badge";
+import { ComponentProps } from "react";
 
-const meta: Meta<typeof Toast> = {
-  title: "Toast",
-  component: Toast,
+const meta: Meta<typeof Badge> = {
+  title: "elements/Badge",
+  component: Badge,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,13 +21,19 @@ const meta: Meta<typeof Toast> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Toast>;
+type Story = StoryObj<typeof Badge>;
+
+const BadgeWithHooks = ({ count }: ComponentProps<typeof Badge>) => {
+  return (
+    <Badge count={count}>
+      <Avatar />
+    </Badge>
+  );
+};
 
 export const Primary: Story = {
   args: {
-    toast: {
-      message: "Toast",
-      theme: "success",
-    },
+    count: 1,
   },
+  render: (args) => <BadgeWithHooks {...args} />,
 };

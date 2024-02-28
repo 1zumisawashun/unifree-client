@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LabelButtonAnchor } from "./index";
 
 const meta: Meta<typeof LabelButtonAnchor> = {
-  title: "LabelButtonAnchor",
+  title: "buttons/LabelButtonAnchor",
   component: LabelButtonAnchor,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

@@ -4,7 +4,7 @@ import { AddIcon, EditIcon } from "@/components/elements/SvgIcon";
 import { Button } from "./index";
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
+  title: "buttons/Button",
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

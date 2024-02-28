@@ -88,12 +88,13 @@
 - ✅ create・edit でフォームをリセットする
 - ✅ ブラウザで警告が出ていたので product-form の isSp を削除して改修する
 - ✅ ロゴを正式なものに差し替え
-- match-detail に has セレクターを加える改修
-- product-card のオーバーレイを改修する
 - ✅ planet-scale の branching 機能を対応する
 - ✅ メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
 - ✅ match テーブルに createdAt を追加する
+- match-detail に has セレクターを加える改修
+- product-card のオーバーレイを改修する
+- 検索のパワーアップ
 
 </details>
 
@@ -106,6 +107,7 @@
 - VRT の導入
 - RTL の導入
 - cloudflare でドメインを取る
+- パフォーマンスチューニング（メンタとかやってみる？）
 
 </details>
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InputSimpleText } from "./index";
 
 const meta: Meta<typeof InputSimpleText> = {
-  title: "InputSimpleText",
+  title: "samples/InputSimpleText",
   component: InputSimpleText,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

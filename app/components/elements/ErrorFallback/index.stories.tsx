@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ErrorFallback } from "./index";
 
 const meta: Meta<typeof ErrorFallback> = {
-  title: "ErrorFallback",
+  title: "elements/ErrorFallback",
   component: ErrorFallback,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

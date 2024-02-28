@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LoadingDot } from "./index";
 
 const meta: Meta<typeof LoadingDot> = {
-  title: "LoadingDot",
+  title: "elements/LoadingDot",
   component: LoadingDot,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Label } from "./index";
 
 const meta: Meta<typeof Label> = {
-  title: "Label",
+  title: "elements/Label",
   component: Label,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

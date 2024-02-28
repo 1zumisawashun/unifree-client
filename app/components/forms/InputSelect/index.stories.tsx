@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InputSelect } from "./index";
 
 const meta: Meta<typeof InputSelect> = {
-  title: "InputSelect",
+  title: "forms/InputSelect",
   component: InputSelect,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

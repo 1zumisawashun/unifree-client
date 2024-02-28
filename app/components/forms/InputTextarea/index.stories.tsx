@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InputTextarea } from "./index";
 
 const meta: Meta<typeof InputTextarea> = {
-  title: "InputTextarea",
+  title: "forms/InputTextarea",
   component: InputTextarea,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

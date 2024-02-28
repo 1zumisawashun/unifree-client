@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./index";
 
 const meta: Meta<typeof IconButton> = {
-  title: "IconButton",
+  title: "buttons/IconButton",
   component: IconButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -22,5 +22,7 @@ export default meta;
 type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: "add",
+  },
 };
