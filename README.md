@@ -95,7 +95,7 @@
 - match-detail に has セレクターを加える改修
 - product-card のオーバーレイを改修する
 - 検索のパワーアップ
-- パフォーマンスチューニング
+- ✅ パフォーマンスチューニング（リージョン変更とか）
 - ✅ stroy-book の panel と dropdown-menu どうするか問題
 </details>
 
@@ -107,7 +107,13 @@
 - VRT の導入
 - RTL の導入
 - cloudflare でドメインを取る
-- パフォーマンスチューニング（メンタとかやってみる？）
+  - https://zenn.dev/keitakn/articles/add-cloudflare-domain-to-vercel
+- OGP 対応とか、メタデータの改修
+- ga4
+  - https://nextjs.org/docs/messages/next-script-for-ga
+- next.js の production check をやってみる
+  - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
+  - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds
 
 </details>
 
@@ -139,7 +145,8 @@ See [Configuration Reference](https://github.com/1zumisawashun/unifree-client/bl
 
 ## Performance Check
 
-See [Configuration Reference](https://vercel.com/1zumisawashun/unifree-client/speed-insights).
+See [Speed Insights](https://vercel.com/1zumisawashun/unifree-client/speed-insights).
+See [Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics)
 
 ## 技術スタック
 

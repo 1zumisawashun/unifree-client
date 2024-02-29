@@ -1,10 +1,11 @@
 "use client";
 
-import { ButtonAnchor, UnstyledButton } from "@/components/buttons";
+import { Button, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
-import { DropDownMenu } from "@/components/elements/DropdownMenu";
+import { DropDownMenu } from "@/components/elements/DropDownMenu";
 import { profileRoutes } from "@/functions/helpers/getRoutes";
 import { useDisclosure } from "@/functions/hooks/useDisclosure";
+import { useRouter } from "next/navigation";
 import { ElementRef, useRef } from "react";
 import styles from "./styles.module.scss";
 
@@ -21,27 +22,31 @@ export const HeaderMenu = ({
 
   const routes = profileRoutes({ isAuthenticated });
 
-  const { isOpen, close, toggle } = useDisclosure();
+  const dropDownMenu = useDisclosure();
+  const router = useRouter();
 
   return (
     <>
-      <UnstyledButton onClick={toggle} ref={referenceRef}>
+      <UnstyledButton onClick={dropDownMenu.toggle} ref={referenceRef}>
         <Avatar id={userId} />
       </UnstyledButton>
       <DropDownMenu
-        onClose={close}
-        open={isOpen}
+        onClose={dropDownMenu.close}
+        open={dropDownMenu.isOpen}
         referenceRef={referenceRef}
         rows={routes}
         render={(route) => (
-          <ButtonAnchor
+          <Button
             variant="transparent"
             shape="square"
             className={styles[`${BLOCK_NAME}-anchor-button`]}
-            href={route.href}
+            onClick={() => {
+              // NOTE:router.pushはprefetchが効かないが許容範囲なのでそのまま使う
+              router.push(route.href), dropDownMenu.close();
+            }}
           >
             {route.value}
-          </ButtonAnchor>
+          </Button>
         )}
       />
     </>

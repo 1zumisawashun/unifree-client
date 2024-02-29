@@ -2,6 +2,7 @@ import "@/assets/styles/generics/custom-reset.css";
 import "@/assets/styles/generics/the-new-css-reset.css";
 import { Header } from "@/components/layouts/Header";
 import { ClientProvider } from "@/providers/client";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Noto_Sans_JP } from "next/font/google";
 
@@ -29,6 +30,8 @@ export default function RootLayout({
           {children}
           {/* https://vercel.com/1zumisawashun/unifree-client/speed-insights */}
           <SpeedInsights />
+          {/* https://vercel.com/docs/analytics */}
+          <Analytics />
         </ClientProvider>
       </body>
     </html>

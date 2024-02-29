@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { UnstyledButton } from "@/components/buttons/UnstyledButton";
 import { Avatar } from "@/components/elements/Avatar";
-import { DropDownMenu } from "@/components/elements/DropdownMenu";
+import { DropDownMenu } from "@/components/elements/DropDownMenu";
 import { useDisclosure } from "@/functions/hooks/useDisclosure";
 import { ComponentProps, ElementRef, useRef } from "react";
 
