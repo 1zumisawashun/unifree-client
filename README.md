@@ -95,7 +95,7 @@
 - match-detail に has セレクターを加える改修
 - product-card のオーバーレイを改修する
 - 検索のパワーアップ
-
+- ✅ stroy-book の panel と dropdown-menu どうするか問題
 </details>
 
 <details>
@@ -103,7 +103,6 @@
 
 - send-grid で email する
 - stripe で購入導線を整える
-- stroy-book の panel と dropdown-menu どうするか問題
 - VRT の導入
 - RTL の導入
 - cloudflare でドメインを取る

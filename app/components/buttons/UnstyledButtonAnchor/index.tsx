@@ -15,7 +15,7 @@ type Ref = ElementRef<"a">;
 
 export const UnstyledButtonAnchor = forwardRef<Ref, Props>(
   ({ children, ...props }, ref) => (
-    <Link {...props} ref={ref}>
+    <Link {...props} ref={ref} scroll={true} prefetch={false}>
       {children}
     </Link>
   )
