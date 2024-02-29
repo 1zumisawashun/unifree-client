@@ -2,11 +2,11 @@
 
 import { Button, UnstyledButton } from "@/components/buttons";
 import { Avatar } from "@/components/elements/Avatar";
+import { DropDownMenu } from "@/components/elements/DropDownMenu";
 import { profileRoutes } from "@/functions/helpers/getRoutes";
 import { useDisclosure } from "@/functions/hooks/useDisclosure";
 import { useRouter } from "next/navigation";
 import { ElementRef, useRef } from "react";
-import { DropDownMenu } from "../../elements/DropDownMenu";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "profile-menu";
