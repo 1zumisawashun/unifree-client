@@ -95,6 +95,7 @@
 - match-detail に has セレクターを加える改修
 - product-card のオーバーレイを改修する
 - 検索のパワーアップ
+- パフォーマンスチューニング
 - ✅ stroy-book の panel と dropdown-menu どうするか問題
 </details>
 
