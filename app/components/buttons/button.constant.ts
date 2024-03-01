@@ -4,6 +4,7 @@ import {
   ArrowRightIcon,
   BellIcon,
   CrossIcon,
+  DetailIcon,
   EditIcon,
   MessageIcon,
   ShoppingCartIcon,
@@ -18,4 +19,5 @@ export const icons = {
   bell: BellIcon,
   "shopping-cart": ShoppingCartIcon,
   message: MessageIcon,
+  detail: DetailIcon,
 };

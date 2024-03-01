@@ -1,0 +1,19 @@
+@import "@/assets/styles/objects/base-text";
+@import "@/assets/styles/settings/color";
+
+.product-image {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.product-image-button {
+  position: relative;
+}
+.product-image-icon-button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  z-index: 100;
+  &:hover {
+    cursor: default !important;
+  }
+}

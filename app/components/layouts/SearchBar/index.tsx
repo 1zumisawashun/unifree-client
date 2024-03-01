@@ -13,8 +13,7 @@ export const SearchBar = () => {
 
   const handleSubmit = (e: BaseSyntheticEvent) => {
     e.preventDefault();
-    router.push(`/results/${search}`);
-    setSearch("");
+    router.push(`/results?name=${search}`);
   };
 
   return (
@@ -22,7 +21,7 @@ export const SearchBar = () => {
       <InputText
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="検索する...."
+        placeholder="教科書名で検索する...."
         width="full"
       />
     </form>

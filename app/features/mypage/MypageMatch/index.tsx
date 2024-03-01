@@ -1,5 +1,6 @@
 import { UnstyledButtonAnchor } from "@/components/buttons";
 import { Table } from "@/components/elements/Table";
+import "server-only";
 import styles from "./styles.module.scss";
 
 const BLOCK_NAME = "table";

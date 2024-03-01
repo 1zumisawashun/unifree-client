@@ -3,6 +3,23 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.jp",
+      },
+    ],
+  },
+};
 
 module.exports = withBundleAnalyzer(nextConfig);

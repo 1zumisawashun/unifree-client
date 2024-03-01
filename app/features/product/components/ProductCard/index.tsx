@@ -1,4 +1,5 @@
 import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
+import { ImageAsync } from "@/components/elements/ImageAsync";
 import { Label } from "@/components/elements/Label";
 import { formatCurrencyString } from "@/functions/helpers/formatNumber";
 import { Product } from "@/functions/types/Prisma";
@@ -26,10 +27,11 @@ const Item = ({ product }: { product: Product }) => {
     <UnstyledButtonAnchor href={`/products/${id}`}>
       <div className={styles[`${BLOCK_NAME}-wrapper`]}>
         <div className={styles[`${BLOCK_NAME}-layer`]} data-status={status}>
-          <img
+          <ImageAsync
+            src={images[0]!.src}
+            alt={images[0]!.name}
             className={styles[`${BLOCK_NAME}-image`]}
-            src={images[0]?.src}
-            alt=""
+            priority
           />
           <p>SOLD OUT</p>
           <div

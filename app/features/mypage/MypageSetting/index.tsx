@@ -13,7 +13,7 @@ export function MypageSetting({ user }: { user: User }) {
   const editDialog = useDialog();
   const logoutDialog = useDialog();
 
-  const upsertUser = {
+  const userEntity = {
     university: user.university ?? "",
     displayName: user.displayName ?? "",
     faculty: user.faculty ?? "",
@@ -32,7 +32,7 @@ export function MypageSetting({ user }: { user: User }) {
           </Button>
         </ButtonWrapper>
 
-        <EditDialog dialog={editDialog} user={upsertUser} userId={user.id} />
+        <EditDialog dialog={editDialog} user={userEntity} userId={user.id} />
         <LogoutDialog dialog={logoutDialog} />
       </Panel.Inner>
     </Panel.Flame>

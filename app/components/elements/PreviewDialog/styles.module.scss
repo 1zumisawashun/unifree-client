@@ -17,9 +17,11 @@
   display: flex;
   justify-content: center;
   position: relative;
+  width: 100%;
 }
 
 .preview-dialog-image {
   object-fit: cover;
   border-radius: 0.5rem;
+  width: 400px;
 }

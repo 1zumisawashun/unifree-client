@@ -29,3 +29,5 @@ export type Messages = {
 };
 
 export type Image = RowImage;
+
+export type Category = RowCategory;

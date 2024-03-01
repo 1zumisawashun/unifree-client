@@ -6,7 +6,7 @@ import {
   forwardRef,
 } from "react";
 
-type Props = ComponentPropsWithoutRef<"a"> & {
+type Props = Omit<ComponentPropsWithoutRef<"a">, "href"> & {
   children: ReactNode;
   className?: string;
 } & LinkProps;
@@ -15,7 +15,7 @@ type Ref = ElementRef<"a">;
 
 export const UnstyledButtonAnchor = forwardRef<Ref, Props>(
   ({ children, ...props }, ref) => (
-    <Link {...props} ref={ref} >
+    <Link {...props} ref={ref}>
       {children}
     </Link>
   )
