@@ -1,0 +1,16 @@
+.image-async-wrapper {
+  position: relative;
+}
+.image-async {
+  object-fit: cover;
+}
+
+.image-async-circular-progress {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: calc(50% - 1.115rem / 2); // transform効いていないっぽい、なんで？
+  left: calc(50% - 1.115rem / 2); // transform効いていないっぽい、なんで？
+  transform: translate(-50%, -50%);
+}

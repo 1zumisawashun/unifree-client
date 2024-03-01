@@ -92,13 +92,14 @@
 - ✅ メッセージの通知機能（messages に read をつける）ということはヘッダーにベルアイコンを仕込む必要があるのか、header のベルからマイページマッチに遷移させる
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
 - ✅ match テーブルに createdAt を追加する
-- match-detail に has セレクターを加える改修
 - ✅ product-card のオーバーレイを改修する
 - ✅ 検索のパワーアップ（name と category で検索絞り込みできるようにした）
-- 画像の LS 対応
-- スワイパーの改修
 - ✅ パフォーマンスチューニング（リージョン変更とか）
 - ✅ stroy-book の panel と dropdown-menu どうするか問題
+- match-detail に has セレクターを加える改修
+- 画像の LS 対応
+- スワイパーの改修
+
 </details>
 
 <details>

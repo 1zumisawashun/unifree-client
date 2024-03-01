@@ -18,10 +18,8 @@
 }
 
 .product-card-image {
-  width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
   height: 160px;
-  object-fit: cover;
   @include sp {
     height: 100px;
   }
@@ -51,6 +49,7 @@
       top: 0;
       left: 0;
       border-radius: 0.5rem 0.5rem 0 0;
+      z-index: 2;
     }
     > p {
       width: 100%;
@@ -63,6 +62,7 @@
       letter-spacing: 5px;
       color: #fff;
       text-align: center;
+      z-index: 3;
     }
   }
 }

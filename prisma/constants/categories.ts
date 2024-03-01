@@ -1,14 +1,14 @@
 import { Prisma } from "@prisma/client";
 
 export const categories: Prisma.CategoryCreateInput[] = [
-  { name: "Technology" }, //(テクノロジー)
-  { name: "Fashion" }, //(ファッション)
-  { name: "Food and Beverage" }, //(食品と飲料)
-  { name: "Health and Wellness" }, //(健康とウェルネス)
-  { name: "Sports" }, //(スポーツ)
-  { name: "Entertainment" }, //(エンターテイメント)
-  { name: "Travel" }, //(旅行)
-  { name: "Education" }, //(教育)
-  { name: "Automotive" }, //(自動車)
-  { name: "Home and Garden" }, //(家庭とガーデニング)
+  { name: "テクノロジー" }, //(テクノロジー)
+  { name: "ファッション" }, //(ファッション)
+  { name: "食品と飲料" }, //(食品と飲料)
+  { name: "健康とウェルネス" }, //(健康とウェルネス)
+  { name: "スポーツ" }, //(スポーツ)
+  { name: "エンターテイメント" }, //(エンターテイメント)
+  { name: "旅行" }, //(旅行)
+  { name: "教育" }, //(教育)
+  { name: "自動車" }, //(自動車)
+  { name: "家庭とガーデニング" }, //(家庭とガーデニング)
 ];
