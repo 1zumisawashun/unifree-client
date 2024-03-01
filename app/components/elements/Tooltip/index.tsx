@@ -21,7 +21,7 @@ import styles from "./styles.module.scss";
 type TooltipProps = {
   children: ReactNode;
   placement?: Placement;
-  referenceRef: RefObject<ElementRef<"div">>;
+  referenceRef: RefObject<ElementRef<"div" | "button">>;
 };
 
 const BLOCK_NAME = "tool-tip";

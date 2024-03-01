@@ -34,6 +34,12 @@
       display: none;
     }
   }
+  // hide
+  &[data-status="waiting"] {
+    > p {
+      display: none;
+    }
+  }
   &[data-status="completed"] {
     &::before {
       content: "";

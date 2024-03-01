@@ -93,8 +93,10 @@
   - https://zenn.dev/catnose99/scraps/468bedaab6dbe3ecfcae
 - ✅ match テーブルに createdAt を追加する
 - match-detail に has セレクターを加える改修
-- product-card のオーバーレイを改修する
-- 検索のパワーアップ
+- ✅ product-card のオーバーレイを改修する
+- ✅ 検索のパワーアップ（name と category で検索絞り込みできるようにした）
+- 画像の LS 対応
+- スワイパーの改修
 - ✅ パフォーマンスチューニング（リージョン変更とか）
 - ✅ stroy-book の panel と dropdown-menu どうするか問題
 </details>
@@ -164,14 +166,14 @@ hosting: Vercel
 
 ## Installation
 
-- clone
+- クローンして develop ブランチに移動する
 
 ```bash
 $ git clone git@github.com:1zumisawashun/unifree-client.git
-$ cd unifree-client
+$ cd unifree-client/develop
 ```
 
-- install
+- パッケージをインストールする
 
 ```bash
 $ npm install
@@ -180,8 +182,8 @@ $ npm install
 - ローカル開発用 URL を開き動作確認をする
 
 ```bash
-$ npm run ps:dev # planet-scale
-$ npm run dev # next.js
+$ npm run ps:dev # PlanetScale
+$ npm run dev # Next.js
 ```
 
 http://localhost:3000/

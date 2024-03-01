@@ -1,9 +1,8 @@
 @import "@/assets/styles/settings/color";
 @import "@/assets/styles/tools/main";
 
-
 .tool-tip {
-  animation: 0.1s fade-in;
+  animation: 0.5s fade-in;
   background: $primary-dark;
   color: $white;
   border-radius: 0.25rem;
@@ -11,13 +10,13 @@
   box-sizing: border-box;
   padding: 0.5rem;
   position: absolute;
-  max-width: 270px;
   z-index: 5;
+  width: max-content;
 
   display: none;
 
   &[data-is-fade-out="true"] {
-    animation: 0.1s fade-out;
+    animation: 0.5s fade-out;
     opacity: 0;
   }
 }
