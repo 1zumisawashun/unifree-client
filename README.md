@@ -127,6 +127,7 @@
 ### (pages)ディレクトリ
 
 - layout.tsx > error.tsx（error-boundary） > loading.tsx（suspense） > page.tsx（async function）で構成する
+- 上記のヒエラルキーに関しては次の[ドキュメント](https://nextjs.org/docs/app/building-your-application/routing#component-hierarchy)を参照する
 - 特に page.tsx で フェッチしている場合は error.tsx と loading.tsx はマストで配置する
 - フェッチするのは(pages)ディレクトリに限定する、該当するのは layout か page になるはず
 - 例外的に(pages)ディレクトリ以外でフェッチをする時は〇〇 container.tsx として明示的にコンポーネントを作る
@@ -148,7 +149,7 @@ See [Configuration Reference](https://github.com/1zumisawashun/unifree-client/bl
 
 ## Performance Check
 
-See [Speed Insights](https://vercel.com/1zumisawashun/unifree-client/speed-insights).
+See [Speed Insights](https://vercel.com/1zumisawashun/unifree-client/speed-insights).  
 See [Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics)
 
 ## 技術スタック
