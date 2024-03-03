@@ -7,7 +7,7 @@ import { Metadata } from "next";
 const title = "Mypage";
 
 export const metadata: Metadata = {
-  title: `unifree-client | ${title}`,
+  title: `UniFli | ${title}`,
 };
 
 export default async function Layout({

@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 const title = "Product Detail";
 
 export const metadata: Metadata = {
-  title: `unifree-client | ${title}`,
+  title: `UniFli | ${title}`,
 };
 
 export default async function Layout({
