@@ -28,7 +28,11 @@ export default async function Image() {
   ).then((res) => res.arrayBuffer())) as string;
 
   return new ImageResponse(
-    <img width="512" height="512" src={src} style={style} />,
+    (
+      <div style={style}>
+        <img width="256" height="256" src={src} />
+      </div>
+    ),
     {
       ...size,
     }
