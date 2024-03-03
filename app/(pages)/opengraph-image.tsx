@@ -30,7 +30,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div style={style}>
-        <img width="512" height="512" src={src} />
+        <img width="630" height="630" src={src} />
       </div>
     ),
     {

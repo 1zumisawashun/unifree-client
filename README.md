@@ -99,6 +99,9 @@
 - match-detail に has セレクターを加える改修
 - 画像の LS 対応
 - スワイパーの改修
+- ✅ リポジトリをプライベートにする
+- ✅ ogp 対応の骨子に着手
+- ✅ develop 環境の作成
 
 </details>
 
@@ -150,7 +153,7 @@ See [Configuration Reference](https://github.com/1zumisawashun/unifree-client/bl
 ## Performance Check
 
 See [Speed Insights](https://vercel.com/1zumisawashun/unifree-client/speed-insights).  
-See [Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics)
+See [Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics).
 
 ## 技術スタック
 
