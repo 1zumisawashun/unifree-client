@@ -4,7 +4,7 @@ import { Metadata } from "next";
 const title = "Match Detail";
 
 export const metadata: Metadata = {
-  title: `unifree-client | ${title}`,
+  title: `UniFli | ${title}`,
 };
 
 /**

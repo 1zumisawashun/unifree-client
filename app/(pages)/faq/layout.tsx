@@ -5,7 +5,7 @@ import { Metadata } from "next";
 const title = "FAQ";
 
 export const metadata: Metadata = {
-  title: `unifree-client | ${title}`,
+  title: `UniFli | ${title}`,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
