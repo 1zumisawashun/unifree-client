@@ -14,7 +14,7 @@ const size = {
 
 export default async function Icon() {
   const src = (await fetch(
-    new URL("../../assets/images/image_logo_main.jpg", import.meta.url)
+    new URL("../assets/images/image_logo_main.jpg", import.meta.url)
   ).then((res) => res.arrayBuffer())) as string;
 
   return new ImageResponse(<img width="256" height="256" src={src} />, {

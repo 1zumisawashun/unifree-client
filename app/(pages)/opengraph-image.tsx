@@ -24,7 +24,7 @@ const style: CSSProperties = {
 /* eslint-disable */
 export default async function Image() {
   const src = (await fetch(
-    new URL("../../assets/images/image_logo_main.jpg", import.meta.url)
+    new URL("../assets/images/image_logo_main.jpg", import.meta.url)
   ).then((res) => res.arrayBuffer())) as string;
 
   return new ImageResponse(
