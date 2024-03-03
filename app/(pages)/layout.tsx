@@ -20,15 +20,9 @@ export const metadata = {
   metadataBase: new URL(apiUrl),
   description:
     "必要なものを必要な人へ、あなたの要らないが誰かの役に立つ。UniFliは北海道大学生のための教科書フリマアプリです。",
-  openGraph: {
-    title: "Title webtsite",
-    description: "this is the desciption",
-  },
+  openGraph: {},
   twitter: {
     card: "summary_large_image",
-    site: "@eMartiiin94",
-    title: "Title webtsite",
-    description: "this is the desciption",
   },
 };
 

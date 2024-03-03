@@ -17,7 +17,7 @@ export default async function Icon() {
     new URL("../assets/images/image_logo_main.jpg", import.meta.url)
   ).then((res) => res.arrayBuffer())) as string;
 
-  return new ImageResponse(<img width="256" height="256" src={src} />, {
+  return new ImageResponse(<img width="32" height="32" src={src} />, {
     ...size,
   });
 }
