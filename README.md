@@ -96,9 +96,6 @@
 - ✅ 検索のパワーアップ（name と category で検索絞り込みできるようにした）
 - ✅ パフォーマンスチューニング（リージョン変更とか）
 - ✅ stroy-book の panel と dropdown-menu どうするか問題
-- match-detail に has セレクターを加える改修
-- 画像の LS 対応
-- スワイパーの改修
 - ✅ リポジトリをプライベートにする
 - ✅ ogp 対応の骨子に着手
 - ✅ develop 環境の作成
@@ -108,6 +105,10 @@
 <details>
 <summary>🔷 3/4（月）〜3/10（日）</summary>
 
+- match-detail に has セレクターを加える改修
+- input-select の placeholder に has not を加える
+- match に productId を加えないと破綻しそう
+- 詳細画面に notFound()を加える
 - send-grid で email する
 - stripe で購入導線を整える
 - VRT の導入

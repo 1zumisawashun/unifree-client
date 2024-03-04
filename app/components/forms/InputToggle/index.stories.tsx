@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputToggle } from "./index";
+import { InputToggle } from "@/components/forms/InputToggle";
+import { ComponentProps } from "react";
 
 const meta: Meta<typeof InputToggle> = {
   title: "forms/InputToggle",
@@ -21,8 +22,13 @@ export default meta;
 
 type Story = StoryObj<typeof InputToggle>;
 
-export const Primary: Story = {
+const InputToggleWithHooks = (props: ComponentProps<typeof InputToggle>) => {
+  return <InputToggle {...props} />;
+};
+
+export const Main: Story = {
   args: {
     children: "InputToggle",
   },
+  render: (args) => <InputToggleWithHooks {...args} />,
 };

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputSelect } from "./index";
+import { InputSelect } from "@/components/forms/InputSelect";
+import { ComponentProps } from "react";
 
 const meta: Meta<typeof InputSelect> = {
   title: "forms/InputSelect",
@@ -21,6 +22,12 @@ export default meta;
 
 type Story = StoryObj<typeof InputSelect>;
 
+const InputSelectWithHooks = (
+  props: ComponentProps<typeof InputSelect>
+) => {
+  return <InputSelect {...props} />;
+};
+
 export const Primary: Story = {
   args: {
     options: [
@@ -34,4 +41,6 @@ export const Primary: Story = {
     isOptioned: false,
     disabled: false,
   },
+  render: (args) => <InputSelectWithHooks {...args} />,
 };
+
