@@ -105,6 +105,7 @@
 <details>
 <summary>🔷 3/4（月）〜3/10（日）</summary>
 
+- ✅ マイページ編集のフォームのバリデーションを改修する
 - match-detail に has セレクターを加える改修
 - input-select の placeholder に has not を加える
 - match に productId を加えないと破綻しそう
