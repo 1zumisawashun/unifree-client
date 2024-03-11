@@ -1,28 +1,28 @@
-import { prisma } from "@/functions/libs/prisma";
-import { NextRequest, NextResponse } from "next/server";
+import { prisma } from '@/functions/libs/prisma'
+import { NextRequest, NextResponse } from 'next/server'
 
 type Json = {
-  stripeProductId: string;
-  stripePriceId: string;
+  stripeProductId: string
+  stripePriceId: string
   images: {
-    name: string;
-    src: string;
-  }[];
-  name: string;
-  price: number;
-  description: string;
-  status: string;
-  paymentMethod: string;
-  categories: number[];
-};
+    name: string
+    src: string
+  }[]
+  name: string
+  price: number
+  description: string
+  status: string
+  paymentMethod: string
+  categories: number[]
+}
 
 export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  if (req.method === "POST") {
-    const json: Json = await req.json();
-    const { images, categories, ...rest } = json;
+  if (req.method === 'POST') {
+    const json: Json = await req.json()
+    const { images, categories, ...rest } = json
 
     const data: any = {
       ...rest,
@@ -30,28 +30,28 @@ export async function POST(
         // one-to-many disconnect
         deleteMany: {},
         // one-to-many connect
-        create: images,
+        create: images
       },
       categories: {
         // many-to-many disconnect
         set: [],
         // many-to-many connect
-        connect: categories.map((category) => ({ id: category })),
-      },
-    };
+        connect: categories.map((category) => ({ id: category }))
+      }
+    }
 
     try {
       const product = await prisma.product.update({
         where: { id: +params.id },
-        data,
-      });
+        data
+      })
 
-      return NextResponse.json({ id: product.id });
+      return NextResponse.json({ id: product.id })
     } catch (err) {
-      console.log(err);
-      return new NextResponse(`Method Not Allowed`, { status: 405 });
+      console.log(err)
+      return new NextResponse(`Method Not Allowed`, { status: 405 })
     }
   } else {
-    return new NextResponse(`Method Not Allowed`, { status: 405 });
+    return new NextResponse(`Method Not Allowed`, { status: 405 })
   }
 }

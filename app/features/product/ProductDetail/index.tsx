@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { Panel } from "@/components/elements/Panel";
-import { DeleteDialog } from "@/features/product/ProductDetail/components/DeleteDialog";
-import { ProductCategory } from "@/features/product/ProductDetail/components/ProductCategory";
-import { ProductImage } from "@/features/product/ProductDetail/components/ProductImage";
-import { formatCurrencyString } from "@/functions/helpers/formatNumber";
-import { Product } from "@/functions/types/Prisma";
-import { useSession } from "next-auth/react";
-import styles from "./styles.module.scss";
+import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
+import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { Panel } from '@/components/elements/Panel'
+import { DeleteDialog } from '@/features/product/ProductDetail/components/DeleteDialog'
+import { ProductCategory } from '@/features/product/ProductDetail/components/ProductCategory'
+import { ProductImage } from '@/features/product/ProductDetail/components/ProductImage'
+import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { Product } from '@/functions/types/Prisma'
+import { useSession } from 'next-auth/react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "product-detail";
+const BLOCK_NAME = 'product-detail'
 
 export const ProductDetail = ({ product }: { product: Product }) => {
   const { id, name, categories, description, images, price, user, createdAt } =
-    product;
+    product
 
-  const deleteDialog = useDialog();
-  const session = useSession();
+  const deleteDialog = useDialog()
+  const session = useSession()
 
-  const shouldShow = user.id === session.data?.user.id;
+  const shouldShow = user.id === session.data?.user.id
 
   return (
     <>
@@ -60,5 +60,5 @@ export const ProductDetail = ({ product }: { product: Product }) => {
 
       <DeleteDialog dialog={deleteDialog} product={product} />
     </>
-  );
-};
+  )
+}

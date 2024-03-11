@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog, UseDialog } from "@/components/elements/Dialog";
-import { Swiper } from "@/components/elements/Swiper";
-import { Image } from "@/functions/types/Prisma";
-import styles from "./styles.module.scss";
+import { Button, ButtonWrapper } from '@/components/buttons'
+import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import { Swiper } from '@/components/elements/Swiper'
+import { Image } from '@/functions/types/Prisma'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "preview-dialog";
+const BLOCK_NAME = 'preview-dialog'
 
-type ImageWithoutProductId = Omit<Image, "productId">;
+type ImageWithoutProductId = Omit<Image, 'productId'>
 
 /* eslint-disable @next/next/no-img-element */
 export const PreviewDialog = ({
   dialog,
-  images,
+  images
 }: {
-  dialog: UseDialog;
-  images?: ImageWithoutProductId[];
+  dialog: UseDialog
+  images?: ImageWithoutProductId[]
 }) => {
-  const hasSwiper = images && images.length > 1;
+  const hasSwiper = images && images.length > 1
   return (
     <Dialog {...dialog} width="half" hasSwiper={hasSwiper}>
       <div className={styles[`${BLOCK_NAME}-body`]}>
@@ -34,13 +34,13 @@ export const PreviewDialog = ({
         </ButtonWrapper>
       </div>
     </Dialog>
-  );
-};
+  )
+}
 
 const ImageRender = ({ src, name }: ImageWithoutProductId) => {
   return (
     <div className={styles[`${BLOCK_NAME}-image-wrapper`]}>
       <img src={src} alt={name} className={styles[`${BLOCK_NAME}-image`]} />
     </div>
-  );
-};
+  )
+}

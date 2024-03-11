@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog, UseDialog } from "@/components/elements/Dialog";
-import { CartItem as ICartItem } from "@/functions/constants/cart";
-import { useShoppingCart } from "use-shopping-cart";
-import styles from "./styles.module.scss";
+import { Button, ButtonWrapper } from '@/components/buttons'
+import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import { CartItem as ICartItem } from '@/functions/constants/cart'
+import { useShoppingCart } from 'use-shopping-cart'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "remove-dialog";
+const BLOCK_NAME = 'remove-dialog'
 
 export const RemoveDialog = ({
   dialog,
-  cart,
+  cart
 }: {
-  dialog: UseDialog;
-  cart: ICartItem;
+  dialog: UseDialog
+  cart: ICartItem
 }) => {
-  const { removeItem } = useShoppingCart();
+  const { removeItem } = useShoppingCart()
 
   return (
     <Dialog {...dialog}>
@@ -33,5 +33,5 @@ export const RemoveDialog = ({
         </ButtonWrapper>
       </div>
     </Dialog>
-  );
-};
+  )
+}

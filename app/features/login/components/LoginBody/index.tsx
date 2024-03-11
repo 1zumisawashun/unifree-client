@@ -1,20 +1,20 @@
-import logo from "@/assets/images/image_logo_header.png";
-import signInGoogle from "@/assets/images/image_signin_google.png";
-import { UnstyledButton } from "@/components/buttons";
-import { InputCheckbox } from "@/components/forms/InputCheckbox";
-import { LoginTos } from "@/features/login/components/LoginTos";
-import Image from "next/image";
-import { useState } from "react";
-import styles from "./styles.module.scss";
+import logo from '@/assets/images/image_logo_header.png'
+import signInGoogle from '@/assets/images/image_signin_google.png'
+import { UnstyledButton } from '@/components/buttons'
+import { InputCheckbox } from '@/components/forms/InputCheckbox'
+import { LoginTos } from '@/features/login/components/LoginTos'
+import Image from 'next/image'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "login-body";
+const BLOCK_NAME = 'login-body'
 
 export function LoginBody({
-  login,
+  login
 }: {
-  login: (method: "google" | "microsoft") => Promise<void>;
+  login: (method: 'google' | 'microsoft') => Promise<void>
 }) {
-  const [checkbox, setCheckbox] = useState<boolean>(false);
+  const [checkbox, setCheckbox] = useState<boolean>(false)
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
@@ -31,7 +31,7 @@ export function LoginBody({
       <div className={styles[`${BLOCK_NAME}-center-wrapper`]}>
         <InputCheckbox
           onChange={(e) => {
-            setCheckbox(e.target.checked);
+            setCheckbox(e.target.checked)
           }}
         >
           同意する
@@ -44,7 +44,7 @@ export function LoginBody({
 
       <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
         <UnstyledButton
-          onClick={() => login("google")}
+          onClick={() => login('google')}
           aria-disabled={checkbox}
           className={styles[`${BLOCK_NAME}-button`]}
         >
@@ -57,5 +57,5 @@ export function LoginBody({
         </UnstyledButton>
       </div>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { Login } from "@/features/login";
+import { Login } from '@/features/login'
 
 export default function Page() {
-  return <Login />;
+  return <Login />
 }

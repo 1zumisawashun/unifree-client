@@ -1,5 +1,5 @@
-import { stripe } from "@/functions/libs/stripe";
-import { NextRequest, NextResponse } from "next/server";
+import { stripe } from '@/functions/libs/stripe'
+import { NextRequest, NextResponse } from 'next/server'
 
 /**
  * stripe.prices.deleteメソッドは存在しないのでactiveプロパティで削除したように見せる
@@ -10,20 +10,20 @@ export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     try {
       const response = await stripe.prices.update(params.id, {
-        active: false,
-      });
+        active: false
+      })
 
-      return NextResponse.json({ response });
+      return NextResponse.json({ response })
     } catch (err) {
-      console.log(err);
+      console.log(err)
       const errorMessage =
-        err instanceof Error ? err.message : "Internal server error";
-      return new NextResponse(`${errorMessage}`, { status: 500 });
+        err instanceof Error ? err.message : 'Internal server error'
+      return new NextResponse(`${errorMessage}`, { status: 500 })
     }
   } else {
-    return new NextResponse(`Method Not Allowed`, { status: 405 });
+    return new NextResponse(`Method Not Allowed`, { status: 405 })
   }
 }

@@ -1,17 +1,15 @@
-"use client";
+'use client'
 
-import { useCallback, useState } from "react";
-
-
+import { useCallback, useState } from 'react'
 
 export const useDisclosure = (initial = false) => {
-  const [isOpen, setIsOpen] = useState(initial);
+  const [isOpen, setIsOpen] = useState(initial)
 
-  const open = useCallback(() => setIsOpen(true), []);
-  const close = useCallback(() => setIsOpen(false), []);
-  const toggle = useCallback(() => setIsOpen((state) => !state), []);
+  const open = useCallback(() => setIsOpen(true), [])
+  const close = useCallback(() => setIsOpen(false), [])
+  const toggle = useCallback(() => setIsOpen((state) => !state), [])
 
-  return { isOpen, open, close, toggle };
-};
+  return { isOpen, open, close, toggle }
+}
 
-export type UseDisclosure = ReturnType<typeof useDisclosure>;
+export type UseDisclosure = ReturnType<typeof useDisclosure>

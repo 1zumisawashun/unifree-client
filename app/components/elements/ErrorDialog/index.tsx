@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog, UseDialog } from "@/components/elements/Dialog";
-import styles from "./styles.module.scss";
+import { Button, ButtonWrapper } from '@/components/buttons'
+import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "error-dialog";
+const BLOCK_NAME = 'error-dialog'
 
 export function ErrorDialog({
   dialog,
   message,
-  domain,
+  domain
 }: {
-  dialog: UseDialog;
-  message: string;
-  domain: string;
+  dialog: UseDialog
+  message: string
+  domain: string
 }) {
   return (
     <Dialog {...dialog}>
@@ -33,5 +33,5 @@ export function ErrorDialog({
         </ButtonWrapper>
       </div>
     </Dialog>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { ButtonWrapper, UnstyledButtonAnchor } from "@/components/buttons";
-import { Label } from "@/components/elements/Label";
-import { Category } from "@/functions/types/Prisma";
-import styles from "./styles.module.scss";
+import { ButtonWrapper, UnstyledButtonAnchor } from '@/components/buttons'
+import { Label } from '@/components/elements/Label'
+import { Category } from '@/functions/types/Prisma'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "product-category";
+const BLOCK_NAME = 'product-category'
 
 export const ProductCategory = ({ categories }: { categories: Category[] }) => {
   return (
@@ -14,13 +14,13 @@ export const ProductCategory = ({ categories }: { categories: Category[] }) => {
         <UnstyledButtonAnchor
           key={category.id}
           href={{
-            pathname: "/results",
-            query: { category: category.name },
+            pathname: '/results',
+            query: { category: category.name }
           }}
         >
           <Label>{category.name}</Label>
         </UnstyledButtonAnchor>
       ))}
     </ButtonWrapper>
-  );
-};
+  )
+}

@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { editPrismaProduct } from "@/features/product/ProductEdit/hooks/editPrismaProduct";
-import { ProductForm } from "@/features/product/components/ProductForm";
-import { createStripePrices } from "@/features/product/hooks/createStripePrices";
-import { editStripePrices } from "@/features/product/hooks/editStripePrices";
-import { imagesFactory } from "@/features/product/hooks/imagesFactory";
-import { UpsertProduct } from "@/features/product/product.model";
-import { Product } from "@/functions/types/Prisma";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { editPrismaProduct } from '@/features/product/ProductEdit/hooks/editPrismaProduct'
+import { ProductForm } from '@/features/product/components/ProductForm'
+import { createStripePrices } from '@/features/product/hooks/createStripePrices'
+import { editStripePrices } from '@/features/product/hooks/editStripePrices'
+import { imagesFactory } from '@/features/product/hooks/imagesFactory'
+import { UpsertProduct } from '@/features/product/product.model'
+import { Product } from '@/functions/types/Prisma'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export const ProductEdit = ({ product }: { product: Product }) => {
   const {
@@ -18,8 +18,8 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     images,
     status,
     paymentMethod: payment_method,
-    categories,
-  } = product;
+    categories
+  } = product
 
   const productEntity = {
     name,
@@ -28,24 +28,24 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     files: images,
     status,
     paymentMethod: payment_method!,
-    categories: categories.map((category) => category.id.toString()),
-  };
+    categories: categories.map((category) => category.id.toString())
+  }
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false)
 
   const edit = async (data: UpsertProduct) => {
-    setIsPending(true);
+    setIsPending(true)
 
-    const { files, name, price, categories, ...rest } = data;
+    const { files, name, price, categories, ...rest } = data
 
     try {
-      const response = await editStripePrices({ product });
-      if (!response) throw new Error();
+      const response = await editStripePrices({ product })
+      if (!response) throw new Error()
 
-      const images = await imagesFactory({ files });
-      const stripeIds = await createStripePrices({ name, price });
+      const images = await imagesFactory({ files })
+      const stripeIds = await createStripePrices({ name, price })
 
       const params = {
         ...rest,
@@ -53,20 +53,20 @@ export const ProductEdit = ({ product }: { product: Product }) => {
         price: Number(price),
         categories: categories.map(Number),
         images,
-        ...stripeIds,
-      };
+        ...stripeIds
+      }
 
-      const json = await editPrismaProduct({ product, params });
-      if (!json) throw new Error();
+      const json = await editPrismaProduct({ product, params })
+      if (!json) throw new Error()
 
-      router.push(`/products/${product.id}`);
-      router.refresh();
+      router.push(`/products/${product.id}`)
+      router.refresh()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     } finally {
-      setIsPending(false);
+      setIsPending(false)
     }
-  };
+  }
 
   return (
     <ProductForm
@@ -76,5 +76,5 @@ export const ProductEdit = ({ product }: { product: Product }) => {
       domain="変更する"
       isPending={isPending}
     />
-  );
-};
+  )
+}

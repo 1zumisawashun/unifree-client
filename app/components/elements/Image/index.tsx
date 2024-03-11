@@ -1,15 +1,15 @@
-import NextImage from "next/image";
+import NextImage from 'next/image'
 
 type Image = {
-  src: string;
-  alt: string;
-  blurredDataUrl?: string;
-  width?: number;
-  height?: number;
-};
+  src: string
+  alt: string
+  blurredDataUrl?: string
+  width?: number
+  height?: number
+}
 
 // NOTE:Image型を内包していればok
-type HasImageProperties<T> = T extends Image ? T : never;
+type HasImageProperties<T> = T extends Image ? T : never
 
 export const Image = async <T,>(image: HasImageProperties<T>) => {
   // NOTE:これだとLSが発生する
@@ -25,8 +25,8 @@ export const Image = async <T,>(image: HasImageProperties<T>) => {
         blurDataURL={image.blurredDataUrl}
       ></NextImage>
     </div>
-  );
-};
+  )
+}
 
 export const ImageCover = async <T,>(image: HasImageProperties<T>) => {
   // NOTE:下記だとLSが発生しない
@@ -42,5 +42,5 @@ export const ImageCover = async <T,>(image: HasImageProperties<T>) => {
         blurDataURL={image.blurredDataUrl}
       ></NextImage>
     </div>
-  );
-};
+  )
+}

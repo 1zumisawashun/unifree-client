@@ -1,17 +1,17 @@
-import Link, { LinkProps } from "next/link";
+import Link, { LinkProps } from 'next/link'
 import {
   ComponentPropsWithoutRef,
   ElementRef,
   ReactNode,
-  forwardRef,
-} from "react";
+  forwardRef
+} from 'react'
 
-type Props = Omit<ComponentPropsWithoutRef<"a">, "href"> & {
-  children: ReactNode;
-  className?: string;
-} & LinkProps;
+type Props = Omit<ComponentPropsWithoutRef<'a'>, 'href'> & {
+  children: ReactNode
+  className?: string
+} & LinkProps
 
-type Ref = ElementRef<"a">;
+type Ref = ElementRef<'a'>
 
 export const UnstyledButtonAnchor = forwardRef<Ref, Props>(
   ({ children, ...props }, ref) => (
@@ -19,6 +19,6 @@ export const UnstyledButtonAnchor = forwardRef<Ref, Props>(
       {children}
     </Link>
   )
-);
+)
 
-UnstyledButtonAnchor.displayName = "UnstyledButtonAnchor";
+UnstyledButtonAnchor.displayName = 'UnstyledButtonAnchor'

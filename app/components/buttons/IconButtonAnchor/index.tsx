@@ -1,34 +1,34 @@
-import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
-import { icons } from "@/components/buttons/button.constant";
-import { BaseIconButtonProps } from "@/components/buttons/button.type";
-import clsx from "clsx";
-import { ComponentProps, ElementRef, forwardRef } from "react";
-import styles from "./styles.module.scss";
+import { UnstyledButtonAnchor } from '@/components/buttons/UnstyledButtonAnchor'
+import { icons } from '@/components/buttons/button.constant'
+import { BaseIconButtonProps } from '@/components/buttons/button.type'
+import clsx from 'clsx'
+import { ComponentProps, ElementRef, forwardRef } from 'react'
+import styles from './styles.module.scss'
 
-type Props = Omit<ComponentProps<typeof UnstyledButtonAnchor>, "children"> &
-  BaseIconButtonProps;
+type Props = Omit<ComponentProps<typeof UnstyledButtonAnchor>, 'children'> &
+  BaseIconButtonProps
 
-type Ref = ElementRef<"a">;
+type Ref = ElementRef<'a'>
 
 export const IconButtonAnchor = forwardRef<Ref, Props>(
   (
     {
-      theme = "primary",
-      variant = "contained",
-      name = "add",
-      size = "medium",
-      shape = "round",
+      theme = 'primary',
+      variant = 'contained',
+      name = 'add',
+      size = 'medium',
+      shape = 'round',
       className,
       ...props
     },
     ref
   ) => {
-    const Tag = icons[`${name}`];
+    const Tag = icons[`${name}`]
 
     return (
       <UnstyledButtonAnchor
         {...props}
-        className={clsx(styles["icon-button"], className)}
+        className={clsx(styles['icon-button'], className)}
         data-variant={variant}
         data-theme={theme}
         data-size={size}
@@ -37,8 +37,8 @@ export const IconButtonAnchor = forwardRef<Ref, Props>(
       >
         <Tag />
       </UnstyledButtonAnchor>
-    );
+    )
   }
-);
+)
 
-IconButtonAnchor.displayName = "IconButtonAnchor";
+IconButtonAnchor.displayName = 'IconButtonAnchor'

@@ -1,29 +1,29 @@
-"use client";
+'use client'
 
-import { Button, UnstyledButton } from "@/components/buttons";
-import { Avatar } from "@/components/elements/Avatar";
-import { DropDownMenu } from "@/components/elements/DropDownMenu";
-import { profileRoutes } from "@/functions/helpers/getRoutes";
-import { useDisclosure } from "@/functions/hooks/useDisclosure";
-import { useRouter } from "next/navigation";
-import { ElementRef, useRef } from "react";
-import styles from "./styles.module.scss";
+import { Button, UnstyledButton } from '@/components/buttons'
+import { Avatar } from '@/components/elements/Avatar'
+import { DropDownMenu } from '@/components/elements/DropDownMenu'
+import { profileRoutes } from '@/functions/helpers/getRoutes'
+import { useDisclosure } from '@/functions/hooks/useDisclosure'
+import { useRouter } from 'next/navigation'
+import { ElementRef, useRef } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "profile-menu";
+const BLOCK_NAME = 'profile-menu'
 
 export const HeaderMenu = ({
   userId,
-  isAuthenticated,
+  isAuthenticated
 }: {
-  userId?: number;
-  isAuthenticated: boolean;
+  userId?: number
+  isAuthenticated: boolean
 }) => {
-  const referenceRef = useRef<ElementRef<"button">>(null);
+  const referenceRef = useRef<ElementRef<'button'>>(null)
 
-  const routes = profileRoutes({ isAuthenticated });
+  const routes = profileRoutes({ isAuthenticated })
 
-  const dropDownMenu = useDisclosure();
-  const router = useRouter();
+  const dropDownMenu = useDisclosure()
+  const router = useRouter()
 
   return (
     <>
@@ -42,7 +42,7 @@ export const HeaderMenu = ({
             className={styles[`${BLOCK_NAME}-anchor-button`]}
             onClick={() => {
               // NOTE:router.pushはprefetchが効かないが許容範囲なのでそのまま使う
-              router.push(route.href), dropDownMenu.close();
+              router.push(route.href), dropDownMenu.close()
             }}
           >
             {route.value}
@@ -50,5 +50,5 @@ export const HeaderMenu = ({
         )}
       />
     </>
-  );
-};
+  )
+}

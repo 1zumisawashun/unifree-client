@@ -1,57 +1,57 @@
-"use client";
+'use client'
 
-import { RefObject, useCallback, useEffect } from "react";
+import { RefObject, useCallback, useEffect } from 'react'
 
 export const useDDUpload = (
   dragRef: RefObject<HTMLElement>,
   cb: (e: DragEvent) => void
 ) => {
   const handleDragIn = useCallback((e: DragEvent): void => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
+    e.preventDefault()
+    e.stopPropagation()
+  }, [])
 
   const handleDragOut = useCallback((e: DragEvent): void => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
+    e.preventDefault()
+    e.stopPropagation()
+  }, [])
 
   const handleDragOver = useCallback((e: DragEvent): void => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
+    e.preventDefault()
+    e.stopPropagation()
+  }, [])
 
   const handleDrop = useCallback(
     (e: DragEvent): void => {
-      e.preventDefault();
-      e.stopPropagation();
+      e.preventDefault()
+      e.stopPropagation()
 
-      cb(e);
+      cb(e)
     },
     [cb]
-  );
+  )
 
   const initDragEvents = useCallback((): void => {
     if (dragRef.current !== null) {
-      dragRef.current.addEventListener("dragenter", handleDragIn);
-      dragRef.current.addEventListener("dragleave", handleDragOut);
-      dragRef.current.addEventListener("dragover", handleDragOver);
-      dragRef.current.addEventListener("drop", handleDrop);
+      dragRef.current.addEventListener('dragenter', handleDragIn)
+      dragRef.current.addEventListener('dragleave', handleDragOut)
+      dragRef.current.addEventListener('dragover', handleDragOver)
+      dragRef.current.addEventListener('drop', handleDrop)
     }
-  }, [handleDragIn, handleDragOut, handleDragOver, handleDrop, dragRef]);
+  }, [handleDragIn, handleDragOut, handleDragOver, handleDrop, dragRef])
 
   const resetDragEvents = useCallback((): void => {
     if (dragRef.current !== null) {
-      dragRef.current.removeEventListener("dragenter", handleDragIn);
-      dragRef.current.removeEventListener("dragleave", handleDragOut);
-      dragRef.current.removeEventListener("dragover", handleDragOver);
-      dragRef.current.removeEventListener("drop", handleDrop);
+      dragRef.current.removeEventListener('dragenter', handleDragIn)
+      dragRef.current.removeEventListener('dragleave', handleDragOut)
+      dragRef.current.removeEventListener('dragover', handleDragOver)
+      dragRef.current.removeEventListener('drop', handleDrop)
     }
-  }, [handleDragIn, handleDragOut, handleDragOver, handleDrop, dragRef]);
+  }, [handleDragIn, handleDragOut, handleDragOver, handleDrop, dragRef])
 
   useEffect(() => {
-    initDragEvents();
+    initDragEvents()
 
-    return () => resetDragEvents();
-  }, [initDragEvents, resetDragEvents]);
-};
+    return () => resetDragEvents()
+  }, [initDragEvents, resetDragEvents])
+}

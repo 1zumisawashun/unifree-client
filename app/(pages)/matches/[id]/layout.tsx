@@ -1,11 +1,11 @@
-import { LayoutContainer } from "@/components/layouts/LayoutContainer";
-import { Metadata } from "next";
+import { LayoutContainer } from '@/components/layouts/LayoutContainer'
+import { Metadata } from 'next'
 
-const title = "Match Detail";
+const title = 'Match Detail'
 
 export const metadata: Metadata = {
-  title: `UniFli | ${title}`,
-};
+  title: `UniFli | ${title}`
+}
 
 /**
  * @description ファインディ
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
  * @see https://job-draft.jp/companies/1853/messages/talk
  */
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <LayoutContainer>{children}</LayoutContainer>;
+  return <LayoutContainer>{children}</LayoutContainer>
 }

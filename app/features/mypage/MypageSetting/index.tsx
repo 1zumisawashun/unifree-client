@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { Button, ButtonWrapper } from "@/components/buttons";
-import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { Divider } from "@/components/elements/Divider";
-import { Panel } from "@/components/elements/Panel";
-import { EditDialog } from "@/features/mypage/MypageSetting/components/EditDialog";
-import { LogoutDialog } from "@/features/mypage/MypageSetting/components/LogoutDialog";
-import { ProfileCard } from "@/features/mypage/MypageSetting/components/ProfileCard";
-import { User } from "@/functions/types/Prisma";
+import { Button, ButtonWrapper } from '@/components/buttons'
+import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { Divider } from '@/components/elements/Divider'
+import { Panel } from '@/components/elements/Panel'
+import { EditDialog } from '@/features/mypage/MypageSetting/components/EditDialog'
+import { LogoutDialog } from '@/features/mypage/MypageSetting/components/LogoutDialog'
+import { ProfileCard } from '@/features/mypage/MypageSetting/components/ProfileCard'
+import { User } from '@/functions/types/Prisma'
 
 export function MypageSetting({ user }: { user: User }) {
-  const editDialog = useDialog();
-  const logoutDialog = useDialog();
+  const editDialog = useDialog()
+  const logoutDialog = useDialog()
 
   const userEntity = {
-    university: user.university ?? "",
-    displayName: user.displayName ?? "",
-    faculty: user.faculty ?? "",
-    department: user.department ?? "",
-  };
+    university: user.university ?? '',
+    displayName: user.displayName ?? '',
+    faculty: user.faculty ?? '',
+    department: user.department ?? ''
+  }
 
   return (
     <Panel.Flame hasBorder>
@@ -36,5 +36,5 @@ export function MypageSetting({ user }: { user: User }) {
         <LogoutDialog dialog={logoutDialog} />
       </Panel.Inner>
     </Panel.Flame>
-  );
+  )
 }

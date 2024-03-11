@@ -1,13 +1,13 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "layout-container";
+const BLOCK_NAME = 'layout-container'
 
 export function LayoutContainer({
   children,
-  hasFooter = false,
+  hasFooter = false
 }: {
-  children: React.ReactNode;
-  hasFooter?: boolean;
+  children: React.ReactNode
+  hasFooter?: boolean
 }) {
   return (
     <>
@@ -15,5 +15,5 @@ export function LayoutContainer({
         <div className={styles[`${BLOCK_NAME}-inner`]}>{children}</div>
       </main>
     </>
-  );
+  )
 }

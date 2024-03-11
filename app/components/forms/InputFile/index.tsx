@@ -1,24 +1,24 @@
-import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { ErrorDialog } from "@/components/elements/ErrorDialog";
-import { useDDUpload } from "@/components/forms/InputFile/hooks/useDDUpload";
-import { InputFlexWrapper } from "@/components/forms/InputFlexWrapper";
-import { InputWrapper } from "@/components/forms/InputWrapper";
-import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { UseArrayState } from "@/functions/hooks/useArrayState";
-import { Image } from "@/functions/types/Prisma";
-import { BaseSyntheticEvent, ElementRef, useId, useRef, useState } from "react";
-import { FileCard } from "./components/FileCard";
-import styles from "./styles.module.scss";
+import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { ErrorDialog } from '@/components/elements/ErrorDialog'
+import { useDDUpload } from '@/components/forms/InputFile/hooks/useDDUpload'
+import { InputFlexWrapper } from '@/components/forms/InputFlexWrapper'
+import { InputWrapper } from '@/components/forms/InputWrapper'
+import { InputWrapperPropsPassThroughProps } from '@/components/forms/input.type'
+import { UseArrayState } from '@/functions/hooks/useArrayState'
+import { Image } from '@/functions/types/Prisma'
+import { BaseSyntheticEvent, ElementRef, useId, useRef, useState } from 'react'
+import { FileCard } from './components/FileCard'
+import styles from './styles.module.scss'
 
 export type InputFileProps = {
-  state: UseArrayState<File | Image>[0];
-  setState: UseArrayState<File | Image>[1];
-  isMultiple?: boolean;
-} & InputWrapperPropsPassThroughProps;
+  state: UseArrayState<File | Image>[0]
+  setState: UseArrayState<File | Image>[1]
+  isMultiple?: boolean
+} & InputWrapperPropsPassThroughProps
 
-const BLOCK_NAME = "input-file";
+const BLOCK_NAME = 'input-file'
 
-const accept = "image/png, image/jpeg, image/webp, image/bmp";
+const accept = 'image/png, image/jpeg, image/webp, image/bmp'
 
 /**
  * @description FileListをArrayとして扱う
@@ -37,52 +37,52 @@ export function InputFile({
   isOptioned,
   isRequired,
   disabled,
-  width,
+  width
 }: InputFileProps) {
-  const id = useId();
-  const errorDialog = useDialog();
+  const id = useId()
+  const errorDialog = useDialog()
 
-  const dragRef = useRef<ElementRef<"label">>(null);
+  const dragRef = useRef<ElementRef<'label'>>(null)
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('')
 
   const update = ({ fileList }: { fileList: FileList }) => {
-    const files = [...Array.from(fileList)];
+    const files = [...Array.from(fileList)]
 
     // validate here
     for (const file of files) {
-      if (!file.type.includes("image")) {
-        setMessage("画像ファイル以外はアップロードできません");
-        errorDialog.open();
-        return;
+      if (!file.type.includes('image')) {
+        setMessage('画像ファイル以外はアップロードできません')
+        errorDialog.open()
+        return
       }
     }
     for (const file of files) {
       if (file.size > 500000) {
-        setMessage("ファイルサイズは最大5MBです");
-        errorDialog.open();
-        return;
+        setMessage('ファイルサイズは最大5MBです')
+        errorDialog.open()
+        return
       }
     }
     if ([...state, ...files].length >= 5) {
-      setMessage("4枚を超えて選択された画像は表示されません");
-      errorDialog.open();
-      return;
+      setMessage('4枚を超えて選択された画像は表示されません')
+      errorDialog.open()
+      return
     }
 
-    setState.add([...files]);
-  };
+    setState.add([...files])
+  }
 
   const handleUpload = (e: BaseSyntheticEvent) => {
-    const fileList = e.target.files as FileList;
-    update({ fileList });
-    e.target.value = "";
-  };
+    const fileList = e.target.files as FileList
+    update({ fileList })
+    e.target.value = ''
+  }
 
   useDDUpload(dragRef, (e: DragEvent) => {
-    const fileList = e.dataTransfer?.files as FileList;
-    update({ fileList });
-  });
+    const fileList = e.dataTransfer?.files as FileList
+    update({ fileList })
+  })
 
   return (
     <div className={styles[`${BLOCK_NAME}-wrapper`]}>
@@ -145,5 +145,5 @@ export function InputFile({
         domain="画像アップロード"
       />
     </div>
-  );
+  )
 }

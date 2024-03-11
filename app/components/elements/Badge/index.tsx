@@ -1,11 +1,11 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
 type BadgeProps = {
-  children: React.ReactNode;
-  count: number;
-};
+  children: React.ReactNode
+  count: number
+}
 
-export const BLOCK_NAME = "badge";
+export const BLOCK_NAME = 'badge'
 
 export function Badge({ children, count = 0 }: BadgeProps) {
   return count ? (
@@ -17,5 +17,5 @@ export function Badge({ children, count = 0 }: BadgeProps) {
     </div>
   ) : (
     children
-  );
+  )
 }

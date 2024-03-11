@@ -1,7 +1,7 @@
-import { Panel } from "@/components/elements/Panel";
-import styles from "./styles.module.scss";
+import { Panel } from '@/components/elements/Panel'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "not-found-fallback";
+const BLOCK_NAME = 'not-found-fallback'
 
 export const NotFoundFallback = () => {
   return (
@@ -11,5 +11,5 @@ export const NotFoundFallback = () => {
         <p>Something seriously bad happened.</p>
       </Panel.Inner>
     </Panel.Flame>
-  );
-};
+  )
+}

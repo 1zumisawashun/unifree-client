@@ -1,8 +1,8 @@
-import { IconButtonAnchor } from "@/components/buttons";
-import { Badge } from "@/components/elements/Badge";
+import { IconButtonAnchor } from '@/components/buttons'
+import { Badge } from '@/components/elements/Badge'
 // import { auth } from "@/functions/helpers/nextAuth/server";
 // import { prisma } from "@/functions/libs/prisma";
-import "server-only";
+import 'server-only'
 
 export async function MessageIconButtonAnchor() {
   // const { session } = await auth();
@@ -20,9 +20,9 @@ export async function MessageIconButtonAnchor() {
     <Badge count={0}>
       <IconButtonAnchor
         name="message"
-        href={"/mypage/match"}
+        href={'/mypage/match'}
         variant="outlined"
       />
     </Badge>
-  );
+  )
 }

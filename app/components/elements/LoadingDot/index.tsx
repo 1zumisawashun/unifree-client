@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "loading-dot";
+const BLOCK_NAME = 'loading-dot'
 
 export const LoadingDot: React.FC = () => {
   return (
@@ -9,5 +9,5 @@ export const LoadingDot: React.FC = () => {
       <div className={styles[`${BLOCK_NAME}-2`]}></div>
       <div className={styles[`${BLOCK_NAME}-1`]}></div>
     </div>
-  );
-};
+  )
+}

@@ -1,21 +1,21 @@
-import { privateRoutes, publicRoutes } from "@/functions/constants/routes";
+import { privateRoutes, publicRoutes } from '@/functions/constants/routes'
 
 export function profileRoutes({
-  isAuthenticated,
+  isAuthenticated
 }: {
-  isAuthenticated: boolean;
+  isAuthenticated: boolean
 }) {
-  const authRoutes = isAuthenticated ? privateRoutes.profile.primary : [];
+  const authRoutes = isAuthenticated ? privateRoutes.profile.primary : []
 
   const routes = [
     ...publicRoutes.profile.primary,
     ...authRoutes,
-    ...publicRoutes.profile.secondary,
-  ];
+    ...publicRoutes.profile.secondary
+  ]
 
-  return routes;
+  return routes
 }
 
 export function mypageRoutes() {
-  return privateRoutes.mypage.primary;
+  return privateRoutes.mypage.primary
 }

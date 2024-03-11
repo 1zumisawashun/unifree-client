@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { ErrorFallback } from "@/components/elements/ErrorFallback";
+import { ErrorFallback } from '@/components/elements/ErrorFallback'
 
 export default function Error({
-  error,
+  error
 }: // reset,
 {
-  error: Error & { digest?: string };
+  error: Error & { digest?: string }
   // reset: () => void;
 }) {
   // Attempt to recover by trying to re-render the 〇〇 route
-  return <ErrorFallback message={error.message} />;
+  return <ErrorFallback message={error.message} />
 }

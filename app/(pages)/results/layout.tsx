@@ -1,13 +1,13 @@
-import { LayoutContainer } from "@/components/layouts/LayoutContainer";
-import { SearchBar } from "@/components/layouts/SearchBar";
-import { SubHeader } from "@/components/layouts/SubHeader";
-import { Metadata } from "next";
+import { LayoutContainer } from '@/components/layouts/LayoutContainer'
+import { SearchBar } from '@/components/layouts/SearchBar'
+import { SubHeader } from '@/components/layouts/SubHeader'
+import { Metadata } from 'next'
 
-const title = "Search Results";
+const title = 'Search Results'
 
 export const metadata: Metadata = {
-  title: `UniFli | ${title}`,
-};
+  title: `UniFli | ${title}`
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,5 +17,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </SubHeader>
     </LayoutContainer>
-  );
+  )
 }

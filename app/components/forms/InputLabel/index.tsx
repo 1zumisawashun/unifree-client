@@ -1,12 +1,12 @@
-import { InputLabelProps } from "@/components/forms/input.type";
-import styles from "./styles.module.scss";
+import { InputLabelProps } from '@/components/forms/input.type'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "input-label";
+const BLOCK_NAME = 'input-label'
 
 export function InputLabel({
   children,
   isOptioned,
-  isRequired,
+  isRequired
 }: InputLabelProps) {
   return (
     <div className={styles[`${BLOCK_NAME}-wrapper`]}>
@@ -20,5 +20,5 @@ export function InputLabel({
         <span className={styles[`${BLOCK_NAME}-require`]}>必須</span>
       ) : null}
     </div>
-  );
+  )
 }

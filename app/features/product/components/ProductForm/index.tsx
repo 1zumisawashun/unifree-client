@@ -1,62 +1,59 @@
-import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { Panel } from "@/components/elements/Panel";
+import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
+import { Panel } from '@/components/elements/Panel'
 import {
   InputCheckbox,
   InputFile,
   InputMultiple,
   InputRadio,
   InputText,
-  InputTextarea,
-} from "@/components/forms";
-import {
-  UpsertProduct,
-  zUpsertProduct,
-} from "@/features/product/product.model";
+  InputTextarea
+} from '@/components/forms'
+import { UpsertProduct, zUpsertProduct } from '@/features/product/product.model'
 import {
   categoryOptions,
   paymentMethodOptions,
-  statusOptions,
-} from "@/functions/constants/options";
-import { useArrayState } from "@/functions/hooks/useArrayState";
-import { Image } from "@/functions/types/Prisma";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import styles from "./styles.module.scss";
+  statusOptions
+} from '@/functions/constants/options'
+import { useArrayState } from '@/functions/hooks/useArrayState'
+import { Image } from '@/functions/types/Prisma'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "product-form";
+const BLOCK_NAME = 'product-form'
 
 export const ProductForm = ({
   product,
   submit,
   href,
   domain,
-  isPending,
+  isPending
 }: {
-  product: UpsertProduct;
-  submit: (data: UpsertProduct) => void;
-  href: string;
-  domain: "作成する" | "変更する";
-  isPending: boolean;
+  product: UpsertProduct
+  submit: (data: UpsertProduct) => void
+  href: string
+  domain: '作成する' | '変更する'
+  isPending: boolean
 }) => {
-  const [files, setFiles] = useArrayState<File | Image>(product.files);
+  const [files, setFiles] = useArrayState<File | Image>(product.files)
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<UpsertProduct>({
     resolver: zodResolver(zUpsertProduct),
-    mode: "onChange",
-    defaultValues: product,
-  });
+    mode: 'onChange',
+    defaultValues: product
+  })
 
   const onSubmit: SubmitHandler<UpsertProduct> = (data) => {
-    submit({ ...data, files });
-  };
+    submit({ ...data, files })
+  }
 
   const onError: SubmitErrorHandler<UpsertProduct> = (errors) => {
-    console.log(errors);
-  };
+    console.log(errors)
+  }
 
   return (
     <Panel.Flame hasBorder>
@@ -66,20 +63,20 @@ export const ProductForm = ({
             label="商品名"
             isRequired
             error={errors.name?.message}
-            {...register("name")}
+            {...register('name')}
           />
           <InputText
             label="価格"
             isRequired
             error={errors.price?.message}
-            {...register("price")}
+            {...register('price')}
           />
           <InputTextarea
             label="詳細情報"
             isRequired
             description="商品の詳細情報を入力してください"
             error={errors.description?.message}
-            {...register("description")}
+            {...register('description')}
           />
           <InputFile
             label="画像"
@@ -96,7 +93,7 @@ export const ProductForm = ({
             error={errors.status?.message}
             rows={statusOptions}
             render={(option) => (
-              <InputRadio {...register("status")} value={option.value}>
+              <InputRadio {...register('status')} value={option.value}>
                 {option.label}
               </InputRadio>
             )}
@@ -107,7 +104,7 @@ export const ProductForm = ({
             error={errors.paymentMethod?.message}
             rows={paymentMethodOptions}
             render={(option) => (
-              <InputRadio {...register("paymentMethod")} value={option.value}>
+              <InputRadio {...register('paymentMethod')} value={option.value}>
                 {option.label}
               </InputRadio>
             )}
@@ -121,7 +118,7 @@ export const ProductForm = ({
             rows={categoryOptions}
             direction="column"
             render={(option) => (
-              <InputCheckbox {...register("categories")} value={option.value}>
+              <InputCheckbox {...register('categories')} value={option.value}>
                 {option.label}
               </InputCheckbox>
             )}
@@ -140,5 +137,5 @@ export const ProductForm = ({
         </Panel.Inner>
       </div>
     </Panel.Flame>
-  );
-};
+  )
+}

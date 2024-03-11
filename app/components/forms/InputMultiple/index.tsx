@@ -1,12 +1,12 @@
-import { InputFlexWrapper, InputWrapper } from "@/components/forms";
-import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { DirectionType } from "@/functions/types/Common";
+import { InputFlexWrapper, InputWrapper } from '@/components/forms'
+import { InputWrapperPropsPassThroughProps } from '@/components/forms/input.type'
+import { DirectionType } from '@/functions/types/Common'
 
 type Props<T> = {
-  rows: T[];
-  render: React.FC<T>;
-  direction?: DirectionType;
-} & InputWrapperPropsPassThroughProps;
+  rows: T[]
+  render: React.FC<T>
+  direction?: DirectionType
+} & InputWrapperPropsPassThroughProps
 
 export const InputMultiple = <T extends {}>({
   label,
@@ -35,5 +35,5 @@ export const InputMultiple = <T extends {}>({
         ))}
       </InputFlexWrapper>
     </InputWrapper>
-  );
-};
+  )
+}

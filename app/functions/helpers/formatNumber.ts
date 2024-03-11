@@ -1,3 +1,3 @@
 export function formatCurrencyString(value: number) {
-  return `¥${value.toLocaleString()}`;
+  return `¥${value.toLocaleString()}`
 }

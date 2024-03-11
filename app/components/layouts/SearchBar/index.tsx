@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { InputText } from "@/components/forms";
-import { useRouter } from "next/navigation";
-import { BaseSyntheticEvent, useState } from "react";
-import styles from "./styles.module.scss";
+import { InputText } from '@/components/forms'
+import { useRouter } from 'next/navigation'
+import { BaseSyntheticEvent, useState } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "search-bar";
+const BLOCK_NAME = 'search-bar'
 
 export const SearchBar = () => {
-  const [search, setSearch] = useState("");
-  const router = useRouter();
+  const [search, setSearch] = useState('')
+  const router = useRouter()
 
   const handleSubmit = (e: BaseSyntheticEvent) => {
-    e.preventDefault();
-    router.push(`/results?name=${search}`);
-  };
+    e.preventDefault()
+    router.push(`/results?name=${search}`)
+  }
 
   return (
     <form onSubmit={handleSubmit} className={styles[`${BLOCK_NAME}-form`]}>
@@ -25,5 +25,5 @@ export const SearchBar = () => {
         width="full"
       />
     </form>
-  );
-};
+  )
+}

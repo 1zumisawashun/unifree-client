@@ -1,9 +1,7 @@
-import styles from "./styles.module.scss"
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "divider"
+const BLOCK_NAME = 'divider'
 
-export function Divider(){
-  return(
-    <hr className={styles[`${BLOCK_NAME}`]} />
-  )
+export function Divider() {
+  return <hr className={styles[`${BLOCK_NAME}`]} />
 }

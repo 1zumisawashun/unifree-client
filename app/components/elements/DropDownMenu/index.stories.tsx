@@ -1,56 +1,56 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { UnstyledButton } from "@/components/buttons/UnstyledButton";
-import { Avatar } from "@/components/elements/Avatar";
-import { DropDownMenu } from "@/components/elements/DropDownMenu";
-import { useDisclosure } from "@/functions/hooks/useDisclosure";
-import { ComponentProps, ElementRef, useRef } from "react";
+import { UnstyledButton } from '@/components/buttons/UnstyledButton'
+import { Avatar } from '@/components/elements/Avatar'
+import { DropDownMenu } from '@/components/elements/DropDownMenu'
+import { useDisclosure } from '@/functions/hooks/useDisclosure'
+import { ComponentProps, ElementRef, useRef } from 'react'
 
 const meta: Meta<typeof DropDownMenu> = {
-  title: "elements/DropDownMenu",
+  title: 'elements/DropDownMenu',
   component: DropDownMenu,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    layout: 'centered'
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs']
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   //   backgroundColor: { control: 'color' }
   // }
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof DropDownMenu>;
+type Story = StoryObj<typeof DropDownMenu>
 
 const DropDownMenuWithHooks = (props: ComponentProps<typeof DropDownMenu>) => {
-  const referenceRef = useRef<ElementRef<"button">>(null);
+  const referenceRef = useRef<ElementRef<'button'>>(null)
 
   const routes = [
     {
       id: 1,
-      href: "/",
-      value: "Home",
+      href: '/',
+      value: 'Home'
     },
     {
       id: 2,
-      href: "/profile",
-      value: "Profile",
+      href: '/profile',
+      value: 'Profile'
     },
     {
       id: 3,
-      href: "/settings",
-      value: "Settings",
+      href: '/settings',
+      value: 'Settings'
     },
     {
       id: 4,
-      href: "/logout",
-      value: "Logout",
-    },
-  ];
-  const { isOpen, close, toggle } = useDisclosure();
+      href: '/logout',
+      value: 'Logout'
+    }
+  ]
+  const { isOpen, close, toggle } = useDisclosure()
   return (
     <>
       <UnstyledButton onClick={toggle} ref={referenceRef}>
@@ -65,12 +65,12 @@ const DropDownMenuWithHooks = (props: ComponentProps<typeof DropDownMenu>) => {
         render={(route) => <p>{route.value}</p>}
       />
     </>
-  );
-};
+  )
+}
 
 export const Primary: Story = {
   args: {
-    placement: "bottom",
+    placement: 'bottom'
   },
-  render: (args) => <DropDownMenuWithHooks {...args} />,
-};
+  render: (args) => <DropDownMenuWithHooks {...args} />
+}

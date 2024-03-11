@@ -1,21 +1,21 @@
-import { TabButton } from "@/components/elements/Tab";
-import { LayoutContainer } from "@/components/layouts/LayoutContainer";
-import { SubHeader } from "@/components/layouts/SubHeader";
-import { mypageRoutes } from "@/functions/helpers/getRoutes";
-import { Metadata } from "next";
+import { TabButton } from '@/components/elements/Tab'
+import { LayoutContainer } from '@/components/layouts/LayoutContainer'
+import { SubHeader } from '@/components/layouts/SubHeader'
+import { mypageRoutes } from '@/functions/helpers/getRoutes'
+import { Metadata } from 'next'
 
-const title = "Mypage";
+const title = 'Mypage'
 
 export const metadata: Metadata = {
-  title: `UniFli | ${title}`,
-};
+  title: `UniFli | ${title}`
+}
 
 export default async function Layout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  const routes = mypageRoutes();
+  const routes = mypageRoutes()
   return (
     <LayoutContainer>
       <SubHeader title={title} href="/">
@@ -23,5 +23,5 @@ export default async function Layout({
         {children}
       </SubHeader>
     </LayoutContainer>
-  );
+  )
 }

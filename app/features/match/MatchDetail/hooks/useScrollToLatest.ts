@@ -1,17 +1,17 @@
-import { ElementRef, useEffect, useRef } from "react";
+import { ElementRef, useEffect, useRef } from 'react'
 
 export function useScrollToLatest() {
-  const ref = useRef<ElementRef<"div">>(null);
+  const ref = useRef<ElementRef<'div'>>(null)
 
   const scrollToLatest = () => {
     if (ref.current) {
-      ref.current.scrollTo(0, ref.current.scrollHeight);
+      ref.current.scrollTo(0, ref.current.scrollHeight)
     }
-  };
+  }
 
   useEffect(() => {
-    scrollToLatest();
-  }, []);
+    scrollToLatest()
+  }, [])
 
-  return { ref };
+  return { ref }
 }

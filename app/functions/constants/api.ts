@@ -1,5 +1,5 @@
 export const apiUrl =
-  process.env["NEXT_PUBLIC_API_BASE_URL"] || "http://localhost:3000";
+  process.env['NEXT_PUBLIC_API_BASE_URL'] || 'http://localhost:3000'
 
 export const API = {
   // prisma user
@@ -20,5 +20,5 @@ export const API = {
   createStripePrices: `${apiUrl}/api/stripe/prices/create`,
   editStripePrices: (priceId: string) =>
     `${apiUrl}/api/stripe/prices/${priceId}/edit`,
-  createStripeCheckoutSessions: `${apiUrl}/api/stripe/checkout_sessions/create`,
-};
+  createStripeCheckoutSessions: `${apiUrl}/api/stripe/checkout_sessions/create`
+}

@@ -1,41 +1,41 @@
-import { IconButton } from "@/components/buttons";
-import { useActiveStep } from "@/functions/hooks/useActiveStep";
-import { useRef } from "react";
-import "swiper/css";
-import { Swiper as RowSwiper, SwiperSlide } from "swiper/react";
-import styles from "./styles.module.scss";
+import { IconButton } from '@/components/buttons'
+import { useActiveStep } from '@/functions/hooks/useActiveStep'
+import { useRef } from 'react'
+import 'swiper/css'
+import { Swiper as RowSwiper, SwiperSlide } from 'swiper/react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "swiper";
+const BLOCK_NAME = 'swiper'
 
 export const Swiper = <T extends { id: number | string }>(props: {
-  rows: T[];
-  render: React.FC<T>;
-  perSlide?: number;
+  rows: T[]
+  render: React.FC<T>
+  perSlide?: number
 }) => {
-  const swiperRef = useRef();
-  const { next, back, activeStep } = useActiveStep();
+  const swiperRef = useRef()
+  const { next, back, activeStep } = useActiveStep()
 
-  const min = activeStep === 0;
-  const max = activeStep === props.rows.length;
+  const min = activeStep === 0
+  const max = activeStep === props.rows.length
 
-  const shouldShowIconButton = props.rows.length > 1;
+  const shouldShowIconButton = props.rows.length > 1
 
   const handleBack = () => {
     // @ts-ignore
-    swiperRef.current.slidePrev();
-    back();
-  };
+    swiperRef.current.slidePrev()
+    back()
+  }
 
   const handleNext = () => {
     // @ts-ignore
-    swiperRef.current?.slideNext();
-    next();
-  };
+    swiperRef.current?.slideNext()
+    next()
+  }
 
   const handleBeforeInit = (swiper: any) => {
     // @ts-ignore
-    swiperRef.current = swiper;
-  };
+    swiperRef.current = swiper
+  }
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
@@ -70,5 +70,5 @@ export const Swiper = <T extends { id: number | string }>(props: {
         />
       )}
     </div>
-  );
-};
+  )
+}

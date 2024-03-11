@@ -1,39 +1,39 @@
-import { IconButton } from "@/components/buttons/IconButton";
-import { Toast as ToastType } from "@/components/elements/ToastProvider";
-import { StackPosition } from "@/functions/types/Common";
-import clsx from "clsx";
-import { useState } from "react";
-import styles from "./styles.module.scss";
+import { IconButton } from '@/components/buttons/IconButton'
+import { Toast as ToastType } from '@/components/elements/ToastProvider'
+import { StackPosition } from '@/functions/types/Common'
+import clsx from 'clsx'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 
 type ToastProps = {
-  isShow: Boolean;
-  toast: ToastType;
-  position?: StackPosition;
-  closeToast: () => void;
+  isShow: Boolean
+  toast: ToastType
+  position?: StackPosition
+  closeToast: () => void
   focusEvent: {
-    setIsShowWithTimeout: () => void;
-    resetTimeout: () => void;
-  };
-};
+    setIsShowWithTimeout: () => void
+    resetTimeout: () => void
+  }
+}
 
-export const BLOCK_NAME = "toast";
+export const BLOCK_NAME = 'toast'
 
 export const Toast: React.FC<ToastProps> = ({
   isShow,
-  toast: { message = "message", theme = "success" },
-  position = "topCenter",
+  toast: { message = 'message', theme = 'success' },
+  position = 'topCenter',
   closeToast,
-  focusEvent: { resetTimeout, setIsShowWithTimeout },
+  focusEvent: { resetTimeout, setIsShowWithTimeout }
 }) => {
-  const [clientHeight, setClientHeight] = useState(0);
+  const [clientHeight, setClientHeight] = useState(0)
 
   const style = {
-    ["--Toast--initial-height" as string]: `${clientHeight}px`,
-    ["--Toast--order-offset-top" as string]: `${clientHeight / 2}px`,
-    ["--Toast--order-offset-bottom" as string]: `${-clientHeight / 2}px`,
-    ["--Toast--offset-top" as string]: `${clientHeight}px`,
-    ["--Toast--offset-bottom" as string]: `${clientHeight}px`,
-  };
+    ['--Toast--initial-height' as string]: `${clientHeight}px`,
+    ['--Toast--order-offset-top' as string]: `${clientHeight / 2}px`,
+    ['--Toast--order-offset-bottom' as string]: `${-clientHeight / 2}px`,
+    ['--Toast--offset-top' as string]: `${clientHeight}px`,
+    ['--Toast--offset-bottom' as string]: `${clientHeight}px`
+  }
 
   return (
     <div
@@ -65,5 +65,5 @@ export const Toast: React.FC<ToastProps> = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}

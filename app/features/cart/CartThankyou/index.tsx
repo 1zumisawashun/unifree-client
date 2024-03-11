@@ -1,39 +1,39 @@
-"use client";
+'use client'
 
-import { LoadingSpinner } from "@/components/elements/LoadingSpinner";
-import { Panel } from "@/components/elements/Panel";
-import { useEffect, useState } from "react";
-import { useShoppingCart } from "use-shopping-cart";
-import styles from "./styles.module.scss";
+import { LoadingSpinner } from '@/components/elements/LoadingSpinner'
+import { Panel } from '@/components/elements/Panel'
+import { useEffect, useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "cart-thankyou";
+const BLOCK_NAME = 'cart-thankyou'
 
 /* eslint-disable react-hooks/exhaustive-deps */
 export const CartThankyou: React.FC = () => {
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false)
 
-  const { cartDetails, clearCart } = useShoppingCart();
+  const { cartDetails, clearCart } = useShoppingCart()
 
   // 本来はwebhookでstripeの更新をしたい
   const update = async () => {
-    setIsPending(true);
+    setIsPending(true)
     try {
-      const params = Object.keys(cartDetails ?? {}).map((key) => key);
-      console.log(params);
+      const params = Object.keys(cartDetails ?? {}).map((key) => key)
+      console.log(params)
       // db upsert
-      clearCart();
-      setIsPending(false);
+      clearCart()
+      setIsPending(false)
     } catch (error) {
-      console.log(error);
-      setIsPending(false);
+      console.log(error)
+      setIsPending(false)
     }
-  };
+  }
 
   useEffect(() => {
-    update();
-  }, []);
+    update()
+  }, [])
 
-  if (isPending) return <LoadingSpinner />;
+  if (isPending) return <LoadingSpinner />
 
   return (
     <Panel.Flame theme="success">
@@ -42,5 +42,5 @@ export const CartThankyou: React.FC = () => {
         <p>Hi, Your order has been successfully placed.</p>
       </Panel.Inner>
     </Panel.Flame>
-  );
-};
+  )
+}

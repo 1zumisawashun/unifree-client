@@ -1,35 +1,35 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/buttons";
-import { useToast } from "@/components/elements/Toast/hooks/useToast";
-import { createPrismaMatch } from "@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch";
-import { useServerAction } from "@/functions/hooks/useServerAction";
-import { Product } from "@/functions/types/Prisma";
-import { useEffect } from "react";
-import { useShoppingCart } from "use-shopping-cart";
-import styles from "./styles.module.scss";
+import { Button } from '@/components/buttons'
+import { useToast } from '@/components/elements/Toast/hooks/useToast'
+import { createPrismaMatch } from '@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch'
+import { useServerAction } from '@/functions/hooks/useServerAction'
+import { Product } from '@/functions/types/Prisma'
+import { useEffect } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "footer";
+const BLOCK_NAME = 'footer'
 
 export function FixedFooter({
   product,
   currentUserId,
   matchId,
-  isProduction,
+  isProduction
 }: {
-  product: Product;
-  currentUserId: number;
-  matchId?: number;
-  isProduction: boolean;
+  product: Product
+  currentUserId: number
+  matchId?: number
+  isProduction: boolean
 }) {
   const { name, stripePriceId, price, images, userId, id, description } =
-    product;
-  const { addItem, cartDetails } = useShoppingCart();
-  const { showToast, closeToast } = useToast();
-  const { isPending, serverAction } = useServerAction();
+    product
+  const { addItem, cartDetails } = useShoppingCart()
+  const { showToast, closeToast } = useToast()
+  const { isPending, serverAction } = useServerAction()
 
-  const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId);
-  const hasMatch = !!matchId;
+  const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId)
+  const hasMatch = !!matchId
 
   const addCart = () => {
     const params = {
@@ -37,34 +37,34 @@ export function FixedFooter({
       id: stripePriceId,
       product_data: {
         id,
-        description,
+        description
       },
       price,
-      currency: "jpy",
-      image: images[0]?.src,
-    };
-    addItem(params);
-    showToast({ message: "カートに追加しました", theme: "success" });
-  };
+      currency: 'jpy',
+      image: images[0]?.src
+    }
+    addItem(params)
+    showToast({ message: 'カートに追加しました', theme: 'success' })
+  }
 
   const createMatch = async () => {
     const params = {
       currentUserId,
       opponentUserId: userId,
-      name: product.name,
-    };
-
-    const response = await serverAction(() => createPrismaMatch(params));
-    if (response.ok) {
-      showToast({ message: "マッチングに成功しました", theme: "success" });
-    } else {
-      showToast({ message: "マッチングに失敗しました", theme: "danger" });
+      name: product.name
     }
-  };
+
+    const response = await serverAction(() => createPrismaMatch(params))
+    if (response.ok) {
+      showToast({ message: 'マッチングに成功しました', theme: 'success' })
+    } else {
+      showToast({ message: 'マッチングに失敗しました', theme: 'danger' })
+    }
+  }
 
   useEffect(() => {
-    return () => closeToast();
-  }, [closeToast]);
+    return () => closeToast()
+  }, [closeToast])
 
   return (
     <footer className={styles[`${BLOCK_NAME}`]}>
@@ -88,5 +88,5 @@ export function FixedFooter({
         )}
       </div>
     </footer>
-  );
+  )
 }
