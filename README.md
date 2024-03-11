@@ -106,18 +106,23 @@
 <summary>🔷 3/4（月）〜3/10（日）</summary>
 
 - ✅ マイページ編集のフォームのバリデーションを改修する
+- ✅ RTL の導入
+- ✅ cloudflare でドメインを取る
+- ✅ OGP 対応とか、メタデータの改修
+- ✅ ga4（セットアップまでは完了）
+- ✅ 詳細画面に notFound()を加える
+
+</details>
+
+<details>
+<summary>🔷 3/11（月）〜3/17（日）</summary>
+
 - match-detail に has セレクターを加える改修
 - input-select の placeholder に has not を加える
 - match に productId を加えないと破綻しそう
-- 詳細画面に notFound()を加える
 - send-grid で email する
 - stripe で購入導線を整える
 - VRT の導入
-- ✅ RTL の導入
-- ✅ cloudflare でドメインを取る
-- OGP 対応とか、メタデータの改修
-- ga4
-  - https://nextjs.org/docs/messages/next-script-for-ga
 - next.js の production check をやってみる
   - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
   - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds
@@ -132,6 +137,7 @@
 
 - layout.tsx > error.tsx（error-boundary） > loading.tsx（suspense） > page.tsx（async function）で構成する
 - 上記のヒエラルキーに関しては次の[ドキュメント](https://nextjs.org/docs/app/building-your-application/routing#component-hierarchy)を参照する
+- [id]には notFound を仕込む
 - 特に page.tsx で フェッチしている場合は error.tsx と loading.tsx はマストで配置する
 - フェッチするのは(pages)ディレクトリに限定する、該当するのは layout か page になるはず
 - 例外的に(pages)ディレクトリ以外でフェッチをする時は〇〇 container.tsx として明示的にコンポーネントを作る
@@ -163,10 +169,11 @@ frontend: Next.js App Router
 backend: Next.js Route Handler
 orm: Prisma
 database: PlanetScale
-css: ITCSS + CSS Modules + Sass
+css: CSS Modules + Sass
 auth: Firebase Auth + NextAuth
 storage: GCS
 catalog: Storybook
+test: react-testing-library
 hosting: Vercel
 ```
 

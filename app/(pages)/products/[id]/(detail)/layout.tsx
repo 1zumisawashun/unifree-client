@@ -1,9 +1,9 @@
 import { LayoutContainer } from "@/components/layouts/LayoutContainer";
 import { SubHeader } from "@/components/layouts/SubHeader";
 import { FixedFooterContainer } from "@/features/product/ProductDetail/components/FixedFooterContainer";
-import { authOptions } from "@/functions/libs/nextAuth";
+import { prismaProductFindUnique } from "@/features/product/hooks/prismaProductFindUnique";
+import { auth } from "@/functions/helpers/nextAuth/server";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 
 const title = "Product Detail";
 
@@ -18,7 +18,9 @@ export default async function Layout({
   params: { id: string };
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  await prismaProductFindUnique({ params });
+
+  const { session } = await auth();
 
   const userId = session?.user.id;
 

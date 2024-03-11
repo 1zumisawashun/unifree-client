@@ -1,19 +1,18 @@
 import "@/assets/styles/generics/custom-reset.css";
 import "@/assets/styles/generics/the-new-css-reset.css";
 import { Header } from "@/components/layouts/Header";
+import { apiUrl } from "@/functions/constants/api";
 import { ClientProvider } from "@/providers/client";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Noto_Sans_JP } from "next/font/google";
+// import { GoogleAnalytics } from '@next/third-parties/google'
 
 const NotoSansJP = Noto_Sans_JP({
   weight: ["400", "700"],
   subsets: ["latin"],
   preload: true,
 });
-
-const apiUrl =
-  process.env["NEXT_PUBLIC_API_BASE_URL"] || "http://localhost:3000";
 
 export const metadata = {
   title: "UniFli",
@@ -41,6 +40,8 @@ export default function RootLayout({
           <SpeedInsights />
           {/* https://vercel.com/1zumisawashun/unifree-client/analytics */}
           <Analytics />
+          {/* https://nextjs.org/docs/messages/next-script-for-ga */}
+          {/* <GoogleAnalytics gaId="G-XYZ" /> */}
         </ClientProvider>
       </body>
     </html>
