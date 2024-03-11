@@ -2,7 +2,12 @@
 @import "@/assets/styles/objects/base-button";
 @import "@/assets/styles/objects/base-text";
 
-.input-file-file {
+.input-file-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.input-file {
   display: flex;
   flex-direction: column;
   gap: 1rem;

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputText } from "./index";
+import { InputText } from "@/components/forms/InputText";
+import { ComponentProps } from "react";
 
 const meta: Meta<typeof InputText> = {
   title: "forms/InputText",
@@ -21,6 +22,10 @@ export default meta;
 
 type Story = StoryObj<typeof InputText>;
 
+const InputTextWithHooks = (props: ComponentProps<typeof InputText>) => {
+  return <InputText {...props} />;
+};
+
 export const Main: Story = {
   args: {
     label: "label",
@@ -30,6 +35,7 @@ export const Main: Story = {
     disabled: false,
     placeholder: "placeholder",
   },
+  render: (args) => <InputTextWithHooks {...args} />,
 };
 
 export const Error: Story = {
@@ -42,4 +48,5 @@ export const Error: Story = {
     placeholder: "placeholder",
     error: "error",
   },
+  render: (args) => <InputTextWithHooks {...args} />,
 };

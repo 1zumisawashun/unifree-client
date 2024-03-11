@@ -1,11 +1,8 @@
 import { ProductDetail } from "@/features/product/ProductDetail";
-import { prisma } from "@/functions/libs/prisma";
+import { prismaProductFindUnique } from "@/features/product/hooks/prismaProductFindUnique";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const product = await prisma.product.findUniqueOrThrow({
-    where: { id: +params.id },
-    include: { user: true, images: true, categories: true },
-  });
+  const product = await prismaProductFindUnique({ params });
 
   return <ProductDetail product={product} />;
 }

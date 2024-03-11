@@ -58,7 +58,7 @@ export function InputFile({
       }
     }
     for (const file of files) {
-      if (file.size < 500000) {
+      if (file.size > 500000) {
         setMessage("ファイルサイズは最大5MBです");
         errorDialog.open();
         return;
@@ -85,7 +85,7 @@ export function InputFile({
   });
 
   return (
-    <>
+    <div className={styles[`${BLOCK_NAME}-wrapper`]}>
       <InputWrapper
         label={label}
         error={error}
@@ -96,7 +96,7 @@ export function InputFile({
         disabled={disabled}
         width={width}
       >
-        <label className={styles[`${BLOCK_NAME}-file`]} ref={dragRef}>
+        <label className={styles[`${BLOCK_NAME}`]} ref={dragRef}>
           <p className={styles[`${BLOCK_NAME}-text`]}>
             ドラッグアンドドロップでアップロードできます
           </p>
@@ -144,6 +144,6 @@ export function InputFile({
         message={message}
         domain="画像アップロード"
       />
-    </>
+    </div>
   );
 }

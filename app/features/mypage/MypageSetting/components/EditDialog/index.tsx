@@ -8,6 +8,7 @@ import { editPrismaUser } from "@/features/mypage/MypageSetting/components/EditD
 import { UpsertUser, zUpsertUser } from "@/features/mypage/user.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
@@ -24,6 +25,8 @@ export function EditDialog({
 }) {
   const router = useRouter();
 
+  const [isPending, setIsPending] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -35,6 +38,7 @@ export function EditDialog({
   });
 
   const onSubmit: SubmitHandler<UpsertUser> = async (data) => {
+    setIsPending(true);
     try {
       const response = await editPrismaUser({ userId, ...data });
       if (!response) throw new Error();
@@ -44,6 +48,7 @@ export function EditDialog({
       console.log(error);
     } finally {
       dialog.close();
+      setIsPending(false);
     }
   };
 
@@ -89,7 +94,9 @@ export function EditDialog({
           <Button onClick={dialog.close} variant="outlined">
             キャンセル
           </Button>
-          <Button onClick={handleSubmit(onSubmit, onError)}>変更する</Button>
+          <Button onClick={handleSubmit(onSubmit, onError)} loading={isPending}>
+            変更する
+          </Button>
         </ButtonWrapper>
       </div>
     </Dialog>

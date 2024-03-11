@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputRadio } from "./index";
+import { InputRadio } from "@/components/forms/InputRadio";
+import { ComponentProps } from "react";
 
 const meta: Meta<typeof InputRadio> = {
   title: "forms/InputRadio",
@@ -21,11 +22,16 @@ export default meta;
 
 type Story = StoryObj<typeof InputRadio>;
 
+const InputRadioWithHooks = (props: ComponentProps<typeof InputRadio>) => {
+  return <InputRadio {...props} />;
+};
+
 export const Primary: Story = {
   args: {
     children: "InputRadio",
     disabled: false,
   },
+  render: (args) => <InputRadioWithHooks {...args} />,
 };
 
 export const PrimaryWithCard: Story = {
@@ -34,4 +40,5 @@ export const PrimaryWithCard: Story = {
     disabled: false,
     variant: "card",
   },
+  render: (args) => <InputRadioWithHooks {...args} />,
 };

@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputToggle } from "@/components/forms/InputToggle";
-import { ComponentProps } from "react";
+import { NotFoundFallback } from "./index";
 
-const meta: Meta<typeof InputToggle> = {
-  title: "forms/InputToggle",
-  component: InputToggle,
+const meta: Meta<typeof NotFoundFallback> = {
+  title: "elements/NotFoundFallback",
+  component: NotFoundFallback,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -20,15 +19,8 @@ const meta: Meta<typeof InputToggle> = {
 
 export default meta;
 
-type Story = StoryObj<typeof InputToggle>;
+type Story = StoryObj<typeof NotFoundFallback>;
 
-const InputToggleWithHooks = (props: ComponentProps<typeof InputToggle>) => {
-  return <InputToggle {...props} />;
-};
-
-export const Main: Story = {
-  args: {
-    children: "InputToggle",
-  },
-  render: (args) => <InputToggleWithHooks {...args} />,
+export const Primary: Story = {
+  args: {},
 };
