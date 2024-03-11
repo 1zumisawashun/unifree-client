@@ -1,4 +1,17 @@
 {
   "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
-  "rules": {}
+  "rules": {},
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"],
+      "excludedFiles": ["**/test-utils.tsx", "**/Sample.tsx"],
+      "rules": {
+        "testing-library/prefer-user-event": "error"
+      }
+    }
+  ]
 }

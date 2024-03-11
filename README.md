@@ -113,9 +113,8 @@
 - send-grid で email する
 - stripe で購入導線を整える
 - VRT の導入
-- RTL の導入
-- cloudflare でドメインを取る
-  - https://zenn.dev/keitakn/articles/add-cloudflare-domain-to-vercel
+- ✅ RTL の導入
+- ✅ cloudflare でドメインを取る
 - OGP 対応とか、メタデータの改修
 - ga4
   - https://nextjs.org/docs/messages/next-script-for-ga
