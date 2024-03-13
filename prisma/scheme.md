@@ -65,18 +65,18 @@ erDiagram
     DateTime updated_at 
     }
   
+    "users" o{--}o "messages" : "messages"
     "users" o{--}o "products" : "products"
     "users" o{--}o "matches" : "matches"
-    "users" o{--}o "messages" : "messages"
-    "products" o|--|| "users" : "user"
-    "products" o{--}o "categories" : "categories"
     "products" o{--}o "images" : "images"
     "products" o{--}o "matches" : "matches"
+    "products" o|--|| "users" : "user"
+    "products" o{--}o "categories" : "categories"
     "images" o|--|| "products" : "product"
     "categories" o{--}o "products" : "products"
-    "matches" o{--}o "users" : "users"
-    "matches" o{--}o "messages" : "messages"
     "matches" o|--|| "products" : "product"
-    "messages" o|--|| "users" : "user"
+    "matches" o{--}o "messages" : "messages"
+    "matches" o{--}o "users" : "users"
     "messages" o|--|| "matches" : "match"
+    "messages" o|--|| "users" : "user"
 ```
