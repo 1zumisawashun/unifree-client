@@ -8,7 +8,9 @@ type Json = {
 }
 
 export async function POST(req: NextRequest) {
+  console.log(req, '②10 ==============================')
   if (req.method === 'POST') {
+    console.log(req, '②⓪==============================')
     const json: Json = await req.json()
     console.log(json, '②①==============================')
 
