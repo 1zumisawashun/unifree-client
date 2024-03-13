@@ -39,6 +39,7 @@ describe('Buttonコンポーネントの単体テスト', () => {
     // act
 
     // assert
+    // @see https://github.com/testing-library/jest-dom/issues/144
     expect(button).toHaveAttribute('aria-disabled', 'true')
   })
 

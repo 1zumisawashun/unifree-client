@@ -4,19 +4,23 @@ import { NextRequest, NextResponse } from 'next/server'
 type Json = {
   currentUserId: number
   opponentUserId: number
-  name: string
+  id: number
 }
 
 // server-actionに移行したため使用していない
 export async function POST(req: NextRequest) {
   if (req.method === 'POST') {
     const json: Json = await req.json()
-    const { name, currentUserId, opponentUserId } = json
+    const { id, currentUserId, opponentUserId } = json
 
     try {
       const match = await prisma.match.create({
         data: {
-          name,
+          product:{
+            connect:{
+              id
+            }
+          },
           users: {
             connect: [
               {

@@ -51,7 +51,7 @@ export function FixedFooter({
     const params = {
       currentUserId,
       opponentUserId: userId,
-      name: product.name
+      id: product.id
     }
 
     const response = await serverAction(() => createPrismaMatch(params))

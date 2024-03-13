@@ -13,7 +13,7 @@ export async function FixedFooterContainer({
   const user = await prisma.user.findUniqueOrThrow({
     where: { id: userId },
     include: {
-      matches: { select: { name: true, id: true } }
+      matches: { select: { productId: true, id: true } }
     }
   })
 
@@ -22,8 +22,9 @@ export async function FixedFooterContainer({
     include: { user: true, images: true, categories: true }
   })
 
-  // FIXME:nameではなくproductIdに変えたい
-  const matchId = user.matches.find((match) => match.name === product.name)?.id
+  const matchId = user.matches.find(
+    (match) => match.productId === product.id
+  )?.id
 
   return (
     <FixedFooter

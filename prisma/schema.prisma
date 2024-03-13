@@ -1,7 +1,6 @@
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -52,6 +51,7 @@ model Product {
 
   categories Category[]
   images     Image[]
+  matches    Match[]
 
   @@index([userId])
   @@map("products")
@@ -85,9 +85,11 @@ model Match {
   id        Int       @id @default(autoincrement())
   users     User[]
   messages  Message[]
-  name      String
   createdAt DateTime  @default(now()) @map("created_at")
-  // updatedAt DateTime  @updatedAt @map("updated_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int     @map("product_id")
 
   @@map("matches")
 }
@@ -96,9 +98,9 @@ model Match {
 model Message {
   id        Int      @id @default(autoincrement())
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    Int // relation scalar field (used in the `@relation` attribute above)
+  userId    Int      @map("user_id")
   match     Match    @relation(fields: [matchId], references: [id], onDelete: Cascade)
-  matchId   Int // relation scalar field (used in the `@relation` attribute above)
+  matchId   Int      @map("match_id")
   message   String   @db.Text
   read      Boolean  @default(false)
   createdAt DateTime @default(now()) @map("created_at")

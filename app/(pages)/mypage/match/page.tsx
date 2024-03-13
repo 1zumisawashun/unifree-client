@@ -11,7 +11,7 @@ export default async function Page() {
     include: {
       matches: {
         orderBy: { createdAt: 'desc' },
-        include: { users: true, messages: true }
+        include: { users: true, messages: true, product: true }
       }
     }
   })
@@ -22,7 +22,7 @@ export default async function Page() {
 
     return {
       id: index + 1,
-      title: match.name,
+      title: match.product.name,
       annotation: hasMessage ? latestMessage : 'no messages',
       href: `/matches/${match.id}`
     }

@@ -117,6 +117,9 @@
 <details>
 <summary>🔷 3/11（月）〜3/17（日）</summary>
 
+- ios safariでログインできない問題
+  - https://github.com/firebase/firebase-js-sdk/issues/6716
+  - https://mackee.hatenablog.com/entry/perl-advent-calendar-2022-day9
 - match-detail に has セレクターを加える改修
 - input-select の placeholder に has not を加える
 - match に productId を加えないと破綻しそう
