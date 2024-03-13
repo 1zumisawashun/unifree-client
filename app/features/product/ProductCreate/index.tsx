@@ -7,9 +7,11 @@ import { imagesFactory } from '@/features/product/hooks/imagesFactory'
 import { UpsertProduct, productEntity } from '@/features/product/product.model'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 
 export const ProductCreate: React.FC = () => {
   const router = useRouter()
+  const { serverAction } = useServerAction()
 
   const [isPending, setIsPending] = useState(false)
 
@@ -31,8 +33,9 @@ export const ProductCreate: React.FC = () => {
         ...stripeIds
       }
 
-      const json = await createPrismaProduct({ params })
-      if (!json) throw new Error()
+      const response = await serverAction(() => createPrismaProduct(params))
+      console.log(response)
+      if (!response.ok) throw new Error('Failed to create product')
 
       router.push(`/products`)
       router.refresh()
