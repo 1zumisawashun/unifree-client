@@ -7,7 +7,7 @@ export const API = {
   // editPrismaUser: (userId: number) =>
   //   `${apiUrl}/api/prisma/user/${userId}/edit`,
   // prisma product
-  createPrismaProduct: `${apiUrl}/api/prisma/product/create`,
+  // createPrismaProduct: `${apiUrl}/api/prisma/product/create`,
   editPrismaProduct: (productId: number) =>
     `${apiUrl}/api/prisma/product/${productId}/edit`,
   deletePrismaProduct: (productId: number) =>
