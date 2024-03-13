@@ -10,10 +10,13 @@ type Json = {
 export async function POST(req: NextRequest) {
   if (req.method === 'POST') {
     const json: Json = await req.json()
+    console.log(json, '②①==============================')
+
     try {
       const user = await prisma.user.findFirstOrThrow({
         where: { uid: json.uid }
       })
+      console.log(user, '②②==============================')
 
       return NextResponse.json({ id: user.id })
     } catch (err) {
