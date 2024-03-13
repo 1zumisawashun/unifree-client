@@ -8,7 +8,10 @@ type Props = {
 export async function createPrismaUser({ uid, picture }: Props) {
   const url = API.createPrismaUser
 
-  console.log(uid, '①==============================')
+  console.log(
+    { uid, photoURL: picture, displayName: null },
+    '①=============================='
+  )
 
   const response = await fetch(url, {
     method: 'POST',

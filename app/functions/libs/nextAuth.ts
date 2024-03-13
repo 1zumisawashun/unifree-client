@@ -21,7 +21,9 @@ export const authOptions = {
         try {
           const decodedIdToken = await auth.verifyIdToken(idToken)
           const { uid, picture } = decodedIdToken
+          console.log('decodedIdToken', decodedIdToken)
           const userId = await createPrismaUser({ uid, picture })
+          console.log('userId', userId)
           return { uid, id: userId }
         } catch (err) {
           console.log('authorize error:', err)

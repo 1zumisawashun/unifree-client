@@ -15,8 +15,7 @@ export async function POST(req: NextRequest) {
     console.log(json, '②①==============================')
 
     try {
-      // findfirstorthrowだとスルーの方が優先される？
-      const user = await prisma.user.findUniqueOrThrow({
+      const user = await prisma.user.findFirstOrThrow({
         where: { uid: json.uid }
       })
       console.log(user, '②②==============================')

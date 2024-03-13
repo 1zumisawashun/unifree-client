@@ -4,8 +4,8 @@ import { prisma } from '@/functions/libs/prisma'
 
 export default async function Page() {
   const { session } = await auth()
-
-  const user = await prisma.user.findFirstOrThrow({
+  // findFirstOrThrowでエラーが出るなんで？
+  const user = await prisma.user.findUniqueOrThrow({
     where: { id: session!.user.id },
     include: { matches: true, products: true }
   })
