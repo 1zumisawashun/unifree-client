@@ -1,6 +1,5 @@
 'use server'
 
-// import { API } from '@/functions/constants/api'
 import { prisma } from '@/functions/libs/prisma'
 import { revalidatePath } from 'next/cache'
 
@@ -34,7 +33,8 @@ export async function createPrismaMatch({
         }
       }
     })
-    console.log(response)
+    if (!response) throw new Error('Failed to create match')
+
     return { ok: true }
   } catch (error) {
     console.log(error)
@@ -43,18 +43,3 @@ export async function createPrismaMatch({
     revalidatePath('/')
   }
 }
-
-// export async function createPrismaMatch2({
-//   currentUserId,
-//   opponentUserId,
-//   id
-// }: Props) {
-//   const url = API.createPrismaMatch
-
-//   const response = await fetch(url, {
-//     method: 'POST',
-//     body: JSON.stringify({ currentUserId, opponentUserId, id })
-//   })
-
-//   return response.ok
-// }
