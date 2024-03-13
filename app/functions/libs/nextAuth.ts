@@ -3,7 +3,6 @@ import auth from '@/functions/libs/firebaseAdmin'
 import { DecodedIdToken } from 'firebase-admin/auth'
 import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { redirect } from 'next/navigation'
 import 'server-only'
 
 type User = { uid: DecodedIdToken['uid']; id: number }
@@ -25,8 +24,8 @@ export const authOptions = {
           const userId = await createPrismaUser({ uid, picture })
           return { uid, id: userId }
         } catch (err) {
-          console.error(err)
-          redirect('/login')
+          console.log('authorize error:', err)
+          return null
         }
       }
     })
