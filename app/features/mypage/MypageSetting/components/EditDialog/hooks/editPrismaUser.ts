@@ -1,15 +1,24 @@
+'use server'
+
 import { UpsertUser } from '@/features/mypage/user.model'
-import { API } from '@/functions/constants/api'
+import { prisma } from '@/functions/libs/prisma'
+import { revalidatePath } from 'next/cache'
 
 type Props = { userId: number } & UpsertUser
 
 export async function editPrismaUser({ userId, ...rest }: Props) {
-  const url = API.editPrismaUser(userId)
+  try {
+    const response = await prisma.user.update({
+      where: { id: userId },
+      data: rest
+    })
+    if (!response) throw new Error('Failed to update user')
 
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(rest)
-  })
-
-  return response.ok
+    return { ok: true }
+  } catch (error) {
+    console.log(error)
+    return { ok: false }
+  } finally {
+    revalidatePath('/mypage/setting')
+  }
 }

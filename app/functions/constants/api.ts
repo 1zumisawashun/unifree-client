@@ -3,9 +3,9 @@ export const apiUrl =
 
 export const API = {
   // prisma user
-  createPrismaUser: `${apiUrl}/api/prisma/user/create`,
-  editPrismaUser: (userId: number) =>
-    `${apiUrl}/api/prisma/user/${userId}/edit`,
+  // createPrismaUser: `${apiUrl}/api/prisma/user/create`,
+  // editPrismaUser: (userId: number) =>
+  //   `${apiUrl}/api/prisma/user/${userId}/edit`,
   // prisma product
   createPrismaProduct: `${apiUrl}/api/prisma/product/create`,
   editPrismaProduct: (productId: number) =>

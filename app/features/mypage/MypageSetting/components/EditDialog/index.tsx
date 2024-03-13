@@ -8,9 +8,9 @@ import { editPrismaUser } from '@/features/mypage/MypageSetting/components/EditD
 import { UpsertUser, zUpsertUser } from '@/features/mypage/user.model'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
 import styles from './styles.module.scss'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 
 const BLOCK_NAME = 'edit-dialog'
 
@@ -24,8 +24,7 @@ export function EditDialog({
   userId: number
 }) {
   const router = useRouter()
-
-  const [isPending, setIsPending] = useState(false)
+  const { isPending, serverAction } = useServerAction()
 
   const {
     register,
@@ -38,17 +37,17 @@ export function EditDialog({
   })
 
   const onSubmit: SubmitHandler<UpsertUser> = async (data) => {
-    setIsPending(true)
     try {
-      const response = await editPrismaUser({ userId, ...data })
-      if (!response) throw new Error()
+      const response = await serverAction(() =>
+        editPrismaUser({ userId, ...data })
+      )
+      if (!response.ok) throw new Error('Failed to update user')
 
       router.refresh()
     } catch (error) {
       console.log(error)
     } finally {
       dialog.close()
-      setIsPending(false)
     }
   }
 

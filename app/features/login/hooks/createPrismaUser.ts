@@ -1,4 +1,4 @@
-import { API } from '@/functions/constants/api'
+import { prisma } from '@/functions/libs/prisma'
 
 type Props = {
   uid: string
@@ -6,13 +6,15 @@ type Props = {
 }
 
 export async function createPrismaUser({ uid, picture }: Props) {
-  const url = API.createPrismaUser
-
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ uid, photoURL: picture, displayName: null })
-  })
-
-  const json = await response.json()
-  return json.id
+  try {
+    const user = await prisma.user.findFirstOrThrow({
+      where: { uid }
+    })
+    return { id: user.id, uid: user.uid }
+  } catch (error) {
+    const user = await prisma.user.create({
+      data: { uid, photoURL: picture, displayName: null }
+    })
+    return { id: user.id, uid: user.uid }
+  }
 }
