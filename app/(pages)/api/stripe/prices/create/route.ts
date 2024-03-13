@@ -1,36 +1,36 @@
-import { stripe } from "@/functions/libs/stripe";
-import { NextRequest, NextResponse } from "next/server";
+import { stripe } from '@/functions/libs/stripe'
+import { NextRequest, NextResponse } from 'next/server'
 
 type Json = {
-  name: string;
-  price: number;
-};
+  name: string
+  price: number
+}
 
 export async function POST(req: NextRequest) {
-  if (req.method === "POST") {
-    const json = (await req.json()) as Json;
+  if (req.method === 'POST') {
+    const json = (await req.json()) as Json
     // zod perseすること
 
     try {
       const price = await stripe.prices.create({
-        currency: "jpy",
+        currency: 'jpy',
         unit_amount: json.price,
         product_data: {
-          name: json.name,
-        },
-      });
+          name: json.name
+        }
+      })
 
       return NextResponse.json({
         stripePriceId: price.id,
-        stripeProductId: price.product,
-      });
+        stripeProductId: price.product
+      })
     } catch (err) {
-      console.log(err);
+      console.log(err)
       const errorMessage =
-        err instanceof Error ? err.message : "Internal server error";
-      return new NextResponse(`${errorMessage}`, { status: 500 });
+        err instanceof Error ? err.message : 'Internal server error'
+      return new NextResponse(`${errorMessage}`, { status: 500 })
     }
   } else {
-    return new NextResponse(`Method Not Allowed`, { status: 405 });
+    return new NextResponse(`Method Not Allowed`, { status: 405 })
   }
 }

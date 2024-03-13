@@ -1,16 +1,16 @@
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from 'next-auth/react'
 
 async function loginByNextAuth(idToken: string) {
-  await signIn("credentials", {
+  await signIn('credentials', {
     idToken,
-    callbackUrl: `/`,
-  });
+    callbackUrl: `/`
+  })
 }
 
 async function logoutByNextAuth() {
   await signOut({
-    callbackUrl: `/login`,
-  });
+    callbackUrl: `/login`
+  })
 }
 
-export { loginByNextAuth, logoutByNextAuth };
+export { loginByNextAuth, logoutByNextAuth }

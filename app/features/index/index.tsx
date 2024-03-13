@@ -1,8 +1,8 @@
-import { ButtonAnchor } from "@/components/buttons";
-import "server-only";
-import styles from "./styles.module.scss";
+import { ButtonAnchor } from '@/components/buttons'
+import 'server-only'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "index";
+const BLOCK_NAME = 'index'
 
 export function Index({ isAuthenticated }: { isAuthenticated: boolean }) {
   return (
@@ -16,23 +16,23 @@ export function Index({ isAuthenticated }: { isAuthenticated: boolean }) {
         UniFliは北海道大学生のための教科書フリマアプリです
       </p>
       <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
-        <ButtonAnchor href={"/products"} size="large" variant="outlined">
+        <ButtonAnchor href={'/products'} size="large" variant="outlined">
           教科書を探す
         </ButtonAnchor>
         {isAuthenticated ? (
           <ButtonAnchor
-            href={"/products/create"}
+            href={'/products/create'}
             size="large"
             variant="outlined"
           >
             教科書を売る
           </ButtonAnchor>
         ) : (
-          <ButtonAnchor href={"/login"} size="large" variant="outlined">
+          <ButtonAnchor href={'/login'} size="large" variant="outlined">
             ログインする
           </ButtonAnchor>
         )}
       </div>
     </div>
-  );
+  )
 }

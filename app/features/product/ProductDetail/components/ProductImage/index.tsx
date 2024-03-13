@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { IconButton, UnstyledButton } from "@/components/buttons";
-import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { Nl2br } from "@/components/elements/Nl2br";
-import { PreviewDialog } from "@/components/elements/PreviewDialog";
-import { Tooltip } from "@/components/elements/Tooltip";
-import { Image } from "@/functions/types/Prisma";
-import { useRef } from "react";
-import styles from "./styles.module.scss";
+import { IconButton, UnstyledButton } from '@/components/buttons'
+import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { Nl2br } from '@/components/elements/Nl2br'
+import { PreviewDialog } from '@/components/elements/PreviewDialog'
+import { Tooltip } from '@/components/elements/Tooltip'
+import { Image } from '@/functions/types/Prisma'
+import { useRef } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "product-image";
+const BLOCK_NAME = 'product-image'
 
 /* eslint-disable @next/next/no-img-element */
 export const ProductImage = ({ images }: { images: Image[] }) => {
-  const previewDialog = useDialog();
-  const referenceRef = useRef<HTMLButtonElement>(null);
+  const previewDialog = useDialog()
+  const referenceRef = useRef<HTMLButtonElement>(null)
 
   return (
     <>
@@ -39,5 +39,5 @@ export const ProductImage = ({ images }: { images: Image[] }) => {
       </UnstyledButton>
       <PreviewDialog dialog={previewDialog} images={images} />
     </>
-  );
-};
+  )
+}

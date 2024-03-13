@@ -1,39 +1,39 @@
-"use client";
+'use client'
 
-import { Button, ButtonWrapper } from "@/components/buttons";
-import { Dialog, UseDialog, useDialog } from "@/components/elements/Dialog";
-import { ErrorDialog } from "@/components/elements/ErrorDialog";
-import { LoadingSpinner } from "@/components/elements/LoadingSpinner";
-import { logoutByFirebaseAuth } from "@/functions/helpers/firebaseAuth";
-import { logoutByNextAuth } from "@/functions/helpers/nextAuth/client";
-import { useState } from "react";
-import styles from "./styles.module.scss";
+import { Button, ButtonWrapper } from '@/components/buttons'
+import { Dialog, UseDialog, useDialog } from '@/components/elements/Dialog'
+import { ErrorDialog } from '@/components/elements/ErrorDialog'
+import { LoadingSpinner } from '@/components/elements/LoadingSpinner'
+import { logoutByFirebaseAuth } from '@/functions/helpers/firebaseAuth'
+import { logoutByNextAuth } from '@/functions/helpers/nextAuth/client'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "logout-dialog";
+const BLOCK_NAME = 'logout-dialog'
 
 export const LogoutDialog = ({ dialog }: { dialog: UseDialog }) => {
-  const errorDialog = useDialog();
+  const errorDialog = useDialog()
 
-  const [message, setMessage] = useState("");
-  const [isPending, setIsPending] = useState(false);
+  const [message, setMessage] = useState('')
+  const [isPending, setIsPending] = useState(false)
 
   const logout = async () => {
-    dialog.close();
-    setIsPending(true);
+    dialog.close()
+    setIsPending(true)
 
     try {
-      await logoutByFirebaseAuth();
-      await logoutByNextAuth(); // ログインページへリダイレクトされる
+      await logoutByFirebaseAuth()
+      await logoutByNextAuth() // ログインページへリダイレクトされる
     } catch (error) {
       if (error instanceof Error) {
-        setMessage(error.message);
+        setMessage(error.message)
       }
-      dialog.close();
-      errorDialog.open();
+      dialog.close()
+      errorDialog.open()
     } finally {
-      setIsPending(false);
+      setIsPending(false)
     }
-  };
+  }
 
   return (
     <>
@@ -55,5 +55,5 @@ export const LogoutDialog = ({ dialog }: { dialog: UseDialog }) => {
       <ErrorDialog dialog={errorDialog} message={message} domain="ログアウト" />
       {isPending && <LoadingSpinner />}
     </>
-  );
-};
+  )
+}

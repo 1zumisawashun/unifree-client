@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react'
 
 export const useActiveStep = (initial = 0) => {
-  const [activeStep, setActiveStep] = useState(initial);
+  const [activeStep, setActiveStep] = useState(initial)
 
-  const back = useCallback(() => setActiveStep((prev) => prev - 1), []);
-  const next = useCallback(() => setActiveStep((prev) => prev + 1), []);
-  const reset = useCallback(() => setActiveStep(0), []);
+  const back = useCallback(() => setActiveStep((prev) => prev - 1), [])
+  const next = useCallback(() => setActiveStep((prev) => prev + 1), [])
+  const reset = useCallback(() => setActiveStep(0), [])
 
-  return { activeStep, back, next, reset };
-};
+  return { activeStep, back, next, reset }
+}
 
-export type UseActiveStep = ReturnType<typeof useActiveStep>;
+export type UseActiveStep = ReturnType<typeof useActiveStep>

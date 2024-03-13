@@ -1,5 +1,5 @@
-import { Faq } from "@/features/faq";
+import { Faq } from '@/features/faq'
 
 export default function Page() {
-  return <Faq />;
+  return <Faq />
 }

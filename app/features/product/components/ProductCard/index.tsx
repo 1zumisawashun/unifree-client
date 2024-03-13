@@ -1,27 +1,27 @@
-import { UnstyledButtonAnchor } from "@/components/buttons/UnstyledButtonAnchor";
-import { ImageAsync } from "@/components/elements/ImageAsync";
-import { Label } from "@/components/elements/Label";
-import { formatCurrencyString } from "@/functions/helpers/formatNumber";
-import { Product } from "@/functions/types/Prisma";
-import { formatDistanceToNow, isBefore, subDays } from "date-fns";
-import { ja } from "date-fns/locale";
-import "server-only";
-import styles from "./styles.module.scss";
+import { UnstyledButtonAnchor } from '@/components/buttons/UnstyledButtonAnchor'
+import { ImageAsync } from '@/components/elements/ImageAsync'
+import { Label } from '@/components/elements/Label'
+import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { Product } from '@/functions/types/Prisma'
+import { formatDistanceToNow, isBefore, subDays } from 'date-fns'
+import { ja } from 'date-fns/locale'
+import 'server-only'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "product-card";
+const BLOCK_NAME = 'product-card'
 
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ product }: { product: Product }) => {
-  const { id, name, images, price, status, createdAt } = product;
+  const { id, name, images, price, status, createdAt } = product
 
-  const formattedPrice = formatCurrencyString(price);
+  const formattedPrice = formatCurrencyString(price)
   const formattedCreatedAt = formatDistanceToNow(createdAt, {
     addSuffix: true,
-    locale: ja,
-  });
+    locale: ja
+  })
 
-  const sevenDaysAgo = subDays(new Date(), 7);
-  const isSevenDaysAgoBeforeCreatedAt = isBefore(sevenDaysAgo, createdAt);
+  const sevenDaysAgo = subDays(new Date(), 7)
+  const isSevenDaysAgoBeforeCreatedAt = isBefore(sevenDaysAgo, createdAt)
 
   return (
     <UnstyledButtonAnchor href={`/products/${id}`}>
@@ -49,8 +49,8 @@ const Item = ({ product }: { product: Product }) => {
         </div>
       </div>
     </UnstyledButtonAnchor>
-  );
-};
+  )
+}
 
 const List = ({ products }: { products: Product[] }) => {
   return (
@@ -59,10 +59,10 @@ const List = ({ products }: { products: Product[] }) => {
         <Item key={product.id} product={product} />
       ))}
     </div>
-  );
-};
+  )
+}
 
 export const ProductCard = {
   List,
-  Item,
-};
+  Item
+}

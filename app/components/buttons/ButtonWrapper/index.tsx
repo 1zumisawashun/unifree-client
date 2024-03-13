@@ -1,21 +1,21 @@
-import { DirectionType, PositionType } from "@/functions/types/Common";
-import clsx from "clsx";
-import styles from "./styles.module.scss";
+import { DirectionType, PositionType } from '@/functions/types/Common'
+import clsx from 'clsx'
+import styles from './styles.module.scss'
 
 type Props = {
-  children: React.ReactNode;
-  position?: PositionType;
-  direction?: DirectionType;
-  className?: string;
-};
+  children: React.ReactNode
+  position?: PositionType
+  direction?: DirectionType
+  className?: string
+}
 
-const BLOCK_NAME = "button-wrapper";
+const BLOCK_NAME = 'button-wrapper'
 
 export const ButtonWrapper: React.FC<Props> = ({
   children,
-  position = "start",
-  direction = "row",
-  className,
+  position = 'start',
+  direction = 'row',
+  className
 }) => {
   return (
     <div
@@ -25,5 +25,5 @@ export const ButtonWrapper: React.FC<Props> = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

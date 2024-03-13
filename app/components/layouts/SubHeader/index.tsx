@@ -1,19 +1,19 @@
-import { UnstyledButtonAnchor } from "@/components/buttons";
-import "server-only";
-import styles from "./styles.module.scss";
+import { UnstyledButtonAnchor } from '@/components/buttons'
+import 'server-only'
+import styles from './styles.module.scss'
 
 type SubHeaderProps = {
-  children: React.ReactNode;
-  href?: string;
-  title?: string;
-};
+  children: React.ReactNode
+  href?: string
+  title?: string
+}
 
-const BLOCK_NAME = "sub-header";
+const BLOCK_NAME = 'sub-header'
 
 export const SubHeader: React.FC<SubHeaderProps> = ({
   children,
   href,
-  title,
+  title
 }) => {
   return (
     <section>
@@ -30,5 +30,5 @@ export const SubHeader: React.FC<SubHeaderProps> = ({
       ) : null}
       {children}
     </section>
-  );
-};
+  )
+}

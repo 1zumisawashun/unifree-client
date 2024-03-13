@@ -1,21 +1,21 @@
-import { UnstyledButton } from "@/components/buttons/UnstyledButton";
-import { SendIcon } from "@/components/elements/SvgIcon";
-import { useAutoResize } from "@/features/match/MatchDetail/hooks/useAutoResize";
-import { BaseSyntheticEvent } from "react";
-import styles from "./styles.module.scss";
+import { UnstyledButton } from '@/components/buttons/UnstyledButton'
+import { SendIcon } from '@/components/elements/SvgIcon'
+import { useAutoResize } from '@/features/match/MatchDetail/hooks/useAutoResize'
+import { BaseSyntheticEvent } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "match-textarea";
+const BLOCK_NAME = 'match-textarea'
 
 export function MatchTextarea({
   value,
   onChange,
-  submit,
+  submit
 }: {
-  value: string;
-  onChange: (e: BaseSyntheticEvent) => void;
-  submit: () => void;
+  value: string
+  onChange: (e: BaseSyntheticEvent) => void
+  submit: () => void
 }) {
-  const textAreaRef = useAutoResize(value);
+  const textAreaRef = useAutoResize(value)
 
   return (
     <div className={styles[`${BLOCK_NAME}-container`]}>
@@ -35,5 +35,5 @@ export function MatchTextarea({
         </UnstyledButton>
       </div>
     </div>
-  );
+  )
 }

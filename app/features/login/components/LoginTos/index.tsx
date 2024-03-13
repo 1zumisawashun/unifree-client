@@ -1,9 +1,9 @@
-import { Nl2br } from "@/components/elements/Nl2br";
-import { Panel } from "@/components/elements/Panel";
-import { tos } from "@/functions/constants/tos";
-import styles from "./styles.module.scss";
+import { Nl2br } from '@/components/elements/Nl2br'
+import { Panel } from '@/components/elements/Panel'
+import { tos } from '@/functions/constants/tos'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "login-tos";
+const BLOCK_NAME = 'login-tos'
 
 export function LoginTos() {
   return (
@@ -18,5 +18,5 @@ export function LoginTos() {
         </p>
       </Panel.Inner>
     </Panel.Flame>
-  );
+  )
 }

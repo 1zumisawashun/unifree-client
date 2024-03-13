@@ -4,30 +4,30 @@ import {
   Match as RowMatch,
   Message as RowMessage,
   Product as RowProduct,
-  User as RowUser,
-} from "@prisma/client";
+  User as RowUser
+} from '@prisma/client'
 
 export type Product = RowProduct & {
-  user: RowUser;
-  images: RowImage[];
-  categories: RowCategory[];
-};
+  user: RowUser
+  images: RowImage[]
+  categories: RowCategory[]
+}
 
 export type User = RowUser & {
-  matches: RowMatch[];
-  products: RowProduct[];
-};
+  matches: RowMatch[]
+  products: RowProduct[]
+}
 
 export type Message = RowMessage & {
-  user: RowUser;
-};
+  user: RowUser
+}
 
 export type Messages = {
-  matchId: number;
-  userId: number;
-  messages: Message[];
-};
+  matchId: number
+  userId: number
+  messages: Message[]
+}
 
-export type Image = RowImage;
+export type Image = RowImage
 
-export type Category = RowCategory;
+export type Category = RowCategory

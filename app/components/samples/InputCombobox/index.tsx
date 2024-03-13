@@ -1,30 +1,30 @@
-"use client";
+'use client'
 
-import { useState, BaseSyntheticEvent } from "react";
+import { useState, BaseSyntheticEvent } from 'react'
 
 const initOptions = [
-  { id: 1, value: "test1", label: "テスト1", selected: false },
-  { id: 2, value: "test2", label: "テスト2", selected: false },
-  { id: 3, value: "test3", label: "テスト3", selected: false },
-];
+  { id: 1, value: 'test1', label: 'テスト1', selected: false },
+  { id: 2, value: 'test2', label: 'テスト2', selected: false },
+  { id: 3, value: 'test3', label: 'テスト3', selected: false }
+]
 
 export function InputCombobox() {
-  const [inputText, setInputText] = useState("");
-  const [options, setOptions] = useState(initOptions);
-  const [show, setShow] = useState(false);
+  const [inputText, setInputText] = useState('')
+  const [options, setOptions] = useState(initOptions)
+  const [show, setShow] = useState(false)
 
   const handleInputText = (e: BaseSyntheticEvent) => {
-    const value = e.target.value;
-    setInputText(value);
+    const value = e.target.value
+    setInputText(value)
 
-    const result = options.filter((option) => option.label.includes(value));
-    setOptions(result);
-  };
+    const result = options.filter((option) => option.label.includes(value))
+    setOptions(result)
+  }
 
   const handleClick = (val: string) => {
-    setInputText(val);
-    setShow(false);
-  };
+    setInputText(val)
+    setShow(false)
+  }
 
   return (
     <div>
@@ -42,5 +42,5 @@ export function InputCombobox() {
         </ul>
       )}
     </div>
-  );
+  )
 }

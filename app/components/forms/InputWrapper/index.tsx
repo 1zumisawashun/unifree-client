@@ -1,10 +1,10 @@
-import { Nl2br } from "@/components/elements/Nl2br";
-import { InputLabel } from "@/components/forms/InputLabel";
-import { InputWrapperProps } from "@/components/forms/input.type";
-import clsx from "clsx";
-import styles from "./styles.module.scss";
+import { Nl2br } from '@/components/elements/Nl2br'
+import { InputLabel } from '@/components/forms/InputLabel'
+import { InputWrapperProps } from '@/components/forms/input.type'
+import clsx from 'clsx'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "input-wrapper";
+const BLOCK_NAME = 'input-wrapper'
 
 export function InputWrapper({
   id,
@@ -16,7 +16,7 @@ export function InputWrapper({
   isOptioned = false,
   isRequired = false,
   disabled,
-  width = "auto",
+  width = 'auto'
 }: InputWrapperProps) {
   return (
     <div
@@ -49,5 +49,5 @@ export function InputWrapper({
 
       <p className={styles[`${BLOCK_NAME}-error`]}>{error}</p>
     </div>
-  );
+  )
 }

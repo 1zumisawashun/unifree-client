@@ -1,28 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { IconButton } from "./index";
+import { IconButton } from './index'
 
 const meta: Meta<typeof IconButton> = {
-  title: "buttons/IconButton",
+  title: 'buttons/IconButton',
   component: IconButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    layout: 'centered'
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs']
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   //   backgroundColor: { control: 'color' }
   // }
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof IconButton>;
+type Story = StoryObj<typeof IconButton>
 
 export const Primary: Story = {
   args: {
-    name: "add",
-  },
-};
+    name: 'add'
+  }
+}

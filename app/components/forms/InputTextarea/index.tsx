@@ -1,12 +1,12 @@
-import { InputWrapper } from "@/components/forms/InputWrapper";
-import { InputWrapperPropsPassThroughProps } from "@/components/forms/input.type";
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
-import styles from "./styles.module.scss";
+import { InputWrapper } from '@/components/forms/InputWrapper'
+import { InputWrapperPropsPassThroughProps } from '@/components/forms/input.type'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from 'react'
+import styles from './styles.module.scss'
 
-type Props = ComponentPropsWithoutRef<"textarea"> &
-  InputWrapperPropsPassThroughProps;
+type Props = ComponentPropsWithoutRef<'textarea'> &
+  InputWrapperPropsPassThroughProps
 
-type Ref = ElementRef<"textarea">;
+type Ref = ElementRef<'textarea'>
 
 export const InputTextarea = forwardRef<Ref, Props>(
   (
@@ -22,7 +22,7 @@ export const InputTextarea = forwardRef<Ref, Props>(
     },
     ref
   ) => {
-    const id = useId();
+    const id = useId()
     return (
       <InputWrapper
         label={label}
@@ -34,7 +34,7 @@ export const InputTextarea = forwardRef<Ref, Props>(
         disabled={disabled}
       >
         <textarea
-          className={styles["input-textarea"]}
+          className={styles['input-textarea']}
           {...props}
           ref={ref}
           id={id}
@@ -42,8 +42,8 @@ export const InputTextarea = forwardRef<Ref, Props>(
           disabled={disabled}
         />
       </InputWrapper>
-    );
+    )
   }
-);
+)
 
-InputTextarea.displayName = "Input";
+InputTextarea.displayName = 'Input'

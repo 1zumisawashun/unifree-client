@@ -1,6 +1,6 @@
 export const delay = (time?: number) => {
-  const _time = time || 3000;
+  const _time = time || 3000
   return new Promise((resolve) => {
-    setTimeout(resolve, _time);
-  });
-};
+    setTimeout(resolve, _time)
+  })
+}

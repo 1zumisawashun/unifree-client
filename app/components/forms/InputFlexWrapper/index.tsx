@@ -1,21 +1,21 @@
-import { DirectionType } from "@/functions/types/Common";
-import styles from "./styles.module.scss";
+import { DirectionType } from '@/functions/types/Common'
+import styles from './styles.module.scss'
 
 type Props = {
-  children: React.ReactNode;
-  direction?: DirectionType;
-  hasBorder?: boolean;
-  error?: string;
-};
+  children: React.ReactNode
+  direction?: DirectionType
+  hasBorder?: boolean
+  error?: string
+}
 
-const BLOCK_NAME = "input-flex-wrapper";
+const BLOCK_NAME = 'input-flex-wrapper'
 
 // checkbox, radiobutton, toggleで使用する
 export const InputFlexWrapper: React.FC<Props> = ({
   children,
-  direction = "row",
+  direction = 'row',
   hasBorder = false,
-  error,
+  error
 }) => {
   return (
     <div
@@ -26,5 +26,5 @@ export const InputFlexWrapper: React.FC<Props> = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

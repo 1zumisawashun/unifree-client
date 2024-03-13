@@ -1,16 +1,16 @@
-import { InputWrapper } from "@/components/forms/InputWrapper";
+import { InputWrapper } from '@/components/forms/InputWrapper'
 import {
   InputWrapperPropsPassThroughProps,
-  SelectOptions,
-} from "@/components/forms/input.type";
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
-import styles from "./styles.module.scss";
+  SelectOptions
+} from '@/components/forms/input.type'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from 'react'
+import styles from './styles.module.scss'
 
-type Props = ComponentPropsWithoutRef<"select"> & {
-  options: SelectOptions;
-} & InputWrapperPropsPassThroughProps;
+type Props = ComponentPropsWithoutRef<'select'> & {
+  options: SelectOptions
+} & InputWrapperPropsPassThroughProps
 
-type Ref = ElementRef<"select">;
+type Ref = ElementRef<'select'>
 
 export const InputSelect = forwardRef<Ref, Props>(
   (
@@ -27,7 +27,7 @@ export const InputSelect = forwardRef<Ref, Props>(
     },
     ref
   ) => {
-    const id = useId();
+    const id = useId()
     return (
       <InputWrapper
         label={label}
@@ -37,9 +37,9 @@ export const InputSelect = forwardRef<Ref, Props>(
         isOptioned={isOptioned}
         isRequired={isRequired}
       >
-        <div className={styles["input-select-wrapper"]}>
+        <div className={styles['input-select-wrapper']}>
           <select
-            className={styles["input-select"]}
+            className={styles['input-select']}
             {...props}
             ref={ref}
             id={id}
@@ -55,8 +55,8 @@ export const InputSelect = forwardRef<Ref, Props>(
           </select>
         </div>
       </InputWrapper>
-    );
+    )
   }
-);
+)
 
-InputSelect.displayName = "Select";
+InputSelect.displayName = 'Select'

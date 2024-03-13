@@ -1,5 +1,5 @@
-import { CartThankyou } from "@/features/cart/CartThankyou";
+import { CartThankyou } from '@/features/cart/CartThankyou'
 
 export default function Page() {
-  return <CartThankyou />;
+  return <CartThankyou />
 }

@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { CircularProgress } from "@/components/elements/CircularProgress";
-import clsx from "clsx";
-import Image from "next/image";
-import { ComponentProps, useState } from "react";
-import styles from "./styles.module.scss";
+import { CircularProgress } from '@/components/elements/CircularProgress'
+import clsx from 'clsx'
+import Image from 'next/image'
+import { ComponentProps, useState } from 'react'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "image-async";
+const BLOCK_NAME = 'image-async'
 
 /**
  * 親コンポーネントからwidthとheightをclassName経由でおろす必要がある
@@ -17,9 +17,9 @@ export const ImageAsync = ({
   className,
   ...props
 }: ComponentProps<typeof Image>) => {
-  const [reveal, setReveal] = useState(false);
-  const visibility = reveal ? "visible" : "hidden";
-  const loader = reveal ? "none" : "inline-block";
+  const [reveal, setReveal] = useState(false)
+  const visibility = reveal ? 'visible' : 'hidden'
+  const loader = reveal ? 'none' : 'inline-block'
 
   return (
     <div className={clsx(styles[`${BLOCK_NAME}-wrapper`], className)}>
@@ -42,5 +42,5 @@ export const ImageAsync = ({
         style={{ display: loader }}
       />
     </div>
-  );
-};
+  )
+}

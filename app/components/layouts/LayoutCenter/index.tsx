@@ -1,14 +1,14 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "center";
+const BLOCK_NAME = 'center'
 
 // index-page,login-pageで使用中
 export function LayoutCenter({
   children,
-  background,
+  background
 }: {
-  children: React.ReactNode;
-  background?: "index";
+  children: React.ReactNode
+  background?: 'index'
 }) {
   return (
     <div
@@ -17,5 +17,5 @@ export function LayoutCenter({
     >
       <div className={styles[`${BLOCK_NAME}-inner`]}>{children}</div>
     </div>
-  );
+  )
 }

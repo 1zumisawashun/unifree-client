@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "loading-spinner";
+const BLOCK_NAME = 'loading-spinner'
 
 export const LoadingSpinner: React.FC = () => {
   return (
@@ -9,5 +9,5 @@ export const LoadingSpinner: React.FC = () => {
         <span className={styles[`${BLOCK_NAME}-main`]} />
       </div>
     </div>
-  );
-};
+  )
+}

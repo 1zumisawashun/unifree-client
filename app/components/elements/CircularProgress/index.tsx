@@ -1,19 +1,19 @@
-import { SizeType, ThemeType, VariantType } from "@/functions/types/Common";
-import clsx from "clsx";
-import { CSSProperties, ElementRef, forwardRef } from "react";
-import styles from "./styles.module.scss";
+import { SizeType, ThemeType, VariantType } from '@/functions/types/Common'
+import clsx from 'clsx'
+import { CSSProperties, ElementRef, forwardRef } from 'react'
+import styles from './styles.module.scss'
 
 type Props = {
-  size: SizeType;
-  theme: ThemeType;
-  variant: VariantType;
-  className?: string; // additional class
-  style?: CSSProperties; // inline style
-};
+  size: SizeType
+  theme: ThemeType
+  variant: VariantType
+  className?: string // additional class
+  style?: CSSProperties // inline style
+}
 
-type Ref = ElementRef<"span">;
+type Ref = ElementRef<'span'>
 
-const BLOCK_NAME = "circular-progress";
+const BLOCK_NAME = 'circular-progress'
 
 export const CircularProgress = forwardRef<Ref, Props>(
   ({ size, theme, variant, className, ...props }, ref) => {
@@ -26,8 +26,8 @@ export const CircularProgress = forwardRef<Ref, Props>(
         ref={ref}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-CircularProgress.displayName = "CircularProgress";
+CircularProgress.displayName = 'CircularProgress'

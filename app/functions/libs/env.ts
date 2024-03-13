@@ -1,4 +1,4 @@
-import { cleanEnv, str } from "envalid";
+import { cleanEnv, str } from 'envalid'
 
 const env = cleanEnv(process.env, {
   // stripe
@@ -14,7 +14,7 @@ const env = cleanEnv(process.env, {
   FIREBASE_TOKEN_URI: str(),
   FIREBASE_AUTH_PROVIDER_X509_CERT_URL: str(),
   FIREBASE_CLIENT_X509_CERT_URL: str(),
-  FIREBASE_UNIVERSE_DOMAIN: str(),
-});
+  FIREBASE_UNIVERSE_DOMAIN: str()
+})
 
-export default env;
+export default env

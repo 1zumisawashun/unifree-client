@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { ToastContext } from "@/components/elements/ToastProvider";
-import { useContext } from "react";
+import { ToastContext } from '@/components/elements/ToastProvider'
+import { useContext } from 'react'
 
 export const useToast = () => {
-  return useContext(ToastContext);
-};
+  return useContext(ToastContext)
+}
 
 // MEMO:遷移時にToastを閉じる
 // const { showToast, closeToast } = useToast();

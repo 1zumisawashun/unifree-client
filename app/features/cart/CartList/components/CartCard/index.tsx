@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { Button, ButtonAnchor, ButtonWrapper } from "@/components/buttons";
-import { useDialog } from "@/components/elements/Dialog/hooks/useDialog";
-import { Panel } from "@/components/elements/Panel";
-import { RemoveDialog } from "@/features/cart/CartList/components/RemoveDialog";
-import { CartDetails, CartItem as ICartItem } from "@/functions/constants/cart";
-import { formatCurrencyString } from "@/functions/helpers/formatNumber";
-import styles from "./styles.module.scss";
+import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
+import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { Panel } from '@/components/elements/Panel'
+import { RemoveDialog } from '@/features/cart/CartList/components/RemoveDialog'
+import { CartDetails, CartItem as ICartItem } from '@/functions/constants/cart'
+import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import styles from './styles.module.scss'
 
-const BLOCK_NAME = "cart-card";
+const BLOCK_NAME = 'cart-card'
 
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ cart }: { cart: ICartItem }) => {
@@ -16,10 +16,10 @@ const Item = ({ cart }: { cart: ICartItem }) => {
     name,
     image,
     price,
-    product_data: { id },
-  } = cart;
+    product_data: { id }
+  } = cart
 
-  const removeDialog = useDialog();
+  const removeDialog = useDialog()
   return (
     <Panel.Flame hasBorder>
       <Panel.Inner>
@@ -54,11 +54,11 @@ const Item = ({ cart }: { cart: ICartItem }) => {
         <RemoveDialog dialog={removeDialog} cart={cart} />
       </Panel.Inner>
     </Panel.Flame>
-  );
-};
+  )
+}
 
 const List = ({ carts }: { carts: CartDetails }) => {
-  const formattedCarts = Object.values(carts).map((cart) => cart);
+  const formattedCarts = Object.values(carts).map((cart) => cart)
 
   return (
     <div className={styles[`${BLOCK_NAME}-wrapper`]}>
@@ -66,7 +66,7 @@ const List = ({ carts }: { carts: CartDetails }) => {
         <Item key={cart.id} cart={cart} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export const CartCard = { List, Item };
+export const CartCard = { List, Item }

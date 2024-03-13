@@ -1,22 +1,22 @@
-import { UnstyledButton } from "@/components/buttons/UnstyledButton";
-import { BaseButtonProps } from "@/components/buttons/button.type";
-import { CircularProgress } from "@/components/elements/CircularProgress";
-import clsx from "clsx";
-import { ComponentProps, ElementRef, forwardRef } from "react";
-import styles from "./styles.module.scss";
+import { UnstyledButton } from '@/components/buttons/UnstyledButton'
+import { BaseButtonProps } from '@/components/buttons/button.type'
+import { CircularProgress } from '@/components/elements/CircularProgress'
+import clsx from 'clsx'
+import { ComponentProps, ElementRef, forwardRef } from 'react'
+import styles from './styles.module.scss'
 
-type Props = ComponentProps<typeof UnstyledButton> & BaseButtonProps;
+type Props = ComponentProps<typeof UnstyledButton> & BaseButtonProps
 
-type Ref = ElementRef<"button">;
+type Ref = ElementRef<'button'>
 
 export const Button = forwardRef<Ref, Props>(
   (
     {
-      type = "button",
+      type = 'button',
       children,
-      theme = "primary",
-      variant = "contained",
-      size = "medium",
+      theme = 'primary',
+      variant = 'contained',
+      size = 'medium',
       shape,
       loading,
       disabled,
@@ -31,7 +31,7 @@ export const Button = forwardRef<Ref, Props>(
       <UnstyledButton
         {...props}
         type={type}
-        className={clsx(styles["button"], className)}
+        className={clsx(styles['button'], className)}
         data-variant={variant}
         data-theme={theme}
         data-size={size}
@@ -49,8 +49,8 @@ export const Button = forwardRef<Ref, Props>(
           </>
         )}
       </UnstyledButton>
-    );
+    )
   }
-);
+)
 
-Button.displayName = "Button";
+Button.displayName = 'Button'
