@@ -1,5 +1,5 @@
-@import "@/assets/styles/objects/base-text";
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/objects/base-text';
+@import '@/assets/styles/settings/color';
 
 .product-image {
   width: 100%;
@@ -12,7 +12,7 @@
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
-  z-index: 100;
+  z-index: 1;
   &:hover {
     cursor: default !important;
   }

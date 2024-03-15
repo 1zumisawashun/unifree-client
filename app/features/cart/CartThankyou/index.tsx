@@ -14,13 +14,13 @@ export const CartThankyou: React.FC = () => {
 
   const { cartDetails, clearCart } = useShoppingCart()
 
-  // 本来はwebhookでstripeの更新をしたい
+  // FIXME:本来はwebhookでstripeの更新をしたい
   const update = async () => {
     setIsPending(true)
     try {
       const params = Object.keys(cartDetails ?? {}).map((key) => key)
       console.log(params)
-      // db upsert
+      // FIXME:productを完売状態にする処理
       clearCart()
       setIsPending(false)
     } catch (error) {

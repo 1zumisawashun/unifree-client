@@ -32,6 +32,7 @@ export const CategoryForm = () => {
   const {
     register,
     handleSubmit,
+    resetField,
     formState: { errors }
   } = useForm<UpsertCategory>({
     resolver: zodResolver(zUpsertCategory),
@@ -40,6 +41,7 @@ export const CategoryForm = () => {
 
   const onSubmit: SubmitHandler<UpsertCategory> = (data) => {
     submit(data)
+    resetField('name')
   }
 
   const onError: SubmitErrorHandler<UpsertCategory> = (errors) => {

@@ -1,4 +1,4 @@
-import { UpsertProduct } from '@/features/product/product.model'
+import { UpsertProduct } from '@/features/product/product.schema'
 import { getDownloadUrl } from '@/functions/helpers/firebaseStorage'
 import { isFile } from '@/functions/helpers/typeGuard'
 

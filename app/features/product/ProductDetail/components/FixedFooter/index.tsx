@@ -5,6 +5,7 @@ import { useToast } from '@/components/elements/Toast/hooks/useToast'
 import { createPrismaMatch } from '@/features/product/ProductDetail/components/FixedFooter/hooks/createPrismaMatch'
 import { useServerAction } from '@/functions/hooks/useServerAction'
 import { Product } from '@/functions/types/Prisma'
+import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import styles from './styles.module.scss'
@@ -24,8 +25,10 @@ export function FixedFooter({
 }) {
   const { name, stripePriceId, price, images, userId, id, description } =
     product
+
   const { addItem, cartDetails } = useShoppingCart()
   const { showToast, closeToast } = useToast()
+  const router = useRouter()
   const { isPending, serverAction } = useServerAction()
 
   const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId)
@@ -55,6 +58,8 @@ export function FixedFooter({
     }
 
     const response = await serverAction(() => createPrismaMatch(params))
+    router.refresh()
+
     if (response.ok) {
       showToast({ message: 'マッチングに成功しました', theme: 'success' })
     } else {

@@ -1,8 +1,7 @@
 'use server'
 
-import { UpsertUser } from '@/features/mypage/user.model'
+import { UpsertUser } from '@/features/mypage/mypage.schema'
 import { prisma } from '@/functions/libs/prisma'
-import { revalidatePath } from 'next/cache'
 
 type Props = { userId: number } & UpsertUser
 
@@ -18,7 +17,5 @@ export async function editPrismaUser({ userId, ...rest }: Props) {
   } catch (error) {
     console.log(error)
     return { ok: false }
-  } finally {
-    revalidatePath('/mypage/setting')
   }
 }

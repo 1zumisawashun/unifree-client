@@ -20,7 +20,7 @@ export const PreviewDialog = ({
 }) => {
   const hasSwiper = images && images.length > 1
   return (
-    <Dialog {...dialog} width="half" hasSwiper={hasSwiper}>
+    <Dialog {...dialog} hasSwiper={hasSwiper} width='sp'>
       <div className={styles[`${BLOCK_NAME}-body`]}>
         <p className={styles[`${BLOCK_NAME}-text`]}>プレビューダイアログ</p>
         {images && (

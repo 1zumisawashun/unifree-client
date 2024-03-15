@@ -1,11 +1,12 @@
 'use client'
 
 import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
+import { DeleteDialog } from '@/components/elements/DeleteDialog'
 import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Panel } from '@/components/elements/Panel'
-import { RemoveDialog } from '@/features/cart/CartList/components/RemoveDialog'
 import { CartDetails, CartItem as ICartItem } from '@/functions/constants/cart'
 import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { useShoppingCart } from 'use-shopping-cart'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'cart-card'
@@ -16,10 +17,17 @@ const Item = ({ cart }: { cart: ICartItem }) => {
     name,
     image,
     price,
-    product_data: { id }
+    product_data: { id, description }
   } = cart
 
-  const removeDialog = useDialog()
+  const dialog = useDialog()
+  const { removeItem } = useShoppingCart()
+
+  const submit = () => {
+    removeItem(cart.id)
+    dialog.close()
+  }
+
   return (
     <Panel.Flame hasBorder>
       <Panel.Inner>
@@ -29,10 +37,11 @@ const Item = ({ cart }: { cart: ICartItem }) => {
           </div>
           <div className={styles[`${BLOCK_NAME}-content`]}>
             <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
+            <p className={styles[`${BLOCK_NAME}-description`]}>{description}</p>
             <p className={styles[`${BLOCK_NAME}-price`]}>
               {formatCurrencyString(price)}
             </p>
-            <ButtonWrapper>
+            <ButtonWrapper position="end">
               <ButtonAnchor
                 href={`/products/${id}`}
                 variant="outlined"
@@ -41,7 +50,7 @@ const Item = ({ cart }: { cart: ICartItem }) => {
                 詳細
               </ButtonAnchor>
               <Button
-                onClick={removeDialog.open}
+                onClick={dialog.open}
                 theme="danger"
                 variant="outlined"
                 size="small"
@@ -51,7 +60,7 @@ const Item = ({ cart }: { cart: ICartItem }) => {
             </ButtonWrapper>
           </div>
         </div>
-        <RemoveDialog dialog={removeDialog} cart={cart} />
+        <DeleteDialog dialog={dialog} submit={submit} />
       </Panel.Inner>
     </Panel.Flame>
   )

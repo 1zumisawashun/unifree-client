@@ -8,7 +8,10 @@ import {
   InputText,
   InputTextarea
 } from '@/components/forms'
-import { UpsertProduct, zUpsertProduct } from '@/features/product/product.model'
+import {
+  UpsertProduct,
+  zUpsertProduct
+} from '@/features/product/product.schema'
 import {
   paymentMethodOptions,
   statusOptions

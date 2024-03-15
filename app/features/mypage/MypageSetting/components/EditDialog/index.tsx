@@ -5,12 +5,12 @@ import { Dialog, UseDialog } from '@/components/elements/Dialog'
 import { Panel } from '@/components/elements/Panel'
 import { InputText } from '@/components/forms'
 import { editPrismaUser } from '@/features/mypage/MypageSetting/components/EditDialog/hooks/editPrismaUser'
-import { UpsertUser, zUpsertUser } from '@/features/mypage/user.model'
+import { UpsertUser, zUpsertUser } from '@/features/mypage/mypage.schema'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
 import styles from './styles.module.scss'
-import { useServerAction } from '@/functions/hooks/useServerAction'
 
 const BLOCK_NAME = 'edit-dialog'
 
@@ -43,11 +43,10 @@ export function EditDialog({
       )
       if (!response.ok) throw new Error('Failed to update user')
 
+      dialog.close()
       router.refresh()
     } catch (error) {
       console.log(error)
-    } finally {
-      dialog.close()
     }
   }
 

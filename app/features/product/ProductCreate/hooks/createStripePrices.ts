@@ -1,4 +1,4 @@
-import { UpsertProduct } from '@/features/product/product.model'
+import { UpsertProduct } from '@/features/product/product.schema'
 import { API } from '@/functions/constants/api'
 
 type StripeIds = {

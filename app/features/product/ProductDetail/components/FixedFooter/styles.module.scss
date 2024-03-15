@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/color';
+@import '@/assets/styles/settings/media';
 
 .footer {
   display: flex;
@@ -11,6 +11,7 @@
   bottom: 0;
   background: $white;
   width: 100%;
+  z-index: 2;
   @include sp {
     height: auto;
   }

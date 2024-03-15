@@ -1,10 +1,8 @@
 import { AdminCategory } from '@/features/admin/AdminCategory'
-import { prisma } from '@/functions/libs/prisma'
+import { prismaCategoryFindMany } from '@/features/admin/hooks/prismaCategoryFindMany'
 
 export default async function Page() {
-  const categories = await prisma.category.findMany({
-    orderBy: { createdAt: 'desc' }
-  })
+  const categories = await prismaCategoryFindMany()
 
   return <AdminCategory categories={categories} />
 }
