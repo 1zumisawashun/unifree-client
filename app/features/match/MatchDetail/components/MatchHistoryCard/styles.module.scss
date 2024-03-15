@@ -1,12 +1,14 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/objects/base-text";
+@import '@/assets/styles/settings/color';
+@import '@/assets/styles/objects/base-text';
 
 .match-history-container {
   padding: 1rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  justify-content: flex-end;
+  &[data-current-user='true'] {
+    justify-content: flex-end;
+  }
 }
 
 .match-history-user-thumbnail-wrapper {
@@ -14,36 +16,38 @@
   height: 50px;
   position: relative;
   flex-wrap: nowrap;
-  &[data-current-user="true"] {
+  &[data-current-user='true'] {
     display: none;
   }
 }
+
 .match-history-content-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: fit-content;
-  &[data-current-user="true"] {
+  &[data-current-user='true'] {
     display: grid;
     justify-items: flex-end;
   }
 }
+
 .match-history-message-wrapper {
   border: 1px solid $border;
   border-radius: 1rem;
   padding: 1rem;
   width: 90%;
-  &[data-current-user="true"] {
+  background-color: $white;
+  &[data-current-user='true'] {
     background-color: $primary-bg;
   }
-  &[data-current-user="false"] {
-    background-color: $white;
-  }
 }
+
 .match-history-text {
   composes: text-x-small;
   color: $grey-main;
 }
+
 .match-history-message {
   composes: text-small;
   color: $grey-main;

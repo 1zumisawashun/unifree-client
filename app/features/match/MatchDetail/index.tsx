@@ -1,6 +1,6 @@
 'use client'
 
-import { MatchHistory } from '@/features/match/MatchDetail/components/MatchHistory'
+import { MatchHistoryCard } from '@/features/match/MatchDetail/components/MatchHistoryCard'
 import { MatchTextarea } from '@/features/match/MatchDetail/components/MatchTextarea'
 import { createPrismaMessage } from '@/features/match/MatchDetail/hooks/createPrismaMessage'
 import { useScrollToLatest } from '@/features/match/MatchDetail/hooks/useScrollToLatest'
@@ -41,7 +41,7 @@ export function MatchDetail(props: Messages) {
       <div className={styles[`${BLOCK_NAME}-section`]}>
         <div className={styles[`${BLOCK_NAME}-scrollable-content`]} ref={ref}>
           <div className={styles[`${BLOCK_NAME}-scrollable-inner`]}>
-            <MatchHistory {...props} />
+            <MatchHistoryCard.List {...props} />
           </div>
         </div>
       </div>

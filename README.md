@@ -4,7 +4,8 @@
 
 ## Overview
 
-- nothing
+- [development](https://unifree-client-git-develop-1zumisawashun.vercel.app)
+- [production](https://unifree-client.vercel.app)
 
 ## Schedule
 
@@ -121,21 +122,41 @@
   - https://github.com/firebase/firebase-js-sdk/issues/6716
   - https://mackee.hatenablog.com/entry/perl-advent-calendar-2022-day9
   - これ関係なしにクッキー消してログインすると再現できるかもしれない
-- match-detail に has セレクターを加える改修
-- input-select の placeholder に has not を加える
 - ✅ match に productId を加えないと破綻しそう
 - ✅ prismaで実装している箇所をserver-actionsにリプレイス
 - ✅ planet-scaleからsupabaseへのリプレイス
 - ✅ adminページの作成
 - ✅ adminからcategoryを編集できるように実装
-- send-grid で email する
-- stripe で購入導線を整える
-- VRT の導入
+- ✅ 自分で自分の投稿にチャットをさせないようにする
+- ✅ 画像のバリデーションを緩和する
+- userにisAdminプロパティをつける
+- ✅ match-detailのUI改修
+- ✅ 正式版で使うアカウントの作成・整理
+- ✅ 最低限のstripeの動線を実装する
+
+</details>
+
+<details>
+<summary>🔷 3/18（月）〜3/24（日）</summary>
+
 - next.js の production check をやってみる
   - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
   - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds
 
 </details>
+
+<details>
+<summary>🔷 3/25（月）〜3/31（日）</summary>
+
+- 記事の投稿
+
+</details>
+
+## Want to do
+
+- send-grid で email する
+- stripe で購入導線を整える
+- VRT の導入
 
 ## Guideline
 
@@ -203,8 +224,7 @@ $ npm install
 - ローカル開発用 URL を開き動作確認をする
 
 ```bash
-$ npm run ps:dev # PlanetScale
-$ npm run dev # Next.js
+$ npm run dev
 ```
 
 http://localhost:3000/
@@ -213,8 +233,7 @@ http://localhost:3000/
 
 ## Troubleshoot
 
-- dev環境:https://unifree-client-git-develop-1zumisawashun.vercel.app/
-- prod環境:https://unifree-client.vercel.app/
+- nothing
 
 ## その他ドキュメント
 
