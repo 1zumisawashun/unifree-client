@@ -1,15 +1,19 @@
 'use client'
 
 import { createPrismaProduct } from '@/features/product/ProductCreate/hooks/createPrismaProduct'
+import { createStripePrices } from '@/features/product/ProductCreate/hooks/createStripePrices'
 import { ProductForm } from '@/features/product/components/ProductForm'
-import { createStripePrices } from '@/features/product/hooks/createStripePrices'
 import { imagesFactory } from '@/features/product/hooks/imagesFactory'
 import { UpsertProduct, productEntity } from '@/features/product/product.model'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { useServerAction } from '@/functions/hooks/useServerAction'
 
-export const ProductCreate: React.FC = () => {
+export const ProductCreate = ({
+  categoryOptions
+}: {
+  categoryOptions: { value: number; label: string }[]
+}) => {
   const router = useRouter()
   const { serverAction } = useServerAction()
 
@@ -22,6 +26,7 @@ export const ProductCreate: React.FC = () => {
 
     try {
       const images = await imagesFactory({ files })
+
       const stripeIds = await createStripePrices({ name, price })
 
       const params = {
@@ -34,7 +39,7 @@ export const ProductCreate: React.FC = () => {
       }
 
       const response = await serverAction(() => createPrismaProduct(params))
-      console.log(response)
+
       if (!response.ok) throw new Error('Failed to create product')
 
       router.push(`/products`)
@@ -53,6 +58,7 @@ export const ProductCreate: React.FC = () => {
       href={'/products'}
       domain="作成する"
       isPending={isPending}
+      categoryOptions={categoryOptions}
     />
   )
 }

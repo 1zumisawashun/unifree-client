@@ -117,13 +117,17 @@
 <details>
 <summary>🔷 3/11（月）〜3/17（日）</summary>
 
-- ios safariでログインできない問題
+- ✅ ios safariでログインできない問題（そもそも実装がおかしかったぽい）
   - https://github.com/firebase/firebase-js-sdk/issues/6716
   - https://mackee.hatenablog.com/entry/perl-advent-calendar-2022-day9
   - これ関係なしにクッキー消してログインすると再現できるかもしれない
 - match-detail に has セレクターを加える改修
 - input-select の placeholder に has not を加える
-- match に productId を加えないと破綻しそう
+- ✅ match に productId を加えないと破綻しそう
+- ✅ prismaで実装している箇所をserver-actionsにリプレイス
+- ✅ planet-scaleからsupabaseへのリプレイス
+- ✅ adminページの作成
+- ✅ adminからcategoryを編集できるように実装
 - send-grid で email する
 - stripe で購入導線を整える
 - VRT の導入

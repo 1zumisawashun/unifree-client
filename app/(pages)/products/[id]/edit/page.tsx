@@ -7,5 +7,29 @@ export default async function Page({ params }: { params: { id: string } }) {
     include: { user: true, images: true, categories: true }
   })
 
-  return <ProductEdit product={product} />
+  const productEntity = {
+    name: product.name,
+    price: product.price.toString(),
+    description: product.description,
+    files: product.images,
+    status: product.status,
+    paymentMethod: product.paymentMethod!,
+    categories: product.categories.map((category) => category.id.toString())
+  }
+
+  const categories = await prisma.category.findMany()
+
+  const categoryOptions = categories.map((category) => ({
+    value: category.id,
+    label: category.name
+  }))
+
+  return (
+    <ProductEdit
+      productEntity={productEntity}
+      categoryOptions={categoryOptions}
+      id={product.id}
+      stripePriceId={product.stripePriceId}
+    />
+  )
 }

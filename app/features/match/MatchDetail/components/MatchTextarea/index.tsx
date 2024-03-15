@@ -1,6 +1,6 @@
 import { UnstyledButton } from '@/components/buttons/UnstyledButton'
 import { SendIcon } from '@/components/elements/SvgIcon'
-import { useAutoResize } from '@/features/match/MatchDetail/hooks/useAutoResize'
+import { useAutoResize } from '@/features/match/MatchDetail/components/MatchTextarea/hooks/useAutoResize'
 import { BaseSyntheticEvent } from 'react'
 import styles from './styles.module.scss'
 

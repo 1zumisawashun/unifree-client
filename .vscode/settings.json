@@ -7,7 +7,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
-    // "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit"
   },
   "files.insertFinalNewline": true
 }

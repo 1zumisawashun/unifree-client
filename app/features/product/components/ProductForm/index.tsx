@@ -10,7 +10,6 @@ import {
 } from '@/components/forms'
 import { UpsertProduct, zUpsertProduct } from '@/features/product/product.model'
 import {
-  categoryOptions,
   paymentMethodOptions,
   statusOptions
 } from '@/functions/constants/options'
@@ -27,13 +26,15 @@ export const ProductForm = ({
   submit,
   href,
   domain,
-  isPending
+  isPending,
+  categoryOptions
 }: {
   product: UpsertProduct
   submit: (data: UpsertProduct) => void
   href: string
   domain: '作成する' | '変更する'
   isPending: boolean
+  categoryOptions: { value: number; label: string }[]
 }) => {
   const [files, setFiles] = useArrayState<File | Image>(product.files)
 

@@ -1,0 +1,8 @@
+@import '@/assets/styles/settings/media';
+
+.category-form-container {
+  padding: 1rem;
+  @include sp {
+    padding: 0;
+  }
+}
