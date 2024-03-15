@@ -1,7 +1,6 @@
 'use server'
 
 import { prisma } from '@/functions/libs/prisma'
-import { revalidatePath } from 'next/cache'
 
 type Props = {
   currentUserId: number
@@ -39,7 +38,5 @@ export async function createPrismaMatch({
   } catch (error) {
     console.log(error)
     return { ok: false }
-  } finally {
-    revalidatePath('/')
   }
 }

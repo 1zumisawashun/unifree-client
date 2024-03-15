@@ -10,7 +10,7 @@ import { loginByNextAuth } from '@/functions/helpers/nextAuth/client'
 import { useState } from 'react'
 
 export function Login() {
-  const errorDialog = useDialog()
+  const dialog = useDialog()
 
   const [message, setMessage] = useState('')
   const [isPending, setIsPending] = useState(false)
@@ -32,7 +32,7 @@ export function Login() {
       if (error instanceof Error) {
         setMessage(error.message)
       }
-      errorDialog.open()
+      dialog.open()
     } finally {
       setIsPending(false)
     }
@@ -45,7 +45,7 @@ export function Login() {
           <LoginBody login={login} />
         </Panel.Inner>
       </Panel.Flame>
-      <ErrorDialog dialog={errorDialog} message={message} domain="ログイン" />
+      <ErrorDialog dialog={dialog} message={message} domain="ログイン" />
       {isPending && <LoadingSpinner />}
     </>
   )

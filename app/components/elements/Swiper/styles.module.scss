@@ -1,4 +1,4 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color';
 
 // $icon-button-width: 36px;
 // $dialog-side-padding: 4rem;
@@ -10,6 +10,10 @@
   position: relative;
   border: 1px solid $border;
   border-radius: 0.5rem;
+}
+.swiper-slide {
+  display: flex;
+  align-items: center;
 }
 .swiper-left-button {
   position: absolute;

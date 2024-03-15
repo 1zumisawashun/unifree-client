@@ -122,26 +122,28 @@
   - https://github.com/firebase/firebase-js-sdk/issues/6716
   - https://mackee.hatenablog.com/entry/perl-advent-calendar-2022-day9
   - これ関係なしにクッキー消してログインすると再現できるかもしれない
-- ✅ match に productId を加えないと破綻しそう
+- ✅ match に productId を加えないと破綻しそう→改修済み
 - ✅ prismaで実装している箇所をserver-actionsにリプレイス
 - ✅ planet-scaleからsupabaseへのリプレイス
 - ✅ adminページの作成
 - ✅ adminからcategoryを編集できるように実装
 - ✅ 自分で自分の投稿にチャットをさせないようにする
 - ✅ 画像のバリデーションを緩和する
-- userにisAdminプロパティをつける
+- ✅ userにisAdminプロパティをつける・isAdminのみに許可するハンドリングの追加
 - ✅ match-detailのUI改修
 - ✅ 正式版で使うアカウントの作成・整理
 - ✅ 最低限のstripeの動線を実装する
+- ✅ form-dialogの処理が終わった後にcloseさせる
+- next.js の production check をやってみる
+  - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
+  - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds
 
 </details>
 
 <details>
 <summary>🔷 3/18（月）〜3/24（日）</summary>
 
-- next.js の production check をやってみる
-  - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
-  - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds
+- 正式版リリース作業
 
 </details>
 
@@ -154,8 +156,8 @@
 
 ## Want to do
 
-- send-grid で email する
-- stripe で購入導線を整える
+- send-grid で メール通知ができるようにする
+- stripe で購入導線を強化する（大学側NGのため検討中）
 - VRT の導入
 
 ## Guideline
@@ -197,7 +199,7 @@ See [Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics).
 frontend: Next.js App Router
 backend: Next.js Route Handler
 orm: Prisma
-database: PlanetScale
+database: Supabase
 css: CSS Modules + Sass
 auth: Firebase Auth + NextAuth
 storage: GCS

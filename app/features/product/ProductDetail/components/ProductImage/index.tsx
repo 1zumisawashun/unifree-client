@@ -30,7 +30,7 @@ export const ProductImage = ({ images }: { images: Image[] }) => {
           ref={referenceRef}
           onClick={(e) => e.stopPropagation()}
         />
-        <Tooltip referenceRef={referenceRef} placement="bottom">
+        <Tooltip referenceRef={referenceRef} placement="bottom-end">
           <Nl2br>
             {`画像を押下するとダイアログで
           ${images.length}枚の画像を閲覧できます`}

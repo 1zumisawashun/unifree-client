@@ -1,11 +1,11 @@
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/media';
 
 .dialog {
   &[open] {
     border: none;
     border-radius: 0.5rem;
     padding: 2rem;
-    &[data-swiper="true"] {
+    &[data-swiper='true'] {
       padding: 2rem 4rem;
     }
   }
@@ -16,22 +16,28 @@
   }
 
   // dialog-width
-  &[data-width="auto"] {
+  &[data-width='auto'] {
     width: auto;
   }
-  &[data-width="quarter"] {
+  &[data-width='sp'] {
+    width: 576px;
+    @include sp {
+      width: auto;
+    }
+  }
+  &[data-width='quarter'] {
     width: 25%;
     @include sp {
       width: auto;
     }
   }
-  &[data-width="half"] {
+  &[data-width='half'] {
     width: 50%;
     @include sp {
       width: auto;
     }
   }
-  &[data-width="full"] {
+  &[data-width='full'] {
     width: 100%;
   }
 }

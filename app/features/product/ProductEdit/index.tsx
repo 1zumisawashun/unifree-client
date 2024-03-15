@@ -1,11 +1,11 @@
 'use client'
 
 import { createStripePrices } from '@/features/product/ProductCreate/hooks/createStripePrices'
-import { updateStripePrices } from '@/features/product/ProductEdit/hooks/updateStripePrices'
 import { updatePrismaProduct } from '@/features/product/ProductEdit/hooks/updatePrismaProduct'
+import { updateStripePrices } from '@/features/product/ProductEdit/hooks/updateStripePrices'
 import { ProductForm } from '@/features/product/components/ProductForm'
 import { imagesFactory } from '@/features/product/hooks/imagesFactory'
-import { UpsertProduct } from '@/features/product/product.model'
+import { UpsertProduct } from '@/features/product/product.schema'
 import { useServerAction } from '@/functions/hooks/useServerAction'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

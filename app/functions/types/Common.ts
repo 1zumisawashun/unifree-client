@@ -22,7 +22,7 @@ export type DirectionType = 'row' | 'column'
 
 export type StatusType = 'loading' | 'disabled' | 'error'
 
-export type WidthType = 'full' | 'half' | 'quarter' | 'auto'
+export type WidthType = 'full' | 'half' | 'quarter' | 'auto' | 'sp'
 
 export type ShapeType = 'square' | 'round'
 

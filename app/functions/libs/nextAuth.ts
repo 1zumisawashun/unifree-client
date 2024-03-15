@@ -24,7 +24,7 @@ export const authOptions = {
           const user = await createPrismaUser({ uid, picture })
           return user
         } catch (err) {
-          console.log('authorize error:', err)
+          console.log(err)
           return null
         }
       }
@@ -55,6 +55,7 @@ export const authOptions = {
     async session({ session, token }) {
       session.user.uid = token.uid
       session.user.id = token.id
+      session.user.isAdmin = token.isAdmin
       /**
        * session.expiresはgetServerSessionで取得できないぽい
        * @see https://github.com/nextauthjs/next-auth/discussions/8907

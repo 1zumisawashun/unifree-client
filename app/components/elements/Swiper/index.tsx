@@ -54,7 +54,7 @@ export const Swiper = <T extends { id: number | string }>(props: {
         onBeforeInit={handleBeforeInit}
       >
         {props.rows.map((row) => (
-          <SwiperSlide key={row.id}>
+          <SwiperSlide key={row.id} className={styles[`${BLOCK_NAME}-slide`]}>
             <props.render {...row} />
           </SwiperSlide>
         ))}

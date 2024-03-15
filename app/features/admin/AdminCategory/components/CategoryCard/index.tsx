@@ -1,7 +1,10 @@
 import { IconButton } from '@/components/buttons'
+import { DeleteDialog } from '@/components/elements/DeleteDialog'
 import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
-import { DeleteDialog } from '@/features/admin/AdminCategory/components/DeleteDialog'
+import { deletePrismaCategory } from '@/features/admin/AdminCategory/components/CategoryCard/hooks/deletePrismaCategory'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { Category } from '@/functions/types/Prisma'
+import { useRouter } from 'next/navigation'
 import { ElementRef, forwardRef } from 'react'
 import styles from './styles.module.scss'
 
@@ -15,6 +18,23 @@ type Ref = ElementRef<'li'>
 
 const Item = forwardRef<Ref, Props>(({ category }, ref) => {
   const dialog = useDialog()
+  const router = useRouter()
+  const { serverAction } = useServerAction()
+
+  const submit = async () => {
+    try {
+      const response = await serverAction(() =>
+        deletePrismaCategory({ id: category.id })
+      )
+
+      if (!response) throw new Error()
+
+      dialog.close()
+      router.refresh()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -24,7 +44,7 @@ const Item = forwardRef<Ref, Props>(({ category }, ref) => {
           <IconButton name="cross" size="small" onClick={dialog.open} />
         </div>
       </li>
-      <DeleteDialog dialog={dialog} category={category} />
+      <DeleteDialog dialog={dialog} submit={submit} />
     </>
   )
 })
