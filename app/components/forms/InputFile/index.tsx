@@ -57,13 +57,13 @@ export function InputFile({
         return
       }
     }
-    for (const file of files) {
-      if (file.size > 500000) {
-        setMessage('ファイルサイズは最大5MBです')
-        errorDialog.open()
-        return
-      }
-    }
+    // for (const file of files) {
+    //   if (file.size > 500000) {
+    //     setMessage('ファイルサイズは最大5MBです')
+    //     errorDialog.open()
+    //     return
+    //   }
+    // }
     if ([...state, ...files].length >= 5) {
       setMessage('4枚を超えて選択された画像は表示されません')
       errorDialog.open()

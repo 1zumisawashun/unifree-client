@@ -71,7 +71,7 @@ export function FixedFooter({
       <div className={styles[`${BLOCK_NAME}-button-wrapper`]}>
         <Button
           onClick={createMatch}
-          disabled={hasMatch}
+          disabled={hasMatch || currentUserId === userId}
           loading={isPending}
           className={styles[`${BLOCK_NAME}-button`]}
         >
