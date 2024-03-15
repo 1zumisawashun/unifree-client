@@ -28,8 +28,6 @@
     "prisma:studio": "npx prisma studio",
     "prisma:push": "npx prisma db push",
     "prisma:reset": "npx prisma db push --force-reset && npm run prisma:seed",
-    "ps:dev": "pscale connect unifree-client develop --port 3309",
-    "ps:prod": "pscale connect unifree-client main --port 3309",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci"

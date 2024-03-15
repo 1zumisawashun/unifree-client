@@ -16,6 +16,7 @@ datasource db {
 model User {
   id               Int       @id @default(autoincrement())
   uid              String    @unique
+  isAdmin          Boolean   @default(false) @map("is_admin")
   photoURL         String?
   displayName      String?   @map("display_name")
   stripeCustomerId String?   @map("stripe_customer_id")

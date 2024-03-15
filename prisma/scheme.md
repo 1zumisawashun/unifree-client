@@ -4,6 +4,7 @@ erDiagram
   "users" {
     Int id "🗝️"
     String uid 
+    Boolean is_admin 
     String photoURL "❓"
     String display_name "❓"
     String stripe_customer_id "❓"
