@@ -1,4 +1,6 @@
-import { API } from '@/functions/constants/api'
+'use server'
+
+import { prisma } from '@/functions/libs/prisma'
 
 type Props = {
   userId: number
@@ -7,12 +9,14 @@ type Props = {
 }
 
 export async function createPrismaMessage({ userId, matchId, message }: Props) {
-  const url = API.createPrismaMessage
-
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ userId, matchId, message })
-  })
-
-  return response.ok
+  try {
+    const response = await prisma.message.create({
+      data: { userId, matchId, message }
+    })
+    if (!response) throw new Error('Message not created')
+    return { ok: true }
+  } catch (error) {
+    console.log(error)
+    return { ok: false }
+  }
 }

@@ -4,6 +4,7 @@ import { MatchHistory } from '@/features/match/MatchDetail/components/MatchHisto
 import { MatchTextarea } from '@/features/match/MatchDetail/components/MatchTextarea'
 import { createPrismaMessage } from '@/features/match/MatchDetail/hooks/createPrismaMessage'
 import { useScrollToLatest } from '@/features/match/MatchDetail/hooks/useScrollToLatest'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { Messages } from '@/functions/types/Prisma'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -14,18 +15,21 @@ const BLOCK_NAME = 'match-detail'
 export function MatchDetail(props: Messages) {
   const { userId, matchId } = props
 
-  const { refresh } = useRouter()
+  const router = useRouter()
+  const { serverAction } = useServerAction()
   const { ref } = useScrollToLatest()
 
   const [message, setMessage] = useState('')
 
   const submit = async () => {
-    const params = { message, userId, matchId }
     try {
-      const response = await createPrismaMessage(params)
-      if (!response) throw new Error()
+      const response = await serverAction(() =>
+        createPrismaMessage({ message, userId, matchId })
+      )
 
-      refresh()
+      if (!response.ok) throw new Error()
+
+      router.refresh()
       setMessage('')
     } catch (error) {
       console.log(error)

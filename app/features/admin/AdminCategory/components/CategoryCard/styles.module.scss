@@ -1,0 +1,28 @@
+@import '@/assets/styles/settings/color';
+@import '@/assets/styles/utilities/line-clamp';
+
+// リスト
+.category-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+// アイテム
+.category-card-between-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.category-card {
+  padding: 1rem;
+  border: 1px solid $border;
+  border-radius: 1.5rem;
+}
+
+.category-card-name {
+  composes: _line-clamp-1;
+}

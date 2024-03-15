@@ -1,37 +1,28 @@
 'use client'
 
-import { editPrismaProduct } from '@/features/product/ProductEdit/hooks/editPrismaProduct'
+import { createStripePrices } from '@/features/product/ProductCreate/hooks/createStripePrices'
+import { updateStripePrices } from '@/features/product/ProductEdit/hooks/updateStripePrices'
+import { updatePrismaProduct } from '@/features/product/ProductEdit/hooks/updatePrismaProduct'
 import { ProductForm } from '@/features/product/components/ProductForm'
-import { createStripePrices } from '@/features/product/hooks/createStripePrices'
-import { editStripePrices } from '@/features/product/hooks/editStripePrices'
 import { imagesFactory } from '@/features/product/hooks/imagesFactory'
 import { UpsertProduct } from '@/features/product/product.model'
-import { Product } from '@/functions/types/Prisma'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export const ProductEdit = ({ product }: { product: Product }) => {
-  const {
-    name,
-    price,
-    description,
-    images,
-    status,
-    paymentMethod: payment_method,
-    categories
-  } = product
-
-  const productEntity = {
-    name,
-    price: price.toString(),
-    description,
-    files: images,
-    status,
-    paymentMethod: payment_method!,
-    categories: categories.map((category) => category.id.toString())
-  }
-
+export const ProductEdit = ({
+  productEntity,
+  categoryOptions,
+  id,
+  stripePriceId
+}: {
+  productEntity: UpsertProduct
+  categoryOptions: { value: number; label: string }[]
+  id: number
+  stripePriceId: string
+}) => {
   const router = useRouter()
+  const { serverAction } = useServerAction()
 
   const [isPending, setIsPending] = useState(false)
 
@@ -41,7 +32,7 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     const { files, name, price, categories, ...rest } = data
 
     try {
-      const response = await editStripePrices({ product })
+      const response = await updateStripePrices({ stripePriceId })
       if (!response) throw new Error()
 
       const images = await imagesFactory({ files })
@@ -56,10 +47,13 @@ export const ProductEdit = ({ product }: { product: Product }) => {
         ...stripeIds
       }
 
-      const json = await editPrismaProduct({ product, params })
-      if (!json) throw new Error()
+      const result = await serverAction(() =>
+        updatePrismaProduct({ id, params })
+      )
 
-      router.push(`/products/${product.id}`)
+      if (!result.ok) throw new Error('Failed to create product')
+
+      router.push(`/products/${id}`)
       router.refresh()
     } catch (error) {
       console.log(error)
@@ -72,9 +66,10 @@ export const ProductEdit = ({ product }: { product: Product }) => {
     <ProductForm
       submit={edit}
       product={productEntity}
-      href={`/products/${product.id}`}
+      href={`/products/${id}`}
       domain="変更する"
       isPending={isPending}
+      categoryOptions={categoryOptions}
     />
   )
 }

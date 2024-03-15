@@ -2,9 +2,9 @@
 
 import { Button, ButtonWrapper } from '@/components/buttons'
 import { Dialog, UseDialog } from '@/components/elements/Dialog'
-import { deletePrismaProduct } from '@/features/product/ProductDetail/components/DeleteDialog/hooks/deletePrismaProduct'
+import { deletePrismaCategory } from '@/features/admin/AdminCategory/components/DeleteDialog/hooks/deletePrismaCategory'
 import { useServerAction } from '@/functions/hooks/useServerAction'
-import { Product } from '@/functions/types/Prisma'
+import { Category } from '@/functions/types/Prisma'
 import { useRouter } from 'next/navigation'
 import styles from './styles.module.scss'
 
@@ -12,10 +12,10 @@ const BLOCK_NAME = 'delete-dialog'
 
 export const DeleteDialog = ({
   dialog,
-  product
+  category
 }: {
   dialog: UseDialog
-  product: Product
+  category: Category
 }) => {
   const router = useRouter()
   const { isPending, serverAction } = useServerAction()
@@ -23,10 +23,10 @@ export const DeleteDialog = ({
   const submit = async () => {
     try {
       const response = await serverAction(() =>
-        deletePrismaProduct({ id: product.id })
+        deletePrismaCategory({ id: category.id })
       )
 
-      if (!response.ok) throw new Error()
+      if (!response) throw new Error()
 
       router.refresh()
     } catch (error) {
