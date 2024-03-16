@@ -10,21 +10,11 @@ const BLOCK_NAME = 'match-history'
 const Item = ({ message, userId }: { message: Message; userId: number }) => {
   const isCurrentUser = message.userId === userId
   return (
-    <div
-      className={styles[`${BLOCK_NAME}-container`]}
-      key={message.id}
-      data-current-user={isCurrentUser}
-    >
-      <div
-        className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}
-        data-current-user={isCurrentUser}
-      >
+    <div className={styles[`${BLOCK_NAME}-container`]} key={message.id}>
+      <div className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}>
         <Avatar />
       </div>
-      <div
-        className={styles[`${BLOCK_NAME}-content-wrapper`]}
-        data-current-user={isCurrentUser}
-      >
+      <div className={styles[`${BLOCK_NAME}-content-wrapper`]}>
         <p className={styles[`${BLOCK_NAME}-text`]}>
           {message.user.displayName ?? '匿名'}
         </p>
