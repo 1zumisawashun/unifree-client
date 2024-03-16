@@ -1,29 +1,34 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color';
 
 .toast {
   position: fixed;
-  text-align: center;
+  display: inline-flex;
+  justify-content: center;
   z-index: 3;
 }
 
 .toast-content {
   border-radius: 0.5rem;
   box-shadow: 0px 11px 28px rgba(8, 18, 26, 0.24);
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
   padding: 0.5rem 2rem;
-  &[data-theme="primary"] {
+  min-width: 300px;
+  text-align: center;
+  &[data-theme='primary'] {
     background-color: $primary-bg;
     color: $primary-dark;
   }
-  &[data-theme="danger"] {
+  &[data-theme='danger'] {
     background-color: $red-bg;
     color: $red-dark;
   }
-  &[data-theme="success"] {
+  &[data-theme='success'] {
     background-color: $green-bg;
     color: $green-dark;
+  }
+  &:has(button) {
+    display: flex;
+    justify-content: space-between;
+    text-align: revert;
   }
 }
 
@@ -39,64 +44,68 @@
 
 .toast-slide--out {
   opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   // top animation
-  &[data-position="topCenter"] {
+  &[data-position='topCenter'] {
     right: 0;
     left: 0;
   }
-  &[data-position="topRight"] {
+  &[data-position='topRight'] {
     right: 0;
   }
-  &[data-position="topLeft"] {
+  &[data-position='topLeft'] {
     left: 0;
   }
   // bottom animation
-  &[data-position="bottomCenter"] {
+  &[data-position='bottomCenter'] {
     right: 0;
     left: 0;
   }
-  &[data-position="bottomRight"] {
+  &[data-position='bottomRight'] {
     right: 0;
   }
-  &[data-position="bottomLeft"] {
+  &[data-position='bottomLeft'] {
     left: 0;
   }
 }
 
 .toast-slide--in {
   opacity: 1;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   // top animation
-  &[data-position="topCenter"] {
+  &[data-position='topCenter'] {
     transform: translateY(var(--Toast--order-offset-top));
     top: 0;
     right: 0;
     left: 0;
   }
-  &[data-position="topRight"] {
+  &[data-position='topRight'] {
     transform: translateY(var(--Toast--order-offset-top));
     top: 0;
     right: 0;
   }
-  &[data-position="topLeft"] {
+  &[data-position='topLeft'] {
     transform: translateY(var(--Toast--order-offset-top));
     top: 0;
     left: 0;
   }
   // bottom animation
-  &[data-position="bottomCenter"] {
+  &[data-position='bottomCenter'] {
     transform: translateY(var(--Toast--order-offset-bottom));
     bottom: 0;
     right: 0;
     left: 0;
   }
-  &[data-position="bottomRight"] {
+  &[data-position='bottomRight'] {
     transform: translateY(var(--Toast--order-offset-bottom));
     bottom: 0;
     right: 0;
   }
-  &[data-position="bottomLeft"] {
+  &[data-position='bottomLeft'] {
     transform: translateY(var(--Toast--order-offset-bottom));
     bottom: 0;
     left: 0;

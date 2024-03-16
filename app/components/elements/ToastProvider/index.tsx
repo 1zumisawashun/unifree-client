@@ -1,7 +1,7 @@
 'use client'
 
 import { Toast } from '@/components/elements/Toast'
-import { PositionOffset, ThemeType } from '@/functions/types/Common'
+import { ThemeType } from '@/functions/types/Common'
 import { createContext, useCallback, useEffect, useRef, useState } from 'react'
 
 export type Toast = {
@@ -66,23 +66,16 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
     return () => resetTimeout()
   }, [setIsShowWithTimeout, resetTimeout])
 
-  const offset: PositionOffset = {
-    top: 24,
-    left: 32,
-    right: 32,
-    bottom: 24
-  }
-
   const props = {
     isShow,
-    offset,
     toast,
+    position: 'topCenter',
     closeToast,
     focusEvent: {
       setIsShowWithTimeout,
       resetTimeout
     }
-  }
+  } as const
 
   return (
     <ToastContext.Provider value={{ showToast, closeToast }}>

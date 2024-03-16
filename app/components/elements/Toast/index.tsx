@@ -9,7 +9,7 @@ type ToastProps = {
   isShow: Boolean
   toast: ToastType
   position?: StackPosition
-  closeToast: () => void
+  closeToast?: () => void
   focusEvent: {
     setIsShowWithTimeout: () => void
     resetTimeout: () => void
@@ -57,12 +57,14 @@ export const Toast: React.FC<ToastProps> = ({
         data-theme={theme}
       >
         <span className={styles[`${BLOCK_NAME}-text`]}>{message}</span>
-        <IconButton
-          name="cross"
-          onClick={closeToast}
-          size="x-small"
-          theme="success"
-        />
+        {closeToast && (
+          <IconButton
+            name="cross"
+            onClick={closeToast}
+            size="x-small"
+            theme="success"
+          />
+        )}
       </div>
     </div>
   )

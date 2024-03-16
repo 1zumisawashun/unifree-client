@@ -1,0 +1,23 @@
+@mixin flexColumnBetweenLine($gap: 0, $lineWidth: 1) {
+  display: flex;
+  flex-direction: column;
+  gap: #{$gap}px;
+
+  & > *:not(:last-child) {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: calc(-#{$gap / 2} - #{$lineWidth / 2}px);
+      content: '';
+      display: block;
+      height: #{$lineWidth}px;
+      width: 100%;
+    }
+  }
+}
+
+.container {
+  @include flexColumnBetweenLine(10, 2); // Gap of 10px and line width of 2px
+}

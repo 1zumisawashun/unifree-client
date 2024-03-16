@@ -1,0 +1,9 @@
+@mixin flexColumn($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: #{$gap}rem;
+}
+
+.container {
+  @include flexColumn(10); // Gap of 10px
+}

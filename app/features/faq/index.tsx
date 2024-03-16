@@ -1,5 +1,5 @@
 import { Nl2br } from '@/components/elements/Nl2br'
-import { faq } from '@/functions/constants/faq'
+import { faq } from '@/features/faq/faq.constant'
 import 'server-only'
 
 export function Faq() {
