@@ -134,6 +134,8 @@
 - ✅ 正式版で使うアカウントの作成・整理
 - ✅ 最低限のstripeの動線を実装する
 - ✅ form-dialogの処理が終わった後にcloseさせる
+- ブロックのセンタリング（margin-inline: auto;）
+- 親要素のセンタリング（display: grid; place-items: center;）
 - next.js の production check をやってみる
   - https://nextjs.org/docs/app/building-your-application/deploying/production-checklist
   - https://vercel.com/blog/guide-to-fast-websites-with-next-js-tips-for-maximizing-server-speeds

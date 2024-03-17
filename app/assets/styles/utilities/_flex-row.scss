@@ -1,0 +1,9 @@
+@mixin flexRow($gap: 0) {
+  display: flex;
+  flex-direction: row;
+  gap: #{$gap}rem;
+}
+
+.container {
+  @include flexRow(10); // Gap of 10px
+}

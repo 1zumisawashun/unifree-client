@@ -1,22 +1,26 @@
 @import '@/assets/styles/settings/color';
 @import '@/assets/styles/objects/base-text';
 
+/* 厳密に定義するなら以下にする */
+/* &:has(> .match-history-content-wrapper > .match-history-message-wrapper[data-current-user='true']) */
 .match-history-container {
   padding: 1rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  &[data-current-user='true'] {
+  &:has(> * > .match-history-message-wrapper[data-current-user='true']) {
     justify-content: flex-end;
   }
 }
 
+/* 厳密に定義するなら以下にする */
+/* &:has(~ .match-history-content-wrapper > .match-history-message-wrapper[data-current-user='true']) */
 .match-history-user-thumbnail-wrapper {
   width: 50px;
   height: 50px;
   position: relative;
   flex-wrap: nowrap;
-  &[data-current-user='true'] {
+  &:has(~ * > .match-history-message-wrapper[data-current-user='true']) {
     display: none;
   }
 }
@@ -26,7 +30,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: fit-content;
-  &[data-current-user='true'] {
+  &:has(> .match-history-message-wrapper[data-current-user='true']) {
     display: grid;
     justify-items: flex-end;
   }
