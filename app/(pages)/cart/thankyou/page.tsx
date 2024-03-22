@@ -15,7 +15,7 @@ export default async function Page({
   if (ids) {
     const parsedIds = JSON.parse(ids)
     // update purchase history
-    console.log(parsedIds) // ok
+    console.log(parsedIds)
   }
 
   return <CartThankyou />
