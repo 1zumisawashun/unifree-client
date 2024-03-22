@@ -29,7 +29,6 @@ export default async function Page({ params }: { params: { id: string } }) {
       productEntity={productEntity}
       categoryOptions={categoryOptions}
       id={product.id}
-      stripePriceId={product.stripePriceId}
     />
   )
 }

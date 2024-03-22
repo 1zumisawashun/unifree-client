@@ -34,8 +34,6 @@ model User {
 
 model Product {
   id              Int        @id @default(autoincrement())
-  stripePriceId   String     @map("stripe_price_id")
-  stripeProductId String     @map("stripe_product_id")
   name            String
   price           Int
   active          Boolean

@@ -1,7 +1,7 @@
 import '@/assets/styles/generics/custom-reset.css'
 import '@/assets/styles/generics/the-new-css-reset.css'
 import { Header } from '@/components/layouts/Header'
-import { apiUrl } from '@/functions/constants/api'
+import env from '@/functions/libs/env'
 import { ClientProvider } from '@/providers/client'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -16,7 +16,7 @@ const NotoSansJP = Noto_Sans_JP({
 
 export const metadata = {
   title: 'UniFli',
-  metadataBase: new URL(apiUrl),
+  metadataBase: new URL(env.NEXT_PUBLIC_API_BASE_URL),
   description:
     '必要なものを必要な人へ、あなたの要らないが誰かの役に立つ。UniFliは北海道大学生のための教科書フリマアプリです。',
   openGraph: {},

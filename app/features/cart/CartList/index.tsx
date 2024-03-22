@@ -5,7 +5,10 @@ import { Divider } from '@/components/elements/Divider'
 import { EmptyFallback } from '@/components/elements/EmptyFallback'
 import { CartCard } from '@/features/cart/CartList/components/CartCard'
 import { createStripeCheckoutSessions } from '@/features/cart/CartList/hooks/createStripeCheckoutSessions'
+import { getListItems } from '@/features/cart/CartList/hooks/getListItems'
+import { getProductIds } from '@/features/cart/CartList/hooks/getProductIds'
 import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { useServerAction } from '@/functions/hooks/useServerAction'
 import { CartDetails } from '@/functions/types/Cart'
 import { useShoppingCart } from 'use-shopping-cart'
 import styles from './styles.module.scss'
@@ -14,12 +17,19 @@ const BLOCK_NAME = 'cart'
 
 export function Cart() {
   const { cartDetails, totalPrice } = useShoppingCart()
+  const { isPending, serverAction } = useServerAction()
 
   const buy = async () => {
-    const params = Object.keys(cartDetails ?? {}).map((key) => key)
+    const list_items = getListItems({ cartDetails })
+    const productIds = getProductIds({ cartDetails })
     try {
-      const url = await createStripeCheckoutSessions({ params })
-      window.location.href = url
+      const response = await serverAction(() =>
+        createStripeCheckoutSessions({ list_items, productIds })
+      )
+
+      if (!response) throw new Error()
+
+      window.location.href = response.url!
     } catch (error) {
       console.log(error)
     }
@@ -39,7 +49,11 @@ export function Cart() {
         「レジに進む」押下後に決済ページへ遷移します。
       </p>
       <ButtonWrapper direction="column">
-        <Button onClick={buy} className={styles[`${BLOCK_NAME}-button`]}>
+        <Button
+          onClick={buy}
+          className={styles[`${BLOCK_NAME}-button`]}
+          loading={isPending}
+        >
           レジに進む
         </Button>
         <ButtonAnchor

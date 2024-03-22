@@ -1,7 +1,6 @@
 'use client'
 
 import { createPrismaProduct } from '@/features/product/ProductCreate/hooks/createPrismaProduct'
-import { createStripePrices } from '@/features/product/ProductCreate/hooks/createStripePrices'
 import { ProductForm } from '@/features/product/components/ProductForm'
 import { imagesFactory } from '@/features/product/hooks/imagesFactory'
 import { UpsertProduct, productEntity } from '@/features/product/product.schema'
@@ -27,15 +26,12 @@ export const ProductCreate = ({
     try {
       const images = await imagesFactory({ files })
 
-      const stripeIds = await createStripePrices({ name, price })
-
       const params = {
         ...rest,
         name,
         price: Number(price),
         categories: categories.map(Number),
-        images,
-        ...stripeIds
+        images
       }
 
       const response = await serverAction(() => createPrismaProduct(params))

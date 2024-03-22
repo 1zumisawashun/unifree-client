@@ -1,11 +1,9 @@
 'use server'
 
-import { prisma } from '@/functions/libs/prisma'
 import { auth } from '@/functions/helpers/nextAuth/server'
+import { prisma } from '@/functions/libs/prisma'
 
 type Props = {
-  stripeProductId: string
-  stripePriceId: string
   images: {
     name: string
     src: string
