@@ -27,20 +27,20 @@ $ npm install
 
 ```bash
 $ npm run dev
-# http://localhost:3000
 ```
 
 上記の手順で失敗する場合 [Troubleshoot](#Troubleshoot)を確認してください
 
 ## Vercel
 
-[development](https://unifli-client-git-develop-uniflis-projects.vercel.app)  
-[production](https://uni-fli.com)
+[local](http://localhost:3000)
+[development](https://unifree-client-git-develop-1zumisawashun.vercel.app/)  
+[production](https://unifree-client.vercel.app/)
 
 ## Performance Check
 
-[Speed Insights](https://vercel.com/1zumisawashun/unifree-client/speed-insights)  
-[Web Analytics](https://vercel.com/1zumisawashun/unifree-client/analytics)
+[Speed Insights](https://vercel.com/1zumisawashuns-projects/unifree-client/speed-insights)  
+[Web Analytics](https://vercel.com/1zumisawashuns-projects/unifree-client/analytics)
 
 ## Folder Structure
 
