@@ -33,6 +33,7 @@ export const IconButtonAnchor = forwardRef<Ref, Props>(
         data-theme={theme}
         data-size={size}
         data-shape={shape}
+        aria-label={name}
         ref={ref}
       >
         <Tag />

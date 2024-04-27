@@ -8,24 +8,14 @@ import { ComponentProps } from 'react'
 
 const meta: Meta<typeof InputMultiple> = {
   title: 'forms/InputMultiple',
-  component: InputMultiple,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered'
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ['autodocs']
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {
-  //   backgroundColor: { control: 'color' }
-  // }
+  component: InputMultiple
 }
 
 export default meta
 
 type Story = StoryObj<typeof InputMultiple>
 
-const InputCheckboxWithHooks = (
+const RenderMultipleCheckbox = (
   props: ComponentProps<typeof InputMultiple>
 ) => {
   return (
@@ -39,7 +29,7 @@ const InputCheckboxWithHooks = (
   )
 }
 
-const InputRadioWithHooks = (props: ComponentProps<typeof InputMultiple>) => {
+const RenderMultipleRadio = (props: ComponentProps<typeof InputMultiple>) => {
   return (
     <InputMultiple
       {...props}
@@ -53,10 +43,11 @@ const InputRadioWithHooks = (props: ComponentProps<typeof InputMultiple>) => {
 
 const options = [
   { value: 1, label: 'option1' },
-  { value: 2, label: 'option2' }
+  { value: 2, label: 'option2' },
+  { value: 3, label: 'option3' }
 ]
 
-export const Checkbox: Story = {
+export const MultipleCheckbox: Story = {
   args: {
     label: 'カテゴリー',
     description: '1つ以上を選択してください',
@@ -64,10 +55,10 @@ export const Checkbox: Story = {
     error: '',
     direction: 'column'
   },
-  render: (args) => <InputCheckboxWithHooks {...args} />
+  render: (args) => <RenderMultipleCheckbox {...args} />
 }
 
-export const RadioButton: Story = {
+export const MultipleRadio: Story = {
   args: {
     label: 'カテゴリー',
     description: '1つ以上を選択してください',
@@ -75,5 +66,5 @@ export const RadioButton: Story = {
     error: '',
     direction: 'column'
   },
-  render: (args) => <InputRadioWithHooks {...args} />
+  render: (args) => <RenderMultipleRadio {...args} />
 }

@@ -1,9 +1,9 @@
 'use client'
 
-import { MatchHistoryCard } from '@/features/match/MatchDetail/components/MatchHistoryCard'
 import { MatchTextarea } from '@/features/match/MatchDetail/components/MatchTextarea'
 import { createPrismaMessage } from '@/features/match/MatchDetail/hooks/createPrismaMessage'
 import { useScrollToLatest } from '@/features/match/MatchDetail/hooks/useScrollToLatest'
+import { MatchHistoryCard } from '@/features/match/components/MatchHistoryCard'
 import { useServerAction } from '@/functions/hooks/useServerAction'
 import { Messages } from '@/functions/types/Prisma'
 import { useRouter } from 'next/navigation'

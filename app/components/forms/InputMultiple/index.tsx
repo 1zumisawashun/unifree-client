@@ -1,4 +1,5 @@
-import { InputFlexWrapper, InputWrapper } from '@/components/forms'
+import { InputFlexWrapper } from '@/components/forms/InputFlexWrapper'
+import { InputWrapper } from '@/components/forms/InputWrapper'
 import { InputWrapperPropsPassThroughProps } from '@/components/forms/input.type'
 import { DirectionType } from '@/functions/types/Common'
 

@@ -7,16 +7,6 @@ import { ToastProvider } from '@/components/elements/ToastProvider'
 const meta: Meta<typeof Button> = {
   title: 'elements/ToastProvider',
   component: Button,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered'
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {
-  //   backgroundColor: { control: 'color' }
-  // }
   decorators: [
     (Story) => (
       <ToastProvider>
@@ -31,7 +21,7 @@ export default meta
 
 type Story = StoryObj<typeof Button>
 
-const ToastWithHooks = () => {
+const Render = () => {
   const { showToast } = useToast()
 
   return (
@@ -45,6 +35,6 @@ const ToastWithHooks = () => {
   )
 }
 
-export const Primary: Story = {
-  render: () => <ToastWithHooks />
+export const Default: Story = {
+  render: () => <Render />
 }

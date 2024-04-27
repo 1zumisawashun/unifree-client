@@ -1,17 +1,22 @@
 'use client'
 
 import { Button, ButtonWrapper } from '@/components/buttons'
-import { Dialog, UseDialog, useDialog } from '@/components/elements/Dialog'
+import { Dialog } from '@/components/elements/Dialog'
 import { ErrorDialog } from '@/components/elements/ErrorDialog'
 import { LoadingSpinner } from '@/components/elements/LoadingSpinner'
 import { logoutByFirebaseAuth } from '@/functions/helpers/firebaseAuth'
 import { logoutByNextAuth } from '@/functions/helpers/nextAuth/client'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { useState } from 'react'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'logout-dialog'
 
-export const LogoutDialog = ({ dialog }: { dialog: UseDialog }) => {
+export const LogoutDialog = ({
+  dialog
+}: {
+  dialog: ReturnType<typeof useDialog>
+}) => {
   const errorDialog = useDialog()
 
   const [message, setMessage] = useState('')

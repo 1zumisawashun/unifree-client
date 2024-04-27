@@ -10,7 +10,7 @@ const BLOCK_NAME = 'match-history'
 const Item = ({ message, userId }: { message: Message; userId: number }) => {
   const isCurrentUser = message.userId === userId
   return (
-    <div className={styles[`${BLOCK_NAME}-container`]} key={message.id}>
+    <li className={styles[`${BLOCK_NAME}-container`]} key={message.id}>
       <div className={styles[`${BLOCK_NAME}-user-thumbnail-wrapper`]}>
         <Avatar />
       </div>
@@ -33,17 +33,17 @@ const Item = ({ message, userId }: { message: Message; userId: number }) => {
           {message.createdAt.toLocaleString()}
         </p>
       </div>
-    </div>
+    </li>
   )
 }
 
 function List({ messages, userId }: Messages) {
   return (
-    <div>
+    <ul>
       {messages.map((message) => (
         <Item key={message.id} message={message} userId={userId} />
       ))}
-    </div>
+    </ul>
   )
 }
 

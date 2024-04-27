@@ -1,7 +1,7 @@
 'use client'
 
-import { CategoryCard } from '@/features/admin/AdminCategory/components/CategoryCard'
-import { CategoryForm } from '@/features/admin/AdminCategory/components/CategoryForm'
+import { CategoryCard } from '@/features/admin/category/AdminCategory/components/CategoryCard'
+import { CategoryForm } from '@/features/admin/category/AdminCategory/components/CategoryForm'
 import { Category } from '@/functions/types/Prisma'
 import styles from './styles.module.scss'
 

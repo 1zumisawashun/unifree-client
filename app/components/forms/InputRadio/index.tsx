@@ -31,8 +31,8 @@ export const InputRadio = forwardRef<Ref, Props>(
       <input
         className={styles[`${BLOCK_NAME}-input`]}
         ref={ref}
-        name="input-radio" // 同じname属性を持つinput要素は同じグループになるため必要
         type="radio"
+        name="input-radio" // 同じname属性を持つinput要素は同じグループになるため必要（「InputRadioを複数クリックする」テストで気づいた）
         hidden
         data-error={!!error}
         {...props}

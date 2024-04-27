@@ -2,9 +2,9 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
 import { DeleteDialog } from '@/components/elements/DeleteDialog'
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Panel } from '@/components/elements/Panel'
 import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { CartDetails, CartEntry } from '@/functions/types/Cart'
 import { useShoppingCart } from 'use-shopping-cart'
 import styles from './styles.module.scss'

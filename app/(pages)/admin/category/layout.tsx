@@ -1,6 +1,6 @@
 import { LayoutContainer } from '@/components/layouts/LayoutContainer'
 import { SubHeader } from '@/components/layouts/SubHeader'
-import { prismaCategoryFindMany } from '@/features/admin/hooks/prismaCategoryFindMany'
+import { prismaCategoryFindMany } from '@/features/admin/category/hooks/prismaCategoryFindMany'
 import { Metadata } from 'next'
 
 const title = 'Admin Category'
@@ -18,7 +18,7 @@ export default async function Layout({
 
   return (
     <LayoutContainer>
-      <SubHeader title={title} href="/">
+      <SubHeader title={title} href="/admin">
         {children}
       </SubHeader>
     </LayoutContainer>

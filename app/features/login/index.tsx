@@ -1,12 +1,12 @@
 'use client'
 
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { ErrorDialog } from '@/components/elements/ErrorDialog'
 import { LoadingSpinner } from '@/components/elements/LoadingSpinner'
 import { Panel } from '@/components/elements/Panel'
 import { LoginBody } from '@/features/login/components/LoginBody'
 import { loginByFirebaseAuth } from '@/functions/helpers/firebaseAuth'
 import { loginByNextAuth } from '@/functions/helpers/nextAuth/client'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { useState } from 'react'
 
 export function Login() {

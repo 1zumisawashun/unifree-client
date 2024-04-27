@@ -1,10 +1,10 @@
 'use client'
 
 import { IconButton, UnstyledButton } from '@/components/buttons'
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Nl2br } from '@/components/elements/Nl2br'
 import { PreviewDialog } from '@/components/elements/PreviewDialog'
 import { Tooltip } from '@/components/elements/Tooltip'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { Image } from '@/functions/types/Prisma'
 import { useRef } from 'react'
 import styles from './styles.module.scss'

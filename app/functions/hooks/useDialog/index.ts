@@ -1,14 +1,8 @@
 'use client'
 
-import { ElementRef, Ref, useCallback, useRef } from 'react'
+import { ElementRef, useCallback, useRef } from 'react'
 
-export type UseDialog = {
-  ref: Ref<ElementRef<'dialog'>>
-  open: () => void
-  close: () => void
-}
-
-export const useDialog = (): UseDialog => {
+export const useDialog = () => {
   const ref = useRef<ElementRef<'dialog'>>(null)
 
   const open = useCallback(() => {

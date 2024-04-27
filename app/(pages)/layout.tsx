@@ -36,9 +36,9 @@ export default function RootLayout({
         <ClientProvider>
           <Header />
           {children}
-          {/* https://vercel.com/1zumisawashun/unifree-client/speed-insights */}
+          {/* https://vercel.com/1zumisawashun/unifli-client/speed-insights */}
           <SpeedInsights />
-          {/* https://vercel.com/1zumisawashun/unifree-client/analytics */}
+          {/* https://vercel.com/1zumisawashun/unifli-client/analytics */}
           <Analytics />
           {/* https://nextjs.org/docs/messages/next-script-for-ga */}
           {/* <GoogleAnalytics gaId="G-XYZ" /> */}

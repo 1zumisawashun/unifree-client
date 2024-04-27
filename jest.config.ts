@@ -12,13 +12,17 @@ const config: Config = {
   testEnvironment: 'jsdom',
   // Add more setup options before each test is run
   moduleNameMapper: {
-    // エイリアスの設定
+    // エイリアスの追加
     '^@/(.*)$': '<rootDir>/app/$1',
     /** @see https://stackoverflow.com/questions/74899923/jest-encountered-an-unexpected-token-with-swiperjs */
     '^swiper': '<rootDir>/node_modules/swiper/swiper.min.js'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  testPathIgnorePatterns: ['<rootDir>/app/__tests__/utilities']
+  testPathIgnorePatterns: ['<rootDir>/app/__tests__/utilities'],
+  setupFiles: ['./jest.polyfills.js'],
+  testEnvironmentOptions: {
+    customExportConditions: ['']
+  }
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

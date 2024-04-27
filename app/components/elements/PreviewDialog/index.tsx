@@ -1,8 +1,9 @@
 'use client'
 
 import { Button, ButtonWrapper } from '@/components/buttons'
-import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import { Dialog } from '@/components/elements/Dialog'
 import { Swiper } from '@/components/elements/Swiper'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { Image } from '@/functions/types/Prisma'
 import styles from './styles.module.scss'
 
@@ -15,12 +16,12 @@ export const PreviewDialog = ({
   dialog,
   images
 }: {
-  dialog: UseDialog
+  dialog: ReturnType<typeof useDialog>
   images?: ImageWithoutProductId[]
 }) => {
   const hasSwiper = images && images.length > 1
   return (
-    <Dialog {...dialog} hasSwiper={hasSwiper} width='sp'>
+    <Dialog {...dialog} hasSwiper={hasSwiper} width="sp">
       <div className={styles[`${BLOCK_NAME}-body`]}>
         <p className={styles[`${BLOCK_NAME}-text`]}>プレビューダイアログ</p>
         {images && (

@@ -108,7 +108,11 @@ export const ProductForm = ({
             error={errors.paymentMethod?.message}
             rows={paymentMethodOptions}
             render={(option) => (
-              <InputRadio {...register('paymentMethod')} value={option.value}>
+              <InputRadio
+                {...register('paymentMethod')}
+                value={option.value}
+                disabled={option.label === '宅配ロッカー'} // NOTE:宅配ロッカーは未実装のため非活性
+              >
                 {option.label}
               </InputRadio>
             )}
