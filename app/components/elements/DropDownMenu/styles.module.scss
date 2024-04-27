@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/tools/main";
+@import '@/assets/styles/settings/color';
+@import '@/assets/styles/tools/main';
 
 .dropdown-menu {
   animation: 0.1s fade-in;
@@ -12,7 +12,7 @@
   z-index: 5;
   border: 1px solid $border;
 
-  &[data-is-fade-out="true"] {
+  &[data-is-fade-out='true'] {
     animation: 0.1s fade-out;
     opacity: 0;
   }

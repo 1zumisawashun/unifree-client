@@ -1,8 +1,6 @@
 'use client'
 
-import { createStripePrices } from '@/features/product/ProductCreate/hooks/createStripePrices'
 import { updatePrismaProduct } from '@/features/product/ProductEdit/hooks/updatePrismaProduct'
-import { updateStripePrices } from '@/features/product/ProductEdit/hooks/updateStripePrices'
 import { ProductForm } from '@/features/product/components/ProductForm'
 import { imagesFactory } from '@/features/product/hooks/imagesFactory'
 import { UpsertProduct } from '@/features/product/product.schema'
@@ -13,13 +11,11 @@ import { useState } from 'react'
 export const ProductEdit = ({
   productEntity,
   categoryOptions,
-  id,
-  stripePriceId
+  id
 }: {
   productEntity: UpsertProduct
   categoryOptions: { value: number; label: string }[]
   id: number
-  stripePriceId: string
 }) => {
   const router = useRouter()
   const { serverAction } = useServerAction()
@@ -32,26 +28,21 @@ export const ProductEdit = ({
     const { files, name, price, categories, ...rest } = data
 
     try {
-      const response = await updateStripePrices({ stripePriceId })
-      if (!response) throw new Error()
-
       const images = await imagesFactory({ files })
-      const stripeIds = await createStripePrices({ name, price })
 
       const params = {
         ...rest,
         name,
         price: Number(price),
         categories: categories.map(Number),
-        images,
-        ...stripeIds
+        images
       }
 
-      const result = await serverAction(() =>
+      const response = await serverAction(() =>
         updatePrismaProduct({ id, params })
       )
 
-      if (!result.ok) throw new Error('Failed to create product')
+      if (!response.ok) throw new Error('Failed to create product')
 
       router.push(`/products/${id}`)
       router.refresh()

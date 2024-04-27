@@ -1,7 +1,8 @@
 'use client'
 
 import { Button, ButtonWrapper } from '@/components/buttons'
-import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import { Dialog } from '@/components/elements/Dialog'
+import { useDialog } from '@/functions/hooks/useDialog'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'error-dialog'
@@ -11,7 +12,7 @@ export function ErrorDialog({
   message,
   domain
 }: {
-  dialog: UseDialog
+  dialog: ReturnType<typeof useDialog>
   message: string
   domain: string
 }) {

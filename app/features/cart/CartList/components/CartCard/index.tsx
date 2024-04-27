@@ -2,17 +2,17 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
 import { DeleteDialog } from '@/components/elements/DeleteDialog'
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Panel } from '@/components/elements/Panel'
 import { formatCurrencyString } from '@/functions/helpers/formatNumber'
-import { CartDetails, CartItem as ICartItem } from '@/functions/types/Cart'
+import { useDialog } from '@/functions/hooks/useDialog'
+import { CartDetails, CartEntry } from '@/functions/types/Cart'
 import { useShoppingCart } from 'use-shopping-cart'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'cart-card'
 
 /* eslint-disable @next/next/no-img-element */
-const Item = ({ cart }: { cart: ICartItem }) => {
+const Item = ({ cart }: { cart: CartEntry }) => {
   const {
     name,
     image,

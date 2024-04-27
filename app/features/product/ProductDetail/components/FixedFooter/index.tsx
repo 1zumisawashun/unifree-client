@@ -23,21 +23,21 @@ export function FixedFooter({
   matchId?: number
   isProduction: boolean
 }) {
-  const { name, stripePriceId, price, images, userId, id, description } =
-    product
+  const { name, price, images, userId, id, description } = product
 
   const { addItem, cartDetails } = useShoppingCart()
   const { showToast, closeToast } = useToast()
   const router = useRouter()
   const { isPending, serverAction } = useServerAction()
 
-  const hasItem = Object.keys(cartDetails ?? {}).includes(stripePriceId)
+  const hasItem = Object.keys(cartDetails ?? {}).includes(id.toString())
+
   const hasMatch = !!matchId
 
   const addCart = () => {
     const params = {
       name,
-      id: stripePriceId,
+      id: id.toString(),
       product_data: {
         id,
         description

@@ -2,7 +2,7 @@
 
 import { Button, ButtonWrapper } from '@/components/buttons'
 import { Avatar } from '@/components/elements/Avatar'
-import { UseDialog } from '@/components/elements/Dialog/hooks/useDialog'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { User } from '@/functions/types/Prisma'
 import styles from './styles.module.scss'
 
@@ -12,7 +12,7 @@ export function ProfileCard({
   dialog,
   user
 }: {
-  dialog: UseDialog
+  dialog: ReturnType<typeof useDialog>
   user: User
 }) {
   const { displayName, university, faculty, department } = user

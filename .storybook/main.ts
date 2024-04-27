@@ -7,7 +7,8 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    '@chromatic-com/storybook'
   ],
   /**
    * @see https://github.com/storybookjs/storybook/issues/3916#issuecomment-871283551

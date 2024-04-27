@@ -1,5 +1,6 @@
 import { Button, ButtonWrapper } from '@/components/buttons'
-import { Dialog, UseDialog } from '@/components/elements/Dialog'
+import { Dialog } from '@/components/elements/Dialog'
+import { useDialog } from '@/functions/hooks/useDialog'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'delete-dialog'
@@ -8,7 +9,7 @@ export const DeleteDialog = ({
   dialog,
   submit
 }: {
-  dialog: UseDialog
+  dialog: ReturnType<typeof useDialog>
   submit: () => void
 }) => {
   return (

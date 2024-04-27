@@ -1,25 +1,18 @@
-export const faq = `Q: How do I create a new note?
-A: To create a new note, click the "New Note" button located in the top left corner of the screen. This will open a blank note where you can begin typing.
+export const faq = `Q.取引方法について教えて
+A.ユニフリは北大生向けのフリマアプリです。
+商品の取引は取引相手と取引日時と場所を相談して決めてください。
+そして当日、取引相手と商品と代金の交換が成立したら取引完了です！
 
-Q: Can I customize the appearance of my notes?
-A: Yes, you can customize the appearance of your notes by changing the font, font size, and background color. Simply click the "Settings" button and select "Appearance" to make these changes.
+Q.決済方法はなんでもいいの？
+A.売買双方が合意すればなんでも大丈夫です。
 
-Q: Can I share my notes with others?
-A: Yes, you can share your notes with others by clicking the "Share" button located at the bottom of the note. You can then enter the email address of the person you wish to share the note with.
+Q.取引場所は双方で決めれば良いの？
+A.取引場所については、売買双方が合意した場所で決定していただければ結構です。
 
-Q: How do I delete a note?
-A: To delete a note, click on the note you wish to delete and then click the "Delete" button located at the bottom of the note.
+Q.対面でなく郵送で商品を発送しても良いの？
+A.遠方にお住まいの方から商品を郵送してほしいとの依頼がある場合も、双方が合意すれば郵送での取引も問題ありません。
 
-Q: Is my data secure?
-A: Yes, we take the security and privacy of your data very seriously. All notes are stored on secure servers and are encrypted for added protection.
-
-Q: Can I access my notes on multiple devices?
-A: Yes, you can access your notes on multiple devices by logging into your account on our website. All notes will be synced across all devices.
-
-Q: What happens if I forget my password?
-A: If you forget your password, you can reset it by clicking the "Forgot Password" link located on the login page. You will then be prompted to enter your email address to receive instructions on how to reset your password.
-
-Q: Do you offer a mobile app?
-A: Yes, we offer a mobile app for both iOS and Android devices. You can download the app from the App Store or Google Play.
+Q.自転車などを販売する際に注意することはありますか？
+A.自転車を出品する際には、新しい所有者が防犯登録を行うために必要となる譲渡証明書の提供が必要です。この譲渡証明書は、出品者が居住する地域の自転車防犯協会のwebサイトからできます。自転車と一緒に譲渡証明書を渡すことを忘れないようにしてください。
 
 `

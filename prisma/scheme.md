@@ -18,8 +18,6 @@ erDiagram
 
   "products" {
     Int id "🗝️"
-    String stripe_price_id 
-    String stripe_product_id 
     String name 
     Int price 
     Boolean active 

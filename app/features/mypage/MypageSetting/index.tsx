@@ -1,12 +1,12 @@
 'use client'
 
 import { Button, ButtonWrapper } from '@/components/buttons'
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Divider } from '@/components/elements/Divider'
 import { Panel } from '@/components/elements/Panel'
 import { EditDialog } from '@/features/mypage/MypageSetting/components/EditDialog'
 import { LogoutDialog } from '@/features/mypage/MypageSetting/components/LogoutDialog'
 import { ProfileCard } from '@/features/mypage/MypageSetting/components/ProfileCard'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { User } from '@/functions/types/Prisma'
 
 export function MypageSetting({ user }: { user: User }) {

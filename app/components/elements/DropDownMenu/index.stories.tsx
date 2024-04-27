@@ -8,24 +8,14 @@ import { ComponentProps, ElementRef, useRef } from 'react'
 
 const meta: Meta<typeof DropDownMenu> = {
   title: 'elements/DropDownMenu',
-  component: DropDownMenu,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered'
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ['autodocs']
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {
-  //   backgroundColor: { control: 'color' }
-  // }
+  component: DropDownMenu
 }
 
 export default meta
 
 type Story = StoryObj<typeof DropDownMenu>
 
-const DropDownMenuWithHooks = (props: ComponentProps<typeof DropDownMenu>) => {
+const Render = (props: ComponentProps<typeof DropDownMenu>) => {
   const referenceRef = useRef<ElementRef<'button'>>(null)
 
   const routes = [
@@ -68,9 +58,9 @@ const DropDownMenuWithHooks = (props: ComponentProps<typeof DropDownMenu>) => {
   )
 }
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    placement: 'bottom'
+    placement: 'bottom-start'
   },
-  render: (args) => <DropDownMenuWithHooks {...args} />
+  render: (args) => <Render {...args} />
 }

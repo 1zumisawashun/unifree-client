@@ -3,8 +3,6 @@
 import { prisma } from '@/functions/libs/prisma'
 
 type Params = {
-  stripeProductId: string
-  stripePriceId: string
   name: string
   price: number
   categories: number[]

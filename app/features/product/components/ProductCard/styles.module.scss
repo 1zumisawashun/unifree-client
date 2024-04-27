@@ -1,6 +1,6 @@
-@import "@/assets/styles/utilities/line-clamp";
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/utilities/line-clamp';
+@import '@/assets/styles/settings/color';
+@import '@/assets/styles/settings/media';
 
 .product-card-list {
   display: grid;
@@ -27,20 +27,20 @@
 
 .product-card-layer {
   position: relative;
-  &[data-status="available"] {
+  &[data-status='available'] {
     > p {
       display: none;
     }
   }
   // hide
-  &[data-status="waiting"] {
+  &[data-status='waiting'] {
     > p {
       display: none;
     }
   }
-  &[data-status="completed"] {
+  &[data-status='completed'] {
     &::before {
-      content: "";
+      content: '';
       width: 100%;
       height: 100%;
       background: $red-bg;
@@ -49,7 +49,7 @@
       top: 0;
       left: 0;
       border-radius: 0.5rem 0.5rem 0 0;
-      z-index: 2;
+      z-index: 1;
     }
     > p {
       width: 100%;
@@ -62,20 +62,15 @@
       letter-spacing: 5px;
       color: #fff;
       text-align: center;
-      z-index: 3;
+      z-index: 2;
     }
   }
 }
 
-.product-card-label-wrapper {
-  &[data-new="false"] {
-    display: none;
-  }
-  &[data-new="true"] {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-  }
+.product-card-label {
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }
 
 .product-card-title {

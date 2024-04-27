@@ -1,10 +1,16 @@
-// import { ClientProvider } from "@/providers/client";
 import { render, RenderOptions } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
 
+/**
+ * @description renderに必要なProviderはここでまとめて提供する
+ */
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return children
-  // return <ClientProvider>{children}</ClientProvider>;
+  /**
+   * @description next/linkのモックを提供する
+   * @see https://www.npmjs.com/package/next-router-mock
+   */
+  return <MemoryRouterProvider>{children}</MemoryRouterProvider>
 }
 
 const customRender = (

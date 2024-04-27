@@ -10,9 +10,34 @@ import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'product-card'
 
+// NOTE:本来はstateを使ってlookupした方が良いがサバコンなので愚直に条件分岐させる
+const ProductCardLabel = ({
+  isNew,
+  hasPr
+}: {
+  isNew: boolean
+  hasPr: boolean
+}) => {
+  if (hasPr) {
+    return (
+      <Label theme="danger" className={styles[`${BLOCK_NAME}-label`]}>
+        PR
+      </Label>
+    )
+  }
+  if (isNew) {
+    return (
+      <Label theme="primary" className={styles[`${BLOCK_NAME}-label`]}>
+        NEW
+      </Label>
+    )
+  }
+  return null
+}
+
 /* eslint-disable @next/next/no-img-element */
 const Item = ({ product }: { product: Product }) => {
-  const { id, name, images, price, status, createdAt } = product
+  const { id, name, images, price, status, createdAt, categories } = product
 
   const formattedPrice = formatCurrencyString(price)
   const formattedCreatedAt = formatDistanceToNow(createdAt, {
@@ -20,8 +45,10 @@ const Item = ({ product }: { product: Product }) => {
     locale: ja
   })
 
+  const hasPr = categories.some((category) => category.name === 'PR')
+
   const sevenDaysAgo = subDays(new Date(), 7)
-  const isSevenDaysAgoBeforeCreatedAt = isBefore(sevenDaysAgo, createdAt)
+  const isNew = isBefore(sevenDaysAgo, createdAt)
 
   return (
     <UnstyledButtonAnchor href={`/products/${id}`}>
@@ -34,12 +61,7 @@ const Item = ({ product }: { product: Product }) => {
             priority
           />
           <p>SOLD OUT</p>
-          <div
-            data-new={isSevenDaysAgoBeforeCreatedAt}
-            className={styles[`${BLOCK_NAME}-label-wrapper`]}
-          >
-            <Label>NEW</Label>
-          </div>
+          <ProductCardLabel isNew={isNew} hasPr={hasPr} />
         </div>
         <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
         <div className={styles[`${BLOCK_NAME}-content`]}>

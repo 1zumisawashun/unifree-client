@@ -6,7 +6,7 @@ import { DropDownMenu } from '@/components/elements/DropDownMenu'
 import { profileRoutes } from '@/functions/helpers/getRoutes'
 import { useDisclosure } from '@/functions/hooks/useDisclosure'
 import { useRouter } from 'next/navigation'
-import { ElementRef, useRef } from 'react'
+import { ElementRef, useEffect, useRef } from 'react'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'profile-menu'
@@ -23,11 +23,19 @@ export const HeaderMenu = ({
   const routes = profileRoutes({ isAuthenticated })
 
   const dropDownMenu = useDisclosure()
-  const router = useRouter()
+  const { push, prefetch } = useRouter()
+
+  useEffect(() => {
+    routes.map((route) => prefetch(route.href))
+  }, [prefetch, routes])
 
   return (
     <>
-      <UnstyledButton onClick={dropDownMenu.toggle} ref={referenceRef}>
+      <UnstyledButton
+        onClick={dropDownMenu.toggle}
+        ref={referenceRef}
+        aria-label="avatar"
+      >
         <Avatar id={userId} />
       </UnstyledButton>
       <DropDownMenu
@@ -41,8 +49,7 @@ export const HeaderMenu = ({
             shape="square"
             className={styles[`${BLOCK_NAME}-anchor-button`]}
             onClick={() => {
-              // NOTE:router.pushはprefetchが効かないが許容範囲なのでそのまま使う
-              router.push(route.href), dropDownMenu.close()
+              push(route.href), dropDownMenu.close()
             }}
           >
             {route.value}

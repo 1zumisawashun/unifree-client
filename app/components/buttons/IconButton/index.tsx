@@ -37,6 +37,7 @@ export const IconButton = forwardRef<Ref, Props>(
         data-size={size}
         data-shape={shape}
         aria-disabled={disabled}
+        aria-label={name}
         ref={ref}
       >
         <Tag />

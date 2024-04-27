@@ -2,12 +2,12 @@
 
 import { Button, ButtonAnchor, ButtonWrapper } from '@/components/buttons'
 import { DeleteDialog } from '@/components/elements/DeleteDialog'
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { Panel } from '@/components/elements/Panel'
 import { ProductCategory } from '@/features/product/ProductDetail/components/ProductCategory'
 import { ProductImage } from '@/features/product/ProductDetail/components/ProductImage'
 import { deletePrismaProduct } from '@/features/product/ProductDetail/hooks/deletePrismaProduct'
 import { formatCurrencyString } from '@/functions/helpers/formatNumber'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { useServerAction } from '@/functions/hooks/useServerAction'
 import { Product } from '@/functions/types/Prisma'
 import { useSession } from 'next-auth/react'
@@ -62,11 +62,7 @@ export const ProductDetail = ({ product }: { product: Product }) => {
 
           {shouldShow && (
             <ButtonWrapper position="end">
-              <Button
-                onClick={dialog.open}
-                variant="outlined"
-                theme="danger"
-              >
+              <Button onClick={dialog.open} variant="outlined" theme="danger">
                 削除する
               </Button>
               <ButtonAnchor href={`/products/${id}/edit`} variant="outlined">

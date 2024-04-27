@@ -3,6 +3,8 @@ import { cleanEnv, str } from 'envalid'
 const env = cleanEnv(process.env, {
   // stripe
   STRIPE_SECRET_KEY: str(),
+  // url
+  NEXT_PUBLIC_API_BASE_URL: str(),
   // firebase-admin
   FIREBASE_TYPE: str(),
   FIREBASE_PROJECT_ID: str(),

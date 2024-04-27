@@ -1,10 +1,10 @@
-import { useDialog } from '@/components/elements/Dialog/hooks/useDialog'
 import { ErrorDialog } from '@/components/elements/ErrorDialog'
 import { useDDUpload } from '@/components/forms/InputFile/hooks/useDDUpload'
 import { InputFlexWrapper } from '@/components/forms/InputFlexWrapper'
 import { InputWrapper } from '@/components/forms/InputWrapper'
 import { InputWrapperPropsPassThroughProps } from '@/components/forms/input.type'
 import { UseArrayState } from '@/functions/hooks/useArrayState'
+import { useDialog } from '@/functions/hooks/useDialog'
 import { Image } from '@/functions/types/Prisma'
 import { BaseSyntheticEvent, ElementRef, useId, useRef, useState } from 'react'
 import { FileCard } from './components/FileCard'
@@ -18,7 +18,7 @@ export type InputFileProps = {
 
 const BLOCK_NAME = 'input-file'
 
-const accept = 'image/png, image/jpeg, image/webp, image/bmp'
+const accept = 'image/png, image/jpeg, image/jpg image/webp, image/bmp'
 
 /**
  * @description FileListをArrayとして扱う
@@ -50,13 +50,13 @@ export function InputFile({
     const files = [...Array.from(fileList)]
 
     // validate here
-    for (const file of files) {
-      if (!file.type.includes('image')) {
-        setMessage('画像ファイル以外はアップロードできません')
-        errorDialog.open()
-        return
-      }
-    }
+    // for (const file of files) {
+    //   if (!file.type.includes('image')) {
+    //     setMessage('画像ファイル以外はアップロードできません')
+    //     errorDialog.open()
+    //     return
+    //   }
+    // }
     // for (const file of files) {
     //   if (file.size > 500000) {
     //     setMessage('ファイルサイズは最大5MBです')
