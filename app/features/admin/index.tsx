@@ -12,6 +12,12 @@ const rows = [
     title: 'Match',
     annotation: 'ユーザー間のチャット内容を確認することができます',
     href: `/admin/matches`
+  },
+  {
+    id: 3,
+    title: 'Sample',
+    annotation: 'サンプルページです',
+    href: `/admin/sample`
   }
 ]
 
