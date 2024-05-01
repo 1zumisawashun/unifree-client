@@ -1,5 +1,5 @@
 @import '@/assets/styles/settings/color';
-@import '@/assets/styles/objects/base-text';
+@import '@/assets/styles/objects/base-text.module';
 
 /* 厳密に定義するなら以下にする */
 /* &:has(> .match-history-content-wrapper > .match-history-message-wrapper[data-current-user='true']) */

@@ -1,5 +1,5 @@
-@import "@/assets/styles/objects/base-input.scss";
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/objects/base-input.module.scss';
+@import '@/assets/styles/settings/color';
 
 .input-select {
   composes: base-input;
@@ -15,7 +15,7 @@
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4.5px solid $black;
-    content: "";
+    content: '';
     position: absolute;
     right: 9px;
     top: 22px;
