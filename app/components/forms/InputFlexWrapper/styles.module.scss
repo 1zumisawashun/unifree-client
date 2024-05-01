@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/settings/media.module';
 
 .input-flex-wrapper {
   display: flex;
@@ -9,18 +9,18 @@
   border-radius: 0.5rem;
 
   // direction
-  &[data-direction="row"] {
+  &[data-direction='row'] {
     flex-direction: row;
     @include sp {
       flex-direction: column;
     }
   }
-  &[data-direction="column"] {
+  &[data-direction='column'] {
     flex-direction: column;
   }
 
   // error
-  &[data-error="true"] {
+  &[data-error='true'] {
     border-color: $red-dark;
   }
 }

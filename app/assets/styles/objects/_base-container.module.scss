@@ -1,4 +1,4 @@
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/media.module';
 
 /* Object Layer */
 
@@ -18,7 +18,7 @@
   @include base-container;
   max-width: 576px;
   margin: auto;
-  &[data-footer="true"] {
+  &[data-footer='true'] {
     margin-bottom: 70px;
     @include sp {
       margin-bottom: 132px;

@@ -1,4 +1,4 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color.module';
 
 $small: 0.875rem;
 $medium: 1rem;
@@ -24,11 +24,11 @@ $large-pd-x: 26px;
   justify-content: center;
   text-align: center;
 
-  &[data-shape="square"]::before {
+  &[data-shape='square']::before {
     border-radius: 0rem;
   }
 
-  &[data-shape="round"]::before {
+  &[data-shape='round']::before {
     border-radius: 1.5rem;
   }
 
@@ -47,22 +47,22 @@ $large-pd-x: 26px;
   }
 
   // button-disabled
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     pointer-events: none;
     transition: filter 0.3s ease;
     filter: brightness(80%);
   }
 
   // button-shape
-  &[data-shape="square"] {
+  &[data-shape='square'] {
     border-radius: 0em;
   }
-  &[data-shape="round"] {
+  &[data-shape='round'] {
     border-radius: 1.5em;
   }
 
   // button-size
-  &[data-size="small"] {
+  &[data-size='small'] {
     font-size: $small;
     padding: $small-pd-y $small-pd-x;
     > svg {
@@ -70,7 +70,7 @@ $large-pd-x: 26px;
       height: $small;
     }
   }
-  &[data-size="medium"] {
+  &[data-size='medium'] {
     font-size: $medium;
     padding: $medium-pd-y $medium-pd-x;
     > svg {
@@ -78,7 +78,7 @@ $large-pd-x: 26px;
       height: $medium;
     }
   }
-  &[data-size="large"] {
+  &[data-size='large'] {
     font-size: $large;
     padding: $large-pd-y $large-pd-x;
     > svg {
@@ -88,32 +88,32 @@ $large-pd-x: 26px;
   }
 
   // button-variant-color
-  &[data-variant="contained"][data-theme="primary"] {
+  &[data-variant='contained'][data-theme='primary'] {
     color: white;
     background-color: $primary-main;
     border: 1px solid $primary-main;
   }
-  &[data-variant="outlined"][data-theme="primary"] {
+  &[data-variant='outlined'][data-theme='primary'] {
     color: $primary-main;
     background-color: white;
     border: 1px solid $primary-main;
   }
-  &[data-variant="contained"][data-theme="danger"] {
+  &[data-variant='contained'][data-theme='danger'] {
     color: white;
     background-color: $red-main;
     border: 1px solid $red-main;
   }
-  &[data-variant="outlined"][data-theme="danger"] {
+  &[data-variant='outlined'][data-theme='danger'] {
     color: $red-main;
     background-color: white;
     border: 1px solid $red-main;
   }
-  &[data-variant="contained"][data-theme="success"] {
+  &[data-variant='contained'][data-theme='success'] {
     color: white;
     background-color: $green-main;
     border: 1px solid $green-main;
   }
-  &[data-variant="outlined"][data-theme="success"] {
+  &[data-variant='outlined'][data-theme='success'] {
     color: $green-main;
     background-color: white;
     border: 1px solid $green-main;

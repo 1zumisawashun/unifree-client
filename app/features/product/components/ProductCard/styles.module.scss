@@ -1,6 +1,6 @@
-@import '@/assets/styles/utilities/line-clamp';
-@import '@/assets/styles/settings/color';
-@import '@/assets/styles/settings/media';
+@import '@/assets/styles/utilities/line-clamp.module';
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/settings/media.module';
 
 .product-card-list {
   display: grid;

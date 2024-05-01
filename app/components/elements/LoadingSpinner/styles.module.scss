@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/tools/main";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/tools/main.module';
 
 .loading-spinner-overlay {
   position: absolute;
@@ -31,7 +31,7 @@
   border-radius: 50%;
   margin: 30px auto;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     top: 0;

@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/media";
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/media.module';
+@import '@/assets/styles/settings/color.module';
 
 .center-wrapper {
   position: absolute;
@@ -10,11 +10,11 @@
   // height: calc(100% - 0px);
   height: 100%;
   z-index: -1;
-  &[data-background="index"] {
-    background-image: url("../../../assets/images/image_index_bg.jpg");
+  &[data-background='index'] {
+    background-image: url('../../../assets/images/image_index_bg.jpg');
     background-size: cover;
     &::before {
-      content: "";
+      content: '';
       width: 100%;
       height: 100%;
       background: $overlay;

@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/tools/main";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/tools/main.module';
 
 .tool-tip {
   animation: 0.5s fade-in;
@@ -15,7 +15,7 @@
 
   display: none;
 
-  &[data-is-fade-out="true"] {
+  &[data-is-fade-out='true'] {
     animation: 0.5s fade-out;
     opacity: 0;
   }

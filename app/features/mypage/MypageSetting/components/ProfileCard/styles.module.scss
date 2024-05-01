@@ -1,7 +1,7 @@
 @import '@/assets/styles/objects/base-text.module';
-@import '@/assets/styles/settings/color';
-@import '@/assets/styles/settings/media';
-@import '@/assets/styles/utilities/line-clamp';
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/settings/media.module';
+@import '@/assets/styles/utilities/line-clamp.module';
 
 .profile-card-container {
   display: flex;

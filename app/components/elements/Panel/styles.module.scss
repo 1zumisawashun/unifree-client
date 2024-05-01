@@ -1,45 +1,45 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/settings/media.module';
 
 .panel-flame {
   border-radius: 0.5rem;
   // panel scroll
-  &[data-scroll="true"] {
+  &[data-scroll='true'] {
     overflow-y: scroll;
   }
   // panel theme and border
-  &[data-theme="transparent"] {
-    &[data-border="true"] {
+  &[data-theme='transparent'] {
+    &[data-border='true'] {
       border: 1px solid $border;
     }
   }
-  &[data-theme="primary"] {
+  &[data-theme='primary'] {
     background-color: $primary-bg;
     color: $primary-dark;
-    &[data-border="true"] {
+    &[data-border='true'] {
       border: 1px solid $primary-dark;
     }
   }
-  &[data-theme="danger"] {
+  &[data-theme='danger'] {
     background-color: $red-bg;
     color: $red-dark;
-    &[data-border="true"] {
+    &[data-border='true'] {
       border: 1px solid $red-dark;
     }
   }
-  &[data-theme="success"] {
+  &[data-theme='success'] {
     background-color: $green-bg;
     color: $green-dark;
-    &[data-border="true"] {
+    &[data-border='true'] {
       border: 1px solid $green-dark;
     }
   }
 
   // shape
-  &[data-shape="square"] {
+  &[data-shape='square'] {
     border-radius: 0rem;
   }
-  &[data-shape="round"] {
+  &[data-shape='round'] {
     border-radius: 1.5rem;
   }
 }

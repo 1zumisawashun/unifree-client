@@ -1,4 +1,4 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color.module';
 
 .input-toggle {
   display: inline-block;
@@ -53,7 +53,7 @@
   border: solid 1px $white-main;
   border-radius: 100%;
   box-sizing: border-box;
-  content: "";
+  content: '';
   display: inline-block;
   height: 24px;
   left: 4px;

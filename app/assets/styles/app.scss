@@ -1,16 +1,16 @@
 // settings
-@import "settings/color";
-@import "settings/font";
-@import "settings/media";
-@import "settings/shadow";
+@import 'settings/color.module';
+@import 'settings/font';
+@import 'settings/media.module';
+@import 'settings/shadow';
 
 // tools
-// @import "tools/main";
+// @import "tools/main.module";
 
 // generic
 // @import 'generics/reset';
-@import "generics/custom-reset";
-@import "generics/the-new-css-reset";
+@import 'generics/custom-reset';
+@import 'generics/the-new-css-reset';
 
 // elements
 // @import 'elements/main';
@@ -22,7 +22,10 @@
 // @import 'components/main';
 
 // utilities
-@import "utilities/line-clamp";
-@import "utilities/main";
-@import "utilities/margin";
-@import "utilities/padding";
+@import 'utilities/flex-column-between-line.module';
+@import 'utilities/flex-column.module';
+@import 'utilities/flex-row.module';
+@import 'utilities/line-clamp.module';
+@import 'utilities/main';
+@import 'utilities/margin';
+@import 'utilities/padding';

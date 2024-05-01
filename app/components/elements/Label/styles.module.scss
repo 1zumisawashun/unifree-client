@@ -1,4 +1,4 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color.module';
 
 .label {
   border-radius: 0.25rem;
@@ -7,15 +7,15 @@
   line-height: 1.25rem;
   font-weight: 500;
 
-  &[data-theme="primary"] {
+  &[data-theme='primary'] {
     background-color: $primary-bg;
     color: $primary-dark;
   }
-  &[data-theme="danger"] {
+  &[data-theme='danger'] {
     background-color: $red-bg;
     color: $red-dark;
   }
-  &[data-theme="success"] {
+  &[data-theme='success'] {
     background-color: $green-bg;
     color: $green-dark;
   }
