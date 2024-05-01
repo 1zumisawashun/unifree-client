@@ -1,0 +1,1 @@
+{"version":3,"sources":["./styles.module.scss"],"names":["error-dialog-inner","error-dialog-title","error-dialog-message"],"mappings":"AAAA;AAAA,E,kHAAA;AAAA,E,qHAAA;AAAA,E,mHAAA;AAAA,E,oHAAA;AAAA,E,oHAAA;AAAA,E,mHAAA;AAAA,E,aAGAA,oB,WAHA;AAAA,E,aASAC,oB,WATA;AAAA,E,aAcAC,sB,WAdA;AAAA;AAAA","file":"styles.module.scss.d.ts","sourceRoot":""}
