@@ -1,0 +1,1 @@
+{"version":3,"sources":["./styles.module.scss"],"names":["match-textarea-container","match-textarea-wrapper","match-textarea-textarea","match-textarea-submit-button"],"mappings":"AAAA;AAAA,E,aAEAA,0B,WAFA;AAAA,E,aAUAC,wB,WAVA;AAAA,E,aAkBAC,yB,WAlBA;AAAA,E,aA2BEA,yB,WA3BF;AAAA,E,aA8BEA,yB,WA9BF;AAAA,E,aAmCAC,8B,WAnCA;AAAA;AAAA","file":"styles.module.scss.d.ts","sourceRoot":""}

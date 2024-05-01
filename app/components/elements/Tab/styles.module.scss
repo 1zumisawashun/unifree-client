@@ -1,5 +1,4 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/objects/base-hover";
+@import '@/assets/styles/settings/color.module';
 
 .nav {
   display: flex;
@@ -16,12 +15,12 @@
   }
 }
 
-.nav-item[aria-selected="true"] {
+.nav-item[aria-selected='true'] {
   color: $primary-main;
   font-weight: 600;
 }
 
-.nav-item[aria-selected="false"] {
+.nav-item[aria-selected='false'] {
   color: $grey-light;
   font-weight: normal;
 }

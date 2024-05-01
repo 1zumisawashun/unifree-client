@@ -1,6 +1,6 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/objects/base-button";
-@import "@/assets/styles/objects/base-text";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/objects/base-button.module';
+@import '@/assets/styles/objects/base-text.module';
 
 .input-file-wrapper {
   display: flex;

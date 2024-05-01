@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/settings/media";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/settings/media.module';
 
 .login-body-container {
   display: flex;
@@ -38,7 +38,7 @@
 .login-body-button {
   transition: filter 0.3s ease;
   filter: brightness(100%);
-  &[aria-disabled="false"] {
+  &[aria-disabled='false'] {
     pointer-events: none;
     transition: filter 0.3s ease;
     filter: brightness(80%);

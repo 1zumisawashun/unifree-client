@@ -1,0 +1,84 @@
+@import '@/assets/styles/settings/color.module';
+
+.input-choice-label {
+  align-items: center;
+  color: black;
+  display: inline-flex;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.input-choice-label[data-variant='card'] {
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  &:has(.input-choice-input:checked) {
+    border: solid 1px $primary-dark;
+    background-color: $primary-bg;
+  }
+  &:has(.input-choice-input[data-error='true']) {
+    border: solid 1px $red-dark;
+    background-color: $red-bg;
+  }
+  &:has(.input-choice-input:disabled) {
+    opacity: 0.3;
+  }
+
+  // size
+  &[data-size='small'] {
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    justify-content: center;
+  }
+  &[data-size='medium'] {
+    padding: 1rem 2rem;
+    min-width: 200px;
+    justify-content: center;
+  }
+  &[data-size='large'] {
+    padding: 1.5rem 3rem;
+    min-width: 300px;
+    justify-content: center;
+  }
+}
+
+.input-choice-icon {
+  align-items: center;
+  border: solid 1px black;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-size: 0.875em;
+  justify-content: center;
+  background-color: white;
+  color: lightgrey;
+}
+
+.input-choice-icon {
+  &:is(.input-choice-input:checked + *) {
+    border: solid 1px $primary-dark;
+    background-color: $primary-bg;
+    color: $primary-dark;
+  }
+  &:is(.input-choice-input[data-error='true'] + *) {
+    border: solid 1px $red-dark;
+    background-color: $red-bg;
+    color: $red-dark;
+  }
+  &:is(.input-choice-input:disabled + *) {
+    opacity: 0.3;
+  }
+}
+
+.input-choice-text {
+  &:not(:empty) {
+    margin-left: 8px;
+  }
+  &:is(.input-choice-input:checked ~ *) {
+    color: black;
+  }
+  &:is(.input-choice-input:disabled ~ *) {
+    color: black;
+    opacity: 0.3;
+  }
+}

@@ -1,11 +1,11 @@
-@import "@/assets/styles/settings/color";
+@import '@/assets/styles/settings/color.module';
 
 .input-wrapper {
   display: grid;
   gap: 0.5rem;
 }
 
-.input-wrapper[data-width="full"] {
+.input-wrapper[data-width='full'] {
   width: 100%;
 }
 

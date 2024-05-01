@@ -30,7 +30,10 @@
     "prisma:reset": "npx prisma db push --force-reset && npm run prisma:seed",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "hcm": "hcm 'app/**/*.module.{css,scss,less}' --webpackResolveAlias='{\"@\": \"app\"}'",
+    "hcm:watch": "npm run hcm -- --watch",
+    "hcm:remove": "ts-node scripts/remove-hcm.ts"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.3",
@@ -81,6 +84,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-testing-library": "^6.2.0",
+    "happy-css-modules": "^2.1.2",
     "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",

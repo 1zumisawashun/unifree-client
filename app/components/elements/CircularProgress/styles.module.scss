@@ -1,5 +1,5 @@
-@import "@/assets/styles/settings/color";
-@import "@/assets/styles/tools/main";
+@import '@/assets/styles/settings/color.module';
+@import '@/assets/styles/tools/main.module';
 
 $small: 0.875rem;
 $medium: 1rem;
@@ -11,19 +11,19 @@ $large: 1.125rem;
   animation: loading infinite linear 1s;
 
   // circular-progress-size
-  &[data-size="small"] {
+  &[data-size='small'] {
     width: $small;
     height: $small;
     margin-top: -1px;
     margin-bottom: -1px;
   }
-  &[data-size="medium"] {
+  &[data-size='medium'] {
     width: $medium;
     height: $medium;
     margin-top: -1px;
     margin-bottom: -1px;
   }
-  &[data-size="large"] {
+  &[data-size='large'] {
     width: $large;
     height: $large;
     margin-top: -1px;
@@ -31,27 +31,27 @@ $large: 1.125rem;
   }
 
   // circular-progress-variant-color
-  &[data-variant="contained"][data-theme="primary"] {
+  &[data-variant='contained'][data-theme='primary'] {
     border: 2px solid white;
     border-top: 5px solid transparent;
   }
-  &[data-variant="outlined"][data-theme="primary"] {
+  &[data-variant='outlined'][data-theme='primary'] {
     border: 2px solid $primary-main;
     border-top: 5px solid transparent;
   }
-  &[data-variant="contained"][data-theme="danger"] {
+  &[data-variant='contained'][data-theme='danger'] {
     border: 2px solid white;
     border-top: 5px solid transparent;
   }
-  &[data-variant="outlined"][data-theme="danger"] {
+  &[data-variant='outlined'][data-theme='danger'] {
     border: 2px solid $red-main;
     border-top: 5px solid transparent;
   }
-  &[data-variant="contained"][data-theme="success"] {
+  &[data-variant='contained'][data-theme='success'] {
     border: 2px solid white;
     border-top: 5px solid transparent;
   }
-  &[data-variant="outlined"][data-theme="success"] {
+  &[data-variant='outlined'][data-theme='success'] {
     border: 2px solid $green-main;
     border-top: 5px solid transparent;
   }

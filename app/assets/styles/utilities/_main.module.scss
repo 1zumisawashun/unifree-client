@@ -1,0 +1,16 @@
+@import '@/assets/styles/settings/media.module';
+
+/* Utility Layer */
+
+._sp-hidden {
+  display: block;
+  @include sp {
+    display: none;
+  }
+}
+._pc-hidden {
+  display: none;
+  @include sp {
+    display: block;
+  }
+}

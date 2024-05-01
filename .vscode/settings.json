@@ -9,5 +9,9 @@
     "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.module.scss": "$(capture).module.scss.d.ts, $(capture).module.scss.d.ts.map"
+  }
 }

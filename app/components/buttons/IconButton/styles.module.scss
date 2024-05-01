@@ -1,4 +1,4 @@
-@import "@/assets/styles/objects/base-button";
+@import '@/assets/styles/objects/base-button.module';
 
 $x-small: 0.5rem;
 $small: 0.875rem;
@@ -17,33 +17,33 @@ $large-pd: 14px;
   min-width: auto;
 
   // button-shape
-  &[data-shape="round"] {
+  &[data-shape='round'] {
     border-radius: 9999em;
   }
 
   // button-size
-  &[data-size="x-small"] {
+  &[data-size='x-small'] {
     padding: $x-small-pd;
     > svg {
       width: $small;
       height: $small;
     }
   }
-  &[data-size="small"] {
+  &[data-size='small'] {
     padding: $small-pd;
     > svg {
       width: $small;
       height: $small;
     }
   }
-  &[data-size="medium"] {
+  &[data-size='medium'] {
     padding: $medium-pd;
     > svg {
       width: $medium;
       height: $medium;
     }
   }
-  &[data-size="large"] {
+  &[data-size='large'] {
     padding: $large-pd;
     > svg {
       width: $large;

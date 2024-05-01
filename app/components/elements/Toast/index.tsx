@@ -39,7 +39,7 @@ export const Toast: React.FC<ToastProps> = ({
     <div
       className={clsx(
         styles[`${BLOCK_NAME}`],
-        isShow && styles[`${BLOCK_NAME}--slide`],
+        // isShow && styles[`${BLOCK_NAME}--slide`],
         isShow && styles[`${BLOCK_NAME}-slide--in`],
         !isShow && styles[`${BLOCK_NAME}-slide--out`]
       )}
