@@ -31,8 +31,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
-    "hcm": "npx hcm 'app/**/*.module.{css,scss,less}' --webpackResolveAlias='{\"@\": \"app\"}'",
-    "hcm:watch": "npm run hcm -- --watch"
+    "hcm": "hcm 'app/**/*.module.{css,scss,less}' --webpackResolveAlias='{\"@\": \"app\"}'",
+    "hcm:watch": "npm run hcm -- --watch",
+    "hcm:remove": "ts-node scripts/remove-hcm.ts"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.3",
