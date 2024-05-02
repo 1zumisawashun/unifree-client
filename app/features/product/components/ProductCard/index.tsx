@@ -5,7 +5,6 @@ import { formatCurrencyString } from '@/functions/helpers/formatNumber'
 import { Product } from '@/functions/types/Prisma'
 import { formatDistanceToNow, isBefore, subDays } from 'date-fns'
 import { ja } from 'date-fns/locale'
-import 'server-only'
 import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'product-card'
