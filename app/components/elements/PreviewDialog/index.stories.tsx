@@ -1,3 +1,4 @@
+import { images } from '@/__tests__/utilities/image.mock'
 import { Button } from '@/components/buttons/Button'
 import { useDialog } from '@/functions/hooks/useDialog'
 import type { Meta, StoryObj } from '@storybook/react'
@@ -22,12 +23,6 @@ const Render = (props: ComponentProps<typeof PreviewDialog>) => {
     </>
   )
 }
-
-const images = [
-  { id: 1, name: 'image1', src: 'https://via.placeholder.com/500' },
-  { id: 2, name: 'image2', src: 'https://via.placeholder.com/500' },
-  { id: 3, name: 'image3', src: 'https://via.placeholder.com/500' }
-]
 
 export const Default: Story = {
   args: { images },
