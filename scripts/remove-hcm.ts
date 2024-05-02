@@ -1,5 +1,5 @@
 /**
- * @description 以下を参照しています
+ * @description tsファイルなのでts-nodeで実行する、検証時全てのファイルを削除するので改修が必要になる
  * @see https://zenn.dev/yumemi_inc/articles/make-css-modules-happy
  */
 

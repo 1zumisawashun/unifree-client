@@ -2,13 +2,15 @@
 
 〇〇大学生のための教科書フリマアプリです
 
-## Installation
+## 環境構築の手順
 
 - クローンして develop ブランチに移動する
 
 ```bash
 $ git clone git@github.com:1zumisawashun/unifree-client.git
-$ cd unifree-client/develop
+$ cd unifree-client
+$ code .
+$ git checkout develop
 ```
 
 - envファイルを生成する（必要な秘匿情報は[こちら](https://www.notion.so/UniFli-b8ffb92d7a464c15842dac09c4e840fa)から参照してください）
@@ -23,7 +25,7 @@ $ cp .env.example .env
 $ npm install
 ```
 
-- ローカル開発用 URL を開き動作確認をする
+- ローカル開発用 [URL](http://localhost:3000) を開き動作確認をする
 
 ```bash
 $ npm run dev
@@ -33,7 +35,6 @@ $ npm run dev
 
 ## Vercel
 
-[local](http://localhost:3000)
 [development](https://unifree-client-git-develop-1zumisawashun.vercel.app/)  
 [production](https://unifree-client.vercel.app/)
 
@@ -42,7 +43,7 @@ $ npm run dev
 [Speed Insights](https://vercel.com/1zumisawashuns-projects/unifree-client/speed-insights)  
 [Web Analytics](https://vercel.com/1zumisawashuns-projects/unifree-client/analytics)
 
-## Folder Structure
+## ディレクトリ構成
 
 See [Configuration Reference](https://github.com/1zumisawashun/folder-structure-template).
 
@@ -50,18 +51,18 @@ See [Configuration Reference](https://github.com/1zumisawashun/folder-structure-
 
 See [Configuration Reference](https://github.com/1zumisawashun/unifree-client/blob/main/prisma/scheme.md).
 
-## 技術スタック
+## 使用技術
 
 ```
 frontend: Next.js App Router
 backend: Next.js Route Handler
 orm: Prisma
 database: Supabase
-css: CSS Modules + Sass
+css: CSS Modules
 auth: Firebase Authentication + NextAuth
 storage: Firebase Storage
 catalog: Storybook
-test: react-testing-library
+test: React Testing Library + Jest
 hosting: Vercel
 ```
 
