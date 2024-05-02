@@ -68,7 +68,15 @@ hosting: Vercel
 
 ## Troubleshoot
 
-- nothing
+### デプロイが失敗する
+
+supabaseをhobbyプランで使用しているため定期的に稼働させないとロックされます。  
+supabaseのダッシュボードでrestoreさせてください。
+
+### nodeエラーが発生する
+
+nodeのバージョンを本案件のバージョンに合わせてください。  
+nodeのバージョン管理ツールをvoltaに設定している場合は不要です。
 
 ## その他ドキュメント
 
