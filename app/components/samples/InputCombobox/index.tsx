@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, BaseSyntheticEvent } from 'react'
+import { BaseSyntheticEvent, useState } from 'react'
+import styles from './styles.module.scss'
 
 const initOptions = [
   { id: 1, value: 'test1', label: 'テスト1', selected: false },
@@ -29,7 +30,12 @@ export function InputCombobox() {
   return (
     <div>
       <label onClick={() => setShow(true)}>
-        <input type="text" value={inputText} onChange={handleInputText} />
+        <input
+          type="text"
+          value={inputText}
+          onChange={handleInputText}
+          className={styles['input-text']}
+        />
       </label>
       {show && (
         <ul>

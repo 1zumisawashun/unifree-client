@@ -1,0 +1,110 @@
+.accordion {
+  --duration: 0.3s;
+  --summary-color: #f7f7f7;
+  --summary-background: #ad2234;
+  --summary-background-active: color-mix(
+    in srgb,
+    var(--summary-background) 80%,
+    black
+  );
+  --panel-background: #fcfcfc;
+
+  &:where(h1 + *) {
+    margin-block-start: 1lh;
+  }
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1em;
+  align-items: center;
+  padding: 1lh;
+  line-height: 1.5;
+  color: var(--summary-color);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  background-color: var(--summary-background);
+  transition: background-color var(--duration);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:where(.accordion[open] *) {
+    background-color: var(--summary-background-active);
+  }
+
+  &:focus-visible {
+    background-color: var(--summary-background-active);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--summary-background-active);
+    }
+  }
+}
+
+.summary + * {
+  background-color: var(--panel-background);
+}
+
+.icon {
+  display: inline-block;
+  inline-size: 1em;
+  aspect-ratio: 1;
+  contain: strict;
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset: 0;
+    block-size: 1px;
+    margin: auto;
+    content: "";
+    background-color: currentcolor;
+  }
+
+  &::after {
+    transition: opacity var(--duration);
+    rotate: 90deg;
+  }
+
+  &:where(.accordion[open] *)::after {
+    opacity: 0;
+  }
+}
+
+p {
+  padding: 1lh;
+  line-height: 1.75;
+}
+
+@layer defaults {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    padding: max(5vi, 20px);
+    font-family: "Open Sans", sans-serif;
+    font-size: clamp(0.75rem, 0.705rem + 0.23vi, 0.875rem);
+    color: #353535;
+    background-color: #dadada;
+  }
+
+  section {
+    max-inline-size: 600px;
+    margin-inline: auto;
+  }
+
+  h1 {
+    inline-size: fit-content;
+    margin-inline: auto;
+    font-size: clamp(1rem, 0.818rem + 0.91vi, 1.5rem);
+  }
+}

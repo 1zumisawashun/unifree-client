@@ -1,0 +1,6 @@
+@import '@/assets/styles/objects/base-input.module.scss';
+@import '@/assets/styles/settings/color.module';
+
+.input-text {
+  composes: base-input;
+}
