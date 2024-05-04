@@ -1,0 +1,15 @@
+@import '@/assets/styles/objects/base-input.module.scss';
+@import '@/assets/styles/settings/color.module';
+
+.input-text {
+  composes: base-input;
+}
+
+.input-combobox-button {
+  // child-selector適応できない作りにしてしまったのでネガティブマージンする
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  margin-top: -1px;
+  padding: 0.5rem 1rem;
+  // width: 200px;
+}

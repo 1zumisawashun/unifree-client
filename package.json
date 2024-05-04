@@ -13,6 +13,7 @@
     "format": "prettier \"app/**/*.+(js|json|yml|ts|tsx)\"",
     "format:fix": "prettier --write \"app/**/*.+(js|json|yml|ts|tsx)\"",
     "compile": "tsc --noEmit",
+    "compile:trace": "tsc --generateTrace typescript --incremental false",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "postinstall": "prisma generate",
@@ -31,6 +32,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
+    "coverage:ci": "jest --coverage --silent --ci --testLocationInResults --json --outputFile=\"report.json\"",
     "hcm": "hcm 'app/**/*.module.{css,scss,less}' --webpackResolveAlias='{\"@\": \"app\"}'",
     "hcm:watch": "npm run hcm -- --watch",
     "hcm:remove": "ts-node scripts/remove-hcm.ts"
@@ -111,5 +113,11 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "nextBundleAnalysis": {
+    "budget": 358400,
+    "budgetPercentIncreaseRed": 20,
+    "minimumChangeThreshold": 0,
+    "showDetails": true
   }
 }

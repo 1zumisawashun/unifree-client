@@ -14,7 +14,7 @@ type Ref = ElementRef<'button'>
 
 export const UnstyledButton = forwardRef<Ref, Props>(
   ({ type = 'button', children, ...props }, ref) => (
-    <button {...props} type={type} ref={ref} style={{ cursor: 'pointer' }}>
+    <button {...props} type={type} ref={ref}>
       {children}
     </button>
   )

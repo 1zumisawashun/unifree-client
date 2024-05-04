@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, UnstyledButton } from '@/components/buttons'
+import { UnstyledButton } from '@/components/buttons'
 import { Avatar } from '@/components/elements/Avatar'
 import { DropDownMenu } from '@/components/elements/DropDownMenu'
 import { profileRoutes } from '@/functions/helpers/getRoutes'
@@ -35,6 +35,7 @@ export const HeaderMenu = ({
         onClick={dropDownMenu.toggle}
         ref={referenceRef}
         aria-label="avatar"
+        className={styles[`${BLOCK_NAME}-reference-button`]}
       >
         <Avatar id={userId} />
       </UnstyledButton>
@@ -43,17 +44,16 @@ export const HeaderMenu = ({
         open={dropDownMenu.isOpen}
         referenceRef={referenceRef}
         rows={routes}
+        placement="bottom-end"
         render={(route) => (
-          <Button
-            variant="transparent"
-            shape="square"
+          <UnstyledButton
             className={styles[`${BLOCK_NAME}-anchor-button`]}
             onClick={() => {
               push(route.href), dropDownMenu.close()
             }}
           >
             {route.value}
-          </Button>
+          </UnstyledButton>
         )}
       />
     </>

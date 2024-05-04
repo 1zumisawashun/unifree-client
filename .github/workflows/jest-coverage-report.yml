@@ -1,0 +1,28 @@
+# https://github.com/oikwsat/jest-sample/blob/main/.github/workflows/jest-coverage-report.yml
+# https://oikawa.dev/blog/20210810_jest-coverage-report-action
+name: Jest coverage report
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+# https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+permissions: write-all
+
+jobs:
+  jest-coverage-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout projects'
+        uses: actions/checkout@v2
+      - name: 'Install packages'
+        run: npm install
+      - name: Jest coverage report
+        uses: artiomtr/jest-coverage-report-action@v2.0-rc.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-manager: npm
+          test-script: npm run coverage:ci
+          #   threshold: 80 # optional parameter

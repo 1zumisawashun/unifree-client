@@ -10,6 +10,11 @@
     }
   }
 
+  // https://twitter.com/wesbos/status/1785007714176836082?s=12&t=0Bs_ltBYiO3nhiiL9YZAEw
+  html:has(&[open]) {
+    overflow: hidden;
+  }
+
   &::backdrop {
     background: rgba(0 0 0 / 32%);
     backdrop-filter: blur(3px); /* 一番下のbody領域をぼやかす */

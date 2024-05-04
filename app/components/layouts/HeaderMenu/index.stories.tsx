@@ -4,7 +4,10 @@ import { HeaderMenu } from './index'
 
 const meta: Meta<typeof HeaderMenu> = {
   title: 'layouts/HeaderMenu',
-  component: HeaderMenu
+  component: HeaderMenu,
+  parameters: {
+    layout: 'centered'
+  }
 }
 
 export default meta
