@@ -13,6 +13,7 @@
     "format": "prettier \"app/**/*.+(js|json|yml|ts|tsx)\"",
     "format:fix": "prettier --write \"app/**/*.+(js|json|yml|ts|tsx)\"",
     "compile": "tsc --noEmit",
+    "compile:trace": "tsc --generateTrace typescript --incremental false",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "postinstall": "prisma generate",
