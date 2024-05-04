@@ -13,7 +13,7 @@ type DropDownMenuProps<T> = {
   onClose: () => void
   open: boolean
   placement?: Placement
-  referenceRef: RefObject<ElementRef<'button'>>
+  referenceRef: RefObject<ElementRef<'button' | 'input'>>
   rows: T[]
   render: FC<T>
 }

@@ -1,10 +1,15 @@
 @import '@/assets/styles/settings/color.module';
 
+.profile-menu-reference-button {
+  cursor: pointer;
+}
+
 .profile-menu-anchor-button {
-  width: 100%;
-  justify-content: normal !important;
+  width: 270px;
   // child-selector適応できない作りにしてしまったのでネガティブマージンする
   border-bottom: 1px solid $border;
   border-top: 1px solid $border;
   margin-top: -1px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
