@@ -1,0 +1,93 @@
+@import '@/assets/styles/settings/color.module';
+
+.toast {
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.toast-content {
+  border-radius: 0.5rem;
+  box-shadow: 0px 11px 28px rgba(8, 18, 26, 0.24);
+  padding: 0.5rem 2rem;
+  min-width: 300px;
+  text-align: center;
+  &[data-theme='primary'] {
+    background-color: $primary-bg;
+    color: $primary-dark;
+  }
+  &[data-theme='danger'] {
+    background-color: $red-bg;
+    color: $red-dark;
+  }
+  &[data-theme='success'] {
+    background-color: $green-bg;
+    color: $green-dark;
+  }
+  &:has(button) {
+    display: flex;
+    justify-content: space-between;
+    text-align: revert;
+  }
+}
+
+.toast-text {
+  font-weight: 700;
+}
+
+/**
+ * ===========================================
+ * アニメーション
+ * ===========================================
+ */
+
+.toast-slide--out {
+  opacity: 0;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  // top animation
+  &[data-position='topCenter'] {
+    right: 0;
+    left: 0;
+  }
+  &[data-position='topRight'] {
+    right: 0;
+  }
+  &[data-position='topLeft'] {
+    left: 0;
+  }
+  // bottom animation
+  &[data-position='bottomCenter'] {
+    right: 0;
+    left: 0;
+  }
+  &[data-position='bottomRight'] {
+    right: 0;
+  }
+  &[data-position='bottomLeft'] {
+    left: 0;
+  }
+}
+
+.toast-slide--in {
+  // opacity: 1;
+  // transition:
+  //   transform 0.5s ease,
+  //   opacity 0.5s ease;
+  // top animation
+  // &[data-position='topCenter'] {
+  animation: slidein-top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes slidein-top {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+}
