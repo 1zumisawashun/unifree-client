@@ -5,9 +5,9 @@ export const Hello = () => {
 }
 
 export const HelloWorld = () => (
-  <div>
+  <h1>
     Hello <span>world</span>
-  </div>
+  </h1>
 )
 
 export const MyGreatTextComponent = () => {
