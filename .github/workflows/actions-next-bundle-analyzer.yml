@@ -28,8 +28,8 @@ jobs:
       #     package-manager: npm
       #     test-script: npm run coverage:ci
       #   threshold: 80 # optional parameter
-      - name: 'Build projects'
-        run: npm run build
+      # - name: 'Build projects'
+      #   run: npm run build
       - name: Analyze bundle sizes
         uses: transferwise/actions-next-bundle-analyzer@v2
         with:
