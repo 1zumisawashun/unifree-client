@@ -1,0 +1,46 @@
+name: Actions Next Bundle Analyzer
+
+on:
+  pull_request:
+
+permissions: write-all
+
+jobs:
+  actions-next-bundle-analyzer:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      # - name: 'Checkout projects'
+      #   uses: actions/checkout@v2
+      # - name: 'Install packages'
+      #   run: npm install
+      # - name: Jest coverage report
+      #   uses: artiomtr/jest-coverage-report-action@v2.0-rc.3
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     package-manager: npm
+      #     test-script: npm run coverage:ci
+      #   threshold: 80 # optional parameter
+      - name: 'Build projects'
+        run: npm run build
+      - name: Analyze bundle sizes
+        uses: transferwise/actions-next-bundle-analyzer@v2
+        with:
+          # Optional, specifies where to look for .next folder. Defaults to cwd.
+          working-directory: ./frontend
+          # Optional, configures commenting strategy around insignificant changes, defaults to `always`.
+          # Available options:
+          #   always: Always comment on PRs, even if it's just to say there are no significant changes.
+          #   skip-insignificant: Skip commenting on PRs if there are no signficant changes in page sizes.
+          comment-strategy: 'always'
+          # Optional, configures whether to create the bundle size summary issue, defaults to `true`.
+          # Available options:
+          #   true
+          #   false
+          create-issue: true
+          # Optional, defaults to `github.token`.
+          # github-token: ${{ github.token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
