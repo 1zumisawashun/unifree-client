@@ -10,7 +10,7 @@ declare const styles:
   & Readonly<Pick<(typeof import("../../../../assets/styles/utilities/_line-clamp.module.scss"))["default"], "_line-clamp-9">>
   & Readonly<Pick<(typeof import("../../../../assets/styles/utilities/_line-clamp.module.scss"))["default"], "_line-clamp-10">>
   & Readonly<{ "product-card-list": string }>
-  & Readonly<{ "product-card-wrapper": string }>
+  & Readonly<{ "product-card": string }>
   & Readonly<{ "product-card-image": string }>
   & Readonly<{ "product-card-layer": string }>
   & Readonly<{ "product-card-layer": string }>

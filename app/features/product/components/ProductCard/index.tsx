@@ -50,24 +50,25 @@ const Item = ({ product }: { product: Product }) => {
   const isNew = isBefore(sevenDaysAgo, createdAt)
 
   return (
-    <UnstyledButtonAnchor href={`/products/${id}`}>
-      <div className={styles[`${BLOCK_NAME}-wrapper`]}>
-        <div className={styles[`${BLOCK_NAME}-layer`]} data-status={status}>
-          <ImageAsync
-            src={images[0]!.src}
-            alt={images[0]!.name}
-            className={styles[`${BLOCK_NAME}-image`]}
-            priority
-          />
-          <p>SOLD OUT</p>
-          <ProductCardLabel isNew={isNew} hasPr={hasPr} />
-        </div>
-        <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
-        <div className={styles[`${BLOCK_NAME}-content`]}>
-          <p>{formattedPrice}</p>
-          <span>|</span>
-          <p>{formattedCreatedAt}</p>
-        </div>
+    <UnstyledButtonAnchor
+      href={`/products/${id}`}
+      className={styles[`${BLOCK_NAME}`]}
+    >
+      <div className={styles[`${BLOCK_NAME}-layer`]} data-status={status}>
+        <ImageAsync
+          src={images[0]!.src}
+          alt={images[0]!.name}
+          className={styles[`${BLOCK_NAME}-image`]}
+          priority
+        />
+        <p>SOLD OUT</p>
+        <ProductCardLabel isNew={isNew} hasPr={hasPr} />
+      </div>
+      <p className={styles[`${BLOCK_NAME}-title`]}>{name}</p>
+      <div className={styles[`${BLOCK_NAME}-content`]}>
+        <p>{formattedPrice}</p>
+        <span>|</span>
+        <p>{formattedCreatedAt}</p>
       </div>
     </UnstyledButtonAnchor>
   )
