@@ -19,10 +19,12 @@ export function MypageMatch({ rows }: { rows: Row[] }) {
         <tr className={styles[`${BLOCK_NAME}-row`]}>
           <td className={styles[`${BLOCK_NAME}-data`]}>
             <UnstyledButtonAnchor href={row.href}>
-              <p className={styles[`${BLOCK_NAME}-name`]}>{row.title}</p>
-              <p className={styles[`${BLOCK_NAME}-annotation`]}>
-                {row.annotation}
-              </p>
+              <hgroup>
+                <h1 className={styles[`${BLOCK_NAME}-title`]}>{row.title}</h1>
+                <p className={styles[`${BLOCK_NAME}-annotation`]}>
+                  {row.annotation}
+                </p>
+              </hgroup>
             </UnstyledButtonAnchor>
           </td>
         </tr>

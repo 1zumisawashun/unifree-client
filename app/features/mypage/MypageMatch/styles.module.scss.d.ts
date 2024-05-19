@@ -18,7 +18,7 @@ declare const styles:
   & Readonly<{ "table-row": string }>
   & Readonly<{ "table-row": string }>
   & Readonly<{ "table-data": string }>
-  & Readonly<{ "table-name": string }>
+  & Readonly<{ "table-title": string }>
   & Readonly<{ "table-annotation": string }>
 ;
 export default styles;
