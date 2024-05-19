@@ -3,8 +3,8 @@
 name: Jest coverage report
 
 on:
-  workflow_dispatch:
-  push:
+  # workflow_dispatch:
+  # push:
   pull_request:
 
 # https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs

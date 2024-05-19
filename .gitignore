@@ -28,7 +28,7 @@ yarn-error.log*
 # local env files
 .env*.local
 
-# vercel
+# vercelp
 .vercel
 
 # typescript
@@ -38,3 +38,5 @@ next-env.d.ts
 # custom
 .env
 report.json
+*
+!.gitignore

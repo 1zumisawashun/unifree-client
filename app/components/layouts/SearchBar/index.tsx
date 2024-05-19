@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const BLOCK_NAME = 'search-bar'
 
+/** @see https://azukiazusa.dev/blog/the-search-element-has-been-added-to-the-html-specification/ */
 export const SearchBar = () => {
   const [search, setSearch] = useState('')
   const router = useRouter()
@@ -17,13 +18,15 @@ export const SearchBar = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles[`${BLOCK_NAME}-form`]}>
-      <InputText
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="教科書名で検索する...."
-        width="full"
-      />
-    </form>
+    <search>
+      <form onSubmit={handleSubmit} className={styles[`${BLOCK_NAME}-form`]}>
+        <InputText
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="教科書名で検索する...."
+          width="full"
+        />
+      </form>
+    </search>
   )
 }
