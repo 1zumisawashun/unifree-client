@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"npm run hcm:watch\"",
     "dev:prod": "npm run build && npm run start",
     "build": "prisma generate && next build",
     "start": "next start",
@@ -45,6 +45,7 @@
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.0",
+    "concurrently": "^8.2.2",
     "date-fns": "^3.3.1",
     "envalid": "^8.0.0",
     "firebase": "^10.7.2",
