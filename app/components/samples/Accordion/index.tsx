@@ -15,7 +15,7 @@ export const Accordion: React.FC = () => {
   return (
     <>
       <section aria-labelledby="title">
-        <h1 id="title">アコーディオンの実装例テスト</h1>
+        <h1 id="title">アコーディオンの実装例テストテスト</h1>
         <details
           className={styles.accordion}
           name="sample"
