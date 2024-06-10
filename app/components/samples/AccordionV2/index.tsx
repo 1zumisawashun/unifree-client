@@ -1,30 +1,15 @@
-import initializeDetailsAccordion, {
-  type AccordionOptions
-} from '@/functions/hooks/useAccordion'
 import styles from './index.module.scss'
 
 /**
  * @see https://www.tak-dcxi.com/article/accordion-implementation-example-using-the-name-attribute-of-details/
  */
-export const Accordion: React.FC = () => {
-  const options: AccordionOptions = {
-    duration: 500,
-    easing: 'linear'
-  }
-
+export const AccordionV2: React.FC = () => {
   return (
     <>
       <section aria-labelledby="title">
-        <h1 id="title">アコーディオンの実装例テスト</h1>
-        <details
-          className={styles.accordion}
-          name="sample"
-          open
-          ref={(el) => (el ? initializeDetailsAccordion(el, options) : null)}
-        >
-          <summary className={styles.summary}>
-            Details 1<span className={styles.icon} aria-hidden="true"></span>
-          </summary>
+        <h1 id="title">アコーディオンの実装例</h1>
+        <details className={styles.accordion} name="sample" open>
+          <summary className={styles.summary}>Details 1</summary>
           <div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -38,14 +23,8 @@ export const Accordion: React.FC = () => {
             </p>
           </div>
         </details>
-        <details
-          className={styles.accordion}
-          name="sample"
-          ref={(el) => (el ? initializeDetailsAccordion(el, options) : null)}
-        >
-          <summary className={styles.summary}>
-            Details 2<span className={styles.icon} aria-hidden="true"></span>
-          </summary>
+        <details className={styles.accordion} name="sample">
+          <summary className={styles.summary}>Details 2</summary>
           <div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -59,14 +38,8 @@ export const Accordion: React.FC = () => {
             </p>
           </div>
         </details>
-        <details
-          className={styles.accordion}
-          name="sample"
-          ref={(el) => (el ? initializeDetailsAccordion(el, options) : null)}
-        >
-          <summary className={styles.summary}>
-            Details 3<span className={styles.icon} aria-hidden="true"></span>
-          </summary>
+        <details className={styles.accordion} name="sample">
+          <summary className={styles.summary}>Details 3</summary>
           <div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

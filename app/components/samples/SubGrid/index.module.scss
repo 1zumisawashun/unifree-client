@@ -1,0 +1,82 @@
+.subgrid-list {
+  display: grid;
+  margin-top: 2rem;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.subgrid-card {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.subgrid-link {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / 5;
+  grid-column: 1;
+}
+
+.subgrid-tags {
+  grid-row: 3 / 4;
+  grid-column: 1;
+  pointer-events: none;
+  // add
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  color: #3b82f6;
+
+  :hover {
+    color: #1d4ed8;
+  }
+
+  a {
+    pointer-events: auto;
+    //add
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
+
+.subgrid-nested-link-bottom {
+  padding: 2rem;
+  max-width: 56rem;
+
+  .subgrid-tags {
+    grid-row: 3 / 4;
+  }
+}
+
+.subgrid-nested-link-between {
+  padding: 2rem;
+  max-width: 56rem;
+
+  .subgrid-link {
+    p {
+      grid-row: 3 / 4;
+    }
+  }
+  .subgrid-tags {
+    grid-row: 2 / 3;
+  }
+}
+
+// add
+.subgrid-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+.subgrid-card-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+.subgrid-card-description {
+  margin-top: 1rem;
+}

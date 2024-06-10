@@ -1,6 +1,6 @@
 'use client'
 
-import { DirtyForm } from '@/components/samples/DirtyForm'
+import { DirtyForm } from './components/DirtyForm'
 
 export default function Page() {
   return <DirtyForm />

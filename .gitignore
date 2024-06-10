@@ -38,5 +38,5 @@ next-env.d.ts
 # custom
 .env
 report.json
-*
-!.gitignore
+# *
+# !.gitignore
